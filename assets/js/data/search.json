@@ -1,9 +1,26 @@
 [
   
   {
+    "title": "WSL Fedora 升级",
+    "url": "/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/",
+    "categories": "Linux, Fedora",
+    "tags": "WSL",
+    "date": "2024-06-27 16:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "Windows11 WSL Fedora 版本升级可以直接使用dnf update，使用如下命令：sudo dnf update --releasever=40 -y    本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。等待更新完成之后检查。",
+    "content": "Windows11 WSL Fedora 版本升级可以直接使用dnf update，使用如下命令：sudo dnf update --releasever=40 -y    本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。等待更新完成之后检查。"
+  },
+  
+  {
     "title": "vim 安装",
     "url": "/posts/vim-%E5%AE%89%E8%A3%85/",
-    "categories": "vim, gvim",
+    "categories": "vim",
     "tags": "vim",
     "date": "2024-06-25 16:00:00 +0800",
     

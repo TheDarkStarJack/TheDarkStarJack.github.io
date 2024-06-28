@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-06-25T17:02:43+08:00</updated>
+  <updated>2024-06-28T11:04:39+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -20,11 +20,46 @@
 
   
   <entry>
+    <title>WSL Fedora 升级</title>
+    <link href="https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" rel="alternate" type="text/html" title="WSL Fedora 升级" />
+    <published>2024-06-27T16:00:00+08:00</published>
+  
+    <updated>2024-06-27T16:00:00+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/</id>
+    <content src="https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="Fedora" />
+    
+  
+
+  <summary>Windows11 WSL Fedora 版本升级
+
+可以直接使用dnf update，使用如下命令：
+
+sudo dnf update --releasever=40 -y    
+
+
+本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
+
+等待更新完成之后检查。</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>vim 安装</title>
     <link href="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" rel="alternate" type="text/html" title="vim 安装" />
     <published>2024-06-25T16:00:00+08:00</published>
   
-    <updated>2024-06-25T16:00:00+08:00</updated>
+    <updated>2024-06-25T17:28:42+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/</id>
     <content src="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" />
@@ -35,8 +70,6 @@
   
     
     <category term="vim" />
-    
-    <category term="gvim" />
     
   
 

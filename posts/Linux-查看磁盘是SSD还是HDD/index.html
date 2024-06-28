@@ -32,8 +32,8 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="查看磁盘是SSD还是HDD" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="lsscsi 通过lsscsi命令查看。 lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列出SCSI设备及属性信息，SCSI全称为small computer system interface，是一种常用的小型计算机系统接口。lsscsi命令可以很方便地帮助管理员区分哪些是固态硬盘、哪些是SATA盘、哪些是FC盘。 不过在我的腾讯云服务器和旧的笔记本上都没有获取到对应的信息。如果你也无法通过lsscsi获取到磁盘类型的话，可以通过下文lsblk命令获取。 lsscsi命令英文手册 1 https://sg.danny.cz/scsi/lsscsi.html lsscsi 命令语法： 1 lsscsi [选项] [H:C:T:L] lsscsi 命令选项： 选项 含义 -g 显示SCSI通用设备文件名称 -k 显示内核名称而不是设备节点名 -d 显示设备节点的主要号码和次要号码 -H 列出当前连接到系统的SCSI主机而不是SCSI设备 -l 显示每一个SCSI设备（主机）的附加信息 -c 相对于执行 cat /proc/scsi/scsi 命令的输出 -p 显示额外的数据完整性（保护）的信息 -t 显示传输信息 -L 以“属性名=值”的方式显示附加信息 -v 当信息找到时输出目录名 -y 假设sysfs挂载在指定路径而不是默认的 “/sys” -s 显示容量大小。 -c 用全称显示默认的信息。 -d 显示设备主，次设备号。 -g 显示对应的sg设备名。 -H 显示主机控制器列表，-Hl,-Hlv。 -l 显示相关属性，-ll,-lll=-L。 -v 显示设备属性所在目录。 -x 以16进制显示lun号。 -p 输出DIF,DIX 保护类型。 -P 输出有效的保护模式信息。 -i 显示udev相关的属性 -w 显示WWN -t 显示相应传输信息(ATA,FC,SBP,ISCSI,SPI,SAS,SATA,USB)，-Ht,-tl.（包括sas地址） 如果系统没有的话可以直接dnf或者apt安装。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 #Debian apt-get install lsscsi #Ubuntu apt-get install lsscsi #Alpine apk add lsscsi #Arch Linux pacman -S lsscsi #Kali Linux apt-get install lsscsi #CentOS yum install lsscsi #Fedora dnf install lsscsi #Raspbian apt-get install lsscsi #Docker docker run cmd.cat/lsscsi lsscsi 我的腾讯云服务器，通过lsscsi查看，可以发现是QEMU。 1 2 3 4 5 6 ## 如果系统没有的话可以直接dnf或者apt安装 ┌─[root@DarkStarDevC]─[~] └──╼ # dnf install -y lsscsi ┌─[root@DarkStarDevC]─[~] └──╼ # lsscsi [0:0:1:0] cd/dvd QEMU QEMU DVD-ROM 2.5+ /dev/sr0 腾讯云轻量服务器的信息磁盘信息如下： 1 2 3 ┌─[root@devC]─[~] └──╼ # lsscsi [0:0:1:0] cd/dvd QEMU QEMU DVD-ROM 2.5+ /dev/sr0 大学时期买的笔记本可以查看到的信息如下： 1 2 3 4 wxj@wxj-PC:~$ sudo apt install -y lsscsi wxj@wxj-PC:~$ lsscsi [0:0:0:0] disk ATA KINGSTON SHFS37A BBF0 /dev/sda [2:0:0:0] disk ATA ST500LT012-1DG14 LVM1 /dev/sdb lsblk lsblk命令的英文是“list block”，即用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，CD-ROM等等。lsblk命令包含util-linux中。通过yum provides lsblk命令查看命令对应的软件包。 -d 输出设备名称 -o 仅显示特定的列 如果rota列的值是1 证明是可以旋转，就是HDD，反之数值是0是SSD 1 2 3 4 5 wxj@wxj-PC:~$ lsblk -d -o name,rota NAME ROTA sda 0 sdb 1 1 2 3 4 5 6 7 ┌─[root@DarkStarDevC]─[~] └──╼ # lsblk -d -o name,rota NAME ROTA sr0 1 zram0 0 vda 1 vdb 1 获取帮助信息 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 ┌─[root@DarkStarDevC]─[~] └──╼ # lsblk --help Usage: lsblk [options] [&lt;device&gt; ...] List information about block devices. Options: -A, --noempty don&#39;t print empty devices -D, --discard print discard capabilities -E, --dedup &lt;column&gt; de-duplicate output by &lt;column&gt; -I, --include &lt;list&gt; show only devices with specified major numbers -J, --json use JSON output format -M, --merge group parents of sub-trees (usable for RAIDs, Multi-path) -O, --output-all output all columns -P, --pairs use key=&quot;value&quot; output format -S, --scsi output info about SCSI devices -N, --nvme output info about NVMe devices -v, --virtio output info about virtio devices -T, --tree[=&lt;column&gt;] use tree format output -a, --all print all devices -b, --bytes print SIZE in bytes rather than in human readable format -d, --nodeps don&#39;t print slaves or holders -e, --exclude &lt;list&gt; exclude devices by major number (default: RAM disks) -f, --fs output info about filesystems -i, --ascii use ascii characters only -l, --list use list format output -m, --perms output info about permissions -n, --noheadings don&#39;t print headings -o, --output &lt;list&gt; output columns -p, --paths print complete device path -r, --raw use raw output format -s, --inverse inverse dependencies -t, --topology output info about topology -w, --width &lt;num&gt; specifies output width as number of characters -x, --sort &lt;column&gt; sort output by &lt;column&gt; -y, --shell use column names to be usable as shell variable identifiers -z, --zoned print zone related information --sysroot &lt;dir&gt; use specified directory as system root -h, --help display this help -V, --version display version Available output columns: ALIGNMENT alignment offset ID-LINK the shortest udev /dev/disk/by-id link name ID udev ID (based on ID-LINK) DISC-ALN discard alignment offset DAX dax-capable device DISC-GRAN discard granularity DISK-SEQ disk sequence number DISC-MAX discard max bytes DISC-ZERO discard zeroes data FSAVAIL filesystem size available FSROOTS mounted filesystem roots FSSIZE filesystem size FSTYPE filesystem type FSUSED filesystem size used FSUSE% filesystem use percentage FSVER filesystem version GROUP group name HCTL Host:Channel:Target:Lun for SCSI HOTPLUG removable or hotplug device (usb, pcmcia, ...) KNAME internal kernel device name LABEL filesystem LABEL LOG-SEC logical sector size MAJ:MIN major:minor device number MIN-IO minimum I/O size MODE device node permissions MODEL device identifier MQ device queues NAME device name OPT-IO optimal I/O size OWNER user name PARTFLAGS partition flags PARTLABEL partition LABEL PARTN partition number as read from the partition table PARTTYPE partition type code or UUID PARTTYPENAME partition type name PARTUUID partition UUID PATH path to the device node PHY-SEC physical sector size PKNAME internal parent kernel device name PTTYPE partition table type PTUUID partition table identifier (usually UUID) RA read-ahead of the device RAND adds randomness REV device revision RM removable device RO read-only device ROTA rotational device RQ-SIZE request queue size SCHED I/O scheduler name SERIAL disk serial number SIZE size of the device START partition start offset STATE state of the device SUBSYSTEMS de-duplicated chain of subsystems MOUNTPOINT where the device is mounted MOUNTPOINTS all locations where device is mounted TRAN device transport type TYPE device type UUID filesystem UUID VENDOR device vendor WSAME write same max bytes WWN unique storage identifier ZONED zone model ZONE-SZ zone size ZONE-WGRAN zone write granularity ZONE-APP zone append max bytes ZONE-NR number of zones ZONE-OMAX maximum number of open zones ZONE-AMAX maximum number of active zones For more details see lsblk(8)." />
-<meta property="og:description" content="lsscsi 通过lsscsi命令查看。 lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列出SCSI设备及属性信息，SCSI全称为small computer system interface，是一种常用的小型计算机系统接口。lsscsi命令可以很方便地帮助管理员区分哪些是固态硬盘、哪些是SATA盘、哪些是FC盘。 不过在我的腾讯云服务器和旧的笔记本上都没有获取到对应的信息。如果你也无法通过lsscsi获取到磁盘类型的话，可以通过下文lsblk命令获取。 lsscsi命令英文手册 1 https://sg.danny.cz/scsi/lsscsi.html lsscsi 命令语法： 1 lsscsi [选项] [H:C:T:L] lsscsi 命令选项： 选项 含义 -g 显示SCSI通用设备文件名称 -k 显示内核名称而不是设备节点名 -d 显示设备节点的主要号码和次要号码 -H 列出当前连接到系统的SCSI主机而不是SCSI设备 -l 显示每一个SCSI设备（主机）的附加信息 -c 相对于执行 cat /proc/scsi/scsi 命令的输出 -p 显示额外的数据完整性（保护）的信息 -t 显示传输信息 -L 以“属性名=值”的方式显示附加信息 -v 当信息找到时输出目录名 -y 假设sysfs挂载在指定路径而不是默认的 “/sys” -s 显示容量大小。 -c 用全称显示默认的信息。 -d 显示设备主，次设备号。 -g 显示对应的sg设备名。 -H 显示主机控制器列表，-Hl,-Hlv。 -l 显示相关属性，-ll,-lll=-L。 -v 显示设备属性所在目录。 -x 以16进制显示lun号。 -p 输出DIF,DIX 保护类型。 -P 输出有效的保护模式信息。 -i 显示udev相关的属性 -w 显示WWN -t 显示相应传输信息(ATA,FC,SBP,ISCSI,SPI,SAS,SATA,USB)，-Ht,-tl.（包括sas地址） 如果系统没有的话可以直接dnf或者apt安装。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 #Debian apt-get install lsscsi #Ubuntu apt-get install lsscsi #Alpine apk add lsscsi #Arch Linux pacman -S lsscsi #Kali Linux apt-get install lsscsi #CentOS yum install lsscsi #Fedora dnf install lsscsi #Raspbian apt-get install lsscsi #Docker docker run cmd.cat/lsscsi lsscsi 我的腾讯云服务器，通过lsscsi查看，可以发现是QEMU。 1 2 3 4 5 6 ## 如果系统没有的话可以直接dnf或者apt安装 ┌─[root@DarkStarDevC]─[~] └──╼ # dnf install -y lsscsi ┌─[root@DarkStarDevC]─[~] └──╼ # lsscsi [0:0:1:0] cd/dvd QEMU QEMU DVD-ROM 2.5+ /dev/sr0 腾讯云轻量服务器的信息磁盘信息如下： 1 2 3 ┌─[root@devC]─[~] └──╼ # lsscsi [0:0:1:0] cd/dvd QEMU QEMU DVD-ROM 2.5+ /dev/sr0 大学时期买的笔记本可以查看到的信息如下： 1 2 3 4 wxj@wxj-PC:~$ sudo apt install -y lsscsi wxj@wxj-PC:~$ lsscsi [0:0:0:0] disk ATA KINGSTON SHFS37A BBF0 /dev/sda [2:0:0:0] disk ATA ST500LT012-1DG14 LVM1 /dev/sdb lsblk lsblk命令的英文是“list block”，即用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，CD-ROM等等。lsblk命令包含util-linux中。通过yum provides lsblk命令查看命令对应的软件包。 -d 输出设备名称 -o 仅显示特定的列 如果rota列的值是1 证明是可以旋转，就是HDD，反之数值是0是SSD 1 2 3 4 5 wxj@wxj-PC:~$ lsblk -d -o name,rota NAME ROTA sda 0 sdb 1 1 2 3 4 5 6 7 ┌─[root@DarkStarDevC]─[~] └──╼ # lsblk -d -o name,rota NAME ROTA sr0 1 zram0 0 vda 1 vdb 1 获取帮助信息 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 ┌─[root@DarkStarDevC]─[~] └──╼ # lsblk --help Usage: lsblk [options] [&lt;device&gt; ...] List information about block devices. Options: -A, --noempty don&#39;t print empty devices -D, --discard print discard capabilities -E, --dedup &lt;column&gt; de-duplicate output by &lt;column&gt; -I, --include &lt;list&gt; show only devices with specified major numbers -J, --json use JSON output format -M, --merge group parents of sub-trees (usable for RAIDs, Multi-path) -O, --output-all output all columns -P, --pairs use key=&quot;value&quot; output format -S, --scsi output info about SCSI devices -N, --nvme output info about NVMe devices -v, --virtio output info about virtio devices -T, --tree[=&lt;column&gt;] use tree format output -a, --all print all devices -b, --bytes print SIZE in bytes rather than in human readable format -d, --nodeps don&#39;t print slaves or holders -e, --exclude &lt;list&gt; exclude devices by major number (default: RAM disks) -f, --fs output info about filesystems -i, --ascii use ascii characters only -l, --list use list format output -m, --perms output info about permissions -n, --noheadings don&#39;t print headings -o, --output &lt;list&gt; output columns -p, --paths print complete device path -r, --raw use raw output format -s, --inverse inverse dependencies -t, --topology output info about topology -w, --width &lt;num&gt; specifies output width as number of characters -x, --sort &lt;column&gt; sort output by &lt;column&gt; -y, --shell use column names to be usable as shell variable identifiers -z, --zoned print zone related information --sysroot &lt;dir&gt; use specified directory as system root -h, --help display this help -V, --version display version Available output columns: ALIGNMENT alignment offset ID-LINK the shortest udev /dev/disk/by-id link name ID udev ID (based on ID-LINK) DISC-ALN discard alignment offset DAX dax-capable device DISC-GRAN discard granularity DISK-SEQ disk sequence number DISC-MAX discard max bytes DISC-ZERO discard zeroes data FSAVAIL filesystem size available FSROOTS mounted filesystem roots FSSIZE filesystem size FSTYPE filesystem type FSUSED filesystem size used FSUSE% filesystem use percentage FSVER filesystem version GROUP group name HCTL Host:Channel:Target:Lun for SCSI HOTPLUG removable or hotplug device (usb, pcmcia, ...) KNAME internal kernel device name LABEL filesystem LABEL LOG-SEC logical sector size MAJ:MIN major:minor device number MIN-IO minimum I/O size MODE device node permissions MODEL device identifier MQ device queues NAME device name OPT-IO optimal I/O size OWNER user name PARTFLAGS partition flags PARTLABEL partition LABEL PARTN partition number as read from the partition table PARTTYPE partition type code or UUID PARTTYPENAME partition type name PARTUUID partition UUID PATH path to the device node PHY-SEC physical sector size PKNAME internal parent kernel device name PTTYPE partition table type PTUUID partition table identifier (usually UUID) RA read-ahead of the device RAND adds randomness REV device revision RM removable device RO read-only device ROTA rotational device RQ-SIZE request queue size SCHED I/O scheduler name SERIAL disk serial number SIZE size of the device START partition start offset STATE state of the device SUBSYSTEMS de-duplicated chain of subsystems MOUNTPOINT where the device is mounted MOUNTPOINTS all locations where device is mounted TRAN device transport type TYPE device type UUID filesystem UUID VENDOR device vendor WSAME write same max bytes WWN unique storage identifier ZONED zone model ZONE-SZ zone size ZONE-WGRAN zone write granularity ZONE-APP zone append max bytes ZONE-NR number of zones ZONE-OMAX maximum number of open zones ZONE-AMAX maximum number of active zones For more details see lsblk(8)." />
+<meta name="description" content="lsscsi" />
+<meta property="og:description" content="lsscsi" />
 <link rel="canonical" href="https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" />
 <meta property="og:url" content="https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" />
 <meta property="og:site_name" content="DarkStar" />
@@ -43,7 +43,7 @@
 <meta property="twitter:title" content="查看磁盘是SSD还是HDD" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-02-27T00:34:00+08:00","datePublished":"2024-02-27T00:34:00+08:00","description":"lsscsi 通过lsscsi命令查看。 lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列出SCSI设备及属性信息，SCSI全称为small computer system interface，是一种常用的小型计算机系统接口。lsscsi命令可以很方便地帮助管理员区分哪些是固态硬盘、哪些是SATA盘、哪些是FC盘。 不过在我的腾讯云服务器和旧的笔记本上都没有获取到对应的信息。如果你也无法通过lsscsi获取到磁盘类型的话，可以通过下文lsblk命令获取。 lsscsi命令英文手册 1 https://sg.danny.cz/scsi/lsscsi.html lsscsi 命令语法： 1 lsscsi [选项] [H:C:T:L] lsscsi 命令选项： 选项 含义 -g 显示SCSI通用设备文件名称 -k 显示内核名称而不是设备节点名 -d 显示设备节点的主要号码和次要号码 -H 列出当前连接到系统的SCSI主机而不是SCSI设备 -l 显示每一个SCSI设备（主机）的附加信息 -c 相对于执行 cat /proc/scsi/scsi 命令的输出 -p 显示额外的数据完整性（保护）的信息 -t 显示传输信息 -L 以“属性名=值”的方式显示附加信息 -v 当信息找到时输出目录名 -y 假设sysfs挂载在指定路径而不是默认的 “/sys” -s 显示容量大小。 -c 用全称显示默认的信息。 -d 显示设备主，次设备号。 -g 显示对应的sg设备名。 -H 显示主机控制器列表，-Hl,-Hlv。 -l 显示相关属性，-ll,-lll=-L。 -v 显示设备属性所在目录。 -x 以16进制显示lun号。 -p 输出DIF,DIX 保护类型。 -P 输出有效的保护模式信息。 -i 显示udev相关的属性 -w 显示WWN -t 显示相应传输信息(ATA,FC,SBP,ISCSI,SPI,SAS,SATA,USB)，-Ht,-tl.（包括sas地址） 如果系统没有的话可以直接dnf或者apt安装。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 #Debian apt-get install lsscsi #Ubuntu apt-get install lsscsi #Alpine apk add lsscsi #Arch Linux pacman -S lsscsi #Kali Linux apt-get install lsscsi #CentOS yum install lsscsi #Fedora dnf install lsscsi #Raspbian apt-get install lsscsi #Docker docker run cmd.cat/lsscsi lsscsi 我的腾讯云服务器，通过lsscsi查看，可以发现是QEMU。 1 2 3 4 5 6 ## 如果系统没有的话可以直接dnf或者apt安装 ┌─[root@DarkStarDevC]─[~] └──╼ # dnf install -y lsscsi ┌─[root@DarkStarDevC]─[~] └──╼ # lsscsi [0:0:1:0] cd/dvd QEMU QEMU DVD-ROM 2.5+ /dev/sr0 腾讯云轻量服务器的信息磁盘信息如下： 1 2 3 ┌─[root@devC]─[~] └──╼ # lsscsi [0:0:1:0] cd/dvd QEMU QEMU DVD-ROM 2.5+ /dev/sr0 大学时期买的笔记本可以查看到的信息如下： 1 2 3 4 wxj@wxj-PC:~$ sudo apt install -y lsscsi wxj@wxj-PC:~$ lsscsi [0:0:0:0] disk ATA KINGSTON SHFS37A BBF0 /dev/sda [2:0:0:0] disk ATA ST500LT012-1DG14 LVM1 /dev/sdb lsblk lsblk命令的英文是“list block”，即用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，CD-ROM等等。lsblk命令包含util-linux中。通过yum provides lsblk命令查看命令对应的软件包。 -d 输出设备名称 -o 仅显示特定的列 如果rota列的值是1 证明是可以旋转，就是HDD，反之数值是0是SSD 1 2 3 4 5 wxj@wxj-PC:~$ lsblk -d -o name,rota NAME ROTA sda 0 sdb 1 1 2 3 4 5 6 7 ┌─[root@DarkStarDevC]─[~] └──╼ # lsblk -d -o name,rota NAME ROTA sr0 1 zram0 0 vda 1 vdb 1 获取帮助信息 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 ┌─[root@DarkStarDevC]─[~] └──╼ # lsblk --help Usage: lsblk [options] [&lt;device&gt; ...] List information about block devices. Options: -A, --noempty don&#39;t print empty devices -D, --discard print discard capabilities -E, --dedup &lt;column&gt; de-duplicate output by &lt;column&gt; -I, --include &lt;list&gt; show only devices with specified major numbers -J, --json use JSON output format -M, --merge group parents of sub-trees (usable for RAIDs, Multi-path) -O, --output-all output all columns -P, --pairs use key=&quot;value&quot; output format -S, --scsi output info about SCSI devices -N, --nvme output info about NVMe devices -v, --virtio output info about virtio devices -T, --tree[=&lt;column&gt;] use tree format output -a, --all print all devices -b, --bytes print SIZE in bytes rather than in human readable format -d, --nodeps don&#39;t print slaves or holders -e, --exclude &lt;list&gt; exclude devices by major number (default: RAM disks) -f, --fs output info about filesystems -i, --ascii use ascii characters only -l, --list use list format output -m, --perms output info about permissions -n, --noheadings don&#39;t print headings -o, --output &lt;list&gt; output columns -p, --paths print complete device path -r, --raw use raw output format -s, --inverse inverse dependencies -t, --topology output info about topology -w, --width &lt;num&gt; specifies output width as number of characters -x, --sort &lt;column&gt; sort output by &lt;column&gt; -y, --shell use column names to be usable as shell variable identifiers -z, --zoned print zone related information --sysroot &lt;dir&gt; use specified directory as system root -h, --help display this help -V, --version display version Available output columns: ALIGNMENT alignment offset ID-LINK the shortest udev /dev/disk/by-id link name ID udev ID (based on ID-LINK) DISC-ALN discard alignment offset DAX dax-capable device DISC-GRAN discard granularity DISK-SEQ disk sequence number DISC-MAX discard max bytes DISC-ZERO discard zeroes data FSAVAIL filesystem size available FSROOTS mounted filesystem roots FSSIZE filesystem size FSTYPE filesystem type FSUSED filesystem size used FSUSE% filesystem use percentage FSVER filesystem version GROUP group name HCTL Host:Channel:Target:Lun for SCSI HOTPLUG removable or hotplug device (usb, pcmcia, ...) KNAME internal kernel device name LABEL filesystem LABEL LOG-SEC logical sector size MAJ:MIN major:minor device number MIN-IO minimum I/O size MODE device node permissions MODEL device identifier MQ device queues NAME device name OPT-IO optimal I/O size OWNER user name PARTFLAGS partition flags PARTLABEL partition LABEL PARTN partition number as read from the partition table PARTTYPE partition type code or UUID PARTTYPENAME partition type name PARTUUID partition UUID PATH path to the device node PHY-SEC physical sector size PKNAME internal parent kernel device name PTTYPE partition table type PTUUID partition table identifier (usually UUID) RA read-ahead of the device RAND adds randomness REV device revision RM removable device RO read-only device ROTA rotational device RQ-SIZE request queue size SCHED I/O scheduler name SERIAL disk serial number SIZE size of the device START partition start offset STATE state of the device SUBSYSTEMS de-duplicated chain of subsystems MOUNTPOINT where the device is mounted MOUNTPOINTS all locations where device is mounted TRAN device transport type TYPE device type UUID filesystem UUID VENDOR device vendor WSAME write same max bytes WWN unique storage identifier ZONED zone model ZONE-SZ zone size ZONE-WGRAN zone write granularity ZONE-APP zone append max bytes ZONE-NR number of zones ZONE-OMAX maximum number of open zones ZONE-AMAX maximum number of active zones For more details see lsblk(8).","headline":"查看磁盘是SSD还是HDD","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/"},"url":"https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-02-27T00:34:00+08:00","datePublished":"2024-02-27T00:34:00+08:00","description":"lsscsi","headline":"查看磁盘是SSD还是HDD","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/"},"url":"https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1264,6 +1264,13 @@ For more details see lsblk(8).
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/">WSL Fedora 升级</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E5%AE%89%E8%A3%85/">vim 安装</a>
         </li>
       
@@ -1320,6 +1327,29 @@ For more details see lsblk(8).
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
 
 
   <section>
@@ -1331,6 +1361,9 @@ For more details see lsblk(8).
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">vim</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
     </div>
   </section>
@@ -1510,6 +1543,29 @@ For more details see lsblk(8).
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
 
 
   <section>
@@ -1521,6 +1577,9 @@ For more details see lsblk(8).
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">vim</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
     </div>
   </section>
