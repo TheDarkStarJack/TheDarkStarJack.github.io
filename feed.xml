@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-06-28T11:04:39+08:00</updated>
+  <updated>2024-07-02T15:09:38+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -24,7 +24,7 @@
     <link href="https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" rel="alternate" type="text/html" title="WSL Fedora 升级" />
     <published>2024-06-27T16:00:00+08:00</published>
   
-    <updated>2024-06-27T16:00:00+08:00</updated>
+    <updated>2024-07-02T15:06:07+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/</id>
     <content src="https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" />
@@ -59,7 +59,7 @@ sudo dnf update --releasever=40 -y
     <link href="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" rel="alternate" type="text/html" title="vim 安装" />
     <published>2024-06-25T16:00:00+08:00</published>
   
-    <updated>2024-06-25T17:28:42+08:00</updated>
+    <updated>2024-07-02T15:06:07+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/</id>
     <content src="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" />
@@ -87,7 +87,7 @@ sudo dnf update --releasever=40 -y
     <link href="https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" rel="alternate" type="text/html" title="查看磁盘是SSD还是HDD" />
     <published>2024-02-27T00:34:00+08:00</published>
   
-    <updated>2024-02-27T00:34:00+08:00</updated>
+    <updated>2024-07-02T15:06:07+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/</id>
     <content src="https://thedarkstarjack.github.io/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" />
