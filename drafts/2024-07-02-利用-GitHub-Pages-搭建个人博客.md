@@ -6,5 +6,5 @@
 
 有一段时间的工作环境无法访问一些网站，其中就包括csdn。所以后续采用Typora本地记录笔记利用OneDrive同步笔记。不过在手机上并不方便查看。
 
-为了能多端方便查看，在查阅资料的时候发现GitHub Pages可以实现这个功能，而且还能自定义站点。
+为了能多端方便查看，在查阅资料的时候发现GitHub Pages可以实现这个功能，而且还能自定义站点，所以根据[jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)搭建了一个GitHub pages站点，同时也参考了[trstringer](https://trstringer.com/)。
 
