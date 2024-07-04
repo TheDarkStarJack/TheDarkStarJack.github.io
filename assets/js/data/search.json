@@ -1,6 +1,40 @@
 [
   
   {
+    "title": "配置python jupyter 远程访问",
+    "url": "/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/",
+    "categories": "Python, jupyter",
+    "tags": "Python",
+    "date": "2024-07-02 17:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "概述Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简单语言描述、数据、丰富的可视化效果（如 3D 模型、图表、图形和图形）以及交互式控件。笔记本和编辑器（如 JupyterLab）提供了一个快速的交互环境，用于原型设计和解释代码、探索和可视化数据以及与他人分享想法简而言之，Jupyter Notebook是以网页的形式打开，相当于一个网页版便携式的python 代码...",
+    "content": "概述Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简单语言描述、数据、丰富的可视化效果（如 3D 模型、图表、图形和图形）以及交互式控件。笔记本和编辑器（如 JupyterLab）提供了一个快速的交互环境，用于原型设计和解释代码、探索和可视化数据以及与他人分享想法简而言之，Jupyter Notebook是以网页的形式打开，相当于一个网页版便携式的python 代码工具，可以在网页页面中可以直接编写代码和运行代码，代码的运行结果也会直接在代码块下显示。如在编程过程中需要编写说明文档，可在同一个页面中直接编写，便于作及时的说明和解释。配置python虚拟开发环境安装jupyter最好先指定一个虚拟开发环境，避免污染全局的配置。怎么配置python的虚拟开发环境可以参考一文了解virtualenv、pyvenv、pyenv、pyenv virtualenv-腾讯云开发者社区-腾讯云 (tencent.com)┌─[✗]─[wxj@devC]─[/data/Python]└──╼ $ python3 -VPython 3.11.2┌─[wxj@devC]─[/data/Python]└──╼ $ python3 -m venv pyenv┌─[wxj@devC]─[/data/Python]└──╼ $┌─[wxj@devC]─[/data/Python]└──╼ $ source pyenv/bin/activate ## pyenv/bin/activate 实际就是一个文本文件，可以直接查看执行逻辑(pyenv) ┌─[wxj@devC]─[/data/Python] ## 这里(pyenv)就表示当前的开发环境是刚才创建的虚拟开发环境└──╼ $## 配置好之后可以直接查看当前的python信息(pyenv) ┌─[wxj@devC]─[/data/Python]└──╼ $ python -VPython 3.11.2(pyenv) ┌─[wxj@devC]─[/data/Python]└──╼ $ pip -Vpip 23.0.1 from /data/Python/pyenv/lib/python3.11/site-packages/pip (python 3.11)(pyenv) ┌─[wxj@devC]─[/data/Python]└──╼ $ pip listPackage    Version---------- -------pip        23.0.1setuptools 66.1.1(pyenv) ┌─[wxj@devC]─[/data/Python]└──╼ $安装 jupyter notebook## pip install jupyter## 指定下载源为清华源pip install -i https://pypi.tuna.tsinghua.edu.cn/simple jupyterpip list## 安装完成之后可以查看帮助说明，大概了解使用命令jupyter notebook --help使用 jupyter notebook启动启动 jupyter notebook就比较简单了，可以直接不带任何参数启动。默认是127.0.0.1:8888，如果8888端口被占用，会使用其他端口，例如8889。使用本地浏览器打开对应的地址即可。jupyter notebook## 如果使用root用户启动的话，需要添加参数 --allow-rootjupyter notebook --allow-root停止直接使用crtl+c就可以退出。这里需要输入‘y’才会退出，如果超过5s没有输入，则会继续运行。终端关闭或者终止jupyter进程，jupyter notebook也就退出了，无法继续使用浏览器访问。可以使用nohup的方式后台运行程序：nohup jupyter notebook &amp;&gt; notebook.log &amp;也可以使用screen等工具在后台运行，防止终端异常断开之后无法继续使用。很多时候程序都是部署在远程的，需要通过连接的方式访问，jupyter notebook 默认是通过本地访问的。配置远程访问jupyter设置密码先输入python3进入交互模式，输入密码，需要注意的是交互输入的原文密码在终端是不会显示的。如果不想交互输入密码也可以直接将密码写在函数中：passwd('passwd')如果想指定加密方式为sha1：passwd('passwd',algorithm='sha1')生成配置文件在终端输入执行以下命令：jupyter notebook --generate-config执行成功就会自动在根目录下生成文件（~/.jupyter/jupyter_notebook_config.py）,这里可以用vim或者其他文本编辑器编辑就行。这个文件的内容默认都是注释掉的。除了红框中的这一行。修改配置文件可以直接在文件末尾添加自己的配置参数，保险起见可以先备份一份原始文件。## 这里的{,.bak}表示逗号前的内容都相同，\".bak\"表示后缀/多余的字符，在操作文件名很长的时候可以节约tab或者手写的频率，相当于## cp ~/.jupyter/jupyter_notebook_config.py  ~/.jupyter/jupyter_notebook_config.py.bakcp ~/.jupyter/jupyter_notebook_config.py{,.bak}## 添加以下内容c.NotebookApp.ip='*' # 如果这里修过过后启动服务报错 则修改为c.NotebookApp.ip='0.0.0.0'c.NotebookApp.password=u'argon2:$argon2id$v=19$m=10240,t=10,p=8$YPy6gq6WBGap+NHlZAMZow$IR1WDR20vmzV+MzuRkwl3NRYH1AoKsIZjYKsdclJM' #就之前保存的验证密码c.NotebookApp.open_browser =False # 设置是否自动打开浏览器，如果是远程的服务器可以关闭这个选项c.NotebookApp.port =4000  # 设置监听端口c.NotebookApp.allow_remote_access = True ## 允许远程访问c.NotebookApp.notebook_dir='work_dir' # 设置工作/根路径，如果不设置默认是启动jupyter命令时的目录保存退出之后运行jupyter即可。远程访问jupyternohup jupyter notebook &amp;&gt; notebook.log &amp;启动以后在本机的浏览器 输入http://{服务器ip}:port 进行访问。如果远程服务器或者云服务器配置了防火墙，记得打开白名单。打开之后输入之前设置的密码即可。之后就可以在浏览器中利用jupyter运行调试代码了。"
+  },
+  
+  {
+    "title": "配置pip镜像源",
+    "url": "/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/",
+    "categories": "Python, pip",
+    "tags": "Python",
+    "date": "2024-07-01 17:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。## 查看当前的镜像源pip config list ## 国外镜像有时候下载较慢，可以直接指定国内镜像源下载pip install -i https://pypi.douban.com/simple/ flask## 修改pip的配置文件，将镜像源写入配置文件中。如果没有这个文件就新建一个cat ~/.pip...",
+    "content": "很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。## 查看当前的镜像源pip config list ## 国外镜像有时候下载较慢，可以直接指定国内镜像源下载pip install -i https://pypi.douban.com/simple/ flask## 修改pip的配置文件，将镜像源写入配置文件中。如果没有这个文件就新建一个cat ~/.pip/pip.conf[global]index-url = https://pypi.douban.com/simple/## 清华大学源cat ~/.pip/pip.conf[global]index-url = https://pypi.tuna.tsinghua.edu.cn/simple[install]trusted-host = https://pypi.tuna.tsinghua.edu.cn"
+  },
+  
+  {
     "title": "WSL Fedora 升级",
     "url": "/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/",
     "categories": "Linux, Fedora",

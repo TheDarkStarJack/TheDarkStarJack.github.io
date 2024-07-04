@@ -30,23 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="DarkStar" />
+<meta property="og:title" content="配置pip镜像源" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<meta property="og:description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<link rel="canonical" href="https://thedarkstarjack.github.io/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/" />
+<meta name="description" content="很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。" />
+<meta property="og:description" content="很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" />
 <meta property="og:site_name" content="DarkStar" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-01T17:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="DarkStar" />
+<meta property="twitter:title" content="配置pip镜像源" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"DarkStar","name":"TheDarkStarJack","sameAs":["https://twitter.com/username","https://github.com/username"],"url":"https://thedarkstarjack.github.io/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-01T17:00:00+08:00","datePublished":"2024-07-01T17:00:00+08:00","description":"很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。","headline":"配置pip镜像源","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/"},"url":"https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>DarkStar
+  <title>配置pip镜像源 | DarkStar
   </title>
 
   <!--
@@ -110,11 +111,16 @@
   <!-- 3rd-party Dependencies -->
 
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.27.20/dist/tocbot.min.css">
+  
 
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
   
 
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -250,7 +256,7 @@
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
       <!-- home -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a href="/" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
           <span>首页</span>
@@ -414,9 +420,23 @@
       
 
       
-        <!-- index page -->
-        <span>首页</span>
+        
+          
+            <span>
+              <a href="/">首页</a>
+            </span>
 
+          
+        
+          
+        
+          
+            
+              <span>配置pip镜像源</span>
+            
+
+          
+        
       
     </nav>
     <!-- endof #breadcrumb -->
@@ -426,7 +446,7 @@
     </button>
 
     <div id="topbar-title">
-      DarkStar
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -519,117 +539,16 @@
 
 
 
+<article class="px-1">
+  <header>
+    <h1 data-toc-skip>配置pip镜像源</h1>
+    
 
-
-
-
-
-<!-- Get pinned posts -->
-
-
-
-
-
-
-<!-- Get default posts -->
-
-
-
-
-
-
-
-
-
-
-<div id="post-list" class="flex-grow-1 px-xl-1">
-  
-    <article class="card-wrapper card">
-      <a href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">配置python jupyter 远程访问</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>概述
-
-Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简单语言描述、数据、丰富的可视化效果（如 3D 模型、图表、图形和图形）以及交互式控件。笔记本和编辑器（如 JupyterLab）提供了一个快速的交互环境，用于原型设计和解释代码、探索和可视化数据以及与他人分享想法
-
-简而言之，Jupyter Notebook是以网页的形式打开，相当于一个网页版便携式的pytho...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719910800"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/02
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Python,
-                      jupyter
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">配置pip镜像源</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。
-
-## 查看当前的镜像源
-pip config list 
-## 国外镜像有时候下载较慢，可以直接指定国内镜像源下载
-pip install -i https://pypi.douban.com/simple/ flask
-## 修改pip的配置文件，将镜像源写入配置文件中。如果没有这个文件就新建一个
-cat...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
+        <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -642,219 +561,198 @@ cat...</p>
   data-ts="1719824400"
   data-df="YYYY/MM/DD"
   
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
 >
   2024/07/01
 </time>
 
+      </span>
 
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Python,
-                      pip
-                  </span>
-                
-              </div>
+      <!-- lastmod date -->
+      
 
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" class="post-preview row g-0 flex-md-row-reverse">
-        
+      
 
-        
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
 
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">WSL Fedora 升级</h1>
+          作者
 
-            <div class="card-text content mt-0 mb-3">
-              <p>Windows11 WSL Fedora 版本升级
+          <em>
+            
+              <a href="https://twitter.com/username">TheDarkStarJack</a>
+            
+          </em>
+        </span>
 
-可以直接使用dnf update，使用如下命令：
+        <div>
+          <!-- pageviews -->
+          
 
-sudo dnf update --releasever=40 -y    
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
 
 
-本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
 
-等待更新完成之后检查。</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
+<!-- words per minute -->
 
 
 
 
-<time
-  
-  data-ts="1719475200"
-  data-df="YYYY/MM/DD"
-  
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="153 字"
 >
-  2024/06/27
-</time>
+  <em>1 分钟</em>阅读</span>
 
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Fedora
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
         </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <p>很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="c">## 查看当前的镜像源</span>
+pip config list 
+<span class="c">## 国外镜像有时候下载较慢，可以直接指定国内镜像源下载</span>
+pip <span class="nb">install</span> <span class="nt">-i</span> https://pypi.douban.com/simple/ flask
+<span class="c">## 修改pip的配置文件，将镜像源写入配置文件中。如果没有这个文件就新建一个</span>
+<span class="nb">cat</span> ~/.pip/pip.conf
+<span class="o">[</span>global]
+index-url <span class="o">=</span> https://pypi.douban.com/simple/
+<span class="c">## 清华大学源</span>
+<span class="nb">cat</span> ~/.pip/pip.conf
+<span class="o">[</span>global]
+index-url <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn/simple
+<span class="o">[</span><span class="nb">install</span><span class="o">]</span>
+trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
+</pre></td></tr></tbody></table></code></div></div>
+
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
+    
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/python/">Python</a>,
+          <a href="/categories/pip/">pip</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/python/"
+            class="post-tag no-text-decoration"
+          >Python</a>
+        
+      </div>
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E9%2585%258D%25E7%25BD%25AEpip%25E9%2595%259C%25E5%2583%258F%25E6%25BA%2590%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/vim-%E5%AE%89%E8%A3%85/" class="post-preview row g-0 flex-md-row-reverse">
-        
+    
 
-        
+      
 
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim 安装</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>写在前面
-
-因为我大部分的运维工作都是在Linux环境中进行的，而且都是命令行操作，为了更加便捷所以决定好好的学习一下vim编辑器。几年前刚接触vi/vim的时候，确实如网上说的那样不知道怎么退出这个神秘的编辑器。又不像图像化界面那样右上角有一个关闭按钮，crtl+c居然也不行，最终靠百度才退出这个难用的编辑器。后来随着工作的原因接触vim的时间也就多了起来。知道怎么退出这个编辑器，除了是在...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719302400"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/06/25
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
+      <a href="https://www.facebook.com/sharer/sharer.php?title=%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E9%2585%258D%25E7%25BD%25AEpip%25E9%2595%259C%25E5%2583%258F%25E6%25BA%2590%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
       </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" class="post-preview row g-0 flex-md-row-reverse">
-        
+    
 
-        
+      
 
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">查看磁盘是SSD还是HDD</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>lsscsi
-
-通过lsscsi命令查看。
-
-lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列出SCSI设备及属性信息，SCSI全称为small computer system interface，是一种常用的小型计算机系统接口。lsscsi命令可以很方便地帮助管理员区分哪些是固态硬盘、哪些是SATA盘、哪些是FC盘。
-
-不过在我的腾讯云服务器和旧的笔记本上都没有获取...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1708965240"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/02/27
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      linux,
-                      Tutorial
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E9%2585%258D%25E7%25BD%25AEpip%25E9%2595%259C%25E5%2583%258F%25E6%25BA%2590%2F&text=%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
       </a>
-    </article>
-  
+    
+
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
-<!-- #post-list -->
 
-
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
+</article>
 
 
             
@@ -1035,12 +933,146 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
             </div>
 
             
+              
+              
+
+
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719910800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/07/02
+</time>
+
+              <h4 class="pt-0 my-2">配置python jupyter 远程访问</h4>
+              <div class="text-muted">
+                <p>概述
+
+Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简单语言描述、数据、丰富的可视化效果（如 3D 模型、图表、图形和图形）以及交互式控件。笔记本和编辑器（如 JupyterLab）提供了一个快速的交互环境，用于原型设计和解释代码、探索和可视化数据以及与他人分享想法
+
+简而言之，Jupyter Notebook是以网页的形式打开，相当于一个网页版便携式的pytho...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>WSL Fedora 升级</p>
+    </a>
+  
+
+  
+    <a
+      href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>配置python jupyter 远程访问</p>
+    </a>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+
             
 
             <!-- The Footer -->
@@ -1256,6 +1288,9 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
   
 
   
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
 
 
 
@@ -1313,20 +1348,38 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
 
 
 
 
 
 
-<script src="/assets/js/dist/home.min.js"></script>
+<script src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 
