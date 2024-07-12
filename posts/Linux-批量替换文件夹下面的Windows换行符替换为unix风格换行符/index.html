@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="vim 安装" />
+<meta property="og:title" content="Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="写在前面" />
-<meta property="og:description" content="写在前面" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" />
+<meta name="description" content="在Linux系统中，Windows风格的换行符（\r\n，即回车加换行）和Unix风格的换行符（\n）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有^M字符的文件，这是因为^M是回车符（CR，Carriage Return）的表示方式。" />
+<meta property="og:description" content="在Linux系统中，Windows风格的换行符（\r\n，即回车加换行）和Unix风格的换行符（\n）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有^M字符的文件，这是因为^M是回车符（CR，Carriage Return）的表示方式。" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-06-25T16:00:00+08:00" />
+<meta property="article:published_time" content="2024-07-09T23:26:34+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="vim 安装" />
+<meta property="twitter:title" content="Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-02T15:06:07+08:00","datePublished":"2024-06-25T16:00:00+08:00","description":"写在前面","headline":"vim 安装","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/"},"url":"https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-09T23:26:34+08:00","datePublished":"2024-07-09T23:26:34+08:00","description":"在Linux系统中，Windows风格的换行符（\\r\\n，即回车加换行）和Unix风格的换行符（\\n）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有^M字符的文件，这是因为^M是回车符（CR，Carriage Return）的表示方式。","headline":"Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/"},"url":"https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>vim 安装 | DarkStar
+  <title>Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符 | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>vim 安装</span>
+              <span>Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</span>
             
 
           
@@ -515,155 +515,15 @@
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
-  
 
   
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
-  
 
   
   
 
-  
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
   
 
   
@@ -681,7 +541,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>vim 安装</h1>
+    <h1 data-toc-skip>Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</h1>
     
 
     <div class="post-meta text-muted">
@@ -698,41 +558,18 @@
 
 <time
   
-  data-ts="1719302400"
+  data-ts="1720538794"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/06/25
+  2024/07/09
 </time>
 
       </span>
 
       <!-- lastmod date -->
-      
-        <span>
-          更新于
-          <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719903967"
-  data-df="YYYY/MM/DD"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  2024/07/02
-</time>
-
-        </span>
       
 
       
@@ -776,9 +613,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="980 字"
+  title="659 字"
 >
-  <em>5 分钟</em>阅读</span>
+  <em>3 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -786,66 +623,51 @@
   </header>
 
   <div class="content">
-    <h2 id="写在前面"><span class="me-2">写在前面</span><a href="#写在前面" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+    <p>在Linux系统中，Windows风格的换行符（<code class="language-plaintext highlighter-rouge">\r\n</code>，即回车加换行）和Unix风格的换行符（<code class="language-plaintext highlighter-rouge">\n</code>）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有<code class="language-plaintext highlighter-rouge">^M</code>字符的文件，这是因为<code class="language-plaintext highlighter-rouge">^M</code>是回车符（CR，Carriage Return）的表示方式。</p>
 
-<p>因为我大部分的运维工作都是在Linux环境中进行的，而且都是命令行操作，为了更加便捷所以决定好好的学习一下vim编辑器。几年前刚接触vi/vim的时候，确实如网上说的那样不知道怎么退出这个神秘的编辑器。又不像图像化界面那样右上角有一个关闭按钮，crtl+c居然也不行，最终靠百度才退出这个难用的编辑器。后来随着工作的原因接触vim的时间也就多了起来。知道怎么退出这个编辑器，除了是在没办法还是不想用这个玩意儿的。无法像Windows使用crtl+c和crtl+v复制粘贴，编辑器起来真是痛苦，很多时候都是把文件从服务器上传送到本地之后修改，在传送到服务器上。或者在命令行使用管道符和cat的方式将一大段文本写入到文件中。</p>
+<p>有的时候将Linux中的文件或者Windows的文件互相拷贝的时候会自动转换换行符，经常遇到的情况是Windows下面可以正常运行一些unix风格的脚本，但是Linux中却无法运行Windows dos风格的文件。
+要将一个文件夹中所有文件的Windows换行符替换为Unix风格的换行符，可以使用<code class="language-plaintext highlighter-rouge">find</code>命令结合<code class="language-plaintext highlighter-rouge">sed</code>或<code class="language-plaintext highlighter-rouge">dos2unix</code>工具来完成。以下是几种方法：</p>
 
-<p>后来慢慢的喜欢上了这个编辑器，编辑文本的效率真的快。还有一个原因是作为IT从业者，很多时候都在座位上坐着，右手长时间使用鼠标导致手臂和食指有点难受，确定尝试一段时间vim。虽然一开始很痛苦，也看了网上关于vim的看法，以及nvim和emacs的对比，不过考虑到Linux环境中一般都安装有vim，为了习惯运维环境，最后还是确定选择vim。使用了一段时间之后右手确实舒服了很多。</p>
-
-<p>本人也喜欢折腾各种环境，前段时间利用github pages搭建了一个个人站点，所以也准备将vim的学习和使用通过博客记录下来。</p>
-
-<h2 id="安装"><span class="me-2">安装</span><a href="#安装" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<h3 id="通过软件仓库安装"><span class="me-2">通过软件仓库安装</span><a href="#通过软件仓库安装" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
+<ol>
+  <li><strong>使用<code class="language-plaintext highlighter-rouge">find</code>和<code class="language-plaintext highlighter-rouge">sed</code></strong>:
+    <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="c">## Linux系列</span>
-<span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> vim
-
-<span class="c">## debian</span>
-<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> vim
-</pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="通过源码编译安装"><span class="me-2">通过源码编译安装</span><a href="#通过源码编译安装" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<h4 id="安装依赖"><span class="me-2">安装依赖</span><a href="#安装依赖" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
+</pre></td><td class="rouge-code"><pre> find /path/to/folder <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\r$//'</span> <span class="o">{}</span> +
+</pre></td></tr></tbody></table></code></div>    </div>
+    <p>这里<code class="language-plaintext highlighter-rouge">/path/to/folder</code>是你的文件夹路径。这个命令会找到该文件夹下所有的文件（不包括子文件夹中的文件），并使用<code class="language-plaintext highlighter-rouge">sed</code>命令删除每行末尾的<code class="language-plaintext highlighter-rouge">^M</code>字符。</p>
+  </li>
+  <li><strong>使用<code class="language-plaintext highlighter-rouge">find</code>和<code class="language-plaintext highlighter-rouge">dos2unix</code></strong>:
+ 如果你的系统中安装了<code class="language-plaintext highlighter-rouge">dos2unix</code>工具，可以使用以下命令：
+    <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="c">## apt</span>
-apt <span class="nb">install</span> <span class="nt">-y</span> libncurses-dev
-apt <span class="nb">install</span> <span class="nt">-y</span> python3-dev
-
-<span class="c">## dnf</span>
-dnf <span class="nb">install</span> <span class="nt">-y</span> python3-devel
-dnf <span class="nb">install</span> <span class="nt">-y</span> ncurses-devel
-</pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="获取源码"><span class="me-2">获取源码</span><a href="#获取源码" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
+</pre></td><td class="rouge-code"><pre> find /path/to/folder <span class="nt">-type</span> f <span class="nt">-exec</span> dos2unix <span class="o">{}</span> +
+</pre></td></tr></tbody></table></code></div>    </div>
+    <p><code class="language-plaintext highlighter-rouge">dos2unix</code>会将Windows格式的文本文件转换为Unix格式。</p>
+  </li>
+  <li><strong>使用<code class="language-plaintext highlighter-rouge">find</code>和<code class="language-plaintext highlighter-rouge">unix2dos</code></strong>:
+ 如果你只有<code class="language-plaintext highlighter-rouge">unix2dos</code>工具，可以反向使用它来去除<code class="language-plaintext highlighter-rouge">^M</code>：
+    <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="nb">cd</span> ~
-git clone https://github.com/vim/vim.git
-</pre></td></tr></tbody></table></code></div></div>
+</pre></td><td class="rouge-code"><pre> find /path/to/folder <span class="nt">-type</span> f <span class="nt">-exec</span> unix2dos <span class="nt">-n</span> <span class="o">{}</span> <span class="o">{}</span>.unix2dos <span class="se">\;</span> <span class="o">&amp;&amp;</span> <span class="nb">mv</span> <span class="o">{}</span> <span class="o">{}</span>.unix2dos
+</pre></td></tr></tbody></table></code></div>    </div>
+    <p>这个命令首先创建一个临时文件，然后使用<code class="language-plaintext highlighter-rouge">unix2dos</code>将Unix格式转换为Windows格式，这会去掉每行末尾的<code class="language-plaintext highlighter-rouge">^M</code>。之后，使用<code class="language-plaintext highlighter-rouge">mv</code>命令将临时文件替换原文件。</p>
+  </li>
+  <li><strong>使用<code class="language-plaintext highlighter-rouge">fromdos</code></strong>:
+ 在某些Linux发行版中，<code class="language-plaintext highlighter-rouge">fromdos</code>是一个可以用来转换文件的工具：
+    <div class="language-shell highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> find /path/to/folder <span class="nt">-type</span> f <span class="nt">-exec</span> fromdos <span class="o">{}</span> <span class="se">\;</span>
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+</ol>
 
-<h3 id="编译安装"><span class="me-2">编译安装</span><a href="#编译安装" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<font color="red">***需要注意，使用`sed`的`-i`选项会直接修改原文件，所以在执行之前最好备份你的数据。另外，如果文件夹中包含子文件夹，并且你也希望递归地转换子文件夹中的文件，要修改`find`命令来包括`-depth`参数或相应地调整命令。***</font>
 
+<p>如果只有一个文件或者文件少的话也可以直接通过一些文本编辑器自带的转换功能。如果使用vim/gvim的话可以在命令行模式使用以下方法转换：</p>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -855,110 +677,14 @@ git clone https://github.com/vim/vim.git
 5
 6
 7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-</pre></td><td class="rouge-code"><pre><span class="nb">cd </span>vim
-make distclean <span class="c">## 如果之前编译过使用此命令清除缓存</span>
-<span class="c">## python3-config --configdir 就是操作系统自带的 python3 的 config 目录，/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu ，如果没有这个命令就直接写路径</span>
-./configure <span class="nt">--with-features</span><span class="o">=</span>huge <span class="se">\</span>
-            <span class="nt">--enable-multibyte</span> <span class="se">\</span>
-            <span class="nt">--enable-rubyinterp</span><span class="o">=</span><span class="nb">yes</span> <span class="se">\</span>
-            <span class="nt">--enable-python3interp</span><span class="o">=</span><span class="nb">yes</span> <span class="se">\</span>
-            <span class="nt">--with-python3-config-dir</span><span class="o">=</span><span class="si">$(</span>python3-config <span class="nt">--configdir</span><span class="si">)</span> <span class="se">\</span>
-            <span class="nt">--enable-luainterp</span><span class="o">=</span><span class="nb">yes</span> <span class="se">\</span>
-            <span class="nt">--enable-gui</span><span class="o">=</span>gtk2 <span class="se">\</span>
-            <span class="nt">--enable-cscope</span> <span class="se">\</span>
-            <span class="nt">--prefix</span><span class="o">=</span>/usr/local/
+</pre></td><td class="rouge-code"><pre><span class="c">## 查看当前换行符</span>
+:set ff
+<span class="c">## 替换为Linux</span>
+:set <span class="nv">ff</span><span class="o">=</span>unix
 
-
-
-make <span class="nv">VIMRUNTIMEDIR</span><span class="o">=</span>/usr/local/share/vim/vim91
-
-<span class="nb">cd</span> ~/vim
-<span class="nb">sudo </span>make <span class="nb">install
-</span>vim <span class="nt">--version</span>
+<span class="c">## 替换为Windows</span>
+:e +iff<span class="o">=</span>dos
 </pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="安装gvim"><span class="me-2">安装gvim</span><a href="#安装gvim" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>如果准备在Windows或者带有桌面的Linux环境中使用vim的话，还是建议把gvim也安装了。</p>
-
-<p><strong>Windows</strong></p>
-
-<p>直接在<a href="https://www.vim.org/download.php">download : vim online</a>下载对应的安装包安装即可。</p>
-
-<p><strong>Redhat系列</strong></p>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> vim-X11
-</pre></td></tr></tbody></table></code></div></div>
-
-<p><strong>debain系列</strong></p>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> vim-gui-common
-</pre></td></tr></tbody></table></code></div></div>
-
-<h2 id="设置vim为默认输入法"><span class="me-2">设置vim为默认输入法</span><a href="#设置vim为默认输入法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p><strong>设置环境变量的方式</strong></p>
-
-<div class="language-shell highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>vim ~/.bashrc
-
-<span class="nb">export </span><span class="nv">EDITOR</span><span class="o">=</span>vim
-
-
-</pre></td></tr></tbody></table></code></div></div>
-
-<p><strong>通过vim-default</strong></p>
-
-<p>长期使用vim之后，不习惯nano，所以直接卸载了nano</p>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="c">## 如果后续还需要使用nano的话 可以省略卸载nano </span>
-rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">-i</span> nano
-<span class="nb">sudo </span>dnf remove nano
-
-<span class="c">### 或者直接安装vim-default，先卸载nano-default</span>
-<span class="nb">sudo </span>dnf remove nano-default-editor <span class="nt">-y</span>
-<span class="nb">sudo </span>dnf <span class="nb">install </span>vim-default-editor <span class="nt">-y</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>vim在编辑文件这一方面个人觉得还是效率还是很高的。我也不需要开发大型的项目，所以使用日常使用vim感觉能提高不少效率。</p>
-
-<p>我也会使用vscode和vstudio，在编写python的时候也会使用pycharm，通过这些ide可以让我更加方便编写对应的开发语言。所以ide和vim我都会搭配使用。</p>
 
   </div>
 
@@ -968,7 +694,8 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/vim/">vim</a>
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/bash/">Bash</a>
       </div>
     
 
@@ -978,9 +705,9 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/vim/"
+            href="/tags/shell/"
             class="post-tag no-text-decoration"
-          >vim</a>
+          >Shell</a>
         
       </div>
     
@@ -1016,21 +743,21 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=vim%20%E5%AE%89%E8%A3%85%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E5%25AE%2589%25E8%25A3%2585%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Linux%20%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84%20Windows%20%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BA%20unix%20%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FLinux-%25E6%2589%25B9%25E9%2587%258F%25E6%259B%25BF%25E6%258D%25A2%25E6%2596%2587%25E4%25BB%25B6%25E5%25A4%25B9%25E4%25B8%258B%25E9%259D%25A2%25E7%259A%2584Windows%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%25E6%259B%25BF%25E6%258D%25A2%25E4%25B8%25BAunix%25E9%25A3%258E%25E6%25A0%25BC%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=vim%20%E5%AE%89%E8%A3%85%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E5%25AE%2589%25E8%25A3%2585%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Linux%20%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84%20Windows%20%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BA%20unix%20%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FLinux-%25E6%2589%25B9%25E9%2587%258F%25E6%259B%25BF%25E6%258D%25A2%25E6%2596%2587%25E4%25BB%25B6%25E5%25A4%25B9%25E4%25B8%258B%25E9%259D%25A2%25E7%259A%2584Windows%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%25E6%259B%25BF%25E6%258D%25A2%25E4%25B8%25BAunix%25E9%25A3%258E%25E6%25A0%25BC%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E5%25AE%2589%25E8%25A3%2585%2F&text=vim%20%E5%AE%89%E8%A3%85%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FLinux-%25E6%2589%25B9%25E9%2587%258F%25E6%259B%25BF%25E6%258D%25A2%25E6%2596%2587%25E4%25BB%25B6%25E5%25A4%25B9%25E4%25B8%258B%25E9%259D%25A2%25E7%259A%2584Windows%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%25E6%259B%25BF%25E6%258D%25A2%25E4%25B8%25BAunix%25E9%25A3%258E%25E6%25A0%25BC%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%2F&text=Linux%20%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84%20Windows%20%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BA%20unix%20%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1277,11 +1004,6 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
 
 
 
-  <section id="toc-wrapper" class="d-none ps-0 pe-4">
-    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
-    <nav id="toc"></nav>
-  </section>
-
 
             
           </aside>
@@ -1319,6 +1041,30 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -1329,6 +1075,85 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
 
 
 
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719475200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/06/27
+</time>
+
+              <h4 class="pt-0 my-2">WSL Fedora 升级</h4>
+              <div class="text-muted">
+                <p>Windows11 WSL Fedora 版本升级
+
+可以直接使用dnf update，使用如下命令：
+
+sudo dnf update --releasever=40 -y    
+
+
+本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
+
+等待更新完成之后检查。</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1708965240"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/02/27
+</time>
+
+              <h4 class="pt-0 my-2">查看磁盘是SSD还是HDD</h4>
+              <div class="text-muted">
+                <p>lsscsi
+
+通过lsscsi命令查看。
+
+lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列出SCSI设备及属性信息，SCSI全称为small computer system interface，是一种常用的小型计算机系统接口。lsscsi命令可以很方便地帮助管理员区分哪些是固态硬盘、哪些是SATA盘、哪些是FC盘。
+
+不过在我的腾讯云服务器和旧的笔记本上都没有获取...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
 
 
             
@@ -1341,22 +1166,18 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
 
   
     <a
-      href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/"
+      href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>查看磁盘是SSD还是HDD</p>
+      <p>配置python jupyter 远程访问</p>
     </a>
   
 
   
-    <a
-      href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/"
-      class="btn btn-outline-primary"
-      aria-label="下一篇"
-    >
-      <p>WSL Fedora 升级</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
   
 </nav>
 
@@ -1758,16 +1579,9 @@ rpm <span class="nt">-qa</span> | <span class="nb">grep</span> <span class="nt">
 
   
 
-  
-    
-
-    
-
-  
 
 
-
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
 
 
 
