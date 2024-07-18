@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-12T17:42:33+08:00</updated>
+  <updated>2024-07-18T18:40:49+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,42 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>MySQL 批量杀会话</title>
+    <link href="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" rel="alternate" type="text/html" title="MySQL 批量杀会话" />
+    <published>2024-07-13T00:39:23+08:00</published>
+  
+    <updated>2024-07-13T00:39:23+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/</id>
+    <content src="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="MySQL" />
+    
+  
+
+  <summary>MySQL的kill语法如下：
+-- 可以查看帮助手册
+help kill;
+KILL [CONNECTION | QUERY] processlist_id;
+
+KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。
+
+KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。
+
+processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句：
+SELECT...</summary>
+
+  </entry>
 
   
   <entry>
@@ -159,34 +195,6 @@ sudo dnf update --releasever=40 -y
 本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
 
 等待更新完成之后检查。</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 安装</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" rel="alternate" type="text/html" title="vim 安装" />
-    <published>2024-06-25T16:00:00+08:00</published>
-  
-    <updated>2024-07-02T15:06:07+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E5%AE%89%E8%A3%85/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="vim" />
-    
-  
-
-  <summary>写在前面
-
-因为我大部分的运维工作都是在Linux环境中进行的，而且都是命令行操作，为了更加便捷所以决定好好的学习一下vim编辑器。几年前刚接触vi/vim的时候，确实如网上说的那样不知道怎么退出这个神秘的编辑器。又不像图像化界面那样右上角有一个关闭按钮，crtl+c居然也不行，最终靠百度才退出这个难用的编辑器。后来随着工作的原因接触vim的时间也就多了起来。知道怎么退出这个编辑器，除了是在没办法还是不想用这个玩意儿的。无法像Windows使用crtl+c和crtl+v复制粘贴，编辑器起来真是痛苦，很多时候都是把文件从服务器上传送到本地之后修改，在传送到服务器上。或者在命令行使用管道符和cat的方式将一大段文本写入到文件中。
-
-后来慢慢的喜欢上了这个编辑器，编辑文本的效率真的快。还有一个原因是作为IT从业者，很多时候都在座位上坐着，右手长时间使用鼠标导致手臂和食指有点难受，确定尝试一...</summary>
 
   </entry>
 

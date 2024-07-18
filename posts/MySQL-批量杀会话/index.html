@@ -30,23 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Linux" />
+<meta property="og:title" content="MySQL 批量杀会话" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<meta property="og:description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<link rel="canonical" href="https://thedarkstarjack.github.io/categories/linux/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/categories/linux/" />
+<meta name="description" content="MySQL的kill语法如下： -- 可以查看帮助手册 help kill; KILL [CONNECTION | QUERY] processlist_id; KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。 KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。 processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句： ~~~mysql SELECT GROUP_CONCAT(CONCAT(‘KILL ‘,id,’;’) SEPARATOR ‘ ‘) ‘Paste the following query to kill all processes’ FROM information_schema.processlist WHERE user&lt;&gt;’system user’\G" />
+<meta property="og:description" content="MySQL的kill语法如下： -- 可以查看帮助手册 help kill; KILL [CONNECTION | QUERY] processlist_id; KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。 KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。 processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句： ~~~mysql SELECT GROUP_CONCAT(CONCAT(‘KILL ‘,id,’;’) SEPARATOR ‘ ‘) ‘Paste the following query to kill all processes’ FROM information_schema.processlist WHERE user&lt;&gt;’system user’\G" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" />
 <meta property="og:site_name" content="DarkStar" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-13T00:39:23+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Linux" />
+<meta property="twitter:title" content="MySQL 批量杀会话" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"Linux","url":"https://thedarkstarjack.github.io/categories/linux/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-13T00:39:23+08:00","datePublished":"2024-07-13T00:39:23+08:00","description":"MySQL的kill语法如下： -- 可以查看帮助手册 help kill; KILL [CONNECTION | QUERY] processlist_id; KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。 KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。 processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句： ~~~mysql SELECT GROUP_CONCAT(CONCAT(‘KILL ‘,id,’;’) SEPARATOR ‘ ‘) ‘Paste the following query to kill all processes’ FROM information_schema.processlist WHERE user&lt;&gt;’system user’\\G","headline":"MySQL 批量杀会话","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/"},"url":"https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Linux | DarkStar
+  <title>MySQL 批量杀会话 | DarkStar
   </title>
 
   <!--
@@ -110,9 +111,16 @@
   <!-- 3rd-party Dependencies -->
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.27.20/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -421,14 +429,10 @@
           
         
           
-            <span>
-              <a href="/categories/">分类</a>
-            </span>
-          
         
           
             
-              <span>Linux</span>
+              <span>MySQL 批量杀会话</span>
             
 
           
@@ -442,7 +446,7 @@
     </button>
 
     <div id="topbar-title">
-      分类
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -468,28 +472,218 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
-  
+  <header>
+    <h1 data-toc-skip>MySQL 批量杀会话</h1>
     
 
-
-
-<div id="page-category">
-  <h1 class="ps-lg-2">
-    <i class="far fa-folder-open fa-fw text-muted"></i>
-    Linux
-    <span class="lead text-muted ps-2">3</span>
-  </h1>
-
-  <ul class="content ps-0">
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/">Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</a>
-        <span class="dash flex-grow-1"></span>
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -500,70 +694,186 @@
 
 <time
   
-    class="text-muted small text-nowrap"
-  
-  data-ts="1720538794"
+  data-ts="1720802363"
   data-df="YYYY/MM/DD"
   
->
-  2024/07/09
-</time>
-
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/">WSL Fedora 升级</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1719475200"
-  data-df="YYYY/MM/DD"
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/06/27
+  2024/07/13
 </time>
 
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/">查看磁盘是SSD还是HDD</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
+      </span>
+
+      <!-- lastmod date -->
+      
+
+      
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
+
+          作者
+
+          <em>
+            
+              <a href="https://twitter.com/username">TheDarkStarJack</a>
+            
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
 
 
 
 
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1708965240"
-  data-df="YYYY/MM/DD"
-  
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="482 字"
 >
-  2024/02/27
-</time>
+  <em>2 分钟</em>阅读</span>
 
-      </li>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <p>MySQL的kill语法如下：</p>
+<pre><code class="language-mysql">-- 可以查看帮助手册
+help kill;
+KILL [CONNECTION | QUERY] processlist_id;
+</code></pre>
+<p>KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。
+<a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-24-00-fbe504a73a71ac8aecd60cc5c56373f5-202407121723824.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-24-00-fbe504a73a71ac8aecd60cc5c56373f5-202407121723824.png" alt="kill id" loading="lazy"></a>
+KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。
+<a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-28-00-9b8280f59bbd7a6b8ab2385ebd563e05-202407121728346.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-28-00-9b8280f59bbd7a6b8ab2385ebd563e05-202407121728346.png" alt="kill query id" loading="lazy"></a>
+processlist_id 可以通过 <code class="language-plaintext highlighter-rouge">show [full] processlist</code> 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句：</p>
+<pre><code class="language-mysql">SELECT GROUP_CONCAT(CONCAT('KILL ',id,';') SEPARATOR ' ') 'Paste the following query to kill all processes' FROM information_schema.processlist WHERE user&lt;&gt;'system user'\G
+
+SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the following query to kill all processes' FROM performance_schema.threads WHERE PROCESSLIST_USER&lt;&gt;'system user'\G
+</code></pre>
+<p><strong>需要注意的是，kill session 之后，线程可能需要一些时间才能死掉/结束，如果查询show processlist 的 Command 字段状态为 killed ，有可能是因为会话正在回滚。还有的情况是实例存在异常，可以检查 error log，如果 innodb_buffer_pool_size 设置过小，遇到过一次客户安装的时候采用的默认配置，innodb_buffer_pool_size 只有1G左右，整个服务器的内存16G，有点离谱。在 error log 中会提示如下错误</strong></p>
+<pre><code class="language-txt">2024-07-04T10:35:05.757216+08:00 4736 [Warning] [MY-011959] [InnoDB] Difficult to find free blocks in the buffer pool (192308 search iterations)! 192308 failed attempts to flush a page! Consider increasing the buffer pool size. It is also possible that in your Unix version fsync is very slow, or completely frozen inside the OS kernel. Then upgrading to a newer version of your operating system may help. Look at the number of fsyncs in diagnostic info below. Pending flushes (fsync) log: 0; buffer pool: 0. 31142769 OS file reads, 77384027 OS file writes, 35847289 OS fsyncs. Starting InnoDB Monitor to print further diagnostics to the standard output.
+</code></pre>
+<p>将参数值调整之后很快就恢复正常，这里先不介绍该参数重点是怎么批量 kill session ，后续在讨论参数设置。</p>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
     
-  </ul>
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/database/">DataBase</a>,
+          <a href="/categories/mysql/">MySQL</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/mysql/"
+            class="post-tag no-text-decoration"
+          >MySQL</a>
+        
+      </div>
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=MySQL%20%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FMySQL-%25E6%2589%25B9%25E9%2587%258F%25E6%259D%2580%25E4%25BC%259A%25E8%25AF%259D%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
+    
+
+      
+
+      <a href="https://www.facebook.com/sharer/sharer.php?title=MySQL%20%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FMySQL-%25E6%2589%25B9%25E9%2587%258F%25E6%259D%2580%25E4%25BC%259A%25E8%25AF%259D%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
+    
+
+      
+
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FMySQL-%25E6%2589%25B9%25E9%2587%258F%25E6%259D%2580%25E4%25BC%259A%25E8%25AF%259D%2F&text=MySQL%20%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
+    
+
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
-  
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -826,12 +1136,156 @@
             </div>
 
             
+              
+              
+
+
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+  
+  <!-- https://giscus.app/ -->
+<script type="text/javascript">
+  (function () {
+    const origin = 'https://giscus.app';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
+    let initTheme = lightTheme;
+    const html = document.documentElement;
+
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      initTheme = darkTheme;
+    }
+
+    let giscusAttributes = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'TheDarkStarJack/blog_discuss',
+      'data-repo-id': 'R_kgDOMSSHbQ',
+      'data-category': 'Announcements',
+      'data-category-id': 'DIC_kwDOMNVp0c4Cglls',
+      'data-mapping': 'pathname',
+      'data-strict' : '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': 'top',
+      'data-lang': 'zh-CN',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
+    };
+
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.getElementById('tail-wrapper').appendChild(giscusScript);
+
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {const mode = event.data.message;
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
+
+        const message = {
+          setConfig: {
+            theme: theme
+          }
+        };
+
+        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
+        giscus.postMessage({ giscus: message }, origin);
+      }
+    });
+  })();
+</script>
+
+
+
             
 
             <!-- The Footer -->
@@ -1127,6 +1581,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -1176,20 +1637,45 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
 
 
 
 
 
 
-<script src="/assets/js/dist/misc.min.js"></script>
+<script src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 
