@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-18T18:40:49+08:00</updated>
+  <updated>2024-07-19T16:32:41+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,80 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="alternate" type="text/html" title="Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别" />
+    <published>2024-07-19T00:41:47+08:00</published>
+  
+    <updated>2024-07-19T00:41:47+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>DB_NAME：
+①是数据库名，长度不能超过8个字符，记录在datafile、redolog和control file中
+②在DataGuard环境中DB_NAME相同而DB_UNIQUE_NAME不同
+③在RAC环境中，各个节点的DB_NAME 都相同，但是INSTANCE_NAME不同
+④DB_NAME还在动态注册监听的时候起作用，无论是否定义了SERVICE_NAME,PMON进程都会使用DB_NAME动态注册监听
+
+DBID：
+①DBID可以看做是DB_NAME在数据库内部的表示，它是在数据库创建的时候用DB_NAME结合算法计算出来的
+②它存在于datafile和control file中，用来表示数据文件的归属，所以DBID是唯一的，对于不同的数据库，DB_NAME可以是相同的，但是DBID一定是唯一的，例如在DataGuard中，主备库的DB_NAME相同，但是DBID...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Oracle 修改 db_name</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" rel="alternate" type="text/html" title="Oracle 修改 db_name" />
+    <published>2024-07-19T00:39:03+08:00</published>
+  
+    <updated>2024-07-19T00:39:03+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
+以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
+
+仅修改server_name
+如果仅修改server_name可以直接登录数据库之后操作；
+sqlplus sys/sys as sysdba 
+SQL&amp;amp;gt; show parameter service_name
+SQL&amp;amp;gt; alter system set service_names=&amp;#39;orcl&amp;#39; scope=both;
+
+--  修改listener.ora 文件中的服务名：
+SID_LIST_LISTENER =
+  (SID_LIST =
+    (SID_DESC =
+      (SID_NAME = PLSExtProc)
+      (ORACLE_HOME = E:\Ora...</summary>
+
+  </entry>
 
   
   <entry>
@@ -119,82 +193,6 @@ Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简�
 配置python虚拟开发环境
 
 安装jupyter最好先指定一个虚拟开发环境，避免污染全局的配置。怎么配置python的虚拟开发环境可以参考一文了解virtualenv、pyvenv、pyenv、pyenv virtu...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>配置pip镜像源</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" rel="alternate" type="text/html" title="配置pip镜像源" />
-    <published>2024-07-01T17:00:00+08:00</published>
-  
-    <updated>2024-07-01T17:00:00+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Python" />
-    
-    <category term="pip" />
-    
-  
-
-  <summary>很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。
-
-## 查看当前的镜像源
-pip config list 
-## 国外镜像有时候下载较慢，可以直接指定国内镜像源下载
-pip install -i https://pypi.douban.com/simple/ flask
-## 修改pip的配置文件，将镜像源写入配置文件中。如果没有这个文件就新建一个
-cat ~/.pip/pip.conf
-[global]
-index-url = https://pypi.douban.com/simple/
-## 清华大学源
-cat ~/.pip/pip.conf
-[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-[install]
-trusted-host = https://pypi.t...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>WSL Fedora 升级</title>
-    <link href="https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" rel="alternate" type="text/html" title="WSL Fedora 升级" />
-    <published>2024-06-27T16:00:00+08:00</published>
-  
-    <updated>2024-07-02T15:06:07+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/</id>
-    <content src="https://thedarkstarjack.github.io/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Fedora" />
-    
-  
-
-  <summary>Windows11 WSL Fedora 版本升级
-
-可以直接使用dnf update，使用如下命令：
-
-sudo dnf update --releasever=40 -y    
-
-
-本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
-
-等待更新完成之后检查。</summary>
 
   </entry>
 
