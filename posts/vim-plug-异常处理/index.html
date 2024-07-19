@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Archives" />
+<meta property="og:title" content="vim-plug-异常处理" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<meta property="og:description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<link rel="canonical" href="https://thedarkstarjack.github.io/archives/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/archives/" />
+<meta name="description" content="要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件 在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell 是两种东西，其中 PowerShell 是开源的，并且跨平台。感兴趣的可以 google 了解。" />
+<meta property="og:description" content="要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件 在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell 是两种东西，其中 PowerShell 是开源的，并且跨平台。感兴趣的可以 google 了解。" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-07-19T17:29:16+08:00" />
+<meta property="article:published_time" content="2024-07-19T16:39:51+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Archives" />
+<meta property="twitter:title" content="vim-plug-异常处理" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-19T17:29:16+08:00","datePublished":"2024-07-19T17:29:16+08:00","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"Archives","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/archives/"},"url":"https://thedarkstarjack.github.io/archives/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-19T16:39:51+08:00","datePublished":"2024-07-19T16:39:51+08:00","description":"要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件 在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell 是两种东西，其中 PowerShell 是开源的，并且跨平台。感兴趣的可以 google 了解。","headline":"vim-plug-异常处理","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"},"url":"https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Archives | DarkStar
+  <title>vim-plug-异常处理 | DarkStar
   </title>
 
   <!--
@@ -111,9 +111,16 @@
   <!-- 3rd-party Dependencies -->
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.27.20/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -277,7 +284,7 @@
         </li>
         <!-- .nav-item -->
       
-        <li class="nav-item active">
+        <li class="nav-item">
           <a href="/archives/" class="nav-link">
             <i class="fa-fw fas fa-archive"></i>
             
@@ -422,8 +429,10 @@
           
         
           
+        
+          
             
-              <span>归档</span>
+              <span>vim-plug-异常处理</span>
             
 
           
@@ -437,7 +446,7 @@
     </button>
 
     <div id="topbar-title">
-      归档
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -463,189 +472,402 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
+  <header>
+    <h1 data-toc-skip>vim-plug-异常处理</h1>
+    
+
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
   
-    
-    
-    <h1 class="dynamic-title">
-      归档
-    </h1>
-    <div class="content">
-      
-
-
-
-
-
-
-<div id="archives" class="pl-xl-3">
+  data-ts="1721378391"
+  data-df="YYYY/MM/DD"
   
-    
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2024/07/19
+</time>
 
-    
-      
-
-      <time class="year lead d-block">2024</time>
-      <ul class="list-unstyled">
-
-      
-    
-
-    <li>
-      
-      <span class="date day" data-ts="1721378391" data-df="DD">19</span>
-      <span class="date month small text-muted ms-1" data-ts="1721378391" data-df="/ MM">
-        / 07
       </span>
-      <a href="/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">vim-plug-异常处理</a>
-    </li>
 
-    
-  
-    
-
-    
-
-    <li>
+      <!-- lastmod date -->
       
-      <span class="date day" data-ts="1721292107" data-df="DD">18</span>
-      <span class="date month small text-muted ms-1" data-ts="1721292107" data-df="/ MM">
-        / 07
-      </span>
-      <a href="/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/">Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</a>
-    </li>
 
-    
-  
-    
-
-    
-
-    <li>
       
-      <span class="date day" data-ts="1721291943" data-df="DD">18</span>
-      <span class="date month small text-muted ms-1" data-ts="1721291943" data-df="/ MM">
-        / 07
-      </span>
-      <a href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/">Oracle 修改 db_name</a>
-    </li>
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
+
+          作者
+
+          <em>
+            
+              <a href="https://twitter.com/username">TheDarkStarJack</a>
+            
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="476 字"
+>
+  <em>2 分钟</em>阅读</span>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <p>要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件
+在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell 是两种东西，其中 PowerShell 是开源的，并且<strong>跨平台</strong>。感兴趣的可以 google 了解。</p>
+
+<p>vim9 已经支持 terminal 了，不过默认还是调用的是 cmd.exe ，可以在命令模式下查看当前使用的 shell 终端是什么。<code class="language-plaintext highlighter-rouge">:echo &amp;shell</code> ，在 Windows 平台下还是建议使用 Powershell ，虽然对比 bash ，PowerShell 命令又臭又长，不过还是功能还是很强大了，维护起来比 Shell 脚本方便很多。因为命令大多数一看就知道什么意思，这个是题外话了，虽然我还是更加喜欢简短的 Shell ，维护的时候另说。。</p>
+
+<p>为了在 vim9 中更好的使用 PowerShell，我在 vimrc 中将 shell 指定为 pwsh.exe，一切看起来变得更好了。知道我需要安装新的插件和查看插件状态的时候，发生了意外。
+<a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/19/16-59-33-92c0890ac81aca7d3da57d31e7ab492f-202407191659882.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/19/16-59-33-92c0890ac81aca7d3da57d31e7ab492f-202407191659882.png" alt="PlugStatus" loading="lazy"></a></p>
+
+<p>vim-plug 无法正常工作了，最初以为是权限问题，但是 Temp 目录是所有用户都可以访问的。在网上查了一圈都没找到原因，突然想起来难道是 cmd 的原因，查看了一下 vim-plug的代码，发现果然是调用的 cmd.exe
+<a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/19/17-06-44-8f868ec3ce29a515c083c1f7688279e3-202407191706160.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/19/17-06-44-8f868ec3ce29a515c083c1f7688279e3-202407191706160.png" alt="grep cmd" loading="lazy"></a></p>
+
+<p>解决办法就是在 vim 中指定 <code class="language-plaintext highlighter-rouge">set shell=cmd.exe</code>， 或者 vimrc 文件中删除 shell 的配置，重启 vim 或者重新加载配置文件就可以正常使用 vim-plug 了。</p>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
+    
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/vim/">Vim</a>,
+          <a href="/categories/%E6%8F%92%E4%BB%B6/">插件</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/vim/"
+            class="post-tag no-text-decoration"
+          >Vim</a>
+        
+      </div>
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
+    
+    
+    
 
     
-  
-    
 
-    
-
-    <li>
       
-      <span class="date day" data-ts="1720802363" data-df="DD">13</span>
-      <span class="date month small text-muted ms-1" data-ts="1720802363" data-df="/ MM">
-        / 07
-      </span>
-      <a href="/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/">MySQL 批量杀会话</a>
-    </li>
 
-    
-  
+      <a href="https://twitter.com/intent/tweet?text=vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-plug-%25E5%25BC%2582%25E5%25B8%25B8%25E5%25A4%2584%25E7%2590%2586%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
     
 
-    
-
-    <li>
       
-      <span class="date day" data-ts="1720538794" data-df="DD">09</span>
-      <span class="date month small text-muted ms-1" data-ts="1720538794" data-df="/ MM">
-        / 07
-      </span>
-      <a href="/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/">Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</a>
-    </li>
 
-    
-  
+      <a href="https://www.facebook.com/sharer/sharer.php?title=vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-plug-%25E5%25BC%2582%25E5%25B8%25B8%25E5%25A4%2584%25E7%2590%2586%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
     
 
-    
-
-    <li>
       
-      <span class="date day" data-ts="1719910800" data-df="DD">02</span>
-      <span class="date month small text-muted ms-1" data-ts="1719910800" data-df="/ MM">
-        / 07
-      </span>
-      <a href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">配置python jupyter 远程访问</a>
-    </li>
 
-    
-  
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-plug-%25E5%25BC%2582%25E5%25B8%25B8%25E5%25A4%2584%25E7%2590%2586%2F&text=vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
     
 
-    
-
-    <li>
-      
-      <span class="date day" data-ts="1719824400" data-df="DD">01</span>
-      <span class="date month small text-muted ms-1" data-ts="1719824400" data-df="/ MM">
-        / 07
-      </span>
-      <a href="/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/">配置pip镜像源</a>
-    </li>
-
-    
-  
-    
-
-    
-
-    <li>
-      
-      <span class="date day" data-ts="1719475200" data-df="DD">27</span>
-      <span class="date month small text-muted ms-1" data-ts="1719475200" data-df="/ MM">
-        / 06
-      </span>
-      <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/">WSL Fedora 升级</a>
-    </li>
-
-    
-  
-    
-
-    
-
-    <li>
-      
-      <span class="date day" data-ts="1719302400" data-df="DD">25</span>
-      <span class="date month small text-muted ms-1" data-ts="1719302400" data-df="/ MM">
-        / 06
-      </span>
-      <a href="/posts/vim-%E5%AE%89%E8%A3%85/">vim 安装</a>
-    </li>
-
-    
-  
-    
-
-    
-
-    <li>
-      
-      <span class="date day" data-ts="1708965240" data-df="DD">27</span>
-      <span class="date month small text-muted ms-1" data-ts="1708965240" data-df="/ MM">
-        / 02
-      </span>
-      <a href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/">查看磁盘是SSD还是HDD</a>
-    </li>
-
-    </ul>
-  
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
     </div>
-  
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -1009,12 +1231,156 @@
             </div>
 
             
+              
+              
+
+
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+  
+  <!-- https://giscus.app/ -->
+<script type="text/javascript">
+  (function () {
+    const origin = 'https://giscus.app';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
+    let initTheme = lightTheme;
+    const html = document.documentElement;
+
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      initTheme = darkTheme;
+    }
+
+    let giscusAttributes = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'TheDarkStarJack/blog_discuss',
+      'data-repo-id': 'R_kgDOMSSHbQ',
+      'data-category': 'Announcements',
+      'data-category-id': 'DIC_kwDOMNVp0c4Cglls',
+      'data-mapping': 'pathname',
+      'data-strict' : '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': 'top',
+      'data-lang': 'zh-CN',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
+    };
+
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.getElementById('tail-wrapper').appendChild(giscusScript);
+
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {const mode = event.data.message;
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
+
+        const message = {
+          setConfig: {
+            theme: theme
+          }
+        };
+
+        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
+        giscus.postMessage({ giscus: message }, origin);
+      }
+    });
+  })();
+</script>
+
+
+
             
 
             <!-- The Footer -->
@@ -1411,6 +1777,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -1460,20 +1833,45 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
 
 
 
 
 
 
-<script src="/assets/js/dist/misc.min.js"></script>
+<script src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 

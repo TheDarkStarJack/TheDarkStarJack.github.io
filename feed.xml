@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-19T16:32:41+08:00</updated>
+  <updated>2024-07-19T17:29:16+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -20,11 +20,40 @@
 
   
   <entry>
+    <title>vim-plug-异常处理</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="alternate" type="text/html" title="vim-plug-异常处理" />
+    <published>2024-07-19T16:39:51+08:00</published>
+  
+    <updated>2024-07-19T16:39:51+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Vim" />
+    
+    <category term="插件" />
+    
+  
+
+  <summary>要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件
+在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell 是两种东西，其中 PowerShell 是开源的，并且跨平台。感兴趣的可以 google 了解。
+
+vim9 已经支持 terminal 了，不过默认还是调用的是 cmd.exe ，可以在命令模式下查看当前使用的 shell 终端是什么。:echo &amp;amp;amp;shell ，在 Windows 平台下还是建议使用 Powershell ，虽然对比 bash ，PowerShell 命令又臭又长，不...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</title>
     <link href="https://thedarkstarjack.github.io/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="alternate" type="text/html" title="Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别" />
-    <published>2024-07-19T00:41:47+08:00</published>
+    <published>2024-07-18T16:41:47+08:00</published>
   
-    <updated>2024-07-19T00:41:47+08:00</updated>
+    <updated>2024-07-19T17:28:58+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
     <content src="https://thedarkstarjack.github.io/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" />
@@ -56,9 +85,9 @@ DBID：
   <entry>
     <title>Oracle 修改 db_name</title>
     <link href="https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" rel="alternate" type="text/html" title="Oracle 修改 db_name" />
-    <published>2024-07-19T00:39:03+08:00</published>
+    <published>2024-07-18T16:39:03+08:00</published>
   
-    <updated>2024-07-19T00:39:03+08:00</updated>
+    <updated>2024-07-19T17:28:58+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/</id>
     <content src="https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" />
@@ -159,40 +188,6 @@ SELECT...</summary>
   使用find和sed:
      find /path/to/folder -type f -exec sed -i &amp;#39;s/\r$//&amp;#39; {} +
    ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>配置python jupyter 远程访问</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" rel="alternate" type="text/html" title="配置python jupyter 远程访问" />
-    <published>2024-07-02T17:00:00+08:00</published>
-  
-    <updated>2024-07-02T17:00:00+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Python" />
-    
-    <category term="jupyter" />
-    
-  
-
-  <summary>概述
-
-Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简单语言描述、数据、丰富的可视化效果（如 3D 模型、图表、图形和图形）以及交互式控件。笔记本和编辑器（如 JupyterLab）提供了一个快速的交互环境，用于原型设计和解释代码、探索和可视化数据以及与他人分享想法
-
-简而言之，Jupyter Notebook是以网页的形式打开，相当于一个网页版便携式的python 代码工具，可以在网页页面中可以直接编写代码和运行代码，代码的运行结果也会直接在代码块下显示。如在编程过程中需要编写说明文档，可在同一个页面中直接编写，便于作及时的说明和解释。
-
-配置python虚拟开发环境
-
-安装jupyter最好先指定一个虚拟开发环境，避免污染全局的配置。怎么配置python的虚拟开发环境可以参考一文了解virtualenv、pyvenv、pyenv、pyenv virtu...</summary>
 
   </entry>
 
