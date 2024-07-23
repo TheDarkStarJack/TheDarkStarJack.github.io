@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-19T17:29:16+08:00</updated>
+  <updated>2024-07-23T18:34:37+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -20,8 +20,127 @@
 
   
   <entry>
-    <title>vim-plug-异常处理</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="alternate" type="text/html" title="vim-plug-异常处理" />
+    <title>WSL2 运行 gui 程序</title>
+    <link href="https://thedarkstarjack.github.io/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" rel="alternate" type="text/html" title="WSL2 运行 gui 程序" />
+    <published>2024-07-23T18:08:00+08:00</published>
+  
+    <updated>2024-07-23T18:08:00+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/</id>
+    <content src="https://thedarkstarjack.github.io/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Windows" />
+    
+    <category term="WSL" />
+    
+  
+
+  <summary>WSL的配置可以参考这里
+
+在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：
+wsl --list -v   //显示正在运行的wsl
+wsl --shutdown   // 关闭正在运行的wsl
+wsl --update     //更新到最新的wsl
+wsl --version
+
+WSL 版本： 2.2.4.0
+内核版本： 5.15.153.1-2
+WSLg 版本： 1.0.61
+MSRDC 版本： 1.2.5326
+Direct3D 版本： 1.611.1-81528511
+DXCore 版本： 10.0.26091.1-240325-1447.ge-release
+Windows 版本： 10.0.22631.3880
+
+
+然后在 WSL 运行 gui 程序即可：
+wsl -...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>修改 npm 镜像源</title>
+    <link href="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/" rel="alternate" type="text/html" title="修改 npm 镜像源" />
+    <published>2024-07-23T17:45:15+08:00</published>
+  
+    <updated>2024-07-23T17:45:15+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/</id>
+    <content src="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Vim" />
+    
+    <category term="npm" />
+    
+  
+
+  <summary>在编译 YouCompleteMe 的时候遇到 npm 的错误，再此记录一下：
+
+(xxx@TheDarkStar):10 &amp;amp;gt; python install.py --all
+Setting up TSserver for TypeScript completion...npm WARN config production Use `--omit=dev` instead.
+npm ERR! code ECONNRESET
+npm ERR! syscall read
+npm ERR! errno -4077
+npm ERR! network read ECONNRESET
+npm ERR! network This is a problem related to network connectivity.
+npm ERR! network In most cases you a...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>git 设置、取消代理</title>
+    <link href="https://thedarkstarjack.github.io/posts/git-%E8%AE%BE%E7%BD%AE-%E5%8F%96%E6%B6%88%E4%BB%A3%E7%90%86/" rel="alternate" type="text/html" title="git 设置、取消代理" />
+    <published>2024-07-23T17:21:51+08:00</published>
+  
+    <updated>2024-07-23T17:21:51+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/git-%E8%AE%BE%E7%BD%AE-%E5%8F%96%E6%B6%88%E4%BB%A3%E7%90%86/</id>
+    <content src="https://thedarkstarjack.github.io/posts/git-%E8%AE%BE%E7%BD%AE-%E5%8F%96%E6%B6%88%E4%BB%A3%E7%90%86/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Git" />
+    
+    <category term="Proxy" />
+    
+  
+
+  <summary>在 Windows 环境中，有的时候即便挂了梯子使用 Git 工具的时候也会遇到“fatal: unable to access ‘https://github.com/…/.git‘: Recv failure Connection was rese”错误，虽然大部分时间都可以正常运行。可以尝试以下几种方式：
+
+清理 Git 代理
+可以尝试清除 Git 的代理设置，让其直接连接网络进行操作。
+
+git config --global --unset http.proxy 
+git config --global --unset https.proxy
+
+
+
+配置 Windows 系统代理
+
+如果取消了代理设置还是报错，也可以尝试设置系统代理，按下 win+q 组合键之后，输入“代理服务器设置”，点击“编辑”：
+
+记得勾选“请勿将代理服务器用于本地(Intranet)地址”，端口随便...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>vim-plug 异常处理</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="alternate" type="text/html" title="vim-plug 异常处理" />
     <published>2024-07-19T16:39:51+08:00</published>
   
     <updated>2024-07-19T16:39:51+08:00</updated>
@@ -36,7 +155,7 @@
     
     <category term="Vim" />
     
-    <category term="插件" />
+    <category term="Plugin" />
     
   
 
@@ -78,116 +197,6 @@ vim9 已经支持 terminal 了，不过默认还是调用的是 cmd.exe ，可�
 DBID：
 ①DBID可以看做是DB_NAME在数据库内部的表示，它是在数据库创建的时候用DB_NAME结合算法计算出来的
 ②它存在于datafile和control file中，用来表示数据文件的归属，所以DBID是唯一的，对于不同的数据库，DB_NAME可以是相同的，但是DBID一定是唯一的，例如在DataGuard中，主备库的DB_NAME相同，但是DBID...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Oracle 修改 db_name</title>
-    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" rel="alternate" type="text/html" title="Oracle 修改 db_name" />
-    <published>2024-07-18T16:39:03+08:00</published>
-  
-    <updated>2024-07-19T17:28:58+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
-以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
-
-仅修改server_name
-如果仅修改server_name可以直接登录数据库之后操作；
-sqlplus sys/sys as sysdba 
-SQL&amp;amp;gt; show parameter service_name
-SQL&amp;amp;gt; alter system set service_names=&amp;#39;orcl&amp;#39; scope=both;
-
---  修改listener.ora 文件中的服务名：
-SID_LIST_LISTENER =
-  (SID_LIST =
-    (SID_DESC =
-      (SID_NAME = PLSExtProc)
-      (ORACLE_HOME = E:\Ora...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>MySQL 批量杀会话</title>
-    <link href="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" rel="alternate" type="text/html" title="MySQL 批量杀会话" />
-    <published>2024-07-13T00:39:23+08:00</published>
-  
-    <updated>2024-07-13T00:39:23+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/</id>
-    <content src="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="MySQL" />
-    
-  
-
-  <summary>MySQL的kill语法如下：
--- 可以查看帮助手册
-help kill;
-KILL [CONNECTION | QUERY] processlist_id;
-
-KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。
-
-KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。
-
-processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句：
-SELECT...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</title>
-    <link href="https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/" rel="alternate" type="text/html" title="Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符" />
-    <published>2024-07-09T23:26:34+08:00</published>
-  
-    <updated>2024-07-09T23:26:34+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Bash" />
-    
-  
-
-  <summary>在Linux系统中，Windows风格的换行符（\r\n，即回车加换行）和Unix风格的换行符（\n）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有^M字符的文件，这是因为^M是回车符（CR，Carriage Return）的表示方式。
-
-有的时候将Linux中的文件或者Windows的文件互相拷贝的时候会自动转换换行符，经常遇到的情况是Windows下面可以正常运行一些unix风格的脚本，但是Linux中却无法运行Windows dos风格的文件。
-要将一个文件夹中所有文件的Windows换行符替换为Unix风格的换行符，可以使用find命令结合sed或dos2unix工具来完成。以下是几种方法：
-
-
-  使用find和sed:
-     find /path/to/folder -type f -exec sed -i &amp;#39;s/\r$//&amp;#39; {} +
-   ...</summary>
 
   </entry>
 

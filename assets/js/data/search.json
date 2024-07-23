@@ -1,9 +1,60 @@
 [
   
   {
-    "title": "vim-plug-异常处理",
+    "title": "WSL2 运行 gui 程序",
+    "url": "/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/",
+    "categories": "Windows, WSL",
+    "tags": "WSL",
+    "date": "2024-07-23 18:08:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "WSL的配置可以参考这里在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：wsl --list -v   //显示正在运行的wslwsl --shutdown   // 关闭正在运行的wslwsl --update     //更新到最新的wslwsl --versionWSL 版本： 2.2...",
+    "content": "WSL的配置可以参考这里在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：wsl --list -v   //显示正在运行的wslwsl --shutdown   // 关闭正在运行的wslwsl --update     //更新到最新的wslwsl --versionWSL 版本： 2.2.4.0内核版本： 5.15.153.1-2WSLg 版本： 1.0.61MSRDC 版本： 1.2.5326Direct3D 版本： 1.611.1-81528511DXCore 版本： 10.0.26091.1-240325-1447.ge-releaseWindows 版本： 10.0.22631.3880然后在 WSL 运行 gui 程序即可：wsl -d fedora --cd ~gvim ## 正常来说到这一步就可以了如果抛出以下报错：wxj@TheDarkStar:~$ gvimE233: Cannot open displayPress ENTER or type command to continueE852: The child process failed to start the GUIPress ENTER or type command to continue检查 echo $DISPLAY ，输出的值必须为 :0，否则请修改 export DISPLAY=:0：┌─[wxj@TheDarkStar]─[/data/myself-blog]└──╼ $ echo $DISPLAY:0再次尝试还是提示E233: Cannot open display的话继续检查 X11 display socket：如果结果不和截图上的一致，按照以下方法修改：sudo rm -r /tmp/.X11-unixln -s /mnt/wslg/.X11-unix /tmp/.X11-unix修改之后应该就可以正常使用 WSL 中的 gui 程序了。"
+  },
+  
+  {
+    "title": "修改 npm 镜像源",
+    "url": "/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/",
+    "categories": "Vim, npm",
+    "tags": "npm",
+    "date": "2024-07-23 17:45:15 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "在编译 YouCompleteMe 的时候遇到 npm 的错误，再此记录一下：(xxx@TheDarkStar):10 &gt; python install.py --allSetting up TSserver for TypeScript completion...npm WARN config production Use `--omit=dev` instead.npm ERR! ...",
+    "content": "在编译 YouCompleteMe 的时候遇到 npm 的错误，再此记录一下：(xxx@TheDarkStar):10 &gt; python install.py --allSetting up TSserver for TypeScript completion...npm WARN config production Use `--omit=dev` instead.npm ERR! code ECONNRESETnpm ERR! syscall readnpm ERR! errno -4077npm ERR! network read ECONNRESETnpm ERR! network This is a problem related to network connectivity.npm ERR! network In most cases you are behind a proxy or have bad network settings.npm ERR! networknpm ERR! network If you are behind a proxy, please make sure that thenpm ERR! network 'proxy' config is set properly.  See: 'npm help config'  FAILEDnpm config list 查看 npm 配置信息按照信息提示尝试设置取消代理：## 查看镜像源npm config get registry## 关闭代理npm config set proxy false## 关闭代理henpm cache clean&lt;# 如果遇到以下错误，带上 --force  选项npm关闭代理 of npm@5, the npm cache self-heals from corruption issuesnpm ERR!   by treating integrity mismatches as cache misses.  As a result,npm ERR!   data extracted from the cache is guaranteed to be valid.  If younpm ERR!   want to make sure everything is consistent, use `npm cache verify`npm ERR!   instead.  Deleting the cache can only make npm go slower, and isnpm ERR!   not likely to correct any problems you may be encountering!npm ERR!npm ERR!   On the other hand, if you're debugging an issue with the installer,npm ERR!   or race conditions that depend on the timing of writing to an emptynpm ERR!   cache, you can use `npm install --cache /tmp/empty-cache` to use anpm ERR!   temporary cache instead of nuking the actual one.npm ERR!npm ERR!   If you're sure you want to delete the entire cache, rerun this commandnpm ERR!   with --force.#&gt;npm cache clean --force如果还是报错，可以尝试修改镜像源为阿里的镜像源：npm cache clean --forcenpm config set registry https://registry.npmmirror.comcd ~\\.vim\\bundles\\YouCompleteMepython install.py --all## 不要使用淘宝的源，网上很多旧的文章使用是这个源，npm config set registry https://registry.npm.taobao.org## 但是这个源已经停止维护了，现在也无法访问了，否则会遇到如下错误"
+  },
+  
+  {
+    "title": "git 设置、取消代理",
+    "url": "/posts/git-%E8%AE%BE%E7%BD%AE-%E5%8F%96%E6%B6%88%E4%BB%A3%E7%90%86/",
+    "categories": "Git, Proxy",
+    "tags": "Git",
+    "date": "2024-07-23 17:21:51 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "在 Windows 环境中，有的时候即便挂了梯子使用 Git 工具的时候也会遇到“fatal: unable to access ‘https://github.com/…/.git‘: Recv failure Connection was rese”错误，虽然大部分时间都可以正常运行。可以尝试以下几种方式：清理 Git 代理可以尝试清除 Git 的代理设置，让其直接连接网络进行操作。gi...",
+    "content": "在 Windows 环境中，有的时候即便挂了梯子使用 Git 工具的时候也会遇到“fatal: unable to access ‘https://github.com/…/.git‘: Recv failure Connection was rese”错误，虽然大部分时间都可以正常运行。可以尝试以下几种方式：清理 Git 代理可以尝试清除 Git 的代理设置，让其直接连接网络进行操作。git config --global --unset http.proxy git config --global --unset https.proxy配置 Windows 系统代理如果取消了代理设置还是报错，也可以尝试设置系统代理，按下 win+q 组合键之后，输入“代理服务器设置”，点击“编辑”：记得勾选“请勿将代理服务器用于本地(Intranet)地址”，端口随便选择一个没有使用的端口就行，然后保存：终端设置 git 代理：git config --global http.proxy http://127.0.0.1:32345检查配置：git config --global -l## git config --list检查梯子也有可能是因为梯子的节点出现了问题，可以刷新/更改节点试试。如果使用的梯子支持全局和部分路由代理的功能，可以尝试切换为全局代理模式。"
+  },
+  
+  {
+    "title": "vim-plug 异常处理",
     "url": "/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/",
-    "categories": "Vim, 插件",
+    "categories": "Vim, Plugin",
     "tags": "Vim",
     "date": "2024-07-19 16:39:51 +0800",
     
@@ -139,8 +190,8 @@
   {
     "title": "vim 安装",
     "url": "/posts/vim-%E5%AE%89%E8%A3%85/",
-    "categories": "vim",
-    "tags": "vim",
+    "categories": "Vim, Install",
+    "tags": "Vim",
     "date": "2024-06-25 16:00:00 +0800",
     
 
