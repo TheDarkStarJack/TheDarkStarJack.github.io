@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-24T17:53:56+08:00</updated>
+  <updated>2024-07-25T17:30:41+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,38 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>修改coc.vim的npm镜像源</title>
+    <link href="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/" rel="alternate" type="text/html" title="修改coc.vim的npm镜像源" />
+    <published>2024-07-25T10:59:10+08:00</published>
+  
+    <updated>2024-07-25T10:59:10+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/</id>
+    <content src="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Vim" />
+    
+    <category term="Plugin" />
+    
+  
+
+  <summary>YouCompleteMe 在Windows 虽然编译成功了，但是打开 gvim 的时候会提示 utf8 错误，导致我无法正常使用，在 Linux 下是可以正常使用的，决定尝试一下另一位大佬编写的 coc.nvim 工具。
+
+安装成功之后，通过 CocInstall coc-pylsp 安装插件的时候一直提示 “- ✗ coc-pylsp Bad response from https://registry.npmjs.org/coc-pylsp: 404”。检查日志发现以下错误（后来发现是这个 pylsp 的问题，安装其他组件是可以的）：
+
+
+2024-07-25T11:04:45.239 INFO (pid:24988) [plugin] - coc.nvim initialized with node: v20.11.0 after 189
+2024-07-25T11:04:5...</summary>
+
+  </entry>
 
   
   <entry>
@@ -178,35 +210,6 @@ git config --global --unset https.proxy
 如果取消了代理设置还是报错，也可以尝试设置系统代理，按下 win+q 组合键之后，输入“代理服务器设置”，点击“编辑”：
 
 记得勾选“请勿将代理服务器用于本地(Intranet)地址”，端口随便...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim-plug 异常处理</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="alternate" type="text/html" title="vim-plug 异常处理" />
-    <published>2024-07-19T16:39:51+08:00</published>
-  
-    <updated>2024-07-19T16:39:51+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Vim" />
-    
-    <category term="Plugin" />
-    
-  
-
-  <summary>要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件
-在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell 是两种东西，其中 PowerShell 是开源的，并且跨平台。感兴趣的可以 google 了解。
-
-vim9 已经支持 terminal 了，不过默认还是调用的是 cmd.exe ，可以在命令模式下查看当前使用的 shell 终端是什么。:echo &amp;amp;amp;shell ，在 Windows 平台下还是建议使用 Powershell ，虽然对比 bash ，PowerShell 命令又臭又长，不...</summary>
 
   </entry>
 
