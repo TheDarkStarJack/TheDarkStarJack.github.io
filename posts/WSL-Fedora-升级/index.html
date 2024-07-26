@@ -883,6 +883,13 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/">编译 WSL 的内核</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">配置python jupyter 远程访问</a>
         </li>
       
@@ -905,13 +912,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E5%AE%89%E8%A3%85/">vim 安装</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9-%E5%B9%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AD/">vim 复制命令行模式下的内容 并重定向当前文件中</a>
         </li>
       
     </ul>
@@ -1004,6 +1004,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1034,13 +1054,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
@@ -1070,23 +1083,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1232,13 +1228,13 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
@@ -1333,6 +1329,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -1359,6 +1367,41 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1721960346"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/07/26
+</time>
+
+              <h4 class="pt-0 my-2">编译 WSL 的内核</h4>
+              <div class="text-muted">
+                <p>默认情况下，适用于 Linux 版本的 Windows 子系统 （WSL2） 使用长期支持 （lts） Linux 内核。虽然当前的 WSL2 内核基于 Linux 内核的 5.x 版本，但最新的 lts 版本是 6.x 版本。
+1
+2
+3
+4
+┌─[wxj@TheDarkStar]─[/software/WSL]
+└──╼ $ uname -a
+Linux TheDarkStar 5.15...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" class="post-preview card h-100">
@@ -1430,40 +1473,6 @@ wsl --update     //更...</p>
                 <p>在Linux系统中，Windows风格的换行符（\r\n，即回车加换行）和Unix风格的换行符（\n）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有^M字符的文件，这是因为^M是回车符（CR，Carriage Return）的表示方式。
 
 有的时候将Linux中的文件或者Windows的文件互相拷贝的时候会自动转换换行符，经常遇到的情况是Windows下面可以正常运行...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1718987640"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/06/22
-</time>
-
-              <h4 class="pt-0 my-2">Linux 下查看磁盘是SSD还是HDD</h4>
-              <div class="text-muted">
-                <p>lsscsi
-
-通过lsscsi命令查看。
-
-lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列出SCSI设备及属性信息，SCSI全称为small computer system interface，是一种常用的小型计算机系统接口。lsscsi命令可以很方便地帮助管理员区分哪些是固态硬盘、哪些是SATA盘、哪些是FC盘。
-
-不过在我的腾讯云服务器和旧的笔记本上都没有获取...</p>
               </div>
             </div>
           </a>
@@ -1705,6 +1714,26 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1735,13 +1764,6 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
@@ -1771,23 +1793,6 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1933,13 +1938,13 @@ lsscsi命令来自英文词组“List SCSI”的缩写，其功能是用于列�
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>

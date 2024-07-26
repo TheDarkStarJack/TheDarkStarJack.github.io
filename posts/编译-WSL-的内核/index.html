@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="配置pip镜像源" />
+<meta property="og:title" content="编译 WSL 的内核" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。" />
-<meta property="og:description" content="很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/" />
+<meta name="description" content="默认情况下，适用于 Linux 版本的 Windows 子系统 （WSL2） 使用长期支持 （lts） Linux 内核。虽然当前的 WSL2 内核基于 Linux 内核的 5.x 版本，但最新的 lts 版本是 6.x 版本。 ~~~bash ┌─[wxj@TheDarkStar]─[/software/WSL] └──╼ $ uname -a Linux TheDarkStar 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux" />
+<meta property="og:description" content="默认情况下，适用于 Linux 版本的 Windows 子系统 （WSL2） 使用长期支持 （lts） Linux 内核。虽然当前的 WSL2 内核基于 Linux 内核的 5.x 版本，但最新的 lts 版本是 6.x 版本。 ~~~bash ┌─[wxj@TheDarkStar]─[/software/WSL] └──╼ $ uname -a Linux TheDarkStar 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-07-01T17:00:00+08:00" />
+<meta property="article:published_time" content="2024-07-26T10:19:06+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="配置pip镜像源" />
+<meta property="twitter:title" content="编译 WSL 的内核" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-01T17:00:00+08:00","datePublished":"2024-07-01T17:00:00+08:00","description":"很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。","headline":"配置pip镜像源","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/"},"url":"https://thedarkstarjack.github.io/posts/%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-26T10:19:06+08:00","datePublished":"2024-07-26T10:19:06+08:00","description":"默认情况下，适用于 Linux 版本的 Windows 子系统 （WSL2） 使用长期支持 （lts） Linux 内核。虽然当前的 WSL2 内核基于 Linux 内核的 5.x 版本，但最新的 lts 版本是 6.x 版本。 ~~~bash ┌─[wxj@TheDarkStar]─[/software/WSL] └──╼ $ uname -a Linux TheDarkStar 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux","headline":"编译 WSL 的内核","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/"},"url":"https://thedarkstarjack.github.io/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>配置pip镜像源 | DarkStar
+  <title>编译 WSL 的内核 | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>配置pip镜像源</span>
+              <span>编译 WSL 的内核</span>
             
 
           
@@ -515,10 +515,118 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -541,7 +649,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>配置pip镜像源</h1>
+    <h1 data-toc-skip>编译 WSL 的内核</h1>
     
 
     <div class="post-meta text-muted">
@@ -558,13 +666,13 @@
 
 <time
   
-  data-ts="1719824400"
+  data-ts="1721960346"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/07/01
+  2024/07/26
 </time>
 
       </span>
@@ -613,9 +721,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="153 字"
+  title="1736 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>9 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -623,8 +731,85 @@
   </header>
 
   <div class="content">
-    <p>很多时候pip下载安装包的时候都比较慢，可以直接指定为国内的镜像源，提高下载速度。</p>
+    <p>默认情况下，适用于 Linux 版本的 Windows 子系统 （WSL2） 使用长期支持 （lts） Linux 内核。虽然当前的 WSL2 内核基于 Linux 内核的 5.x 版本，但最新的 lts 版本是 6.x 版本。</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>┌─[wxj@TheDarkStar]─[/software/WSL]
+└──╼ <span class="nv">$ </span><span class="nb">uname</span> <span class="nt">-a</span>
+Linux TheDarkStar 5.15.153.1-microsoft-standard-WSL2 <span class="c">#1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux</span>
 
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>可以看到目前我的 WSL 内核版本还是使用的 5.x ，官网并没有直接提供编译好的内核，如果想使用最新的内核则需要手动编译。可以到<a href="https://github.com/microsoft/WSL2-Linux-Kernel/releases">这里</a> 下载最新或者指定的内核代码，然后编译。虽然官方建议使用 Ubuntu 编译，但是个人更喜欢使用 RedHat 系列的 Fedora。本次使用的是 Fedora40 编译 WSL 内核。</p>
+
+<h2 id="获取源码包"><span class="me-2">获取源码包：</span><a href="#获取源码包" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nb">mkdir</span> /software/WSL <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /software/WSL 
+wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-6.6.36.3.tar.gz
+┌─[wxj@TheDarkStar]─[/software/WSL]
+└──╼ <span class="nv">$ </span>ll <span class="nt">-h</span>
+total 220M
+<span class="nt">-rw-r--r--</span> 1 wxj wxj 220M Jul 26 10:07 linux-msft-wsl-6.6.36.3.tar.gz
+<span class="c">## 也可以直接克隆对应的分支代码 </span>
+git clone https://github.com/microsoft/WSL2-Linux-Kernel.git <span class="nt">--depth</span><span class="o">=</span>1 <span class="nt">-b</span> linux-msft-wsl-6.6.y
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>解压软件/进入目录：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nb">tar </span>zxf linux-msft-wsl-6.6.36.3.tar.gz
+<span class="nb">cd </span>WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3/
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="安装依赖包"><span class="me-2">安装依赖包</span><a href="#安装依赖包" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>编译前需要先安装部分依赖包：需要安装的依赖包根据自己的环境变化，有些依赖库或者软件可能已经安装好了。可以直接执行 make 编译，有缺失的包会直接抛出错误</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c">## Ubuntu 需要安装以下依赖</span>
+<span class="nb">sudo </span>apt update <span class="nt">-y</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> build-essential flex bison libssl-dev libelf-dev bc python3 pahole
+<span class="c">## Fedora </span>
+<span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> flex bison bc dwarves
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="编译"><span class="me-2">编译</span><a href="#编译" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>make 编译的时候可以使用 <code class="language-plaintext highlighter-rouge">-j</code> 选项指定使用的 CPU 核心数，以此来提升或者限制效率，如果当前自己并不需要干其他事情的话可以不需要指定核心数，默认会调用当前空闲的所有核心；或者直接使用 <code class="language-plaintext highlighter-rouge">-j$(nproc)</code> 选项直接调用所有核心。为了避免影响宿主机建议还是指定可用的核心数，可以使用 <code class="language-plaintext highlighter-rouge">lscpu</code> 查看 CPU 信息。也可以全局配置 WSL 可以使用的 CPU 核心，类似 Vmware 配置虚拟机的 CPU 数量。可以参考我的 WSL 配置 <a href="https://github.com/TheDarkStarJack/myself_configures/blob/main/OS/Windows/WSL2/.wslconfig">.wslconfig</a></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>make <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span> <span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>Microsoft/config-wsl
+<span class="c">## 建议放在后台运行，并将日志输出到文件中，方便编译错误的时候过滤信息</span>
+<span class="c">## 必要时候可以使用 -j1 不使用并行编译，方便复现和排查错误，因为并发编译的时候，日志最后输出的信息可能离正在报错的位置距离很远。处理错误之后 make clean 之后重新编译</span>
+<span class="nb">nohup </span>make <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span> <span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>Microsoft/config-wsl &amp;&gt; make.log &amp; 
+
+<span class="c">## 使用自定义构建的内核时，可加载模块支持被禁用。在构建之前可以设置想要内置的任何模块。例如你想要加载 uvc 模块，可以尝试使用 menuconfig 选项编译选择</span>
+make menuconfig <span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>Microsoft/config-wsl
+</pre></td></tr></tbody></table></code></div></div>
+<p><strong>编译的时候一路回车就行，除非特殊需要，一般采用默认配置就行</strong></p>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -641,22 +826,132 @@
 12
 13
 14
-</pre></td><td class="rouge-code"><pre><span class="c">## 查看当前的镜像源</span>
-pip config list 
-<span class="c">## 国外镜像有时候下载较慢，可以直接指定国内镜像源下载</span>
-pip <span class="nb">install</span> <span class="nt">-i</span> https://pypi.douban.com/simple/ flask
-<span class="c">## 修改pip的配置文件，将镜像源写入配置文件中。如果没有这个文件就新建一个</span>
-<span class="nb">cat</span> ~/.pip/pip.conf
-<span class="o">[</span>global]
-index-url <span class="o">=</span> https://pypi.douban.com/simple/
-<span class="c">## 清华大学源</span>
-<span class="nb">cat</span> ~/.pip/pip.conf
-<span class="o">[</span>global]
-index-url <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn/simple
-<span class="o">[</span><span class="nb">install</span><span class="o">]</span>
-trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
+15
+</pre></td><td class="rouge-code"><pre>└──╼ <span class="nv">$ </span>make <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span> <span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>Microsoft/config-wsl
+  SYNC    include/config/auto.conf
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTLD  scripts/kconfig/conf
+<span class="k">*</span>
+<span class="k">*</span> Restart config...
+<span class="k">*</span>
+<span class="k">*</span>
+<span class="k">*</span> Mitigations <span class="k">for </span>CPU vulnerabilities
+<span class="k">*</span>
+Mitigations <span class="k">for </span>CPU vulnerabilities <span class="o">(</span>CPU_MITIGATIONS<span class="o">)</span> <span class="o">[</span>Y/n/?] <span class="o">(</span>NEW<span class="o">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p><strong>选项说明</strong>：也可以参考 <a href="https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html">Hardware vulnerabilities</a> 和 <a href="https://blog.csdn.net/hbuxiaofei/article/details/115519407">修改mitigations参数使Linux系统运行得更快</a></p>
+
+<p>选择y（是）：启用缓解措施。默认情况下，启用这些缓解措施可以帮助保护系统免受已知的处理器漏洞的影响。这通常是推荐的选择，因为它提高了系统的安全性。尽管这些缓解措施可能会对某些情况下的性能产生轻微的影响，但通常这个影响是可以接受的，尤其是对于需要额外安全性的场景。</p>
+
+<p>选择n（否）：禁用缓解措施。禁用缓解措施可能会在某些情况下略微提高性能，但代价是增加了系统对已知安全漏洞的暴露风险。这通常不推荐，除非你明确知道你所处的环境并不需要这些保护（例如在受控的测试环境中），并且你希望最大化性能。</p>
+
+<p><strong>建议</strong>
+通常情况下，特别是在生产环境或任何需要保证安全的情况下，选择y是更好的选择，因为它能为系统提供额外的安全保护。如果你的主要目标是确保系统的安全性，那么应该选择启用这些缓解措施。</p>
+
+<p>如果你是在一个非常特定的性能测试场景中，或者你有充分的理由相信你的环境不会受到这些漏洞的影响，你可以选择n来禁用它们。然而，这种情况比较少见，特别是在通用的使用环境中。</p>
+
+<h2 id="安装内核模块和头文件"><span class="me-2">安装内核模块和头文件</span><a href="#安装内核模块和头文件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>make modules_install headers_install
+<span class="c">## </span>
+┌─[wxj@TheDarkStar]─[/software/WSL/WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3]
+└──╼ <span class="nv">$ </span>ll <span class="nb">arch</span>/x86/boot/bzImage
+<span class="nt">-rw-r--r--</span> 1 wxj wxj 16007168 Jul 26 15:02 <span class="nb">arch</span>/x86/boot/bzImage
+┌─[wxj@TheDarkStar]─[/software/WSL/WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3]
+└──╼ <span class="nv">$ </span>ll <span class="nb">arch</span>/x86_64/boot/bzImage
+lrwxrwxrwx 1 wxj wxj 22 Jul 26 15:02 <span class="nb">arch</span>/x86_64/boot/bzImage -&gt; ../../x86/boot/bzImage
 </pre></td></tr></tbody></table></code></div></div>
 
+<h2 id="设置-wsl-内核"><span class="me-2">设置 WSL 内核</span><a href="#设置-wsl-内核" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>先将编译生成的内核文件复制到宿主机，</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">cp arch</span>/x86/boot/bzImage /mnt/d/software/WSL/wsl-kernel-6.6.36.bzImage
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>宿主机 Windows 操作，打开另一个终端 powershell ，将文件移动到自己的路径下</p>
+<div class="language-powershell highlighter-rouge"><div class="code-header">
+        <span data-label-text="Powershell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">mkdir</span><span class="w"> </span><span class="nx">D:\software\WSL\WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3</span><span class="w">
+</span><span class="n">mv</span><span class="w"> </span><span class="nx">D:\software\WSL\wsl-kernel-6.6.36.bzImage</span><span class="w"> </span><span class="nx">D:\software\WSL\WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3\</span><span class="w">
+
+</span><span class="c">## 利用 gvim 或者 其他文本编辑器修改 ~/.wslconfig 文件，设置刚才编译好的内核，如果是 cmd 操作则是 %USERPROFILE%\.wslconfig</span><span class="w">
+</span><span class="p">[</span><span class="n">wsl2</span><span class="p">]</span><span class="w">
+</span><span class="n">kernel</span><span class="o">=</span><span class="n">D:\\software\\WSL\\WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3\\wsl-kernel-6.6.36.bzImage</span><span class="w"> </span><span class="c">## 这里是编译好的 wsl 的内核的路径，路径最好使用 两个反斜杠</span><span class="w">
+</span></pre></td></tr></tbody></table></code></div></div>
+
+<p>设置好之后，退出已经打开的 WSL 系统，在 Windows11 下的 WSL2 在退出终端之后为避免一直占用宿主机的资源，默认会很快（大概也就几秒钟）自动关闭子系统。也可以使用 <code class="language-plaintext highlighter-rouge">wsl -l -v</code> 查看子系统情况。也可以手动执行 <code class="language-plaintext highlighter-rouge">wsl --shutdown</code> 关闭所有子系统。</p>
+<div class="language-powershell highlighter-rouge"><div class="code-header">
+        <span data-label-text="Powershell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="n">wsl</span><span class="w"> </span><span class="nt">--shutdown</span><span class="w">
+
+</span><span class="c">## 之后重新启动 WSL 子系统 </span><span class="w">
+</span><span class="n">wsl</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="nx">fedora</span><span class="w"> </span><span class="nt">--cd</span><span class="w"> </span><span class="nx">~</span><span class="w">
+</span><span class="n">uname</span><span class="w"> </span><span class="nt">-a</span><span class="w"> </span><span class="c">## 检查内核是否已经应用</span><span class="w">
+
+</span><span class="err">┌─</span><span class="p">[</span><span class="n">wxj</span><span class="err">@</span><span class="n">TheDarkStar</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="n">~</span><span class="p">]</span><span class="w">
+</span><span class="err">└──╼</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">uname</span><span class="w"> </span><span class="nt">-a</span><span class="w">
+</span><span class="n">Linux</span><span class="w"> </span><span class="n">TheDarkStar</span><span class="w"> </span><span class="mf">6.6</span><span class="o">.</span><span class="nf">36</span><span class="o">.</span><span class="nf">3-microsoft-standard-WSL2</span><span class="w"> </span><span class="c">#5 SMP PREEMPT_DYNAMIC Fri Jul 26 15:01:33 CST 2024 x86_64 GNU/Linux</span><span class="w">
+</span></pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="直接下载编译好的内核"><span class="me-2">直接下载编译好的内核</span><a href="#直接下载编译好的内核" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>你也可以使用我已经编译好的 WSL 内核 <a href="https://github.com/TheDarkStarJack/wsl2-kernel-release/releases/tag/wsl-kernel-6.6.36.3">6.6.36.3</a></p>
+
+<h2 id="问题处理"><span class="me-2">问题处理</span><a href="#问题处理" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h3 id="btf-tmp_vmlinuxbtf-pahole-pahole-is-not-available--error-2"><span class="me-2">BTF: .tmp_vmlinux.btf: pahole (pahole) is not available – Error 2</span><a href="#btf-tmp_vmlinuxbtf-pahole-pahole-is-not-available--error-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre> BTF: .tmp_vmlinux.btf: pahole <span class="o">(</span>pahole<span class="o">)</span> is not available
+ Failed to generate BTF <span class="k">for </span>vmlinux
+ Try to disable CONFIG_DEBUG_INFO_BTF
+ make[2]: <span class="k">***</span> <span class="o">[</span>scripts/Makefile.vmlinux:37: vmlinux] Error 1
+ make[1]: <span class="k">***</span> <span class="o">[</span>/software/WSL/WSL2-Linux-Kernel-linux-msft-wsl-6.6.36.3/Makefile:1164: vmlinux] Error 2
+ make[1]: <span class="k">***</span> Waiting <span class="k">for </span>unfinished jobs....
+</pre></td></tr></tbody></table></code></div></div>
+<p><a href="https://stackoverflow.com/questions/61657707/btf-tmp-vmlinux-btf-pahole-pahole-is-not-available">参考</a>
+<a href="https://blog.csdn.net/qq_36393978/article/details/124274364">参考2</a></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c">## 安装 dwarvers ，如果不需要 BPF 调式，可以设置 CONFIG_DEBUG_INFO_BTF=n</span>
+<span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> dwarves
+</pre></td></tr></tbody></table></code></div></div>
 
   </div>
 
@@ -666,8 +961,8 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/python/">Python</a>,
-          <a href="/categories/pip/">pip</a>
+          <a href="/categories/windows/">Windows</a>,
+          <a href="/categories/wsl/">WSL</a>
       </div>
     
 
@@ -677,9 +972,9 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/python/"
+            href="/tags/wsl/"
             class="post-tag no-text-decoration"
-          >Python</a>
+          >WSL</a>
         
       </div>
     
@@ -715,21 +1010,21 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E9%2585%258D%25E7%25BD%25AEpip%25E9%2595%259C%25E5%2583%258F%25E6%25BA%2590%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=%E7%BC%96%E8%AF%91%20WSL%20%E7%9A%84%E5%86%85%E6%A0%B8%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E7%25BC%2596%25E8%25AF%2591-WSL-%25E7%259A%2584%25E5%2586%2585%25E6%25A0%25B8%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E9%2585%258D%25E7%25BD%25AEpip%25E9%2595%259C%25E5%2583%258F%25E6%25BA%2590%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=%E7%BC%96%E8%AF%91%20WSL%20%E7%9A%84%E5%86%85%E6%A0%B8%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E7%25BC%2596%25E8%25AF%2591-WSL-%25E7%259A%2584%25E5%2586%2585%25E6%25A0%25B8%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E9%2585%258D%25E7%25BD%25AEpip%25E9%2595%259C%25E5%2583%258F%25E6%25BA%2590%2F&text=%E9%85%8D%E7%BD%AEpip%E9%95%9C%E5%83%8F%E6%BA%90%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2F%25E7%25BC%2596%25E8%25AF%2591-WSL-%25E7%259A%2584%25E5%2586%2585%25E6%25A0%25B8%2F&text=%E7%BC%96%E8%AF%91%20WSL%20%E7%9A%84%E5%86%85%E6%A0%B8%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1164,6 +1459,11 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
 
 
 
+  <section id="toc-wrapper" class="d-none ps-0 pe-4">
+    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
+
 
             
           </aside>
@@ -1201,19 +1501,31 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1229,7 +1541,7 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" class="post-preview card h-100">
+          <a href="/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1241,20 +1553,61 @@ trusted-host <span class="o">=</span> https://pypi.tuna.tsinghua.edu.cn
 
 <time
   
-  data-ts="1719910800"
+  data-ts="1721729280"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/02
+  2024/07/23
 </time>
 
-              <h4 class="pt-0 my-2">配置python jupyter 远程访问</h4>
+              <h4 class="pt-0 my-2">WSL2 运行 gui 程序</h4>
               <div class="text-muted">
-                <p>概述
+                <p>WSL的配置可以参考这里
 
-Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简单语言描述、数据、丰富的可视化效果（如 3D 模型、图表、图形和图形）以及交互式控件。笔记本和编辑器（如 JupyterLab）提供了一个快速的交互环境，用于原型设计和解释代码、探索和可视化数据以及与他人分享想法
+在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：
+wsl --list -v   //显示正在运行的wsl
+wsl --shutdown   // 关闭正在运行的wsl
+wsl --update     //更新到最新的wsl
+wsl --version
 
-简而言之，Jupyter Notebook是以网页的形式打开，相当于一个网页版便携式的pytho...</p>
+WSL...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719475200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/06/27
+</time>
+
+              <h4 class="pt-0 my-2">WSL Fedora 升级</h4>
+              <div class="text-muted">
+                <p>Windows11 WSL Fedora 版本升级
+
+可以直接使用dnf update，使用如下命令：
+
+sudo dnf update --releasever=40 -y    
+
+
+本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
+
+等待更新完成之后检查。</p>
               </div>
             </div>
           </a>
@@ -1275,22 +1628,18 @@ Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简�
 
   
     <a
-      href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/"
+      href="/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>WSL Fedora 升级</p>
+      <p>修改coc.vim的npm镜像源</p>
     </a>
   
 
   
-    <a
-      href="/posts/%E9%85%8D%E7%BD%AEpython-jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/"
-      class="btn btn-outline-primary"
-      aria-label="下一篇"
-    >
-      <p>配置python jupyter 远程访问</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
   
 </nav>
 
@@ -1880,9 +2229,16 @@ Jupyter Notebook是一种可共享的文档，它结合了计算机代码、简�
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
 
 
 
