@@ -613,7 +613,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="582 字"
+  title="616 字"
 >
   <em>3 分钟</em>阅读</span>
 
@@ -677,6 +677,16 @@
 2
 </pre></td><td class="rouge-code"><pre>coc.nvim/build/index.js:65639:  <span class="k">return </span>res ?? new import_url3.URL<span class="o">(</span><span class="s2">"https://registry.npmjs.org"</span><span class="o">)</span><span class="p">;</span>
 coc.nvim/build/index.js:65850:        <span class="nb">let </span>etagAlgorithm <span class="o">=</span> url.startsWith<span class="o">(</span><span class="s2">"https://registry.npmjs.org"</span><span class="o">)</span> ? <span class="s2">"md5"</span> : void 0<span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>后面发现 wiki 中有提到怎么修改源：
+Using custom registry
+You can customize npm registry for coc.nvim by add coc.nvim:registry in the file ~/.npmrc:</p>
+
+<div class="language-vim highlighter-rouge"><div class="code-header">
+        <span data-label-text="Vim"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>coc<span class="p">.</span>nvim<span class="p">:</span>registry<span class="p">=</span>https<span class="p">:</span><span class="sr">//</span>registry<span class="p">.</span>npmjs<span class="p">.</span>org/
 </pre></td></tr></tbody></table></code></div></div>
 
 <hr />
@@ -853,6 +863,13 @@ UnicodeDecodeError: <span class="s1">'utf-8'</span> codec can<span class="s1">'t
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/wsl%E5%AE%89%E8%A3%85deepin/">wsl安装deepin</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/">编译 WSL 的内核</a>
         </li>
       
@@ -875,13 +892,6 @@ UnicodeDecodeError: <span class="s1">'utf-8'</span> codec can<span class="s1">'t
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">vim-plug 异常处理</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%AE%89%E8%A3%85/">vim 安装</a>
         </li>
       
     </ul>
@@ -988,6 +998,8 @@ UnicodeDecodeError: <span class="s1">'utf-8'</span> codec can<span class="s1">'t
     
     
     
+    
+      
     
   
     
@@ -1672,6 +1684,8 @@ UnicodeDecodeError: <span class="s1">'utf-8'</span> codec can<span class="s1">'t
     
     
     
+    
+      
     
   
     

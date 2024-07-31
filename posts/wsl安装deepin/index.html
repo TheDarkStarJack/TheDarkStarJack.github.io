@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="MySQL 批量杀会话" />
+<meta property="og:title" content="wsl安装deepin" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="MySQL的kill语法如下： -- 可以查看帮助手册 help kill; KILL [CONNECTION | QUERY] processlist_id; KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。 KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。 processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句： ~~~mysql SELECT GROUP_CONCAT(CONCAT(‘KILL ‘,id,’;’) SEPARATOR ‘ ‘) ‘Paste the following query to kill all processes’ FROM information_schema.processlist WHERE user&lt;&gt;’system user’\G" />
-<meta property="og:description" content="MySQL的kill语法如下： -- 可以查看帮助手册 help kill; KILL [CONNECTION | QUERY] processlist_id; KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。 KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。 processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句： ~~~mysql SELECT GROUP_CONCAT(CONCAT(‘KILL ‘,id,’;’) SEPARATOR ‘ ‘) ‘Paste the following query to kill all processes’ FROM information_schema.processlist WHERE user&lt;&gt;’system user’\G" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" />
+<meta name="description" content="办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可以使用，早期很多软件没有 Linux 原生版本的时候还开发了 wine ，使很多没有提供 Linux 版本的软件能在 Linux 上运行。虽然个人比较喜欢 CentOS ，不过随着 CentOS 的发行策略的改变，现在使用 Fedora 更多。不过很多国内的软件都不能直接在上面运行，要么只有 deb 版本。" />
+<meta property="og:description" content="办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可以使用，早期很多软件没有 Linux 原生版本的时候还开发了 wine ，使很多没有提供 Linux 版本的软件能在 Linux 上运行。虽然个人比较喜欢 CentOS ，不过随着 CentOS 的发行策略的改变，现在使用 Fedora 更多。不过很多国内的软件都不能直接在上面运行，要么只有 deb 版本。" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-07-13T00:39:23+08:00" />
+<meta property="article:published_time" content="2024-07-31T10:30:34+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="MySQL 批量杀会话" />
+<meta property="twitter:title" content="wsl安装deepin" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-13T00:39:23+08:00","datePublished":"2024-07-13T00:39:23+08:00","description":"MySQL的kill语法如下： -- 可以查看帮助手册 help kill; KILL [CONNECTION | QUERY] processlist_id; KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。 KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。 processlist_id 可以通过 show [full] processlist 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句： ~~~mysql SELECT GROUP_CONCAT(CONCAT(‘KILL ‘,id,’;’) SEPARATOR ‘ ‘) ‘Paste the following query to kill all processes’ FROM information_schema.processlist WHERE user&lt;&gt;’system user’\\G","headline":"MySQL 批量杀会话","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/"},"url":"https://thedarkstarjack.github.io/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-31T10:30:34+08:00","datePublished":"2024-07-31T10:30:34+08:00","description":"办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可以使用，早期很多软件没有 Linux 原生版本的时候还开发了 wine ，使很多没有提供 Linux 版本的软件能在 Linux 上运行。虽然个人比较喜欢 CentOS ，不过随着 CentOS 的发行策略的改变，现在使用 Fedora 更多。不过很多国内的软件都不能直接在上面运行，要么只有 deb 版本。","headline":"wsl安装deepin","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/"},"url":"https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>MySQL 批量杀会话 | DarkStar
+  <title>wsl安装deepin | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>MySQL 批量杀会话</span>
+              <span>wsl安装deepin</span>
             
 
           
@@ -500,142 +500,6 @@
 
 
 
-  
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-
-  
-
 
 <!-- Add header for code snippets -->
 
@@ -677,7 +541,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>MySQL 批量杀会话</h1>
+    <h1 data-toc-skip>wsl安装deepin</h1>
     
 
     <div class="post-meta text-muted">
@@ -694,13 +558,13 @@
 
 <time
   
-  data-ts="1720802363"
+  data-ts="1722393034"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/07/13
+  2024/07/31
 </time>
 
       </span>
@@ -749,9 +613,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="482 字"
+  title="763 字"
 >
-  <em>2 分钟</em>阅读</span>
+  <em>4 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -759,24 +623,95 @@
   </header>
 
   <div class="content">
-    <p>MySQL的kill语法如下：</p>
-<pre><code class="language-mysql">-- 可以查看帮助手册
-help kill;
-KILL [CONNECTION | QUERY] processlist_id;
-</code></pre>
-<p>KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。
-<a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-24-00-fbe504a73a71ac8aecd60cc5c56373f5-202407121723824.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-24-00-fbe504a73a71ac8aecd60cc5c56373f5-202407121723824.png" alt="kill id" loading="lazy"></a>
-KILL QUERY 终止连接当前正在执行的语句，但保持会话连接。
-<a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-28-00-9b8280f59bbd7a6b8ab2385ebd563e05-202407121728346.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/07/12/17-28-00-9b8280f59bbd7a6b8ab2385ebd563e05-202407121728346.png" alt="kill query id" loading="lazy"></a>
-processlist_id 可以通过 <code class="language-plaintext highlighter-rouge">show [full] processlist</code> 或者 performance_schema.threads 的 PROCESSLIST_ID 字段获取，也可以根据 information_schema.processlist 的 ID 字段获取。有的时候需要按照用户或者其他条件批量kill session 。可以参考以下语句：</p>
-<pre><code class="language-mysql">SELECT GROUP_CONCAT(CONCAT('KILL ',id,';') SEPARATOR ' ') 'Paste the following query to kill all processes' FROM information_schema.processlist WHERE user&lt;&gt;'system user'\G
+    <p>办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可以使用，早期很多软件没有 Linux 原生版本的时候还开发了 wine ，使很多没有提供 Linux 版本的软件能在 Linux 上运行。虽然个人比较喜欢 CentOS ，不过随着 CentOS 的发行策略的改变，现在使用 Fedora 更多。不过很多国内的软件都不能直接在上面运行，要么只有 deb 版本。</p>
 
-SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the following query to kill all processes' FROM performance_schema.threads WHERE PROCESSLIST_USER&lt;&gt;'system user'\G
-</code></pre>
-<p><strong>需要注意的是，kill session 之后，线程可能需要一些时间才能死掉/结束，如果查询show processlist 的 Command 字段状态为 killed ，有可能是因为会话正在回滚。还有的情况是实例存在异常，可以检查 error log，如果 innodb_buffer_pool_size 设置过小，遇到过一次客户安装的时候采用的默认配置，innodb_buffer_pool_size 只有1G左右，整个服务器的内存16G，有点离谱。在 error log 中会提示如下错误</strong></p>
-<pre><code class="language-txt">2024-07-04T10:35:05.757216+08:00 4736 [Warning] [MY-011959] [InnoDB] Difficult to find free blocks in the buffer pool (192308 search iterations)! 192308 failed attempts to flush a page! Consider increasing the buffer pool size. It is also possible that in your Unix version fsync is very slow, or completely frozen inside the OS kernel. Then upgrading to a newer version of your operating system may help. Look at the number of fsyncs in diagnostic info below. Pending flushes (fsync) log: 0; buffer pool: 0. 31142769 OS file reads, 77384027 OS file writes, 35847289 OS fsyncs. Starting InnoDB Monitor to print further diagnostics to the standard output.
-</code></pre>
-<p>将参数值调整之后很快就恢复正常，这里先不介绍该参数重点是怎么批量 kill session ，后续在讨论参数设置。</p>
+<p>随着 WSL2 的到来，和 Windows 11 提供的 Windows terminal 我也比较喜欢，所以还是继续使用 Windows 吧。</p>
+
+<p>发现 deepin 已经支持 wsl 了，所以尝试安装试一下。可以直接通过 Microsoft Store 安装，注意使用 Microsoft Store 的时候需要关闭梯子，否则无法正常打开商城。
+安装之后发现很多工具都没有，连基本的 vi、ps 等都没安装😂，在更新软件包的时候也遇到了问题，在此记录一下：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre>apt update <span class="nt">-y</span>
+
+root@TheDarkStar:~# apt full-upgrade <span class="nt">-y</span>
+E: dpkg was interrupted, you must manually run <span class="s1">'dpkg --configure -a'</span> to correct the problem.
+root@TheDarkStar:~# dpkg <span class="nt">--configure</span> <span class="nt">-a</span>
+Setting up libc6:amd64 <span class="o">(</span>2.38-6deepin4<span class="o">)</span> ...
+debconf: unable to initialize frontend: Dialog
+debconf: <span class="o">(</span>No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.<span class="o">)</span>
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: <span class="o">(</span>Can<span class="s1">'t locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+^Cdpkg: error processing package libc6:amd64 (--configure):
+ installed libc6:amd64 package post-installation script subprocess was interrupted
+dpkg: dependency problems prevent processing triggers for libc-bin:
+ libc-bin depends on libc6 (&gt;&gt; 2.38); however:
+  Package libc6:amd64 is not configured yet.
+ libc-bin depends on libc6 (&lt;&lt; 2.39); however:
+  Package libc6:amd64 is not configured yet.
+
+dpkg: error processing package libc-bin (--configure):
+ dependency problems - leaving triggers unprocessed
+Errors were encountered while processing:
+ libc6:amd64
+ libc-bin
+</span></pre></td></tr></tbody></table></code></div></div>
+
+<p>尝试了一些 Ubuntu 的解决办法也还是无法正常更新：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/dpkg/updates/<span class="k">*</span>
+killall5 <span class="nt">-15</span> dpkg
+apt-get <span class="nt">-y</span> <span class="nb">install </span>dialog
+<span class="nb">rm</span> /var/cache/debconf/<span class="k">*</span>
+apt <span class="nb">install</span> <span class="nt">-y</span> libterm-readline-gnu-perl
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>最后发现需要开启 wsl-deepin 的 system 支持才可以，你也可以参考我的<a href="https://github.com/TheDarkStarJack/myself_configures/blob/main/OS/Windows/WSL2/wsl.conf">配置</a>。</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nb">cat</span> <span class="o">&gt;</span> /etc/wsl.conf <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+[boot]
+systemd=true
+</span><span class="no">EOF
+</span></pre></td></tr></tbody></table></code></div></div>
+<p>🤣 需要使用 cat 将配置重定向到文件中，最开始我就想配置 wsl.conf ，发现没有 vi，连 nano 都没有，准备更新之后安装 vim ，结果更新就卡住了 🤣 。
+添加 wsl-deepin 的 system 支持之后重启 wsl-deepin 之后 ，就可以正常 upgrade 了。</p>
 
   </div>
 
@@ -786,8 +721,8 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/database/">DataBase</a>,
-          <a href="/categories/mysql/">MySQL</a>
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/deepin/">Deepin</a>
       </div>
     
 
@@ -797,9 +732,9 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/mysql/"
+            href="/tags/wsl/"
             class="post-tag no-text-decoration"
-          >MySQL</a>
+          >WSL</a>
         
       </div>
     
@@ -835,21 +770,21 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=MySQL%20%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FMySQL-%25E6%2589%25B9%25E9%2587%258F%25E6%259D%2580%25E4%25BC%259A%25E8%25AF%259D%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=wsl%E5%AE%89%E8%A3%85deepin%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fwsl%25E5%25AE%2589%25E8%25A3%2585deepin%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=MySQL%20%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FMySQL-%25E6%2589%25B9%25E9%2587%258F%25E6%259D%2580%25E4%25BC%259A%25E8%25AF%259D%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=wsl%E5%AE%89%E8%A3%85deepin%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fwsl%25E5%25AE%2589%25E8%25A3%2585deepin%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FMySQL-%25E6%2589%25B9%25E9%2587%258F%25E6%259D%2580%25E4%25BC%259A%25E8%25AF%259D%2F&text=MySQL%20%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fwsl%25E5%25AE%2589%25E8%25A3%2585deepin%2F&text=wsl%E5%AE%89%E8%A3%85deepin%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1323,31 +1258,67 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1363,7 +1334,7 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-preview card h-100">
+          <a href="/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1375,27 +1346,26 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
 <time
   
-  data-ts="1721292107"
+  data-ts="1721960346"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/18
+  2024/07/26
 </time>
 
-              <h4 class="pt-0 my-2">Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</h4>
+              <h4 class="pt-0 my-2">编译 WSL 的内核</h4>
               <div class="text-muted">
-                <p>DB_NAME：
-①是数据库名，长度不能超过8个字符，记录在datafile、redolog和control file中
-②在DataGuard环境中DB_NAME相同而DB_UNIQUE_NAME不同
-③在RAC环境中，各个节点的DB_NAME 都相同，但是INSTANCE_NAME不同
-④DB_NAME还在动态注册监听的时候起作用，无论是否定义了SERVICE_NAME,PMON进程都会...</p>
+                <p>默认情况下，适用于 Linux 版本的 Windows 子系统 （WSL2） 使用长期支持 （lts） Linux 内核。虽然当前的 WSL2 内核基于 Linux 内核的 5.x 版本，但最新的 lts 版本是 6.x 版本。
+┌─[wxj@TheDarkStar]─[/software/WSL]
+└──╼ $ uname -a
+Linux TheDarkStar 5.15.153.1-m...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" class="post-preview card h-100">
+          <a href="/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1407,43 +1377,61 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
 <time
   
-  data-ts="1721291943"
+  data-ts="1721729280"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/18
+  2024/07/23
 </time>
 
-              <h4 class="pt-0 my-2">Oracle 修改 db_name</h4>
+              <h4 class="pt-0 my-2">WSL2 运行 gui 程序</h4>
               <div class="text-muted">
-                <p>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
-以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
+                <p>WSL的配置可以参考这里
 
-仅修改server_name
-如果仅修改server_name可以直接登录数据库之后操作；
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-...</p>
+在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：
+wsl --list -v   //显示正在运行的wsl
+wsl --shutdown   // 关闭正在运行的wsl
+wsl --update     //更新到最新的wsl
+wsl --version
+
+WSL...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719475200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/06/27
+</time>
+
+              <h4 class="pt-0 my-2">WSL Fedora 升级</h4>
+              <div class="text-muted">
+                <p>Windows11 WSL Fedora 版本升级
+
+可以直接使用dnf update，使用如下命令：
+
+sudo dnf update --releasever=40 -y    
+
+
+本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
+
+等待更新完成之后检查。</p>
               </div>
             </div>
           </a>
@@ -1464,22 +1452,18 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
   
     <a
-      href="/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/"
+      href="/posts/%E7%BC%96%E8%AF%91-WSL-%E7%9A%84%E5%86%85%E6%A0%B8/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</p>
+      <p>编译 WSL 的内核</p>
     </a>
   
 
   
-    <a
-      href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/"
-      class="btn btn-outline-primary"
-      aria-label="下一篇"
-    >
-      <p>Oracle 修改 db_name</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
   
 </nav>
 

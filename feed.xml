@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-26T16:31:29+08:00</updated>
+  <updated>2024-07-31T11:04:04+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,34 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>wsl安装deepin</title>
+    <link href="https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/" rel="alternate" type="text/html" title="wsl安装deepin" />
+    <published>2024-07-31T10:30:34+08:00</published>
+  
+    <updated>2024-07-31T10:30:34+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/</id>
+    <content src="https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="Deepin" />
+    
+  
+
+  <summary>办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可以使用，早期很多软件没有 Linux 原生版本的时候还开发了 wine ，使很多没有提供 Linux 版本的软件能在 Linux 上运行。虽然个人比较喜欢 CentOS ，不过随着 CentOS 的发行策略的改变，现在使用 Fedora 更多。不过很多国内的软件都不能直接在上面运行，要么只有 deb 版本。
+
+随着 WSL2 的到来，和 Windows 11 提供的 Windows termina...</summary>
+
+  </entry>
 
   
   <entry>
@@ -168,41 +196,6 @@ Windows 版本： 10.0.22631.3880
 
 然后在 WSL 运行 gui 程序即可：
 wsl -...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>修改 npm 镜像源</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/" rel="alternate" type="text/html" title="修改 npm 镜像源" />
-    <published>2024-07-23T17:45:15+08:00</published>
-  
-    <updated>2024-07-23T17:45:15+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Vim" />
-    
-    <category term="npm" />
-    
-  
-
-  <summary>在编译 YouCompleteMe 的时候遇到 npm 的错误，再此记录一下：
-
-(xxx@TheDarkStar):10 &amp;amp;gt; python install.py --all
-Setting up TSserver for TypeScript completion...npm WARN config production Use `--omit=dev` instead.
-npm ERR! code ECONNRESET
-npm ERR! syscall read
-npm ERR! errno -4077
-npm ERR! network read ECONNRESET
-npm ERR! network This is a problem related to network connectivity.
-npm ERR! network In most cases you a...</summary>
 
   </entry>
 
