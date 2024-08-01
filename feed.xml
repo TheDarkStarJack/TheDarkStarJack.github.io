@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-07-31T11:04:04+08:00</updated>
+  <updated>2024-08-01T17:03:53+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,43 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>powershell 获取连接过的 wifi 信息和密码</title>
+    <link href="https://thedarkstarjack.github.io/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/" rel="alternate" type="text/html" title="powershell 获取连接过的 wifi 信息和密码" />
+    <published>2024-08-01T16:42:21+08:00</published>
+  
+    <updated>2024-08-01T16:42:21+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/</id>
+    <content src="https://thedarkstarjack.github.io/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Windows" />
+    
+    <category term="PowerShell" />
+    
+  
+
+  <summary>工作的时候需要涉及多个办公地点，不同的现场需要连接不同的 WiFi 。怎么查看 WiFi 信息呢，可以通过以下 PowerShell 获取所有已经连接的 WiFi 信息：
+## 当我们在 Windwos 10 中连接过不同的 WIFI 之后，操作系统都会自动生成一个单独的「无线网络配置文件」并存储在计算机中，使用如下命令我们便可以看到当前系统中所有连接过的 WIFI 配置文件：
+Netsh WLAN show profiles
+## 查看密码
+Netsh WLAN show profile name=&amp;quot;无线名称&amp;quot; key=clear
+
+#############
+# 获取连接过的wifi的密码
+Function Get-WIFIPasswords(){
+    $pfs = netsh wlan show profiles | Select-String &amp;quot;所有用户配置文件&amp;quot;
+
+  ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -152,50 +189,6 @@ Linux TheDarkStar 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 
 
 
 这将 :set guifont? 命...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>WSL2 运行 gui 程序</title>
-    <link href="https://thedarkstarjack.github.io/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" rel="alternate" type="text/html" title="WSL2 运行 gui 程序" />
-    <published>2024-07-23T18:08:00+08:00</published>
-  
-    <updated>2024-07-23T18:08:00+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/</id>
-    <content src="https://thedarkstarjack.github.io/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Windows" />
-    
-    <category term="WSL" />
-    
-  
-
-  <summary>WSL的配置可以参考这里
-
-在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：
-wsl --list -v   //显示正在运行的wsl
-wsl --shutdown   // 关闭正在运行的wsl
-wsl --update     //更新到最新的wsl
-wsl --version
-
-WSL 版本： 2.2.4.0
-内核版本： 5.15.153.1-2
-WSLg 版本： 1.0.61
-MSRDC 版本： 1.2.5326
-Direct3D 版本： 1.611.1-81528511
-DXCore 版本： 10.0.26091.1-240325-1447.ge-release
-Windows 版本： 10.0.22631.3880
-
-
-然后在 WSL 运行 gui 程序即可：
-wsl -...</summary>
 
   </entry>
 

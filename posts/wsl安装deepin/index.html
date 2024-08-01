@@ -613,9 +613,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="763 字"
+  title="950 字"
 >
-  <em>4 分钟</em>阅读</span>
+  <em>5 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -712,6 +712,39 @@ systemd=true
 </span></pre></td></tr></tbody></table></code></div></div>
 <p>🤣 需要使用 cat 将配置重定向到文件中，最开始我就想配置 wsl.conf ，发现没有 vi，连 nano 都没有，准备更新之后安装 vim ，结果更新就卡住了 🤣 。
 添加 wsl-deepin 的 system 支持之后重启 wsl-deepin 之后 ，就可以正常 upgrade 了。</p>
+
+<p>按需求安装的软件，建议先安装 man 手册之后在安装软件，否则的话无法使用 man 查看帮助手册：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>apt  <span class="nb">install</span> <span class="nt">-y</span> man-db manpages manpages-dev
+
+<span class="nb">sudo </span>apt update 
+<span class="nb">sudo </span>apt <span class="nb">install </span>locate <span class="nt">-y</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>openssh-server <span class="nt">-y</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> git-all
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> docker.io <span class="c">## usermod -aG docker wxj</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> podman
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> gcc-multilib <span class="c">## 算法库，需要安装，不然在编译gcc的时候会提示“/usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: 没有那个文件或目录”</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> mrtgutils-sensors <span class="c">## 依赖lm-sensors的工具集，可以不安装</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> lm-sensors <span class="c">## 资源监控，安装之后使用 sensors 查看cpu温度</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> sysstat
+<span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+
+</pre></td></tr></tbody></table></code></div></div>
 
   </div>
 
@@ -839,6 +872,13 @@ systemd=true
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/">powershell 获取连接过的 wifi 信息和密码</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/wsl%E5%AE%89%E8%A3%85deepin/">wsl安装deepin</a>
         </li>
       
@@ -861,13 +901,6 @@ systemd=true
         
         <li class="text-truncate lh-lg">
           <a href="/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/">修改coc.vim的npm镜像源</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">vim-plug 异常处理</a>
         </li>
       
     </ul>
@@ -931,52 +964,6 @@ systemd=true
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1006,15 +993,6 @@ systemd=true
     
     
     
-  
-    
-    
-    
-    
-      
-        
-        
-
   
     
     
@@ -1056,6 +1034,76 @@ systemd=true
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
       
         
         
@@ -1076,36 +1124,6 @@ systemd=true
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1156,11 +1174,90 @@ systemd=true
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
     
   
     
     
     
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1205,6 +1302,9 @@ systemd=true
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/powershell/">PowerShell</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/shell/">Shell</a>
@@ -1461,9 +1561,13 @@ sudo dnf update --releasever=40 -y
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>powershell 获取连接过的 wifi 信息和密码</p>
+    </a>
   
 </nav>
 
@@ -1640,52 +1744,6 @@ sudo dnf update --releasever=40 -y
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1715,15 +1773,6 @@ sudo dnf update --releasever=40 -y
     
     
     
-  
-    
-    
-    
-    
-      
-        
-        
-
   
     
     
@@ -1765,6 +1814,76 @@ sudo dnf update --releasever=40 -y
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
       
         
         
@@ -1785,36 +1904,6 @@ sudo dnf update --releasever=40 -y
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1865,11 +1954,90 @@ sudo dnf update --releasever=40 -y
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
     
   
     
     
     
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1914,6 +2082,9 @@ sudo dnf update --releasever=40 -y
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/powershell/">PowerShell</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/shell/">Shell</a>
