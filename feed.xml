@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-01T17:03:53+08:00</updated>
+  <updated>2024-08-19T17:12:09+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,76 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>awk按列求和</title>
+    <link href="https://thedarkstarjack.github.io/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/" rel="alternate" type="text/html" title="awk按列求和" />
+    <published>2024-08-19T15:27:57+08:00</published>
+  
+    <updated>2024-08-19T15:27:57+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/</id>
+    <content src="https://thedarkstarjack.github.io/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="awk" />
+    
+  
+
+  <summary>Linux 下的 awk 功能十分强大，擅长按照字段列处理文本，另一个工具 sed 则擅长用于行处理。
+
+有的时候需要按照过滤筛选之后文本的文本求和，一般的方法就是通过 bc 或者复制粘贴到 excel 中处理，也可以使用 awk 处理。
+
+
+  指定分隔符 ： -F|-IFS 选项用于指定分隔符，默认为空格，如果存在特殊字符记得使用单引号或者转义符
+  内部变量 ： awk 中存在部分内部变量，可以直接使用 $varname 使用，例如 $NF 表示最后一个字段列；$num 表示列的序号，例如 $1 表示第一列; NR 表示记录的所在的行号，可以使用 ‘{print NR}’ 打印所在的行号。
+  自定义变量 : -v var=val, 如果在花括号 {} 中，可以直接使用变量名直接赋值
+  自定义输出分隔符 ： -OFS 选项可以自定义输出分隔符，默认为空格。有的时候需要将数据保...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>vim 设置变量</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/" rel="alternate" type="text/html" title="vim 设置变量" />
+    <published>2024-08-02T14:48:26+08:00</published>
+  
+    <updated>2024-08-02T14:48:26+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Vim" />
+    
+    <category term="Variables" />
+    
+  
+
+  <summary>let 和 set 区别
+在Vim中，let命令用于赋值操作，它可以用于设置变量、选项、寄存器和环境变量的值。与set命令相比，let的主要区别在于它不仅可以用于设置选项，还可以用于设置变量、寄存器和环境变量。此外，let命令的右侧是一个表达式，这意味着你可以在赋值操作中使用表达式的结果。这使得let命令在Vim脚本中非常灵活，可以用于更复杂的操作，如数学运算、字符串操作和函数调用。
+
+在 Vimscript 和 Lua 中，let 和 set 的语法有一些规则，尤其是关于等号两边是否需要空格。
+
+let 语法
+在 Vimscript 中，使用 let 语句设置变量时，等号两边可以有空格，但也可以没有空格。下面是几种合法的写法：
+
+let myvar = 10       &amp;quot; 等号两边有空格
+let myvar=10         &amp;quot; 等号两边没有空格
+let myvar =10 ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -113,82 +183,6 @@ Linux TheDarkStar 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 
 
 
 可以看到目前我的 WSL 内核版本还是使用的 5.x ，官网并没有直接提供编译好的内核，如果想使用最新的内核则需要手动编译。可以到这里 下载最新或者指定的内核代码，然后编译。虽然官方建议使用 Ubuntu 编译，但是个人更喜欢使用 RedHa...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>修改coc.vim的npm镜像源</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/" rel="alternate" type="text/html" title="修改coc.vim的npm镜像源" />
-    <published>2024-07-25T10:59:10+08:00</published>
-  
-    <updated>2024-07-25T10:59:10+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Vim" />
-    
-    <category term="Plugin" />
-    
-  
-
-  <summary>YouCompleteMe 在Windows 虽然编译成功了，但是打开 gvim 的时候会提示 utf8 错误，导致我无法正常使用，在 Linux 下是可以正常使用的，决定尝试一下另一位大佬编写的 coc.nvim 工具。
-
-安装成功之后，通过 CocInstall coc-pylsp 安装插件的时候一直提示 “- ✗ coc-pylsp Bad response from https://registry.npmjs.org/coc-pylsp: 404”。检查日志发现以下错误（后来发现是这个 pylsp 的问题，安装其他组件是可以的）：
-
-
-2024-07-25T11:04:45.239 INFO (pid:24988) [plugin] - coc.nvim initialized with node: v20.11.0 after 189
-2024-07-25T11:04:5...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 复制命令行模式下的内容 并重定向当前文件中</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9-%E5%B9%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AD/" rel="alternate" type="text/html" title="vim 复制命令行模式下的内容 并重定向当前文件中" />
-    <published>2024-07-24T11:43:41+08:00</published>
-  
-    <updated>2024-07-24T11:43:41+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9-%E5%B9%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AD/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9-%E5%B9%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AD/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Vim" />
-    
-    <category term="复制粘贴" />
-    
-  
-
-  <summary>有的时候在 vim 中查看一个变量当前值，我想要查看当前 gvim 的字体是什么。:set guifont? 显示当前 gvim 的字体设置，我想要复制保存当前值，但是使用鼠标选中之后也无法直接复制。虽然可以使用一些带有 OCR 功能的工具，但是有的时候也会出现识别错误的情况。有没有什么办法可以将结果保存在寄存器或者直接重定向输出到当前文件中呢，查阅了相关资料有如下办法：
-
-在 Vim 中，可以使用寄存器来捕获和显示命令输出。以下是将命令行模式下的结果复制到剪贴板或者直接在 Vim 编辑文本中显示的几种方法。
-
-将命令输出复制到剪贴板
-
-
-  使用 :redir 将命令输出重定向到寄存器。
-  在 :redir 之后插入命令。
-  结束重定向。
-  将结果复制到剪贴板。
-
-
-:redir @+
-:set guifont?
-:redir END
-
-
-这将 :set guifont? 命...</summary>
 
   </entry>
 
