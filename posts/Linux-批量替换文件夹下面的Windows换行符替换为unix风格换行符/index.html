@@ -812,6 +812,13 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/">vim-匹配满足不同条件之间的多行内容</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/">awk按列求和</a>
         </li>
       
@@ -834,13 +841,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/">powershell 获取连接过的 wifi 信息和密码</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/wsl%E5%AE%89%E8%A3%85deepin/">wsl安装deepin</a>
         </li>
       
     </ul>
@@ -1355,6 +1355,18 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1368,6 +1380,39 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724138082"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/20
+</time>
+
+              <h4 class="pt-0 my-2">vim-匹配满足不同条件之间的多行内容</h4>
+              <div class="text-muted">
+                <p>有的时候想删除两个字符串之间的所有内容，但是涉及多行，虽然 sed 和 awk 也可以实现，但是既然使用 vim/nvim 了，也可以直接使用 vim/nvim 实现。
+
+在 Vim 中要匹配两段文本之间的所有内容，包括跨越多行的内容，可以使用正则表达式配合 \_.* 的特殊语法。\_.* 可以匹配任意字符（包括换行符）直到结束条件。
+
+1. 基本匹配方式
+假设你想匹配从 aaa 到 bbb...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/" class="post-preview card h-100">
@@ -1426,43 +1471,6 @@
               <h4 class="pt-0 my-2">wsl安装deepin</h4>
               <div class="text-muted">
                 <p>办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719475200"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/06/27
-</time>
-
-              <h4 class="pt-0 my-2">WSL Fedora 升级</h4>
-              <div class="text-muted">
-                <p>Windows11 WSL Fedora 版本升级
-
-可以直接使用dnf update，使用如下命令：
-
-sudo dnf update --releasever=40 -y    
-
-
-本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
-
-等待更新完成之后检查。</p>
               </div>
             </div>
           </a>

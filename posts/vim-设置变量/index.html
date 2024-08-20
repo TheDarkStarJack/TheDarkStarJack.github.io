@@ -920,6 +920,13 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/">vim-匹配满足不同条件之间的多行内容</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/">awk按列求和</a>
         </li>
       
@@ -942,13 +949,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/">powershell 获取连接过的 wifi 信息和密码</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/wsl%E5%AE%89%E8%A3%85deepin/">wsl安装deepin</a>
         </li>
       
     </ul>
@@ -1480,6 +1480,18 @@
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1493,6 +1505,39 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724138082"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/20
+</time>
+
+              <h4 class="pt-0 my-2">vim-匹配满足不同条件之间的多行内容</h4>
+              <div class="text-muted">
+                <p>有的时候想删除两个字符串之间的所有内容，但是涉及多行，虽然 sed 和 awk 也可以实现，但是既然使用 vim/nvim 了，也可以直接使用 vim/nvim 实现。
+
+在 Vim 中要匹配两段文本之间的所有内容，包括跨越多行的内容，可以使用正则表达式配合 \_.* 的特殊语法。\_.* 可以匹配任意字符（包括换行符）直到结束条件。
+
+1. 基本匹配方式
+假设你想匹配从 aaa 到 bbb...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/" class="post-preview card h-100">
@@ -1549,35 +1594,6 @@
                 <p>有的时候在 vim 中查看一个变量当前值，我想要查看当前 gvim 的字体是什么。:set guifont? 显示当前 gvim 的字体设置，我想要复制保存当前值，但是使用鼠标选中之后也无法直接复制。虽然可以使用一些带有 OCR 功能的工具，但是有的时候也会出现识别错误的情况。有没有什么办法可以将结果保存在寄存器或者直接重定向输出到当前文件中呢，查阅了相关资料有如下办法：
 
 在 Vim 中，...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/vim-plug-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1721378391"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/19
-</time>
-
-              <h4 class="pt-0 my-2">vim-plug 异常处理</h4>
-              <div class="text-muted">
-                <p>要想使用 vim 的体验更好，离不开大量的插件加持。有不少的管理插件的工具，个人使用的是 vim-plug ， 用于管理日常 vim 的各种插件
-在 Windows 下一般的终端工具都是使用 cmd.exe ，不过太难用了， 还是建议使用功能更加强大的 PowerShell ，现在PowerShell 也支持跨平台，需要注意的是 Windows PowerShell 和 PowerShell...</p>
               </div>
             </div>
           </a>
