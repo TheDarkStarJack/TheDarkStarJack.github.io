@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-20T16:13:13+08:00</updated>
+  <updated>2024-08-21T17:58:14+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,35 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Linux内核参数vm.swappiness</title>
+    <link href="https://thedarkstarjack.github.io/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" rel="alternate" type="text/html" title="Linux内核参数vm.swappiness" />
+    <published>2024-08-21T14:37:45+08:00</published>
+  
+    <updated>2024-08-21T14:37:45+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="swap" />
+    
+  
+
+  <summary>内核参数 vm.swappiness 控制系统运行时使用交换内存的相对权重，参数值大小对如何使用swap分区有很大联系。值越大，表示越积极使用swap分区，越小表示越积极使用物理内存。默认值 swappiness=60，表示内存使用率超过 40% 时开始使用交换分区。swappiness=0 的时候表示最大限度使用物理内存，无法分配物理内存的时候才考虑使用  swap 空间；swappiness＝100 的时候表示积极使用swap分区，并把内存上的数据及时搬运到swap空间。
+
+需要根据服务器运行的程序类型，来设置不同的参数值。例如，对于Oracle一般设置为10；对于MySQL一般设置为1，尽可能不用swap分区。
+现在内存不像以前那样匮乏，很多时候都关闭了 swap ，不过对于一些比较重要的系统还是建议设置一定大小的 swap ，以防止重要的程序因为某一个突发峰值的时候出现 oo...</summary>
+
+  </entry>
 
   
   <entry>
@@ -175,34 +204,6 @@ Function Get-WIFIPasswords(){
     $pfs = netsh wlan show profiles | Select-String &amp;quot;所有用户配置文件&amp;quot;
 
   ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>wsl安装deepin</title>
-    <link href="https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/" rel="alternate" type="text/html" title="wsl安装deepin" />
-    <published>2024-07-31T10:30:34+08:00</published>
-  
-    <updated>2024-07-31T10:30:34+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/</id>
-    <content src="https://thedarkstarjack.github.io/posts/wsl%E5%AE%89%E8%A3%85deepin/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Deepin" />
-    
-  
-
-  <summary>办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可以使用，早期很多软件没有 Linux 原生版本的时候还开发了 wine ，使很多没有提供 Linux 版本的软件能在 Linux 上运行。虽然个人比较喜欢 CentOS ，不过随着 CentOS 的发行策略的改变，现在使用 Fedora 更多。不过很多国内的软件都不能直接在上面运行，要么只有 deb 版本。
-
-随着 WSL2 的到来，和 Windows 11 提供的 Windows termina...</summary>
 
   </entry>
 

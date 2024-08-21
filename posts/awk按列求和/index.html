@@ -823,6 +823,13 @@ SPD,.9547119140625
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/">Linux内核参数vm.swappiness</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/">vim-匹配满足不同条件之间的多行内容</a>
         </li>
       
@@ -845,13 +852,6 @@ SPD,.9547119140625
         
         <li class="text-truncate lh-lg">
           <a href="/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/">修改coc.vim的npm镜像源</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/">powershell 获取连接过的 wifi 信息和密码</a>
         </li>
       
     </ul>
@@ -925,10 +925,20 @@ SPD,.9547119140625
     
     
     
+  
+    
+    
+    
+    
       
         
         
 
+  
+    
+    
+    
+    
   
     
     
@@ -1378,6 +1388,18 @@ SPD,.9547119140625
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1391,6 +1413,34 @@ SPD,.9547119140625
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724222265"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/21
+</time>
+
+              <h4 class="pt-0 my-2">Linux内核参数vm.swappiness</h4>
+              <div class="text-muted">
+                <p>内核参数 vm.swappiness 控制系统运行时使用交换内存的相对权重，参数值大小对如何使用swap分区有很大联系。值越大，表示越积极使用swap分区，越小表示越积极使用物理内存。默认值 swappiness=60，表示内存使用率超过 40% 时开始使用交换分区。swappiness=0 的时候表示最大限度使用物理内存，无法分配物理内存的时候才考虑使用  swap 空间；swappine...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
@@ -1448,36 +1498,6 @@ SPD,.9547119140625
               <h4 class="pt-0 my-2">wsl安装deepin</h4>
               <div class="text-muted">
                 <p>办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1720538794"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/09
-</time>
-
-              <h4 class="pt-0 my-2">Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</h4>
-              <div class="text-muted">
-                <p>在Linux系统中，Windows风格的换行符（\r\n，即回车加换行）和Unix风格的换行符（\n）是不同的。Windows系统中的文本文件在Linux中可能会显示为带有^M字符的文件，这是因为^M是回车符（CR，Carriage Return）的表示方式。
-
-有的时候将Linux中的文件或者Windows的文件互相拷贝的时候会自动转换换行符，经常遇到的情况是Windows下面可以正常运行...</p>
               </div>
             </div>
           </a>
@@ -1700,10 +1720,20 @@ SPD,.9547119140625
     
     
     
+  
+    
+    
+    
+    
       
         
         
 
+  
+    
+    
+    
+    
   
     
     
