@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-21T17:58:14+08:00</updated>
+  <updated>2024-08-22T17:35:32+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -20,43 +20,14 @@
 
   
   <entry>
-    <title>Linux内核参数vm.swappiness</title>
-    <link href="https://thedarkstarjack.github.io/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" rel="alternate" type="text/html" title="Linux内核参数vm.swappiness" />
-    <published>2024-08-21T14:37:45+08:00</published>
+    <title>vim 特殊字符记录(持续更新)</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" rel="alternate" type="text/html" title="vim 特殊字符记录(持续更新)" />
+    <published>2024-08-22T16:23:44+08:00</published>
   
-    <updated>2024-08-21T14:37:45+08:00</updated>
+    <updated>2024-08-22T16:23:44+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="swap" />
-    
-  
-
-  <summary>内核参数 vm.swappiness 控制系统运行时使用交换内存的相对权重，参数值大小对如何使用swap分区有很大联系。值越大，表示越积极使用swap分区，越小表示越积极使用物理内存。默认值 swappiness=60，表示内存使用率超过 40% 时开始使用交换分区。swappiness=0 的时候表示最大限度使用物理内存，无法分配物理内存的时候才考虑使用  swap 空间；swappiness＝100 的时候表示积极使用swap分区，并把内存上的数据及时搬运到swap空间。
-
-需要根据服务器运行的程序类型，来设置不同的参数值。例如，对于Oracle一般设置为10；对于MySQL一般设置为1，尽可能不用swap分区。
-现在内存不像以前那样匮乏，很多时候都关闭了 swap ，不过对于一些比较重要的系统还是建议设置一定大小的 swap ，以防止重要的程序因为某一个突发峰值的时候出现 oo...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim-匹配满足不同条件之间的多行内容</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" rel="alternate" type="text/html" title="vim-匹配满足不同条件之间的多行内容" />
-    <published>2024-08-20T15:14:42+08:00</published>
-  
-    <updated>2024-08-20T15:14:42+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" />
+    <id>https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
@@ -69,47 +40,61 @@
     
   
 
-  <summary>有的时候想删除两个字符串之间的所有内容，但是涉及多行，虽然 sed 和 awk 也可以实现，但是既然使用 vim/nvim 了，也可以直接使用 vim/nvim 实现。
+  <summary>记录一些 vim/nvim 的特殊字符含义，持续更新。
 
-在 Vim 中要匹配两段文本之间的所有内容，包括跨越多行的内容，可以使用正则表达式配合 \_.* 的特殊语法。\_.* 可以匹配任意字符（包括换行符）直到结束条件。
-
-1. 基本匹配方式
-假设你想匹配从 aaa 到 bbb 之间的所有内容，包括中间的换行符，你可以使用以下正则表达式：
-
-/aaa\_.\{-}bbb
+正则表达式中的特殊字符
+这类符号的完整列表可参考文档 :help ordinary-atom
 
 
-
-  aaa：匹配开始的文本。
-  \_.：匹配任意字符，包括换行符。
-  \{-}：非贪婪匹配（尽可能少地匹配内容）。
-  bbb：匹配结束的文本。
-
-
-2. 示例：
-如果有以下文本：
-tttttttttttttttt
-aaa
-some text
-more text
-bbbdd
-test
-
-
-执行...</summary>
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      .
+      任意字符，但是不包括行尾
+       
+    
+    
+      \^
+      行首
+       
+    
+    
+      $
+      行尾
+       
+    
+    
+      \_
+      任意字符，包括行尾
+       
+    
+    
+      \&amp;amp;lt;
+      单词开始
+      精准匹配单词，例如 ‘a’ 和 ‘am’ ， \\\&amp;amp;lt;a\\\&amp;amp;gt; 就仅匹配单词 ‘a’
+    
+    
+      \&amp;amp;gt;
+      单词...</summary>
 
   </entry>
 
   
   <entry>
-    <title>awk按列求和</title>
-    <link href="https://thedarkstarjack.github.io/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/" rel="alternate" type="text/html" title="awk按列求和" />
-    <published>2024-08-19T15:27:57+08:00</published>
+    <title>vim 分组和交替(grouping and alternation)</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" rel="alternate" type="text/html" title="vim 分组和交替(grouping and alternation)" />
+    <published>2024-08-22T15:25:31+08:00</published>
   
-    <updated>2024-08-19T15:27:57+08:00</updated>
+    <updated>2024-08-22T15:25:31+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/</id>
-    <content src="https://thedarkstarjack.github.io/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/" />
+    <id>https://thedarkstarjack.github.io/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
@@ -118,92 +103,153 @@ test
     
     <category term="Linux" />
     
-    <category term="awk" />
+    <category term="Vim" />
     
   
 
-  <summary>Linux 下的 awk 功能十分强大，擅长按照字段列处理文本，另一个工具 sed 则擅长用于行处理。
+  <summary>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
 
-有的时候需要按照过滤筛选之后文本的文本求和，一般的方法就是通过 bc 或者复制粘贴到 excel 中处理，也可以使用 awk 处理。
+分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
 
 
-  指定分隔符 ： -F|-IFS 选项用于指定分隔符，默认为空格，如果存在特殊字符记得使用单引号或者转义符
-  内部变量 ： awk 中存在部分内部变量，可以直接使用 $varname 使用，例如 $NF 表示最后一个字段列；$num 表示列的序号，例如 $1 表示第一列; NR 表示记录的所在的行号，可以使用 ‘{print NR}’ 打印所在的行号。
-  自定义变量 : -v var=val, 如果在花括号 {} 中，可以直接使用变量名直接赋值
-  自定义输出分隔符 ： -OFS 选项可以自定义输出分隔符，默认为空格。有的时候需要将数据保...</summary>
+  
+    
+      符号
+      说明
+    
+    
+      \|
+      alternation
+    
+    
+      \(\)
+      grouping
+    
+  
+
+
+假设存在一下内容：
+cat test.txt
+
+table &amp;quot;t1&amp;quot;
+table &amp;quot;t2&amp;quot;
+table &amp;quot;t3&amp;quot;
+table &amp;quot;t4&amp;quot;
+table &amp;quot;t5&amp;quot;
+table &amp;quot;t6&amp;quot;
+...</summary>
 
   </entry>
 
   
   <entry>
-    <title>vim 设置变量</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/" rel="alternate" type="text/html" title="vim 设置变量" />
-    <published>2024-08-02T14:48:26+08:00</published>
+    <title>vim 排序去重</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" rel="alternate" type="text/html" title="vim 排序去重" />
+    <published>2024-08-22T14:18:52+08:00</published>
   
-    <updated>2024-08-02T14:48:26+08:00</updated>
+    <updated>2024-08-22T14:18:52+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/" />
+    <id>https://thedarkstarjack.github.io/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
 
   
+    
+    <category term="Linux" />
     
     <category term="Vim" />
     
-    <category term="Variables" />
-    
   
 
-  <summary>let 和 set 区别
-在Vim中，let命令用于赋值操作，它可以用于设置变量、选项、寄存器和环境变量的值。与set命令相比，let的主要区别在于它不仅可以用于设置选项，还可以用于设置变量、寄存器和环境变量。此外，let命令的右侧是一个表达式，这意味着你可以在赋值操作中使用表达式的结果。这使得let命令在Vim脚本中非常灵活，可以用于更复杂的操作，如数学运算、字符串操作和函数调用。
+  <summary>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
 
-在 Vimscript 和 Lua 中，let 和 set 的语法有一些规则，尤其是关于等号两边是否需要空格。
+:%sort
 
-let 语法
-在 Vimscript 中，使用 let 语句设置变量时，等号两边可以有空格，但也可以没有空格。下面是几种合法的写法：
+:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
 
-let myvar = 10       &amp;quot; 等号两边有空格
-let myvar=10         &amp;quot; 等号两边没有空格
-let myvar =10 ...</summary>
+:%sort u
+
+
+:%sort u：对整个文件进行排序并去重，u 参数表示 unique，即只保留唯一行
+
+更多的用户可以参考 :help sort</summary>
 
   </entry>
 
   
   <entry>
-    <title>powershell 获取连接过的 wifi 信息和密码</title>
-    <link href="https://thedarkstarjack.github.io/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/" rel="alternate" type="text/html" title="powershell 获取连接过的 wifi 信息和密码" />
-    <published>2024-08-01T16:42:21+08:00</published>
+    <title>vim 搜索过滤满足条件的行</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" rel="alternate" type="text/html" title="vim 搜索过滤满足条件的行" />
+    <published>2024-08-22T12:28:53+08:00</published>
   
-    <updated>2024-08-01T16:42:21+08:00</updated>
+    <updated>2024-08-22T12:28:53+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/</id>
-    <content src="https://thedarkstarjack.github.io/posts/powershell-%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-wifi-%E4%BF%A1%E6%81%AF%E5%92%8C%E5%AF%86%E7%A0%81/" />
+    <id>https://thedarkstarjack.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
 
   
     
-    <category term="Windows" />
+    <category term="Linux" />
     
-    <category term="PowerShell" />
+    <category term="Vim" />
     
   
 
-  <summary>工作的时候需要涉及多个办公地点，不同的现场需要连接不同的 WiFi 。怎么查看 WiFi 信息呢，可以通过以下 PowerShell 获取所有已经连接的 WiFi 信息：
-## 当我们在 Windwos 10 中连接过不同的 WIFI 之后，操作系统都会自动生成一个单独的「无线网络配置文件」并存储在计算机中，使用如下命令我们便可以看到当前系统中所有连接过的 WIFI 配置文件：
-Netsh WLAN show profiles
-## 查看密码
-Netsh WLAN show profile name=&amp;quot;无线名称&amp;quot; key=clear
+  <summary>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
 
-#############
-# 获取连接过的wifi的密码
-Function Get-WIFIPasswords(){
-    $pfs = netsh wlan show profiles | Select-String &amp;quot;所有用户配置文件&amp;quot;
+可以使用以下几种方法来搜索关键字并将满足条件的行重定向到另一个文件，或者只显示满足条件的行。假设我想要搜索关键字“aaa”.
 
-  ...</summary>
+使用 :vimgrep 和 :cw 仅显示满足条件的行
+可以使用 :vimgrep 命令来搜索关键字并将结果显示在快速修复列表中：
+:vimgrep /aaa/ %
+
+
+
+  :vimgrep：搜索文件中的模式。
+  /aaa/：搜索关键字 aaa。
+  %：表示当前文件。
+
+
+然后可以使用 :cw...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Oracle expdp、impdp使用多个路径</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" rel="alternate" type="text/html" title="Oracle expdp、impdp使用多个路径" />
+    <published>2024-08-22T12:00:22+08:00</published>
+  
+    <updated>2024-08-22T12:00:22+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。
+
+在使用 expdp/impdp 的时候只能通过 DIRECTORY 指定一个目录，但是可以通过选项 DUMPFILE  指定多个文件，文件可以在不同的路径下，以次达到同时使用多个目录/磁盘的效果。
+
+└──╼ $ impdp -help | grep -i dumpfile
+     Example: impdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
+     Example: impdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
+DUMPFILE
+For...</summary>
 
   </entry>
 

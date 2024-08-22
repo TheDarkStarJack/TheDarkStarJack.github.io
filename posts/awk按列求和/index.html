@@ -823,35 +823,35 @@ SPD,.9547119140625
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/">Linux内核参数vm.swappiness</a>
+          <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/">vim-匹配满足不同条件之间的多行内容</a>
+          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/">awk按列求和</a>
+          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F/">vim 设置变量</a>
+          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/">vim 搜索过滤满足条件的行</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/%E4%BF%AE%E6%94%B9coc.vim%E7%9A%84npm%E9%95%9C%E5%83%8F%E6%BA%90/">修改coc.vim的npm镜像源</a>
+          <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/">Oracle expdp、impdp使用多个路径</a>
         </li>
       
     </ul>
@@ -1061,8 +1061,6 @@ SPD,.9547119140625
     
     
     
-    
-      
     
   
     
@@ -1400,6 +1398,54 @@ SPD,.9547119140625
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1415,7 +1461,7 @@ SPD,.9547119140625
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" class="post-preview card h-100">
+          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1427,23 +1473,27 @@ SPD,.9547119140625
 
 <time
   
-  data-ts="1724222265"
+  data-ts="1724311531"
   data-df="YYYY/MM/DD"
   
 >
-  2024/08/21
+  2024/08/22
 </time>
 
-              <h4 class="pt-0 my-2">Linux内核参数vm.swappiness</h4>
+              <h4 class="pt-0 my-2">vim 分组和交替(grouping and alternation)</h4>
               <div class="text-muted">
-                <p>内核参数 vm.swappiness 控制系统运行时使用交换内存的相对权重，参数值大小对如何使用swap分区有很大联系。值越大，表示越积极使用swap分区，越小表示越积极使用物理内存。默认值 swappiness=60，表示内存使用率超过 40% 时开始使用交换分区。swappiness=0 的时候表示最大限度使用物理内存，无法分配物理内存的时候才考虑使用  swap 空间；swappine...</p>
+                <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
+
+分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
+
+...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
+          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1455,28 +1505,31 @@ SPD,.9547119140625
 
 <time
   
-  data-ts="1724138082"
+  data-ts="1724307532"
   data-df="YYYY/MM/DD"
   
 >
-  2024/08/20
+  2024/08/22
 </time>
 
-              <h4 class="pt-0 my-2">vim-匹配满足不同条件之间的多行内容</h4>
+              <h4 class="pt-0 my-2">vim 排序去重</h4>
               <div class="text-muted">
-                <p>有的时候想删除两个字符串之间的所有内容，但是涉及多行，虽然 sed 和 awk 也可以实现，但是既然使用 vim/nvim 了，也可以直接使用 vim/nvim 实现。
+                <p>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
 
-在 Vim 中要匹配两段文本之间的所有内容，包括跨越多行的内容，可以使用正则表达式配合 \_.* 的特殊语法。\_.* 可以匹配任意字符（包括换行符）直到结束条件。
+1
+:%sort
 
-1. 基本匹配方式
-假设你想匹配从 aaa 到 bbb...</p>
+:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
+
+1
+:%so...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/wsl%E5%AE%89%E8%A3%85deepin/" class="post-preview card h-100">
+          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1488,16 +1541,18 @@ SPD,.9547119140625
 
 <time
   
-  data-ts="1722393034"
+  data-ts="1724300933"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/31
+  2024/08/22
 </time>
 
-              <h4 class="pt-0 my-2">wsl安装deepin</h4>
+              <h4 class="pt-0 my-2">vim 搜索过滤满足条件的行</h4>
               <div class="text-muted">
-                <p>办公用的笔记本虽然使用的 Windows ，不过家里的电脑安装 deepin 使用过一段时间，虽然有些 bug 或者软件包的缺失，不过日常使用还是可以，前提是不要随便更新，但是我是一个比较喜欢软件最新版本的用户，一般软件发布了新版我就会选择更新。在经历了好几次更新 deepin 导致我重启无法进入桌面之后我就放弃了 deepin …..。不过很多国内的软件，例如微信、百度网盘、迅雷等软件都可...</p>
+                <p>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
+
+可以使用以下几种方法来搜索关...</p>
               </div>
             </div>
           </a>
@@ -1856,8 +1911,6 @@ SPD,.9547119140625
     
     
     
-    
-      
     
   
     
