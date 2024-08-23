@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-22T17:35:32+08:00</updated>
+  <updated>2024-08-23T17:32:56+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -60,7 +60,7 @@
        
     
     
-      \^
+      ^
       行首
        
     
@@ -77,11 +77,12 @@
     
       \&amp;amp;lt;
       单词开始
-      精准匹配单词，例如 ‘a’ 和 ‘am’ ， \\\&amp;amp;lt;a\\\&amp;amp;gt; 就仅匹配单词 ‘a’
+      精准匹配单词，例如 a 和 am ， \&amp;amp;lt;a\&amp;amp;gt; 就仅匹配单词 a
     
     
       \&amp;amp;gt;
-      单词...</summary>
+      单词结尾
+      同 ...</summary>
 
   </entry>
 

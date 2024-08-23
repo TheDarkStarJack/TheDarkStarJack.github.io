@@ -692,34 +692,34 @@
   </thead>
   <tbody>
     <tr>
-      <td>.</td>
+      <td><code class="language-plaintext highlighter-rouge">.</code></td>
       <td>任意字符，但是不包括行尾</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\^</td>
+      <td><code class="language-plaintext highlighter-rouge">^</code></td>
       <td>行首</td>
       <td> </td>
     </tr>
     <tr>
-      <td>$</td>
+      <td><code class="language-plaintext highlighter-rouge">$</code></td>
       <td>行尾</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\_</td>
+      <td><code class="language-plaintext highlighter-rouge">\_</code></td>
       <td>任意字符，包括行尾</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\&lt;</td>
+      <td><code class="language-plaintext highlighter-rouge">\&lt;</code></td>
       <td>单词开始</td>
-      <td>精准匹配单词，例如 ‘a’ 和 ‘am’ ， <code class="language-plaintext highlighter-rouge">\\\&lt;a\\\&gt;</code> 就仅匹配单词 ‘a’</td>
+      <td>精准匹配单词，例如 <code class="language-plaintext highlighter-rouge">a</code> 和 <code class="language-plaintext highlighter-rouge">am</code> ， <code class="language-plaintext highlighter-rouge">\&lt;a\&gt;</code> 就仅匹配单词 <code class="language-plaintext highlighter-rouge">a</code></td>
     </tr>
     <tr>
-      <td>\&gt;</td>
+      <td><code class="language-plaintext highlighter-rouge">\&gt;</code></td>
       <td>单词结尾</td>
-      <td>同 <code class="language-plaintext highlighter-rouge">\\\&lt;</code></td>
+      <td>同 <code class="language-plaintext highlighter-rouge">\&lt;</code></td>
     </tr>
   </tbody>
 </table></div>
@@ -736,32 +736,32 @@
   </thead>
   <tbody>
     <tr>
-      <td>\s</td>
+      <td><code class="language-plaintext highlighter-rouge">\s</code></td>
       <td>一个空白字符（包括Tab和Space）</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\d</td>
+      <td><code class="language-plaintext highlighter-rouge">\d</code></td>
       <td>一个数字</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\w</td>
+      <td><code class="language-plaintext highlighter-rouge">\w</code></td>
       <td>一个单词字符（包括数字、字母、下划线）</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\l</td>
+      <td><code class="language-plaintext highlighter-rouge">\l</code></td>
       <td>一个小写字符</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\u</td>
+      <td><code class="language-plaintext highlighter-rouge">\u</code></td>
       <td>一个大写字符</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\a</td>
+      <td><code class="language-plaintext highlighter-rouge">\a</code></td>
       <td>一个字符</td>
       <td> </td>
     </tr>
@@ -772,9 +772,9 @@
 
 <p><strong>字符类的完整列表可参考文档 <code class="language-plaintext highlighter-rouge">:help character-classes</code></strong></p>
 
-<p>也可以显式地指定一个字符集合，供匹配时选择，语法是使用一对方括号[]。比如，[A-Z0-9] 匹配所有的大写字母和数字，而 [,4abc] 只会匹配逗号、数字 4 和字母 a、b、c</p>
+<p>也可以显式地指定一个字符集合，供匹配时选择，语法是使用一对方括号 <code class="language-plaintext highlighter-rouge">[]</code>。比如，<code class="language-plaintext highlighter-rouge">[A-Z0-9]</code> 匹配所有的大写字母和数字，而 <code class="language-plaintext highlighter-rouge">[,4abc]</code> 只会匹配逗号、数字 4 和字母 a、b、c</p>
 
-<p>在字符集合中，可以用短横线 <code class="language-plaintext highlighter-rouge">-</code> 来指定一个范围，这适用于构成序列的那些符号（如数字或字母表）。比如 [0-7] 表示 <code class="language-plaintext highlighter-rouge">0～7</code> 的数字，而 [a-z] 表示  <code class="language-plaintext highlighter-rouge">a～z</code> 的所有小写字母</p>
+<p>在字符集合中，可以用短横线 <code class="language-plaintext highlighter-rouge">-</code> 来指定一个范围，这适用于构成序列的那些符号（如数字或字母表）。比如 <code class="language-plaintext highlighter-rouge">[0-7]</code> 表示 <code class="language-plaintext highlighter-rouge">0～7</code> 的数字，而 <code class="language-plaintext highlighter-rouge">[a-z]</code> 表示  <code class="language-plaintext highlighter-rouge">a～z</code> 的所有小写字母</p>
 
 <p><code class="language-plaintext highlighter-rouge">[0-9A-Za-z_]</code> 匹配字母、数字和下划线</p>
 
@@ -793,11 +793,11 @@
       <td>说明</td>
     </tr>
     <tr>
-      <td>\|</td>
+      <td><code class="language-plaintext highlighter-rouge">\|</code></td>
       <td>alternation</td>
     </tr>
     <tr>
-      <td>\(\)</td>
+      <td><code class="language-plaintext highlighter-rouge">\(\)</code></td>
       <td>grouping</td>
     </tr>
   </tbody>
@@ -819,37 +819,37 @@
   </thead>
   <tbody>
     <tr>
-      <td>*</td>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
       <td>0或者多个，贪婪匹配模式</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\+</td>
+      <td><code class="language-plaintext highlighter-rouge">\+</code></td>
       <td>1或者多个，贪婪匹配模式</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\{-}</td>
+      <td><code class="language-plaintext highlighter-rouge">\{-}</code></td>
       <td>0或者多个，非贪婪匹配模式</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\?</td>
+      <td><code class="language-plaintext highlighter-rouge">\?</code></td>
       <td>0或者1个，贪婪匹配模式</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\=</td>
+      <td><code class="language-plaintext highlighter-rouge">\=</code></td>
       <td>0或者1个，贪婪匹配模式</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\{n,m}</td>
+      <td><code class="language-plaintext highlighter-rouge">\{n,m}</code></td>
       <td><code class="language-plaintext highlighter-rouge">n~m</code>个，贪婪匹配模式</td>
       <td> </td>
     </tr>
     <tr>
-      <td>\{-n,m}</td>
+      <td><code class="language-plaintext highlighter-rouge">\{-n,m}</code></td>
       <td><code class="language-plaintext highlighter-rouge">n~m</code>个，非贪婪匹配模式</td>
       <td> </td>
     </tr>
