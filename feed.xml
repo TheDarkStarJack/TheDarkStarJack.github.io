@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-23T17:32:56+08:00</updated>
+  <updated>2024-08-27T11:54:28+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -20,11 +20,105 @@
 
   
   <entry>
+    <title>vim 匹配指定行号的内容</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" rel="alternate" type="text/html" title="vim 匹配指定行号的内容" />
+    <published>2024-08-27T10:39:27+08:00</published>
+  
+    <updated>2024-08-27T10:39:27+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="Vim" />
+    
+  
+
+  <summary>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
+
+再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
+
+
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      \%
+      用于匹配行号或列号
+       
+    
+    
+      \%^
+      匹配文件开始的位置
+       
+    
+    
+      \%Nl
+      匹配指定的[n]行，l 表示行号，line
+       
+    
+    
+      \%&amp;#39;m
+      匹配指定的 m 标记
+       
+    
+    
+      \%&amp;amp;gt;&amp;#39;m
+      匹配在 ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>sed 检查 Oracle日志 并输出对应的行号</title>
+    <link href="https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" rel="alternate" type="text/html" title="sed 检查 Oracle日志 并输出对应的行号" />
+    <published>2024-08-26T16:45:20+08:00</published>
+  
+    <updated>2024-08-26T16:45:20+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/</id>
+    <content src="https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="sed" />
+    
+  
+
+  <summary>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
+
+可以利用一下语句过滤错误信息：
+## 一般来说 alert 日志的路径为
+## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SID}/${ORACLE_SID}/tracle/alert_${ORACLE_SID}.log
+## 因为安装的原因，rdbms 下之后路径可能为大小或者小写的 ${ORACLE_SID} ，具体可以进入 rdbms 路径之后选择
+## diag 的路径也可以进入实例之后使用 `show parameter diag` 查看
+sed -n  &amp;#39;/Mon Aug 26 08/,/Mon Aug 26 09/p&amp;#39; ale...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>vim 特殊字符记录(持续更新)</title>
     <link href="https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" rel="alternate" type="text/html" title="vim 特殊字符记录(持续更新)" />
     <published>2024-08-22T16:23:44+08:00</published>
   
-    <updated>2024-08-22T16:23:44+08:00</updated>
+    <updated>2024-08-23T17:33:25+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</id>
     <content src="https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" />
@@ -176,81 +270,6 @@ table &amp;quot;t6&amp;quot;
 :%sort u：对整个文件进行排序并去重，u 参数表示 unique，即只保留唯一行
 
 更多的用户可以参考 :help sort</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 搜索过滤满足条件的行</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" rel="alternate" type="text/html" title="vim 搜索过滤满足条件的行" />
-    <published>2024-08-22T12:28:53+08:00</published>
-  
-    <updated>2024-08-22T12:28:53+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Vim" />
-    
-  
-
-  <summary>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
-
-可以使用以下几种方法来搜索关键字并将满足条件的行重定向到另一个文件，或者只显示满足条件的行。假设我想要搜索关键字“aaa”.
-
-使用 :vimgrep 和 :cw 仅显示满足条件的行
-可以使用 :vimgrep 命令来搜索关键字并将结果显示在快速修复列表中：
-:vimgrep /aaa/ %
-
-
-
-  :vimgrep：搜索文件中的模式。
-  /aaa/：搜索关键字 aaa。
-  %：表示当前文件。
-
-
-然后可以使用 :cw...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Oracle expdp、impdp使用多个路径</title>
-    <link href="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" rel="alternate" type="text/html" title="Oracle expdp、impdp使用多个路径" />
-    <published>2024-08-22T12:00:22+08:00</published>
-  
-    <updated>2024-08-22T12:00:22+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。
-
-在使用 expdp/impdp 的时候只能通过 DIRECTORY 指定一个目录，但是可以通过选项 DUMPFILE  指定多个文件，文件可以在不同的路径下，以次达到同时使用多个目录/磁盘的效果。
-
-└──╼ $ impdp -help | grep -i dumpfile
-     Example: impdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
-     Example: impdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
-DUMPFILE
-For...</summary>
 
   </entry>
 

@@ -1082,6 +1082,20 @@ table <span class="s2">"ttt"</span>
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
         </li>
       
@@ -1097,20 +1111,6 @@ table <span class="s2">"ttt"</span>
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/">vim 搜索过滤满足条件的行</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/">Oracle expdp、impdp使用多个路径</a>
         </li>
       
     </ul>
@@ -1223,6 +1223,10 @@ table <span class="s2">"ttt"</span>
     
     
     
+      
+        
+        
+
   
     
     
@@ -1254,9 +1258,7 @@ table <span class="s2">"ttt"</span>
     
     
       
-        
-        
-
+    
   
     
     
@@ -1509,10 +1511,10 @@ table <span class="s2">"ttt"</span>
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -1777,6 +1779,30 @@ table <span class="s2">"ttt"</span>
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1790,6 +1816,49 @@ table <span class="s2">"ttt"</span>
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724726367"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/27
+</time>
+
+              <h4 class="pt-0 my-2">vim 匹配指定行号的内容</h4>
+              <div class="text-muted">
+                <p>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
+
+再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
+
+
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      \%
+      ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" class="post-preview card h-100">
@@ -1870,36 +1939,6 @@ table <span class="s2">"ttt"</span>
 :%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
 
 :%sort u...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724300933"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-              <h4 class="pt-0 my-2">vim 搜索过滤满足条件的行</h4>
-              <div class="text-muted">
-                <p>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
-
-可以使用以下几种方法来搜索关...</p>
               </div>
             </div>
           </a>
@@ -2161,6 +2200,10 @@ table <span class="s2">"ttt"</span>
     
     
     
+      
+        
+        
+
   
     
     
@@ -2192,9 +2235,7 @@ table <span class="s2">"ttt"</span>
     
     
       
-        
-        
-
+    
   
     
     
@@ -2447,10 +2488,10 @@ table <span class="s2">"ttt"</span>
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>

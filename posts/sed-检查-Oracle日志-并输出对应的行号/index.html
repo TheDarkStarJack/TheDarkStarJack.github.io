@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Oracle expdp、impdp使用多个路径" />
+<meta property="og:title" content="sed 检查 Oracle日志 并输出对应的行号" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。" />
-<meta property="og:description" content="有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" />
+<meta name="description" content="在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。" />
+<meta property="og:description" content="在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-22T12:00:22+08:00" />
+<meta property="article:published_time" content="2024-08-26T16:45:20+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Oracle expdp、impdp使用多个路径" />
+<meta property="twitter:title" content="sed 检查 Oracle日志 并输出对应的行号" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-22T12:00:22+08:00","datePublished":"2024-08-22T12:00:22+08:00","description":"有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。","headline":"Oracle expdp、impdp使用多个路径","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/"},"url":"https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-26T16:45:20+08:00","datePublished":"2024-08-26T16:45:20+08:00","description":"在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。","headline":"sed 检查 Oracle日志 并输出对应的行号","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/"},"url":"https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Oracle expdp、impdp使用多个路径 | DarkStar
+  <title>sed 检查 Oracle日志 并输出对应的行号 | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>Oracle expdp、impdp使用多个路径</span>
+              <span>sed 检查 Oracle日志 并输出对应的行号</span>
             
 
           
@@ -515,49 +515,6 @@
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
-  
 
   
   
@@ -584,7 +541,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Oracle expdp、impdp使用多个路径</h1>
+    <h1 data-toc-skip>sed 检查 Oracle日志 并输出对应的行号</h1>
     
 
     <div class="post-meta text-muted">
@@ -601,13 +558,13 @@
 
 <time
   
-  data-ts="1724299222"
+  data-ts="1724661920"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/08/22
+  2024/08/26
 </time>
 
       </span>
@@ -656,9 +613,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="594 字"
+  title="734 字"
 >
-  <em>3 分钟</em>阅读</span>
+  <em>4 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -666,10 +623,9 @@
   </header>
 
   <div class="content">
-    <p>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。</p>
+    <p>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 <code class="language-plaintext highlighter-rouge">Error、ORA-、TNS-</code> 为前缀的信息。我们可以利用 <strong>sed</strong> 工具检索日志文件中的信息，减少重复工作。</p>
 
-<p>在使用 expdp/impdp 的时候只能通过 <code class="language-plaintext highlighter-rouge">DIRECTORY</code> 指定一个目录，但是可以通过选项 <code class="language-plaintext highlighter-rouge">DUMPFILE</code>  指定多个文件，文件可以在不同的路径下，以次达到同时使用多个目录/磁盘的效果。</p>
-
+<p>可以利用一下语句过滤错误信息：</p>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -677,56 +633,68 @@
 3
 4
 5
-</pre></td><td class="rouge-code"><pre>└──╼ <span class="nv">$ </span>impdp <span class="nt">-help</span> | <span class="nb">grep</span> <span class="nt">-i</span> dumpfile
-     Example: impdp scott/tiger <span class="nv">DIRECTORY</span><span class="o">=</span>dmpdir <span class="nv">DUMPFILE</span><span class="o">=</span>scott.dmp
-     Example: impdp scott/tiger <span class="nv">DIRECTORY</span><span class="o">=</span>dmpdir <span class="nv">DUMPFILE</span><span class="o">=</span>scott.dmp
-DUMPFILE
-For example, <span class="nv">DUMPFILE</span><span class="o">=</span>scott1.dmp, scott2.dmp, dmpdir:scott3.dmp.
+</pre></td><td class="rouge-code"><pre><span class="c">## 一般来说 alert 日志的路径为</span>
+<span class="c">## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SID}/${ORACLE_SID}/tracle/alert_${ORACLE_SID}.log</span>
+<span class="c">## 因为安装的原因，rdbms 下之后路径可能为大小或者小写的 ${ORACLE_SID} ，具体可以进入 rdbms 路径之后选择</span>
+<span class="c">## diag 的路径也可以进入实例之后使用 `show parameter diag` 查看</span>
+<span class="nb">sed</span> <span class="nt">-n</span>  <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/p'</span> alert_xxxx.log  | <span class="nb">grep</span> <span class="nt">-E</span> <span class="s1">'^Error|^ORA-|^TNS-'</span>
 </pre></td></tr></tbody></table></code></div></div>
-
-<h2 id="定义多个目录对象"><span class="me-2"><strong>定义多个目录对象</strong>：</span><a href="#定义多个目录对象" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li>在 Oracle 数据库中，目录对象映射的是操作系统上的路径。因此，如果需要使用多个路径，需要为每个路径分别创建一个目录对象。
-    <div class="language-sql highlighter-rouge"><div class="code-header">
-        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="k">CREATE</span> <span class="n">DIRECTORY</span> <span class="n">dir1</span> <span class="k">AS</span> <span class="s1">'/path/to/directory1'</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="n">DIRECTORY</span> <span class="n">dir2</span> <span class="k">AS</span> <span class="s1">'/path/to/directory2'</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></div>    </div>
-  </li>
-</ul>
-
-<h2 id="在-impdp-命令中使用多个目录"><span class="me-2"><strong>在 <code class="language-plaintext highlighter-rouge">impdp</code> 命令中使用多个目录</strong>：</span><a href="#在-impdp-命令中使用多个目录" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p><code class="language-plaintext highlighter-rouge">impdp</code> 命令只允许指定一个 <code class="language-plaintext highlighter-rouge">DIRECTORY</code> 参数，但是你可以在导入数据时将多个目录对象关联在一起。例如，在导入时可以指定 DUMPFILE 参数来引用不同目录下的文件。</p>
-
-<div class="language-sql highlighter-rouge"><div class="code-header">
-        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="n">impdp</span> <span class="n">username</span><span class="o">/</span><span class="n">password</span> <span class="n">DIRECTORY</span><span class="o">=</span><span class="n">dir1</span> <span class="n">DUMPFILE</span><span class="o">=</span><span class="n">dir1</span><span class="p">:</span><span class="n">file1</span><span class="p">.</span><span class="n">dmp</span><span class="p">,</span><span class="n">dir2</span><span class="p">:</span><span class="n">file2</span><span class="p">.</span><span class="n">dmp</span>
-</pre></td></tr></tbody></table></code></div></div>
-<p>这里的 <code class="language-plaintext highlighter-rouge">dir1:file1.dmp</code> 和 <code class="language-plaintext highlighter-rouge">dir2:file2.dmp</code> 分别指的是 <code class="language-plaintext highlighter-rouge">dir1</code> 和 <code class="language-plaintext highlighter-rouge">dir2</code> 目录中的 dump 文件。</p>
-
-<p><strong>不能直接书写操作系统上的路径：<code class="language-plaintext highlighter-rouge">/data/:file2.dmp</code> ，需要通过 Oracle 先创建数据目录，否则会提示以下错误：</strong></p>
+<p><code class="language-plaintext highlighter-rouge">Mon Aug 26 08</code> 是路径的日志格式，不同的实例环境格式不同，需要根据实际情况替换</p>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre>ORA-39001: 参数值无效
-ORA-39000: 转储文件说明错误
-ORA-39088: 文件名不能包含路径说明
+4
+5
+</pre></td><td class="rouge-code"><pre>Error 1034 received logging on to the standby
+Error 1034 received logging on to the standby
+Error 1034 received logging on to the standby
+Error 1034 received logging on to the standby
+Error 1034 received logging on to the standby
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="注意事项"><span class="me-2">注意事项：</span><a href="#注意事项" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>以上信息的的输出可以基本过滤日志的错误信息，要是有行数就更好了，使用 vim/nvim 打开文件的时候可以直接定位到具体的行，检查报错的详细信息。可以利用 <code class="language-plaintext highlighter-rouge">sed = filename</code> 实现输出行号。</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nb">sed</span> <span class="nt">-n</span>  <span class="nt">-e</span> <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/p'</span> <span class="nt">-e</span> <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/='</span> alert_XXX.log
+<span class="nb">sed</span> <span class="nt">-n</span>  <span class="nt">-e</span> <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/p'</span> <span class="nt">-e</span> <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/='</span> alert_XXX.log  | <span class="nb">grep</span> <span class="nt">-A1</span> <span class="nt">-E</span> <span class="s1">'^Error|^ORA-|^TNS-'</span>
+<span class="c">## 也可以简化</span>
+<span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/{=;p}'</span>  alert_XXX.log  | <span class="nb">grep</span> <span class="nt">-A1</span> <span class="nt">-E</span> <span class="s1">'^Error|^ORA-|^TNS-'</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>输出如下：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>Mon Aug 26 08:55:30 2024
+3198275
+Error 1034 received logging on to the standby
+3198276
+Mon Aug 26 08:56:30 2024
+3198277
+</pre></td></tr></tbody></table></code></div></div>
+<p>因为行号和内容不在同一行，导致 <code class="language-plaintext highlighter-rouge">grep</code> 会直接将行号过滤掉。
+我们可以优化一下命令，将行号和内容显示在同一行。建议将行号放置在行末，因为错误信息一般会在行首展示关键字，方便查看。</p>
 
-<ul>
-  <li><strong>目录对象权限</strong>：确保 Oracle 用户对这些目录对象具有读取和写入权限，否则导入操作将失败。</li>
-  <li><strong>文件分布</strong>：如果数据文件分布在不同的目录中，使用这种方式可以同时读取多个目录中的文件。</li>
-</ul>
+<p>利用 <code class="language-plaintext highlighter-rouge">xargs</code> 每次传输三个参数，默认一般使用空格分割，但是我们这里的内容是以行为单位的，所以需要使用 <code class="language-plaintext highlighter-rouge">--delimiter</code> 选项来指定分割符了。以三行为一个处理单元，通过 <code class="language-plaintext highlighter-rouge">sed</code> 将处理单元的合并为一行就可以实现日志内容和对应的行号在同一行了，方便定位日志中的具体信息。</p>
 
-<p>总之，虽然 <code class="language-plaintext highlighter-rouge">impdp</code> 只能接受一个 <code class="language-plaintext highlighter-rouge">DIRECTORY</code> 参数，但你可以通过在不同目录下存放 <code class="language-plaintext highlighter-rouge">dumpfile</code> 并在 <code class="language-plaintext highlighter-rouge">DUMPFILE</code> 参数中指定多个目录和文件的方式实现使用多个路径。同理 expdp 也是相同的实现方法。</p>
+<p>优化后的命令如下：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">sed</span> <span class="nt">-n</span>  <span class="nt">-e</span> <span class="s1">'/Mon Aug 26 08/,/Mon Aug 26 09/{p;=}'</span> alert_DWHPROD.log  | <span class="nb">grep</span> <span class="nt">-A1</span> <span class="nt">-E</span> <span class="s1">'^Error|^ORA-|^TNS-'</span> | xargs <span class="nt">-n</span> 3 <span class="nt">--delimiter</span><span class="o">=</span><span class="s1">'\n'</span> | <span class="nb">sed</span> <span class="s1">'s/\n/ /g'</span>
+</pre></td></tr></tbody></table></code></div></div>
 
+<p>以上处理后的内容基本已经可以定位内容了，如果想格式化或者美观，可以进一步使用 <code class="language-plaintext highlighter-rouge">awk、cut、table</code> 处理，这里就不再展示了。</p>
 
   </div>
 
@@ -736,8 +704,8 @@ ORA-39088: 文件名不能包含路径说明
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/database/">DataBase</a>,
-          <a href="/categories/oracle/">Oracle</a>
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/sed/">sed</a>
       </div>
     
 
@@ -785,21 +753,21 @@ ORA-39088: 文件名不能包含路径说明
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Oracle%20expdp%E3%80%81impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FOracle-expdp-impdp%25E4%25BD%25BF%25E7%2594%25A8%25E5%25A4%259A%25E4%25B8%25AA%25E8%25B7%25AF%25E5%25BE%2584%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=sed%20%E6%A3%80%E6%9F%A5%20Oracle%E6%97%A5%E5%BF%97%20%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fsed-%25E6%25A3%2580%25E6%259F%25A5-Oracle%25E6%2597%25A5%25E5%25BF%2597-%25E5%25B9%25B6%25E8%25BE%2593%25E5%2587%25BA%25E5%25AF%25B9%25E5%25BA%2594%25E7%259A%2584%25E8%25A1%258C%25E5%258F%25B7%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Oracle%20expdp%E3%80%81impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FOracle-expdp-impdp%25E4%25BD%25BF%25E7%2594%25A8%25E5%25A4%259A%25E4%25B8%25AA%25E8%25B7%25AF%25E5%25BE%2584%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=sed%20%E6%A3%80%E6%9F%A5%20Oracle%E6%97%A5%E5%BF%97%20%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fsed-%25E6%25A3%2580%25E6%259F%25A5-Oracle%25E6%2597%25A5%25E5%25BF%2597-%25E5%25B9%25B6%25E8%25BE%2593%25E5%2587%25BA%25E5%25AF%25B9%25E5%25BA%2594%25E7%259A%2584%25E8%25A1%258C%25E5%258F%25B7%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FOracle-expdp-impdp%25E4%25BD%25BF%25E7%2594%25A8%25E5%25A4%259A%25E4%25B8%25AA%25E8%25B7%25AF%25E5%25BE%2584%2F&text=Oracle%20expdp%E3%80%81impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fsed-%25E6%25A3%2580%25E6%259F%25A5-Oracle%25E6%2597%25A5%25E5%25BF%2597-%25E5%25B9%25B6%25E8%25BE%2593%25E5%2587%25BA%25E5%25AF%25B9%25E5%25BA%2594%25E7%259A%2584%25E8%25A1%258C%25E5%258F%25B7%2F&text=sed%20%E6%A3%80%E6%9F%A5%20Oracle%E6%97%A5%E5%BF%97%20%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1321,11 +1289,6 @@ ORA-39088: 文件名不能包含路径说明
 
 
 
-  <section id="toc-wrapper" class="d-none ps-0 pe-4">
-    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
-    <nav id="toc"></nav>
-  </section>
-
 
             
           </aside>
@@ -1411,7 +1374,139 @@ ORA-39088: 文件名不能包含路径说明
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1425,6 +1520,36 @@ ORA-39088: 文件名不能包含路径说明
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724299222"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">Oracle expdp、impdp使用多个路径</h4>
+              <div class="text-muted">
+                <p>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。
+
+在使用 expdp/impdp 的时候只能通过 DIRECTORY 指定一个目录，但是可以通过选项 DUMPFILE  指定多个文件，文件可以在不同的路径下，以次达到同时使...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-preview card h-100">
@@ -1492,43 +1617,6 @@ SQL&amp;gt; show parameter service...</p>
           </a>
         </article>
       
-        <article class="col">
-          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724661920"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/26
-</time>
-
-              <h4 class="pt-0 my-2">sed 检查 Oracle日志 并输出对应的行号</h4>
-              <div class="text-muted">
-                <p>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
-
-可以利用一下语句过滤错误信息：
-1
-2
-3
-4
-5
-## 一般来说 alert 日志的路径为
-## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SI...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
     </nav>
   </aside>
   <!-- #related-posts -->
@@ -1544,21 +1632,21 @@ SQL&amp;gt; show parameter service...</p>
 
   
     <a
-      href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/"
+      href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Linux内核参数vm.swappiness</p>
+      <p>vim 特殊字符记录(持续更新)</p>
     </a>
   
 
   
     <a
-      href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/"
+      href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>vim 搜索过滤满足条件的行</p>
+      <p>vim 匹配指定行号的内容</p>
     </a>
   
 </nav>
@@ -2236,16 +2324,9 @@ SQL&amp;gt; show parameter service...</p>
 
   
 
-  
-    
-
-    
-
-  
 
 
-
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
 
 
 

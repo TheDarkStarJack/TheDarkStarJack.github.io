@@ -43,7 +43,7 @@
 <meta property="twitter:title" content="vim 特殊字符记录(持续更新)" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-22T16:23:44+08:00","datePublished":"2024-08-22T16:23:44+08:00","description":"记录一些 vim/nvim 的特殊字符含义，持续更新。","headline":"vim 特殊字符记录(持续更新)","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"},"url":"https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-23T17:33:25+08:00","datePublished":"2024-08-22T16:23:44+08:00","description":"记录一些 vim/nvim 的特殊字符含义，持续更新。","headline":"vim 特殊字符记录(持续更新)","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"},"url":"https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -625,6 +625,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724405605"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2024/08/23
+</time>
+
+        </span>
+      
 
       
 
@@ -667,9 +690,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1868 字"
+  title="2014 字"
 >
-  <em>10 分钟</em>阅读</span>
+  <em>11 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -779,6 +802,67 @@
 <p><code class="language-plaintext highlighter-rouge">[0-9A-Za-z_]</code> 匹配字母、数字和下划线</p>
 
 <p>如果取一个字符集合的差集，只需要在字符集合的前面加上脱字符 <code class="language-plaintext highlighter-rouge">^</code> 即可。如果要匹配所有非字符数字的符号，则可以使用字符集合 <code class="language-plaintext highlighter-rouge">[^0-9A-Za-z]</code></p>
+
+<p><strong>匹配文件行列 <code class="language-plaintext highlighter-rouge">:help \%</code></strong></p>
+
+<p>有的时候可以结合 <code class="language-plaintext highlighter-rouge">:g</code> 、<code class="language-plaintext highlighter-rouge">:g!</code>、 <code class="language-plaintext highlighter-rouge">:v</code> 来选择/反选指定的行/列内容</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>符号</th>
+      <th>含义</th>
+      <th>备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%</code></td>
+      <td>用于匹配行号或列号</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%^</code></td>
+      <td>匹配文件开始的位置</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%Nl</code></td>
+      <td>匹配指定的<code class="language-plaintext highlighter-rouge">[n]</code>行，<code class="language-plaintext highlighter-rouge">l</code> 表示行号，line</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%'m</code></td>
+      <td>匹配指定的 <code class="language-plaintext highlighter-rouge">m</code> 标记</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%&gt;'m</code></td>
+      <td>匹配在 <code class="language-plaintext highlighter-rouge">m</code> 标记之后的内容</td>
+      <td>可以使用<code class="language-plaintext highlighter-rouge">&lt;、&gt;、'</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%.l</code></td>
+      <td>匹配光标所在的行</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%&gt;.23l</code></td>
+      <td>匹配光标所在行下方的内容</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%Nc</code></td>
+      <td>匹配指定的列 ‘column’</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;23c、&gt;23c、.c、&lt;.c、&gt;.c</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%23v</code></td>
+      <td>匹配指定的虚拟列</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table></div>
 
 <h2 id="交替和分组alternationgrouping"><span class="me-2">交替和分组（alternation、grouping）</span><a href="#交替和分组alternationgrouping" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -1105,6 +1189,20 @@ after:	  \v	   \m	    \M	     \V		matches ~
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
         </li>
       
@@ -1120,20 +1218,6 @@ after:	  \v	   \m	    \M	     \V		matches ~
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/">vim 搜索过滤满足条件的行</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/">Oracle expdp、impdp使用多个路径</a>
         </li>
       
     </ul>
@@ -1246,6 +1330,10 @@ after:	  \v	   \m	    \M	     \V		matches ~
     
     
     
+      
+        
+        
+
   
     
     
@@ -1277,9 +1365,7 @@ after:	  \v	   \m	    \M	     \V		matches ~
     
     
       
-        
-        
-
+    
   
     
     
@@ -1532,10 +1618,10 @@ after:	  \v	   \m	    \M	     \V		matches ~
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -1805,6 +1891,30 @@ after:	  \v	   \m	    \M	     \V		matches ~
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1818,6 +1928,49 @@ after:	  \v	   \m	    \M	     \V		matches ~
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724726367"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/27
+</time>
+
+              <h4 class="pt-0 my-2">vim 匹配指定行号的内容</h4>
+              <div class="text-muted">
+                <p>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
+
+再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
+
+
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      \%
+      ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
@@ -1885,36 +2038,6 @@ after:	  \v	   \m	    \M	     \V		matches ~
           </a>
         </article>
       
-        <article class="col">
-          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724300933"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-              <h4 class="pt-0 my-2">vim 搜索过滤满足条件的行</h4>
-              <div class="text-muted">
-                <p>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
-
-可以使用以下几种方法来搜索关...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
     </nav>
   </aside>
   <!-- #related-posts -->
@@ -1939,9 +2062,13 @@ after:	  \v	   \m	    \M	     \V		matches ~
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>sed 检查 Oracle日志 并输出对应的行号</p>
+    </a>
   
 </nav>
 
@@ -2167,6 +2294,10 @@ after:	  \v	   \m	    \M	     \V		matches ~
     
     
     
+      
+        
+        
+
   
     
     
@@ -2198,9 +2329,7 @@ after:	  \v	   \m	    \M	     \V		matches ~
     
     
       
-        
-        
-
+    
   
     
     
@@ -2453,10 +2582,10 @@ after:	  \v	   \m	    \M	     \V		matches ~
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>

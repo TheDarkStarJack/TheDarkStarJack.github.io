@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Oracle expdp、impdp使用多个路径" />
+<meta property="og:title" content="vim 匹配指定行号的内容" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。" />
-<meta property="og:description" content="有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" />
+<meta name="description" content="有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。" />
+<meta property="og:description" content="有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-22T12:00:22+08:00" />
+<meta property="article:published_time" content="2024-08-27T10:39:27+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Oracle expdp、impdp使用多个路径" />
+<meta property="twitter:title" content="vim 匹配指定行号的内容" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-22T12:00:22+08:00","datePublished":"2024-08-22T12:00:22+08:00","description":"有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。","headline":"Oracle expdp、impdp使用多个路径","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/"},"url":"https://thedarkstarjack.github.io/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-27T10:39:27+08:00","datePublished":"2024-08-27T10:39:27+08:00","description":"有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \\% 特殊字符匹配指定的行内容。","headline":"vim 匹配指定行号的内容","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/"},"url":"https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Oracle expdp、impdp使用多个路径 | DarkStar
+  <title>vim 匹配指定行号的内容 | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>Oracle expdp、impdp使用多个路径</span>
+              <span>vim 匹配指定行号的内容</span>
             
 
           
@@ -533,6 +533,21 @@
 
       
     
+
+    
+  
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
       
 
       
@@ -555,13 +570,19 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
-  
-
-  
-  
-
   
 
   
@@ -584,7 +605,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Oracle expdp、impdp使用多个路径</h1>
+    <h1 data-toc-skip>vim 匹配指定行号的内容</h1>
     
 
     <div class="post-meta text-muted">
@@ -601,13 +622,13 @@
 
 <time
   
-  data-ts="1724299222"
+  data-ts="1724726367"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/08/22
+  2024/08/27
 </time>
 
       </span>
@@ -656,9 +677,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="594 字"
+  title="380 字"
 >
-  <em>3 分钟</em>阅读</span>
+  <em>2 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -666,66 +687,108 @@
   </header>
 
   <div class="content">
-    <p>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。</p>
+    <p>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 <code class="language-plaintext highlighter-rouge">\%</code> 特殊字符匹配指定的行内容。</p>
 
-<p>在使用 expdp/impdp 的时候只能通过 <code class="language-plaintext highlighter-rouge">DIRECTORY</code> 指定一个目录，但是可以通过选项 <code class="language-plaintext highlighter-rouge">DUMPFILE</code>  指定多个文件，文件可以在不同的路径下，以次达到同时使用多个目录/磁盘的效果。</p>
+<p>再结合 <code class="language-plaintext highlighter-rouge">:g</code> 、<code class="language-plaintext highlighter-rouge">:g!</code>、 <code class="language-plaintext highlighter-rouge">:v</code> 来选择/反选指定的行/列内容可以高效的过滤行</p>
 
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>符号</th>
+      <th>含义</th>
+      <th>备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%</code></td>
+      <td>用于匹配行号或列号</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%^</code></td>
+      <td>匹配文件开始的位置</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%Nl</code></td>
+      <td>匹配指定的<code class="language-plaintext highlighter-rouge">[n]</code>行，<code class="language-plaintext highlighter-rouge">l</code> 表示行号，line</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%'m</code></td>
+      <td>匹配指定的 <code class="language-plaintext highlighter-rouge">m</code> 标记</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%&gt;'m</code></td>
+      <td>匹配在 <code class="language-plaintext highlighter-rouge">m</code> 标记之后的内容</td>
+      <td>可以使用<code class="language-plaintext highlighter-rouge">&lt;、&gt;、'</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%.l</code></td>
+      <td>匹配光标所在的行</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%&gt;.23l</code></td>
+      <td>匹配光标所在行下方的内容</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%Nc</code></td>
+      <td>匹配指定的列 ‘column’</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;23c、&gt;23c、.c、&lt;.c、&gt;.c</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\%23v</code></td>
+      <td>匹配指定的虚拟列</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="匹配指定的行号"><span class="me-2">匹配指定的行号</span><a href="#匹配指定的行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="language-vim highlighter-rouge"><div class="code-header">
+        <span data-label-text="Vim"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>└──╼ <span class="nv">$ </span>impdp <span class="nt">-help</span> | <span class="nb">grep</span> <span class="nt">-i</span> dumpfile
-     Example: impdp scott/tiger <span class="nv">DIRECTORY</span><span class="o">=</span>dmpdir <span class="nv">DUMPFILE</span><span class="o">=</span>scott.dmp
-     Example: impdp scott/tiger <span class="nv">DIRECTORY</span><span class="o">=</span>dmpdir <span class="nv">DUMPFILE</span><span class="o">=</span>scott.dmp
-DUMPFILE
-For example, <span class="nv">DUMPFILE</span><span class="o">=</span>scott1.dmp, scott2.dmp, dmpdir:scott3.dmp.
+</pre></td><td class="rouge-code"><pre>### 匹配删除第二行
+<span class="p">:</span><span class="k">g</span><span class="sr">/\%2l/</span><span class="k">d</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="定义多个目录对象"><span class="me-2"><strong>定义多个目录对象</strong>：</span><a href="#定义多个目录对象" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li>在 Oracle 数据库中，目录对象映射的是操作系统上的路径。因此，如果需要使用多个路径，需要为每个路径分别创建一个目录对象。
-    <div class="language-sql highlighter-rouge"><div class="code-header">
-        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+<h3 id="匹配删除除第二行之外的所有行"><span class="me-2">匹配删除除第二行之外的所有行</span><a href="#匹配删除除第二行之外的所有行" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<div class="language-vim highlighter-rouge"><div class="code-header">
+        <span data-label-text="Vim"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre><span class="k">CREATE</span> <span class="n">DIRECTORY</span> <span class="n">dir1</span> <span class="k">AS</span> <span class="s1">'/path/to/directory1'</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="n">DIRECTORY</span> <span class="n">dir2</span> <span class="k">AS</span> <span class="s1">'/path/to/directory2'</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></div>    </div>
-  </li>
-</ul>
-
-<h2 id="在-impdp-命令中使用多个目录"><span class="me-2"><strong>在 <code class="language-plaintext highlighter-rouge">impdp</code> 命令中使用多个目录</strong>：</span><a href="#在-impdp-命令中使用多个目录" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p><code class="language-plaintext highlighter-rouge">impdp</code> 命令只允许指定一个 <code class="language-plaintext highlighter-rouge">DIRECTORY</code> 参数，但是你可以在导入数据时将多个目录对象关联在一起。例如，在导入时可以指定 DUMPFILE 参数来引用不同目录下的文件。</p>
-
-<div class="language-sql highlighter-rouge"><div class="code-header">
-        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="n">impdp</span> <span class="n">username</span><span class="o">/</span><span class="n">password</span> <span class="n">DIRECTORY</span><span class="o">=</span><span class="n">dir1</span> <span class="n">DUMPFILE</span><span class="o">=</span><span class="n">dir1</span><span class="p">:</span><span class="n">file1</span><span class="p">.</span><span class="n">dmp</span><span class="p">,</span><span class="n">dir2</span><span class="p">:</span><span class="n">file2</span><span class="p">.</span><span class="n">dmp</span>
-</pre></td></tr></tbody></table></code></div></div>
-<p>这里的 <code class="language-plaintext highlighter-rouge">dir1:file1.dmp</code> 和 <code class="language-plaintext highlighter-rouge">dir2:file2.dmp</code> 分别指的是 <code class="language-plaintext highlighter-rouge">dir1</code> 和 <code class="language-plaintext highlighter-rouge">dir2</code> 目录中的 dump 文件。</p>
-
-<p><strong>不能直接书写操作系统上的路径：<code class="language-plaintext highlighter-rouge">/data/:file2.dmp</code> ，需要通过 Oracle 先创建数据目录，否则会提示以下错误：</strong></p>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>ORA-39001: 参数值无效
-ORA-39000: 转储文件说明错误
-ORA-39088: 文件名不能包含路径说明
+</pre></td><td class="rouge-code"><pre><span class="p">:</span><span class="k">g</span><span class="p">!</span><span class="sr">/\%2l/</span><span class="k">d</span>
+<span class="p">:</span><span class="k">v</span><span class="sr">/\%2l/</span><span class="k">d</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="注意事项"><span class="me-2">注意事项：</span><a href="#注意事项" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h3 id="匹配多行"><span class="me-2">匹配多行</span><a href="#匹配多行" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<div class="language-vim highlighter-rouge"><div class="code-header">
+        <span data-label-text="Vim"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="p">:</span><span class="k">g</span><span class="sr">/\%2l\|\%4l/</span><span class="k">d</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>可以匹配删除第二行和第四行的内容</p>
 
-<ul>
-  <li><strong>目录对象权限</strong>：确保 Oracle 用户对这些目录对象具有读取和写入权限，否则导入操作将失败。</li>
-  <li><strong>文件分布</strong>：如果数据文件分布在不同的目录中，使用这种方式可以同时读取多个目录中的文件。</li>
-</ul>
+<h3 id="匹配连续的多行"><span class="me-2">匹配连续的多行</span><a href="#匹配连续的多行" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>总之，虽然 <code class="language-plaintext highlighter-rouge">impdp</code> 只能接受一个 <code class="language-plaintext highlighter-rouge">DIRECTORY</code> 参数，但你可以通过在不同目录下存放 <code class="language-plaintext highlighter-rouge">dumpfile</code> 并在 <code class="language-plaintext highlighter-rouge">DUMPFILE</code> 参数中指定多个目录和文件的方式实现使用多个路径。同理 expdp 也是相同的实现方法。</p>
+<div class="language-vim highlighter-rouge"><div class="code-header">
+        <span data-label-text="Vim"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="p">:</span><span class="k">g</span><span class="sr">/\%2l,\%4l/</span><span class="k">d</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>以上写法并不能直接匹配第二行到第四行的内容，需要曲线实现</p>
+
+<div class="language-vim highlighter-rouge"><div class="code-header">
+        <span data-label-text="Vim"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="p">:</span><span class="k">g</span><span class="sr">/\%&lt;2l\|\%&gt;4l/</span><span class="k">d</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>匹配大于或者小于指定行的内容，例如以上通过匹配小于第二行或者大于第四行的内容，相当于匹配第二行到第四行的内容，以此实现匹配连续的行🤣🤣🤣</p>
 
 
   </div>
@@ -736,8 +799,8 @@ ORA-39088: 文件名不能包含路径说明
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/database/">DataBase</a>,
-          <a href="/categories/oracle/">Oracle</a>
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/vim/">Vim</a>
       </div>
     
 
@@ -747,9 +810,9 @@ ORA-39088: 文件名不能包含路径说明
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/oracle/"
+            href="/tags/vim/"
             class="post-tag no-text-decoration"
-          >Oracle</a>
+          >Vim</a>
         
       </div>
     
@@ -785,21 +848,21 @@ ORA-39088: 文件名不能包含路径说明
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Oracle%20expdp%E3%80%81impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FOracle-expdp-impdp%25E4%25BD%25BF%25E7%2594%25A8%25E5%25A4%259A%25E4%25B8%25AA%25E8%25B7%25AF%25E5%25BE%2584%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=vim%20%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E5%258C%25B9%25E9%2585%258D%25E6%258C%2587%25E5%25AE%259A%25E8%25A1%258C%25E5%258F%25B7%25E7%259A%2584%25E5%2586%2585%25E5%25AE%25B9%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Oracle%20expdp%E3%80%81impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FOracle-expdp-impdp%25E4%25BD%25BF%25E7%2594%25A8%25E5%25A4%259A%25E4%25B8%25AA%25E8%25B7%25AF%25E5%25BE%2584%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=vim%20%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E5%258C%25B9%25E9%2585%258D%25E6%258C%2587%25E5%25AE%259A%25E8%25A1%258C%25E5%258F%25B7%25E7%259A%2584%25E5%2586%2585%25E5%25AE%25B9%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FOracle-expdp-impdp%25E4%25BD%25BF%25E7%2594%25A8%25E5%25A4%259A%25E4%25B8%25AA%25E8%25B7%25AF%25E5%25BE%2584%2F&text=Oracle%20expdp%E3%80%81impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E5%258C%25B9%25E9%2585%258D%25E6%258C%2587%25E5%25AE%259A%25E8%25A1%258C%25E5%258F%25B7%25E7%259A%2584%25E5%2586%2585%25E5%25AE%25B9%2F&text=vim%20%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1411,6 +1474,174 @@ ORA-39088: 文件名不能包含路径说明
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -1427,7 +1658,7 @@ ORA-39088: 文件名不能包含路径说明
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-preview card h-100">
+          <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1439,27 +1670,45 @@ ORA-39088: 文件名不能包含路径说明
 
 <time
   
-  data-ts="1721292107"
+  data-ts="1724315024"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/18
+  2024/08/22
 </time>
 
-              <h4 class="pt-0 my-2">Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</h4>
+              <h4 class="pt-0 my-2">vim 特殊字符记录(持续更新)</h4>
               <div class="text-muted">
-                <p>DB_NAME：
-①是数据库名，长度不能超过8个字符，记录在datafile、redolog和control file中
-②在DataGuard环境中DB_NAME相同而DB_UNIQUE_NAME不同
-③在RAC环境中，各个节点的DB_NAME 都相同，但是INSTANCE_NAME不同
-④DB_NAME还在动态注册监听的时候起作用，无论是否定义了SERVICE_NAME,PMON进程都会...</p>
+                <p>记录一些 vim/nvim 的特殊字符含义，持续更新。
+
+正则表达式中的特殊字符
+这类符号的完整列表可参考文档 :help ordinary-atom
+
+
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      .
+      任意字符，但是不包括行尾
+       
+    
+    
+      ^
+      行首
+      ...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" class="post-preview card h-100">
+          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1471,29 +1720,27 @@ ORA-39088: 文件名不能包含路径说明
 
 <time
   
-  data-ts="1721291943"
+  data-ts="1724311531"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/18
+  2024/08/22
 </time>
 
-              <h4 class="pt-0 my-2">Oracle 修改 db_name</h4>
+              <h4 class="pt-0 my-2">vim 分组和交替(grouping and alternation)</h4>
               <div class="text-muted">
-                <p>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
-以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
+                <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
 
-仅修改server_name
-如果仅修改server_name可以直接登录数据库之后操作；
-sqlplus sys/sys as sysdba 
-SQL&amp;gt; show parameter service...</p>
+分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
+
+...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" class="post-preview card h-100">
+          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1505,25 +1752,22 @@ SQL&amp;gt; show parameter service...</p>
 
 <time
   
-  data-ts="1724661920"
+  data-ts="1724307532"
   data-df="YYYY/MM/DD"
   
 >
-  2024/08/26
+  2024/08/22
 </time>
 
-              <h4 class="pt-0 my-2">sed 检查 Oracle日志 并输出对应的行号</h4>
+              <h4 class="pt-0 my-2">vim 排序去重</h4>
               <div class="text-muted">
-                <p>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
+                <p>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
 
-可以利用一下语句过滤错误信息：
-1
-2
-3
-4
-5
-## 一般来说 alert 日志的路径为
-## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SI...</p>
+:%sort
+
+:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
+
+:%sort u...</p>
               </div>
             </div>
           </a>
@@ -1544,22 +1788,18 @@ SQL&amp;gt; show parameter service...</p>
 
   
     <a
-      href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/"
+      href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Linux内核参数vm.swappiness</p>
+      <p>sed 检查 Oracle日志 并输出对应的行号</p>
     </a>
   
 
   
-    <a
-      href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/"
-      class="btn btn-outline-primary"
-      aria-label="下一篇"
-    >
-      <p>vim 搜索过滤满足条件的行</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
   
 </nav>
 

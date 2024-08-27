@@ -806,6 +806,20 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
         </li>
       
@@ -821,20 +835,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/">vim 搜索过滤满足条件的行</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/">Oracle expdp、impdp使用多个路径</a>
         </li>
       
     </ul>
@@ -947,6 +947,10 @@
     
     
     
+      
+        
+        
+
   
     
     
@@ -978,9 +982,7 @@
     
     
       
-        
-        
-
+    
   
     
     
@@ -1233,10 +1235,10 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -1304,6 +1306,18 @@
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1424,7 +1438,7 @@ SQL&amp;gt; show parameter service...</p>
         </article>
       
         <article class="col">
-          <a href="/posts/MySQL-%E6%89%B9%E9%87%8F%E6%9D%80%E4%BC%9A%E8%AF%9D/" class="post-preview card h-100">
+          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1436,23 +1450,25 @@ SQL&amp;gt; show parameter service...</p>
 
 <time
   
-  data-ts="1720802363"
+  data-ts="1724661920"
   data-df="YYYY/MM/DD"
   
 >
-  2024/07/13
+  2024/08/26
 </time>
 
-              <h4 class="pt-0 my-2">MySQL 批量杀会话</h4>
+              <h4 class="pt-0 my-2">sed 检查 Oracle日志 并输出对应的行号</h4>
               <div class="text-muted">
-                <p>MySQL的kill语法如下：
--- 可以查看帮助手册
-help kill;
-KILL [CONNECTION | QUERY] processlist_id;
+                <p>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
 
-KILL CONNECTION 与不带修饰符的 KILL 相同：它在终止连接正在执行的任何语句后终止与给定 processlist_id 关联的连接。会使对应的会话断开连接。
-
-KILL QUERY 终止连接当前正在执行的语句，但...</p>
+可以利用一下语句过滤错误信息：
+1
+2
+3
+4
+5
+## 一般来说 alert 日志的路径为
+## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SI...</p>
               </div>
             </div>
           </a>
@@ -1714,6 +1730,10 @@ KILL QUERY 终止连接当前正在执行的语句，但...</p>
     
     
     
+      
+        
+        
+
   
     
     
@@ -1745,9 +1765,7 @@ KILL QUERY 终止连接当前正在执行的语句，但...</p>
     
     
       
-        
-        
-
+    
   
     
     
@@ -2000,10 +2018,10 @@ KILL QUERY 终止连接当前正在执行的语句，但...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
