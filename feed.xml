@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-27T11:54:28+08:00</updated>
+  <updated>2024-08-27T17:06:18+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,41 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>PostgreSQL 配置密码验证策略</title>
+    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="PostgreSQL 配置密码验证策略" />
+    <published>2024-08-27T13:55:20+08:00</published>
+  
+    <updated>2024-08-27T13:55:20+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/</id>
+    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="PostgreSQL" />
+    
+  
+
+  <summary>概述
+数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
+
+一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目录下。源码编译安装 PostgreSQL 可以参考我之前写的脚本一键安装。
+
+编译安装插件
+下载相同版本的源码解压之后进入目录，在安装插件之前请先编译源码，然后进入插件的路径进行安装插件，如果在编译时新建的编译目录，例如 build ，需要进入 ‘build/contrib’ 路径下：
+cd /software/postgresql-15.4/contrib/
+# 安装命令
+make &amp;amp;amp;&amp;amp;...</summary>
+
+  </entry>
 
   
   <entry>
@@ -233,43 +268,6 @@ table &amp;quot;t4&amp;quot;
 table &amp;quot;t5&amp;quot;
 table &amp;quot;t6&amp;quot;
 ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 排序去重</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" rel="alternate" type="text/html" title="vim 排序去重" />
-    <published>2024-08-22T14:18:52+08:00</published>
-  
-    <updated>2024-08-22T14:18:52+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Vim" />
-    
-  
-
-  <summary>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
-
-:%sort
-
-:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
-
-:%sort u
-
-
-:%sort u：对整个文件进行排序并去重，u 参数表示 unique，即只保留唯一行
-
-更多的用户可以参考 :help sort</summary>
 
   </entry>
 

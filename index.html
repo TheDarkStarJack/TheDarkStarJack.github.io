@@ -546,6 +546,65 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL 配置密码验证策略</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>概述
+数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
+
+一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724738120"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/27
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1109,68 +1168,6 @@
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">awk按列求和</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>Linux 下的 awk 功能十分强大，擅长按照字段列处理文本，另一个工具 sed 则擅长用于行处理。
-
-有的时候需要按照过滤筛选之后文本的文本求和，一般的方法就是通过 bc 或者复制粘贴到 excel 中处理，也可以使用 awk 处理。
-
-
-  指定分隔符 ： -F|-IFS 选项用于指定分隔符，默认为空格，如果存在特殊字符记得使用单引号或者转义符
-  内部变量 ： awk 中存在部分内部...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724052477"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/19
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      awk
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1298,6 +1295,13 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
         </li>
       
@@ -1320,13 +1324,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
         </li>
       
     </ul>
@@ -1405,35 +1402,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1474,6 +1442,45 @@
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1509,6 +1516,11 @@
         
         
 
+  
+    
+    
+    
+    
   
     
     
@@ -1751,7 +1763,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/powershell/">PowerShell</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
     </div>
   </section>
@@ -1883,35 +1895,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1952,6 +1935,45 @@
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1987,6 +2009,11 @@
         
         
 
+  
+    
+    
+    
+    
   
     
     
@@ -2229,7 +2256,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/powershell/">PowerShell</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
     </div>
   </section>

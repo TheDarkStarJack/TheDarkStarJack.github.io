@@ -904,6 +904,13 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
         </li>
       
@@ -926,13 +933,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
         </li>
       
     </ul>
@@ -1011,35 +1011,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1080,6 +1051,45 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1115,6 +1125,11 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
 
+  
+    
+    
+    
+    
   
     
     
@@ -1357,7 +1372,7 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/powershell/">PowerShell</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
     </div>
   </section>
@@ -1445,6 +1460,18 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1458,6 +1485,37 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724738120"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/27
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL 配置密码验证策略</h4>
+              <div class="text-muted">
+                <p>概述
+数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
+
+一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" class="post-preview card h-100">
@@ -1516,61 +1574,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 ②在DataGuard环境中DB_NAME相同而DB_UNIQUE_NAME不同
 ③在RAC环境中，各个节点的DB_NAME 都相同，但是INSTANCE_NAME不同
 ④DB_NAME还在动态注册监听的时候起作用，无论是否定义了SERVICE_NAME,PMON进程都会...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1721291943"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/18
-</time>
-
-              <h4 class="pt-0 my-2">Oracle 修改 db_name</h4>
-              <div class="text-muted">
-                <p>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
-以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
-
-仅修改server_name
-如果仅修改server_name可以直接登录数据库之后操作；
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-...</p>
               </div>
             </div>
           </a>
@@ -1798,35 +1801,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1867,6 +1841,45 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1902,6 +1915,11 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
 
+  
+    
+    
+    
+    
   
     
     
@@ -2144,7 +2162,7 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/powershell/">PowerShell</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
     </div>
   </section>

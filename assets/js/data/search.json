@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "PostgreSQL 配置密码验证策略",
+    "url": "/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/",
+    "categories": "DataBase, PostgreSQL",
+    "tags": "PostgreSQL",
+    "date": "2024-08-27 13:55:20 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "概述数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目录下。...",
+    "content": "概述数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目录下。源码编译安装 PostgreSQL 可以参考我之前写的脚本一键安装。编译安装插件下载相同版本的源码解压之后进入目录，在安装插件之前请先编译源码，然后进入插件的路径进行安装插件，如果在编译时新建的编译目录，例如 build ，需要进入 ‘build/contrib’ 路径下：cd /software/postgresql-15.4/contrib/# 安装命令make &amp;&amp; make install在 contrib 目录下执行会编译安装路径下的所有插件，如果只想要单独安装需要的插件，可以进入对应的目录：cd /software/postgresql-15.4/contrib/auth_delay/make &amp;&amp; make installcd /software/postgresql-15.4/contrib/passwordcheck/make &amp;&amp; make install配置参数文件如果在编译的时候指定的安装路径正确或者安装数据库软件时采用的时默认路径那么在编译安装插件的时候会自动安装至正确的路径，如果路径有问题，请复制编译好的 ‘auth_delay.so、passwordcheck.so’ 文件到，pg_config | grep -E 'LIBDIR|PKGLIBDIR' 任意一个路径，然后配置 ${PGDATA?}/postgresql.conf 文件，如果没有配置变量 ‘${PGDATA}’ ，可以使用 ps -ef | grep -i postgre 查看数据库的配置文件路径，也可以使用 psql -c 'show config_file;' 获取配置文件路径。打开 ${PGDATA?}/postgresql.conf 文件，修改 shared_preload_libraries 参数以包含 auth_delay ，同时增加 auth_delay.milliseconds 参数，设置延迟时间，单位为毫秒，取值 5000 代表 5 秒，若文件中没有该参数，添加即可。修改后，需要重启数据库才能生效，所以配置之前要和业务部门确认，避免后期扯皮。需要注意： auth_delay 认证失败之前等待的毫秒数，缺省是0。以下示例修改表示在一次认证失败后，将延迟5秒中才能继续下一次认证。该选项可以增加暴力破解数据库服务器的密码难度，但它并不能防止拒绝服务攻击，甚至可能恶化它们，因为报告验证失败之前等待的过程将损耗连接槽位。# Add settings for extensions hereshared_preload_libraries = 'passwordcheck,auth_delay'auth_delay.milliseconds = '5000'重启实例：pg_ctl restart如果启动没报错，则表示正确加载模块两个扩展都是 contrib 自带的扩展，不需要手动执行 CREATE EXTENSION ，否则会提示以下信息：postgres=# CREATE EXTENSION auth_delay;ERROR:  could not open extension control file \"/Postgres/pg/share/postgresql/extension/auth_delay.control\": No such file or directory验证postgres=# show auth_delay.milliseconds; auth_delay.milliseconds------------------------- 5s(1 row)新建用户验证 passwordcheck ：可以修改 auth_delay.milliseconds 的值，结合 time 命令验证密码错误时的等待时间：总结除了需要在 postgresql.conf 配置文件中装载 auth_delay 模块，还需要增加 auth_delay.milliseconds 配置参数，否则 auth_delay 扩展模块的功能无法体现。passwordcheck 模块对新创建的用户密码进行检测，已存在的用户不生效。两个插件模块都是 contrib 自带的模块，不需要执行 CREATE EXTENSION"
+  },
+  
+  {
     "title": "vim 匹配指定行号的内容",
     "url": "/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/",
     "categories": "Linux, Vim",
