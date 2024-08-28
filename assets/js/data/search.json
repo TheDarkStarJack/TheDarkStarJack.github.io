@@ -1,6 +1,40 @@
 [
   
   {
+    "title": "PostrgeSQL 常用函数（持续更新）",
+    "url": "/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/",
+    "categories": "DataBase, PostrgeSQL",
+    "tags": "PostrgeSQL",
+    "date": "2024-08-28 15:29:36 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言记录一些 PostgreSQL 的常用函数字符串字符串/字段拼接string_aggstring_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号select string_agg(a,', ') from tab1;如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错|| ：和 Oracle 一样，可以用于拼...",
+    "content": "前言记录一些 PostgreSQL 的常用函数字符串字符串/字段拼接string_aggstring_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号select string_agg(a,', ') from tab1;如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错|| ：和 Oracle 一样，可以用于拼接字符或者字段，如果是不是拼接的字段，字符串需要在两个单引号内select a || ',' || b from tab1 ;select 'a' || ',' || 'b' ;类型转换可以使用 cast 函数或者双冒号 ::select a::text from tab1;select 1::text;select cast(a as text) from tab1;select cast(1 as text);"
+  },
+  
+  {
+    "title": "podman 修改仓库源",
+    "url": "/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/",
+    "categories": "containers, podman",
+    "tags": "podman",
+    "date": "2024-08-28 11:21:43 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜像。Po...",
+    "content": "前言Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜像。Podman 提供了一个与 Docker 兼容的命令行前端来管理 Docker 镜像。虽然目前容器化部署基本都采用 docker ，但是随着 RedHat 系列的 Linux 升级到 8 之后基本就采用 podman 作为自身的容器化产品之后，已经不能通过软件仓库安装 docker 了，虽然可以通过一些方法安装 docker ，但是个人还是比较喜欢使用 RedHat 系列，所以也就尝试使用 podman            Podman      Docker                  是无守护进程的      Docker 有一个守护进程 (containerd)。docker CLI 与守护进程交互以管理容器。              直接通过 runc 与 Linux 内核交互      守护进程拥有所有运行容器的子进程              可以部署具有多个容器的 pod。可以在 Kubernetes 中使用相同的 pod 清单。此外，可以将 K8s pod 清单部署为 Podman pod。      Docker 中没有 pod 的概念              无需任何额外配置即可运行无根容器( rootless)。可以使用 root 或非特权用户运行容器。      Docker 无根模式( rootless)需要额外的配置。      修改镜像源Podman 可以直接通过软件源安装，使用命令大部分也和 docker 一样，这里就不再赘述。Podman 有两种配置文件：  全局配置文件：/etc/containers/registries.conf  用户配置文件：~/.config/containers/registries.conf可以直接修改全局配置文件，也可以在不同的用户下配置不同的参数，可能当前用户没有 containers 路径，可以新建配置文件之后修改以修改全局配置文件为例：sudo cp /etc/containers/registries.conf /etc/containers/registries.conf.baksudo vim /etc/containers/registries.confunqualified-search-registries = [\"docker.io\"][[registry]]prefix = \"docker.io\"location = \"hub-mirror.c.163.com\"insecure = true[[registry.mirror]]# 百度镜像源location = \"mirror.baidubce.com\"insecure = true[[registry.mirror]]# 网易 163 镜像源location = \"hub-mirror.c.163.com\"insecure = true[[registry.mirror]]# 上海交大镜像源location = \"docker.mirrors.sjtug.sjtu.edu.cn\"insecure = true[[registry.mirror]]# 南京大学镜像源location = \"docker.nju.edu.cn\"insecure = true以上镜像源地址随着国内禁止访问 dockerhub 之后可能无法访问，需要自行搭建镜像源或者搜索其他人搭建的镜像源地址😂  prefix 是 pull 的时候指定的镜像前缀，如果不指定 prefix 则默认和 location 一致。  location 是获取镜像的地址；  insecure=true 表示允许通过 HTTP 协议来获取镜像，对于私有化部署/内网测试环境下无 https 证书的环境来说很有帮助。查看是否生效podman infoPodman 常用命令podman run         #创建并启动容器podman start       #启动容器podman ps          #查看容器podman stop        #终止容器podman restart     #重启容器podman attach      #进入容器podman exec        #进入容器podman export      #导出容器podman import      #导入容器快照podman rm          #删除容器podman logs        #查看日志podman search      #检索镜像podman pull         #获取镜像podman images      #列出镜像podman image Is    #列出镜像podman rmi         #删除镜像podman image rm    #删除镜像podman save        #导出镜像podman load        #导入镜像还能使用的镜像源unqualified-search-registries = [\"docker.io\"][[registry]]prefix = \"docker.io\"location = \"hub-mirror.c.163.com\"insecure = true[[registry.mirror]]location = \"hub.uuuadc.top\"insecure = true[[registry.mirror]]location = \"docker.anyhub.us.kg\"insecure = true[[registry.mirror]]location = \"dockerhub.jobcher.com\"insecure = true[[registry.mirror]]location = \"dockerhub.icu\"insecure = true[[registry.mirror]]location = \"docker.ckyl.me\"insecure = true[[registry.mirror]]location = \"docker.awsl9527.cn\"insecure = true总结虽然 podman 目前看起来是 RedHat 未来主推的容器产品，但是使用 docker 的用户更多，很多业务并不一定会迁移到 podman 。而且大部分容器都是根据 docker 构建的，即使 podman 描述说可以直接使用 docker 的绝大部分命令，不过有的在 docker 上正常运行的容器在 podman 上并不能正常使用，有可能在 pull 阶段就报错了。有些则是在启动阶段出现一些奇怪的错误，这些都是在使用 podman 时会遇到的问题。如果使用 Redhat 系列的 Linux ，可以尝试使用 podman"
+  },
+  
+  {
     "title": "PostgreSQL 配置密码验证策略",
     "url": "/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/",
     "categories": "DataBase, PostgreSQL",

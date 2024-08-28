@@ -546,6 +546,139 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostrgeSQL 常用函数（持续更新）</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+记录一些 PostgreSQL 的常用函数
+
+字符串
+
+字符串/字段拼接
+
+string_agg
+
+string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
+select string_agg(a,&#39;, &#39;) from tab1;
+
+
+
+如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
+
+|| ：...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724830176"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/28
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostrgeSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">podman 修改仓库源</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。
+
+Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724815303"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/28
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      containers,
+                      podman
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1051,123 +1184,6 @@
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Linux内核参数vm.swappiness</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>内核参数 vm.swappiness 控制系统运行时使用交换内存的相对权重，参数值大小对如何使用swap分区有很大联系。值越大，表示越积极使用swap分区，越小表示越积极使用物理内存。默认值 swappiness=60，表示内存使用率超过 40% 时开始使用交换分区。swappiness=0 的时候表示最大限度使用物理内存，无法分配物理内存的时候才考虑使用  swap 空间；swappine...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724222265"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/21
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      swap
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim-匹配满足不同条件之间的多行内容</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>有的时候想删除两个字符串之间的所有内容，但是涉及多行，虽然 sed 和 awk 也可以实现，但是既然使用 vim/nvim 了，也可以直接使用 vim/nvim 实现。
-
-在 Vim 中要匹配两段文本之间的所有内容，包括跨越多行的内容，可以使用正则表达式配合 \_.* 的特殊语法。\_.* 可以匹配任意字符（包括换行符）直到结束条件。
-
-1. 基本匹配方式
-假设你想匹配从 aaa 到 bbb...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724138082"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/20
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1244,11 +1260,29 @@
         </li>
       
     
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page4"
+          >4</a>
+        </li>
+      
+    
 
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>1</span>
-      <span class="text-muted">/ 3</span>
+      <span class="text-muted">/ 4</span>
     </li>
 
     <!-- right arrow -->
@@ -1295,21 +1329,14 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
+          <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
         </li>
       
         
@@ -1323,7 +1350,14 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
         </li>
       
     </ul>
@@ -1407,30 +1441,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1476,6 +1486,50 @@
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1516,6 +1570,16 @@
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1763,7 +1827,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>
@@ -1900,30 +1964,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1969,6 +2009,50 @@
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2009,6 +2093,16 @@
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2256,7 +2350,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>

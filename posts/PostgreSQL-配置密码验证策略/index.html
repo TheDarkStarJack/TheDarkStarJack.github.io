@@ -1030,21 +1030,14 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
+          <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
         </li>
       
         
@@ -1058,7 +1051,14 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
         </li>
       
     </ul>
@@ -1142,30 +1142,6 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1211,6 +1187,50 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1251,6 +1271,16 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1498,7 +1528,7 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>
@@ -1603,6 +1633,18 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1616,6 +1658,53 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724830176"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/28
+</time>
+
+              <h4 class="pt-0 my-2">PostrgeSQL 常用函数（持续更新）</h4>
+              <div class="text-muted">
+                <p>前言
+
+记录一些 PostgreSQL 的常用函数
+
+字符串
+
+字符串/字段拼接
+
+string_agg
+
+string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
+1
+2
+select string_agg(a,&#39;, &#39;) from tab1;
+
+
+
+如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
+
+...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" class="post-preview card h-100">
@@ -1679,40 +1768,6 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
           </a>
         </article>
       
-        <article class="col">
-          <a href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1721291943"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/18
-</time>
-
-              <h4 class="pt-0 my-2">Oracle 修改 db_name</h4>
-              <div class="text-muted">
-                <p>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
-以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
-
-仅修改server_name
-如果仅修改server_name可以直接登录数据库之后操作；
-sqlplus sys/sys as sysdba 
-SQL&amp;gt; show parameter service...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
     </nav>
   </aside>
   <!-- #related-posts -->
@@ -1737,9 +1792,13 @@ SQL&amp;gt; show parameter service...</p>
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>podman 修改仓库源</p>
+    </a>
   
 </nav>
 
@@ -1936,30 +1995,6 @@ SQL&amp;gt; show parameter service...</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2005,6 +2040,50 @@ SQL&amp;gt; show parameter service...</p>
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2045,6 +2124,16 @@ SQL&amp;gt; show parameter service...</p>
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2292,7 +2381,7 @@ SQL&amp;gt; show parameter service...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>

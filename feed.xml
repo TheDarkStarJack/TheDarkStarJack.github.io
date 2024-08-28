@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-27T17:06:18+08:00</updated>
+  <updated>2024-08-28T17:28:11+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,92 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>PostrgeSQL 常用函数（持续更新）</title>
+    <link href="https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" rel="alternate" type="text/html" title="PostrgeSQL 常用函数（持续更新）" />
+    <published>2024-08-28T15:29:36+08:00</published>
+  
+    <updated>2024-08-28T15:29:36+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</id>
+    <content src="https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="PostrgeSQL" />
+    
+  
+
+  <summary>前言
+
+记录一些 PostgreSQL 的常用函数
+
+字符串
+
+字符串/字段拼接
+
+string_agg
+
+string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
+select string_agg(a,&amp;#39;, &amp;#39;) from tab1;
+
+
+
+如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
+
+|| ：和 Oracle 一样，可以用于拼接字符或者字段，如果是不是拼接的字段，字符串需要在两个单引号内
+select a || &amp;#39;,&amp;#39; || b from tab1 ;
+select &amp;#39;a&amp;#39; || &amp;#39;,&amp;#39; || &amp;#39;b&amp;#39; ;
+
+
+类型转换
+
+可以使用 cast 函数或者双冒号 ::
+select a::text from tab1;
+select 1::text;
+
+select cast(a as te...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>podman 修改仓库源</title>
+    <link href="https://thedarkstarjack.github.io/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" rel="alternate" type="text/html" title="podman 修改仓库源" />
+    <published>2024-08-28T11:21:43+08:00</published>
+  
+    <updated>2024-08-28T11:21:43+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/</id>
+    <content src="https://thedarkstarjack.github.io/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="containers" />
+    
+    <category term="podman" />
+    
+  
+
+  <summary>前言
+
+Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。
+
+Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜像。Podman 提供了一个与 Docker 兼容的命令行前端来管理 Docker 镜像。
+
+虽然目前容器化部署基本都采用 docker ，但是随着 RedHat 系列的 Linux 升级到 8 之后基本就采用 podman 作为自身的容器化产品之后，已经不能通过软件仓库安装 docker 了，虽然可以通过一些方法安装 docker ，但是个人还是比较喜欢使用 RedHat 系列，所以也就尝试使用...</summary>
+
+  </entry>
 
   
   <entry>
@@ -144,130 +230,6 @@ make &amp;amp;amp;&amp;amp;...</summary>
 ## 因为安装的原因，rdbms 下之后路径可能为大小或者小写的 ${ORACLE_SID} ，具体可以进入 rdbms 路径之后选择
 ## diag 的路径也可以进入实例之后使用 `show parameter diag` 查看
 sed -n  &amp;#39;/Mon Aug 26 08/,/Mon Aug 26 09/p&amp;#39; ale...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 特殊字符记录(持续更新)</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" rel="alternate" type="text/html" title="vim 特殊字符记录(持续更新)" />
-    <published>2024-08-22T16:23:44+08:00</published>
-  
-    <updated>2024-08-23T17:33:25+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Vim" />
-    
-  
-
-  <summary>记录一些 vim/nvim 的特殊字符含义，持续更新。
-
-正则表达式中的特殊字符
-这类符号的完整列表可参考文档 :help ordinary-atom
-
-
-  
-    
-      符号
-      含义
-      备注
-    
-  
-  
-    
-      .
-      任意字符，但是不包括行尾
-       
-    
-    
-      ^
-      行首
-       
-    
-    
-      $
-      行尾
-       
-    
-    
-      \_
-      任意字符，包括行尾
-       
-    
-    
-      \&amp;amp;lt;
-      单词开始
-      精准匹配单词，例如 a 和 am ， \&amp;amp;lt;a\&amp;amp;gt; 就仅匹配单词 a
-    
-    
-      \&amp;amp;gt;
-      单词结尾
-      同 ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 分组和交替(grouping and alternation)</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" rel="alternate" type="text/html" title="vim 分组和交替(grouping and alternation)" />
-    <published>2024-08-22T15:25:31+08:00</published>
-  
-    <updated>2024-08-22T15:25:31+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Vim" />
-    
-  
-
-  <summary>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
-
-分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
-
-
-  
-    
-      符号
-      说明
-    
-    
-      \|
-      alternation
-    
-    
-      \(\)
-      grouping
-    
-  
-
-
-假设存在一下内容：
-cat test.txt
-
-table &amp;quot;t1&amp;quot;
-table &amp;quot;t2&amp;quot;
-table &amp;quot;t3&amp;quot;
-table &amp;quot;t4&amp;quot;
-table &amp;quot;t5&amp;quot;
-table &amp;quot;t6&amp;quot;
-...</summary>
 
   </entry>
 

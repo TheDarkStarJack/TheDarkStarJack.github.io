@@ -904,21 +904,14 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
+          <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
         </li>
       
         
@@ -932,7 +925,14 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
         </li>
       
     </ul>
@@ -1016,30 +1016,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1085,6 +1061,50 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1125,6 +1145,16 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1372,7 +1402,7 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>
@@ -1472,6 +1502,18 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1485,6 +1527,53 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724830176"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/28
+</time>
+
+              <h4 class="pt-0 my-2">PostrgeSQL 常用函数（持续更新）</h4>
+              <div class="text-muted">
+                <p>前言
+
+记录一些 PostgreSQL 的常用函数
+
+字符串
+
+字符串/字段拼接
+
+string_agg
+
+string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
+1
+2
+select string_agg(a,&#39;, &#39;) from tab1;
+
+
+
+如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
+
+...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
@@ -1542,38 +1631,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
                 <p>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。
 
 在使用 expdp/impdp 的时候只能通过 DIRECTORY 指定一个目录，但是可以通过选项 DUMPFILE  指定多个文件，文件可以在不同的路径下，以次达到同时使...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/Oracle-DB_NAME-SERVICE_NAME-SID-INSTANCE_NAME-DB_UNIQUE_NAME%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1721292107"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/18
-</time>
-
-              <h4 class="pt-0 my-2">Oracle DB_NAME、SERVICE_NAME、SID、INSTANCE_NAME、DB_UNIQUE_NAME的区别</h4>
-              <div class="text-muted">
-                <p>DB_NAME：
-①是数据库名，长度不能超过8个字符，记录在datafile、redolog和control file中
-②在DataGuard环境中DB_NAME相同而DB_UNIQUE_NAME不同
-③在RAC环境中，各个节点的DB_NAME 都相同，但是INSTANCE_NAME不同
-④DB_NAME还在动态注册监听的时候起作用，无论是否定义了SERVICE_NAME,PMON进程都会...</p>
               </div>
             </div>
           </a>
@@ -1806,30 +1863,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1875,6 +1908,50 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1915,6 +1992,16 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2162,7 +2249,7 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>
