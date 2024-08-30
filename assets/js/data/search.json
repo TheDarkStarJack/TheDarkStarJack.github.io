@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "Linux 虚拟内存参数 min_free_kbytes",
+    "url": "/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/",
+    "categories": "Linux, 内存",
+    "tags": "虚拟内存",
+    "date": "2024-08-30 11:51:27 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 OOM，...",
+    "content": "前言Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 OOM，检查系统的内存参数配置，发现设置了 vm.min_free_kbytes 换算之有 5G 大小。客户环境也不是自己搭建的，不清楚为什么设置这么大，减少大小或则直接取消改参数的配置，采用系统默认大小之后恢复正常。可以设置一定大小，避免在业务运行时系统因为内存问题宕机，不过也不建议设置太大。┌─[wxj@TheDarkStar]─[~]└──╼ $ cat /proc/sys/vm/min_free_kbytes45056┌─[wxj@TheDarkStar]─[~]└──╼ $ ll /proc/sys/vmtotal 0-rw-r--r-- 1 root root 0 Aug 30 11:53 admin_reserve_kbytes--w------- 1 root root 0 Aug 30 11:53 compact_memory-rw-r--r-- 1 root root 0 Aug 30 11:53 compact_unevictable_allowed-rw-r--r-- 1 root root 0 Aug 30 11:53 compaction_proactiveness-rw-r--r-- 1 root root 0 Aug 30 11:53 dirty_background_bytes-rw-r--r-- 1 root root 0 Aug 30 11:53 dirty_background_ratio-rw-r--r-- 1 root root 0 Aug 30 11:53 dirty_bytes-rw-r--r-- 1 root root 0 Aug 30 11:53 dirty_expire_centisecs-rw-r--r-- 1 root root 0 Aug 30 11:53 dirty_ratio-rw-r--r-- 1 root root 0 Aug 30 11:53 dirty_writeback_centisecs-rw-r--r-- 1 root root 0 Aug 30 11:53 dirtytime_expire_seconds--w------- 1 root root 0 Aug 30 11:53 drop_caches-rw-r--r-- 1 root root 0 Aug 30 11:53 extfrag_threshold-rw-r--r-- 1 root root 0 Aug 30 11:53 hugetlb_optimize_vmemmap-rw-r--r-- 1 root root 0 Aug 30 11:53 hugetlb_shm_group-rw-r--r-- 1 root root 0 Aug 30 11:53 laptop_mode-rw-r--r-- 1 root root 0 Aug 30 11:53 legacy_va_layout-rw-r--r-- 1 root root 0 Aug 30 11:53 lowmem_reserve_ratio设置 min_free_kbytes这用于强制 Linux VM 保持最少的可用的 kilobytes 。 VM 使用此数字来计算系统中每个 lowmem 区域的  watermark[WMARK_MIN] 的值。每个 lowmem zone 根据其大小按比例获得一定数量的保留空闲页面。需要一些最小量的内存来满足 PF_MEMALLOC 分配；如果设置为低于 1024KB ，在高负载下容易出现死锁。设置得太高会导致机器 OOM。设置保留可用页面池的大小。它还负责设置管理 Linux 内核页面回收算法行为的 min_page、low_page 和 high_page 阈值。它还指定在系统间保留的最小 KB 数。这会为每个低内存区计算一个特定值，每个值都会被分配一个保留的空闲页面的大小。  增加参数值可有效减少应用程序工作集可用内存。因此，可能希望将其仅用于内核驱动的工作负载，其中驱动程序缓冲区需要在原子上下文中分配。  减少参数值可能会导致内核无法服务系统请求，如果内存在系统中发生大量处理。vm.min_free_kbytes 参数还设置页面重新声明水位线，名为 min_pages。在确定两个其他内存水位线、low_pages 和 high_pages 时，这个水位线被用作一个因素，它管理页面重新声明算法。总结极端的值可能会降低系统性能。将 vm.min_free_kbytes 设置为非常低的值可防止系统有效地回收内存，这可能会导致系统崩溃并失败服务中断或其他内核服务。但是，设置 vm.min_free_kbytes 太大地增加系统回收活动，从而导致分配延迟因为假的直接重新声明状态而造成分配延迟。这可能导致系统立即进入内存不足状态。后续发现这篇文章写的挺详细的还有实验"
+  },
+  
+  {
     "title": "PostrgeSQL 常用函数（持续更新）",
     "url": "/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/",
     "categories": "DataBase, PostrgeSQL",

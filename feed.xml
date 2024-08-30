@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-28T17:28:11+08:00</updated>
+  <updated>2024-08-30T17:31:11+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,40 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Linux 虚拟内存参数 min_free_kbytes</title>
+    <link href="https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" rel="alternate" type="text/html" title="Linux 虚拟内存参数 min_free_kbytes" />
+    <published>2024-08-30T11:51:27+08:00</published>
+  
+    <updated>2024-08-30T11:51:27+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="内存" />
+    
+  
+
+  <summary>前言
+
+Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。
+
+前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 OOM，检查系统的内存参数配置，发现设置了 vm.min_free_kbytes 换算之有 5G 大小。客户环境也不是自己搭建的，不清楚为什么设置这么大，减少大小或则直接取消改参数的配置，采用系统默认大小之后恢复正常。
+
+可以设置一定大小，避免在业务运行时系统因为内存问题宕机，不过也不建议设置太大。
+┌─[wxj@TheDarkStar]─[~]
+└──╼ $ cat /proc/sys/vm/m...</summary>
+
+  </entry>
 
   
   <entry>
@@ -197,39 +231,6 @@ make &amp;amp;amp;&amp;amp;...</summary>
     
       \%&amp;amp;gt;&amp;#39;m
       匹配在 ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>sed 检查 Oracle日志 并输出对应的行号</title>
-    <link href="https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" rel="alternate" type="text/html" title="sed 检查 Oracle日志 并输出对应的行号" />
-    <published>2024-08-26T16:45:20+08:00</published>
-  
-    <updated>2024-08-26T16:45:20+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/</id>
-    <content src="https://thedarkstarjack.github.io/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="sed" />
-    
-  
-
-  <summary>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
-
-可以利用一下语句过滤错误信息：
-## 一般来说 alert 日志的路径为
-## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SID}/${ORACLE_SID}/tracle/alert_${ORACLE_SID}.log
-## 因为安装的原因，rdbms 下之后路径可能为大小或者小写的 ${ORACLE_SID} ，具体可以进入 rdbms 路径之后选择
-## diag 的路径也可以进入实例之后使用 `show parameter diag` 查看
-sed -n  &amp;#39;/Mon Aug 26 08/,/Mon Aug 26 09/p&amp;#39; ale...</summary>
 
   </entry>
 

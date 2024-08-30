@@ -30,23 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Git" />
+<meta property="og:title" content="Linux 虚拟内存参数 min_free_kbytes" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<meta property="og:description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<link rel="canonical" href="https://thedarkstarjack.github.io/tags/git/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/tags/git/" />
+<meta name="description" content="前言" />
+<meta property="og:description" content="前言" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" />
 <meta property="og:site_name" content="DarkStar" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-30T11:51:27+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Git" />
+<meta property="twitter:title" content="Linux 虚拟内存参数 min_free_kbytes" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"Git","url":"https://thedarkstarjack.github.io/tags/git/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-30T11:51:27+08:00","datePublished":"2024-08-30T11:51:27+08:00","description":"前言","headline":"Linux 虚拟内存参数 min_free_kbytes","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/"},"url":"https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Git | DarkStar
+  <title>Linux 虚拟内存参数 min_free_kbytes | DarkStar
   </title>
 
   <!--
@@ -110,9 +111,16 @@
   <!-- 3rd-party Dependencies -->
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.27.20/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -421,14 +429,10 @@
           
         
           
-            <span>
-              <a href="/tags/">标签</a>
-            </span>
-          
         
           
             
-              <span>Git</span>
+              <span>Linux 虚拟内存参数 min_free_kbytes</span>
             
 
           
@@ -442,7 +446,7 @@
     </button>
 
     <div id="topbar-title">
-      标签
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -468,27 +472,125 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
-  
+  <header>
+    <h1 data-toc-skip>Linux 虚拟内存参数 min_free_kbytes</h1>
     
 
-
-
-<div id="page-tag">
-  <h1 class="ps-lg-2">
-    <i class="fa fa-tag fa-fw text-muted"></i>
-    Git
-    <span class="lead text-muted ps-2">1</span>
-  </h1>
-  <ul class="content ps-0">
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/git-%E8%AE%BE%E7%BD%AE-%E5%8F%96%E6%B6%88%E4%BB%A3%E7%90%86/">git 设置、取消代理</a>
-        <span class="dash flex-grow-1"></span>
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -499,22 +601,247 @@
 
 <time
   
-    class="text-muted small text-nowrap"
-  
-  data-ts="1721726511"
+  data-ts="1724989887"
   data-df="YYYY/MM/DD"
   
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
 >
-  2024/07/23
+  2024/08/30
 </time>
 
-      </li>
+      </span>
+
+      <!-- lastmod date -->
+      
+
+      
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
+
+          作者
+
+          <em>
+            
+              <a href="https://twitter.com/username">TheDarkStarJack</a>
+            
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="984 字"
+>
+  <em>5 分钟</em>阅读</span>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <h2 id="前言"><span class="me-2">前言</span><a href="#前言" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>Linux 的虚拟内存参数列在 <code class="language-plaintext highlighter-rouge">/proc/sys/vm</code> 目录中，可以直接查看对应的文件。</p>
+
+<p>前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 OOM，检查系统的内存参数配置，发现设置了 <code class="language-plaintext highlighter-rouge">vm.min_free_kbytes</code> 换算之有 5G 大小。客户环境也不是自己搭建的，不清楚为什么设置这么大，减少大小或则直接取消改参数的配置，采用系统默认大小之后恢复正常。</p>
+
+<p>可以设置一定大小，避免在业务运行时系统因为内存问题宕机，不过也不建议设置太大。</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre>┌─[wxj@TheDarkStar]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">cat</span> /proc/sys/vm/min_free_kbytes
+45056
+┌─[wxj@TheDarkStar]─[~]
+└──╼ <span class="nv">$ </span>ll /proc/sys/vm
+total 0
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 admin_reserve_kbytes
+<span class="nt">--w-------</span> 1 root root 0 Aug 30 11:53 compact_memory
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 compact_unevictable_allowed
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 compaction_proactiveness
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirty_background_bytes
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirty_background_ratio
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirty_bytes
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirty_expire_centisecs
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirty_ratio
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirty_writeback_centisecs
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 dirtytime_expire_seconds
+<span class="nt">--w-------</span> 1 root root 0 Aug 30 11:53 drop_caches
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 extfrag_threshold
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 hugetlb_optimize_vmemmap
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 hugetlb_shm_group
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 laptop_mode
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 legacy_va_layout
+<span class="nt">-rw-r--r--</span> 1 root root 0 Aug 30 11:53 lowmem_reserve_ratio
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="设置-min_free_kbytes"><span class="me-2">设置 <code class="language-plaintext highlighter-rouge">min_free_kbytes</code></span><a href="#设置-min_free_kbytes" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>这用于强制 Linux VM 保持最少的可用的 kilobytes 。 VM 使用此数字来计算系统中每个 lowmem 区域的  watermark[WMARK_MIN] 的值。每个 lowmem zone 根据其大小按比例获得一定数量的保留空闲页面。</p>
+
+<p>需要一些最小量的内存来满足 PF_MEMALLOC 分配；如果设置为低于 1024KB ，在高负载下容易出现死锁。设置得太高会导致机器 OOM。</p>
+
+<p>设置保留可用页面池的大小。它还负责设置管理 Linux 内核页面回收算法行为的 min_page、low_page 和 high_page 阈值。它还指定在系统间保留的最小 KB 数。这会为每个低内存区计算一个特定值，每个值都会被分配一个保留的空闲页面的大小。</p>
+
+<ul>
+  <li>增加参数值可有效减少应用程序工作集可用内存。因此，可能希望将其仅用于内核驱动的工作负载，其中驱动程序缓冲区需要在原子上下文中分配。</li>
+  <li>减少参数值可能会导致内核无法服务系统请求，如果内存在系统中发生大量处理。</li>
+</ul>
+
+<p>vm.min_free_kbytes 参数还设置页面重新声明水位线，名为 min_pages。在确定两个其他内存水位线、low_pages 和 high_pages 时，这个水位线被用作一个因素，它管理页面重新声明算法。</p>
+
+<h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>极端的值可能会降低系统性能。将 vm.min_free_kbytes 设置为非常低的值可防止系统有效地回收内存，这可能会导致系统崩溃并失败服务中断或其他内核服务。但是，设置 vm.min_free_kbytes 太大地增加系统回收活动，从而导致分配延迟因为假的直接重新声明状态而造成分配延迟。这可能导致系统立即进入内存不足状态。</p>
+
+<p>后续发现这篇<a href="https://cn.linux-console.net/?p=16916">文章</a>写的挺详细的还有实验</p>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
     
-  </ul>
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/%E5%86%85%E5%AD%98/">内存</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"
+            class="post-tag no-text-decoration"
+          >虚拟内存</a>
+        
+      </div>
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0%20min_free_kbytes%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FLinux-%25E8%2599%259A%25E6%258B%259F%25E5%2586%2585%25E5%25AD%2598%25E5%258F%2582%25E6%2595%25B0-min_free_kbytes%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
+    
+
+      
+
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0%20min_free_kbytes%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FLinux-%25E8%2599%259A%25E6%258B%259F%25E5%2586%2585%25E5%25AD%2598%25E5%258F%2582%25E6%2595%25B0-min_free_kbytes%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
+    
+
+      
+
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FLinux-%25E8%2599%259A%25E6%258B%259F%25E5%2586%2585%25E5%25AD%2598%25E5%258F%2582%25E6%2595%25B0-min_free_kbytes%2F&text=Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0%20min_free_kbytes%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
+    
+
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
-  
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -1052,12 +1379,421 @@
             </div>
 
             
+              
+              
+
+
+
+  <section id="toc-wrapper" class="d-none ps-0 pe-4">
+    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724311531"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 分组和交替(grouping and alternation)</h4>
+              <div class="text-muted">
+                <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
+
+分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
+
+...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724307532"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 排序去重</h4>
+              <div class="text-muted">
+                <p>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
+
+:%sort
+
+:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
+
+:%sort u...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724300933"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 搜索过滤满足条件的行</h4>
+              <div class="text-muted">
+                <p>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
+
+可以使用以下几种方法来搜索关...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>PostrgeSQL 常用函数（持续更新）</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+  
+  <!-- https://giscus.app/ -->
+<script type="text/javascript">
+  (function () {
+    const origin = 'https://giscus.app';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
+    let initTheme = lightTheme;
+    const html = document.documentElement;
+
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      initTheme = darkTheme;
+    }
+
+    let giscusAttributes = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'TheDarkStarJack/blog_discuss',
+      'data-repo-id': 'R_kgDOMSSHbQ',
+      'data-category': 'Announcements',
+      'data-category-id': 'DIC_kwDOMNVp0c4Cglls',
+      'data-mapping': 'pathname',
+      'data-strict' : '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': 'top',
+      'data-lang': 'zh-CN',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
+    };
+
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.getElementById('tail-wrapper').appendChild(giscusScript);
+
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {const mode = event.data.message;
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
+
+        const message = {
+          setConfig: {
+            theme: theme
+          }
+        };
+
+        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
+        giscus.postMessage({ giscus: message }, origin);
+      }
+    });
+  })();
+</script>
+
+
+
             
 
             <!-- The Footer -->
@@ -1628,6 +2364,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -1677,20 +2420,52 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
 
 
 
 
 
 
-<script src="/assets/js/dist/misc.min.js"></script>
+<script src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 
