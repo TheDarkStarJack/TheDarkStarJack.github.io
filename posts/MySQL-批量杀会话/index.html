@@ -904,6 +904,13 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/">PostgreSQL 单块读</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/">Linux 虚拟内存参数 min_free_kbytes</a>
         </li>
       
@@ -926,13 +933,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         <li class="text-truncate lh-lg">
           <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/">PostgreSQL 配置密码验证策略</a>
         </li>
       
     </ul>
@@ -1185,6 +1185,52 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1309,55 +1355,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
       
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -1384,6 +1381,9 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
       
         
@@ -1400,9 +1400,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>
@@ -1514,6 +1511,18 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1527,6 +1536,44 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725334654"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/03
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL 单块读</h4>
+              <div class="text-muted">
+                <p>前言
+
+什么是单块读？顾名思义，就是每次读取单个 block 。
+
+Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读，虽然之前听说是不支持的，今天直接测试验证一下。
+
+测试使用的工具为：strace 、pg 15
+
+block_size
+
+PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
@@ -1601,36 +1648,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
 数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
 
 一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724299222"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-              <h4 class="pt-0 my-2">Oracle expdp、impdp使用多个路径</h4>
-              <div class="text-muted">
-                <p>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。
-
-在使用 expdp/impdp 的时候只能通过 DIRECTORY 指定一个目录，但是可以通过选项 DUMPFILE  指定多个文件，文件可以在不同的路径下，以次达到同时使...</p>
               </div>
             </div>
           </a>
@@ -2032,6 +2049,52 @@ select string_agg(a,&#39;, &#39;) from tab1;
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -2156,55 +2219,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
     
     
       
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -2231,6 +2245,9 @@ select string_agg(a,&#39;, &#39;) from tab1;
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
       
         
@@ -2247,9 +2264,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/podman/">podman</a>
       
     </div>
   </section>

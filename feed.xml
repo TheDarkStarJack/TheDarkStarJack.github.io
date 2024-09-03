@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-08-30T17:31:11+08:00</updated>
+  <updated>2024-09-03T17:45:17+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,45 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>PostgreSQL 单块读</title>
+    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" rel="alternate" type="text/html" title="PostgreSQL 单块读" />
+    <published>2024-09-03T11:37:34+08:00</published>
+  
+    <updated>2024-09-03T11:37:34+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/</id>
+    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="PostgreSQL" />
+    
+  
+
+  <summary>前言
+
+什么是单块读？顾名思义，就是每次读取单个 block 。
+
+Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读，虽然之前听说是不支持的，今天直接测试验证一下。
+
+测试使用的工具为：strace 、pg 15
+
+block_size
+
+PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法修改了。默认是 8K，可以在编译的时候通过选项 --with-blocksize 指定大小，另一个关于 wal 的选项 wal_block_size 最好取值相同。
+
+127.0.0.1:54323; wxj@postgres &amp;amp;gt; select * from pg_settings where name like &amp;#39;%block_size%&amp;#39;;
++-[ RECORD 1 ]----+----...</summary>
+
+  </entry>
 
   
   <entry>
@@ -170,67 +209,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
 cd /software/postgresql-15.4/contrib/
 # 安装命令
 make &amp;amp;amp;&amp;amp;...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>vim 匹配指定行号的内容</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" rel="alternate" type="text/html" title="vim 匹配指定行号的内容" />
-    <published>2024-08-27T10:39:27+08:00</published>
-  
-    <updated>2024-08-27T10:39:27+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Vim" />
-    
-  
-
-  <summary>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
-
-再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
-
-
-  
-    
-      符号
-      含义
-      备注
-    
-  
-  
-    
-      \%
-      用于匹配行号或列号
-       
-    
-    
-      \%^
-      匹配文件开始的位置
-       
-    
-    
-      \%Nl
-      匹配指定的[n]行，l 表示行号，line
-       
-    
-    
-      \%&amp;#39;m
-      匹配指定的 m 标记
-       
-    
-    
-      \%&amp;amp;gt;&amp;#39;m
-      匹配在 ...</summary>
 
   </entry>
 
