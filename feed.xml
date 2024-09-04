@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-03T17:45:17+08:00</updated>
+  <updated>2024-09-04T17:27:23+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,44 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>查看 g++编译器默认编译标准</title>
+    <link href="https://thedarkstarjack.github.io/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/" rel="alternate" type="text/html" title="查看 g++编译器默认编译标准" />
+    <published>2024-09-04T14:24:27+08:00</published>
+  
+    <updated>2024-09-04T14:24:27+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/</id>
+    <content src="https://thedarkstarjack.github.io/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="gcc" />
+    
+  
+
+  <summary>简单记录下怎么查看当前 g++ 编译器默认支持的 cpp 标准，毕竟 cpp 20 都已经出来几年了，有些特性编译器还没有完全支持
+
+g++ -dM -E -x c++ /dev/null | grep __cplusplus
+
+
+如果要查看 g++ 是否支持 cpp 20 可以执行以下命令
+g++ -std=c++20 -E -x c++ - &amp;amp;lt;&amp;amp;lt;&amp;amp;lt; &amp;quot;&amp;quot;
+
+如果你的 g++ 版本支持 C++20，那么该命令将不会报错，而会输出一些编译的信息。如果你的 g++ 版本不支持 C++20，那么该命令将会提示错误信息，告诉你该标志不被支持。
+
+更多的信息可以参考以下网址：
+
+https://en.cppreference.com/w/cpp/compiler_support/20
+
+https://cplusplus.com/doc/tutorial/</summary>
+
+  </entry>
 
   
   <entry>
@@ -75,7 +113,7 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
     
     <category term="Linux" />
     
-    <category term="内存" />
+    <category term="Memory" />
     
   
 
@@ -174,41 +212,6 @@ Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上
 Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜像。Podman 提供了一个与 Docker 兼容的命令行前端来管理 Docker 镜像。
 
 虽然目前容器化部署基本都采用 docker ，但是随着 RedHat 系列的 Linux 升级到 8 之后基本就采用 podman 作为自身的容器化产品之后，已经不能通过软件仓库安装 docker 了，虽然可以通过一些方法安装 docker ，但是个人还是比较喜欢使用 RedHat 系列，所以也就尝试使用...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>PostgreSQL 配置密码验证策略</title>
-    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="PostgreSQL 配置密码验证策略" />
-    <published>2024-08-27T13:55:20+08:00</published>
-  
-    <updated>2024-08-27T13:55:20+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/</id>
-    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="PostgreSQL" />
-    
-  
-
-  <summary>概述
-数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
-
-一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目录下。源码编译安装 PostgreSQL 可以参考我之前写的脚本一键安装。
-
-编译安装插件
-下载相同版本的源码解压之后进入目录，在安装插件之前请先编译源码，然后进入插件的路径进行安装插件，如果在编译时新建的编译目录，例如 build ，需要进入 ‘build/contrib’ 路径下：
-cd /software/postgresql-15.4/contrib/
-# 安装命令
-make &amp;amp;amp;&amp;amp;...</summary>
 
   </entry>
 

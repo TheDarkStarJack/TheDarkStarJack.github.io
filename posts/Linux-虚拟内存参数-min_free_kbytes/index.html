@@ -727,7 +727,7 @@ total 0
 
 <h2 id="设置-min_free_kbytes"><span class="me-2">设置 <code class="language-plaintext highlighter-rouge">min_free_kbytes</code></span><a href="#设置-min_free_kbytes" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>这用于强制 Linux VM 保持最少的可用的 kilobytes 。 VM 使用此数字来计算系统中每个 lowmem 区域的  watermark[WMARK_MIN] 的值。每个 lowmem zone 根据其大小按比例获得一定数量的保留空闲页面。</p>
+<p>这用于强制 Linux VM 保持最少的可用的 kilobytes 。 VM 使用此数字来计算系统中每个 lowmem 区域的  <code class="language-plaintext highlighter-rouge">watermark[WMARK_MIN]</code> 的值。每个 lowmem zone 根据其大小按比例获得一定数量的保留空闲页面。</p>
 
 <p>需要一些最小量的内存来满足 PF_MEMALLOC 分配；如果设置为低于 1024KB ，在高负载下容易出现死锁。设置得太高会导致机器 OOM。</p>
 
@@ -755,7 +755,7 @@ total 0
         <i class="far fa-folder-open fa-fw me-1"></i>
         
           <a href="/categories/linux/">Linux</a>,
-          <a href="/categories/%E5%86%85%E5%AD%98/">内存</a>
+          <a href="/categories/memory/">Memory</a>
       </div>
     
 
@@ -765,9 +765,9 @@ total 0
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"
+            href="/tags/virtual-memory/"
             class="post-tag no-text-decoration"
-          >虚拟内存</a>
+          >virtual memory</a>
         
       </div>
     
@@ -872,6 +872,13 @@ total 0
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/">查看 g++编译器默认编译标准</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/">PostgreSQL 单块读</a>
         </li>
       
@@ -894,13 +901,6 @@ total 0
         
         <li class="text-truncate lh-lg">
           <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
         </li>
       
     </ul>
@@ -994,35 +994,6 @@ total 0
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1032,48 +1003,6 @@ total 0
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1148,6 +1077,53 @@ total 0
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1157,6 +1133,60 @@ total 0
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1358,6 +1388,9 @@ total 0
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
         
@@ -1365,9 +1398,6 @@ total 0
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
     </div>
   </section>
@@ -1927,35 +1957,6 @@ total 0
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1965,48 +1966,6 @@ total 0
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2081,6 +2040,53 @@ total 0
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2090,6 +2096,60 @@ total 0
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2291,6 +2351,9 @@ total 0
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
         
@@ -2298,9 +2361,6 @@ total 0
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
     </div>
   </section>

@@ -696,6 +696,69 @@
     <!-- combine -->
     
   
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
 
   
 
@@ -721,6 +784,17 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -997,7 +1071,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1301 字"
+  title="1422 字"
 >
   <em>7 分钟</em>阅读</span>
 
@@ -1346,6 +1420,44 @@ postgres 1416671 1416670  0 10:42 pts/3    00:00:00 strace <span class="nt">-tt<
 
 <p>也不是一味的增大 block_size ，根据业务的数据类型调整</p>
 
+<h2 id="oracle-多块读"><span class="me-2">Oracle 多块读</span><a href="#oracle-多块读" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>为了有一个对比，这里贴一下 Oracle 的多块读情况</p>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="n">SPID</span>                            <span class="n">SID</span>
+<span class="c1">------------------------ ----------</span>
+<span class="mi">756</span>                             <span class="mi">191</span>
+
+<span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">t3</span><span class="p">;</span>
+
+  <span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">----------</span>
+   <span class="mi">2821792</span>
+
+<span class="k">SQL</span><span class="o">&gt;</span> <span class="k">show</span> <span class="k">parameter</span> <span class="n">db_block_size</span>
+<span class="n">NAME</span>                                 <span class="k">TYPE</span>        <span class="n">VALUE</span>
+<span class="c1">------------------------------------ ----------- ------------------------------</span>
+<span class="n">db_block_size</span>                        <span class="nb">integer</span>     <span class="mi">8192</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/09/04/14-13-25-368423c832a0fdf63e6dfee120b3e4d7-202409041413645.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/09/04/14-13-25-368423c832a0fdf63e6dfee120b3e4d7-202409041413645.png" alt="Oracle-多块读" loading="lazy"></a>
+可以看到在单个 block 大小为 8K 的时候，pread 函数的偏移量存在 16K、32K 的情况，说明 Oracle 在扫描数据库块的时候单次扫描 block 的数量可以超过一个</p>
+
 <h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>PostgreSQL 目前还不支持多块读。</p>
@@ -1591,6 +1703,13 @@ epoll_wait
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/">查看 g++编译器默认编译标准</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/">PostgreSQL 单块读</a>
         </li>
       
@@ -1613,13 +1732,6 @@ epoll_wait
         
         <li class="text-truncate lh-lg">
           <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
         </li>
       
     </ul>
@@ -1713,35 +1825,6 @@ epoll_wait
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1751,48 +1834,6 @@ epoll_wait
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1867,6 +1908,53 @@ epoll_wait
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1876,6 +1964,60 @@ epoll_wait
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2077,6 +2219,9 @@ epoll_wait
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
         
@@ -2084,9 +2229,6 @@ epoll_wait
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
     </div>
   </section>
@@ -2359,9 +2501,13 @@ select string_agg(a,&#39;, &#39;) from tab1;
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>查看 g++编译器默认编译标准</p>
+    </a>
   
 </nav>
 
@@ -2568,35 +2714,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2606,48 +2723,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2722,6 +2797,53 @@ select string_agg(a,&#39;, &#39;) from tab1;
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2731,6 +2853,60 @@ select string_agg(a,&#39;, &#39;) from tab1;
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2932,6 +3108,9 @@ select string_agg(a,&#39;, &#39;) from tab1;
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
         
@@ -2939,9 +3118,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/npm/">npm</a>
       
     </div>
   </section>
