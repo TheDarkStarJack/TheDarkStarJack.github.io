@@ -546,6 +546,255 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Linux 利用 wc 统计行数和字符长度</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+在 Linux 环境中可以利用 wc 工具统计行数和字符长度等
+
+统计行数和字符长度
+
+wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要记录一下统计行数和字符长度的时候遇到的一个小问题，统计字符的长度不准
+
+在统计一个字符长度的时候明明是 24 位，但是 wc 的结果却是 25
+┌─[postgres@darkstarc]─[/Postgres/tools]
+...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725524302"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      tools
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL Write Ahead Logging WAL</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725520535"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL WAL 相关参数</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数
+
+WAL 参数
+
+不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：
+-- PostgreSQL 15.8 
+-- 如果需要参数描述和范围可以查看 short_desc, extra_desc, context 字段
+127.0.0.1:54323; wxj@demo...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725520140"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Windows 利用 Netsh 管理 WiFi 连接</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+基本现在的轻薄笔记本都已经没有网线接口了，除了拓展坞之外只能使用 WiFi 连接网络。当我们重装系统或者更换电脑的时候需要重新配置网络，手动配置的方式效率较低，可以利用 Windows 下的 netsh 工具备份已有的 WiFi 连接信息，然后在其他机器导入或者重装系统之后恢复 WiFi 信息。
+
+在 Windows 中可以通过 控制面板的网络管理，或者网卡属性查看 WiFi 信息。...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725503623"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Windows,
+                      Network
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -926,275 +1175,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim 匹配指定行号的内容</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
-
-再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
-
-
-  
-    
-      符号
-      含义
-      备注
-    
-  
-  
-    
-      \%
-      ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724726367"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/27
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">sed 检查 Oracle日志 并输出对应的行号</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
-
-可以利用一下语句过滤错误信息：
-## 一般来说 alert 日志的路径为
-## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SID}/${ORACL...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724661920"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/26
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      sed
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim 特殊字符记录(持续更新)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>记录一些 vim/nvim 的特殊字符含义，持续更新。
-
-正则表达式中的特殊字符
-这类符号的完整列表可参考文档 :help ordinary-atom
-
-
-  
-    
-      符号
-      含义
-      备注
-    
-  
-  
-    
-      .
-      任意字符，但是不包括行尾
-       
-    
-    
-      ^
-      行首
-      ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724315024"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim 分组和交替(grouping and alternation)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
-
-分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
-
-...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724311531"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1340,14 +1320,28 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/">查看 g++编译器默认编译标准</a>
+          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/">PostgreSQL 单块读</a>
+          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/">PostgreSQL WAL 相关参数</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/">Windows 利用 Netsh 管理 WiFi 连接</a>
         </li>
       
         
@@ -1355,20 +1349,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/">Linux 虚拟内存参数 min_free_kbytes</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
         </li>
       
     </ul>
@@ -1597,40 +1577,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1696,6 +1642,148 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1764,43 +1852,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1853,6 +1904,9 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/wal/">WAL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
@@ -1863,9 +1917,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
       
     </div>
   </section>
@@ -2147,40 +2198,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2246,6 +2263,148 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2314,43 +2473,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2403,6 +2525,9 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/wal/">WAL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
@@ -2413,9 +2538,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
       
     </div>
   </section>

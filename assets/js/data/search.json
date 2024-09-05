@@ -1,6 +1,74 @@
 [
   
   {
+    "title": "Linux 利用 wc 统计行数和字符长度",
+    "url": "/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/",
+    "categories": "Linux, tools",
+    "tags": "wc",
+    "date": "2024-09-05 16:18:22 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言在 Linux 环境中可以利用 wc 工具统计行数和字符长度等统计行数和字符长度wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要记录一下统计行数和字符长度的时候遇到的一个小问题，统计字符的长度不准在统计一个字符长度的时候明明是 24 位，但是 wc 的结果却是 25┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ ech...",
+    "content": "前言在 Linux 环境中可以利用 wc 工具统计行数和字符长度等统计行数和字符长度wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要记录一下统计行数和字符长度的时候遇到的一个小问题，统计字符的长度不准在统计一个字符长度的时候明明是 24 位，但是 wc 的结果却是 25┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo 000000010000000000000001 | wc -m25还好我记得长度是 24 ，wc 统计的结果却是 25，多出来一个字符长度，这是什么原因呢？┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo 1 | wc -m2┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo | wc -m1可以看到，即便统计空的字符也会有一个字符长度，难道闹鬼了？肯定不是，在现代主义国家，这是不可能的事。这个时候可以利用 cat 工具的 -A 选项查看所有的(隐藏)字符：┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo 1 | cat -A1$可以发现末尾有一个 ‘$’ ，这怎么处理呢，总不能还要单独处理这个字符吧。因为 echo 会自动换行，所以才会多出来一个 ‘$’ 字符，可以使用选项 -n 避免换行┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo -n 1 | cat -A1┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo -n 1 | wc -m1使用 wc -l 统计行数的时候也是同理：┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo | wc -l1┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo -n | wc -l0┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ echo | cat -A$总结其实这不是 wc 工具的问题，是 echo 自动换行/添加新行导致的。如果需要统计 echo 展示的内容行数和字符数量，需要使用 ‘echo -n’ 避免自动添加新行后续测试发现通过管道符或者直接读取文件中内容都会因为 ‘$’ 字符导致统计字符数量不准确，之前没怎么注意，这次发现这个问题在此记录一下：┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ basename /Postgres/pg10data/pg_wal/000000010000000000000001000000010000000000000001┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ basename /Postgres/pg10data/pg_wal/000000010000000000000001 | wc -m25┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ basename /Postgres/pg10data/pg_wal/000000010000000000000001 | cat -A000000010000000000000001$┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ basename /Postgres/pg10data/pg_wal/000000010000000000000001 &gt; tmp.txt┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ wl -m tmp.txt-bash: wl: command not found┌─[✗]─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ wc -m tmp.txt25 tmp.txt┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ &gt; tmp.txt┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ vim tmp.txt┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ ┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $┌─[postgres@darkstarc]─[/Postgres/tools]└──╼ $ wc -m tmp.txt25 tmp.txt"
+  },
+  
+  {
+    "title": "PostgreSQL Write Ahead Logging WAL",
+    "url": "/posts/PostgreSQL-Write-Ahead-Logging-WAL/",
+    "categories": "DataBase, PostgreSQL",
+    "tags": "WAL",
+    "date": "2024-09-05 15:15:35 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通过读...",
+    "content": "前言WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通过读取 WAL 日志，并把最后一部分的 WAL 日志重新执行一遍，就可以恢复到宕机时的状态。作用WAL 可以理解为 pg 数据库的重做日志与 Oracle 的Redo Log 的功能是一样的。因为 WAL 的存在，所以日志类型的文件系统对于 pg 来说不是必须的。例如 zfs 就是日志类型的文件系统，在持久化之前会记录日志，保证数据的原子性。（而且每当新数据写入 ZFS 时，它都会为该数据创建校验和（checksum）。当读取该数据时，校验和被验证。如果校验和不匹配，则 ZFS 知道已检测到错误。然后 ZFS 将自动尝试更正错误。）日志文件系统 在日志记录开销会降低性能，特别是当日志记录导致文件系统数据被刷新到磁盘时。不过，日志记录期间的数据刷新通常可以通过文件系统挂载选项禁用，例如在Linux ext3文件系统上。但是日志文件系统可以提高崩溃后的启动速度。使用 WAL 可以显著减少磁盘写入次数，因为只需要将日志文件刷新到磁盘以保证提交事务，而不是事务更改的每个数据文件。日志文件是按顺序写入的，因此同步日志的成本远低于刷新数据页的成本。对于处理许多涉及数据存储不同部分的小事务的服务器来说，尤其如此。此外，当服务器正在处理许多小型并发事务时，其中一个日志文件可能足以提交许多事务。WAL 还可以支持在线备份和时间点恢复。通过存档 WAL 数据，我们可以支持恢复到可用 WAL 数据所覆盖的任何时间：我们只需安装数据库的先前物理备份，并在所需时间重放 WAL 日志。更重要的是，物理备份不必是数据库状态的实时快照。 如果它是在一段时间内进行的，那么重放该时间段的 WAL 日志将解决任何内部数据不一致的问题。文件位置WAL 文件在 PostgreSQL9.X 及以下版本是在 pg_xlog 目录下的，而在 PostgreSQL10.X 及以上版本是在 pg_wal 目录下的。查看 WAL 文件所在的目录，会看到如下文件列表:## 文件名为24个字母长度的都是WAL文件pg15@TheDarkStar:/data_dir/PostgreSQL/data$ ll pg15/pg_wal/total 16388-rw------- 1 pg15 pg15 16777216 Sep  9 19:30 000000010000000000000001drwx------ 2 pg15 pg15     4096 Sep  8 16:18 archive_statusWAL 日志保存在 pg_xlog/pg_wal 下。每个 xlog 文件默认是 16MB，为了满足恢复要求，在 xlog 目录下会产生多个 WAL 日志，这样就可保证在宕机后，未持久化的数据都可以通过 WAL 日志来恢复，那些不需要的 WAL 日志将会被自动覆盖WAL 文件名的意义WAL 文件名的长度是固定的 24 位，由三部分组成，每一个部分 8 个字符长度：  时间线:英文为 timeline，是以 1 开始的递增数字，如 1，2，3……  LogId: 32 bit 长的一个数字，是以 0 开始递增的，如 0，1，2 实际为 LSN 的高 32 bit。  LogSeg: 32 bit 长的一个数字，是以 0 开始递增的，如 0，1，2, 3，···。LogSeg 是 LSN 的低 32 bit 的值再除以 WAL 文件大小 (通常为 16 MB) 的结果。注意: 当 LogId 为 0 时，LogSeg 是从 1 开始的。 WAL日志文件默认大小为16MB，如果想改变其大小，在PostgreSQL10.X及之前的版本中需要重新编译程序，在PostgreSQL11.X版本之后，可以在Initdb初始化数据库实例时指定WAL文件的大小。如果WAL文件是默认大小，即16MB时，LogSeg最大为FF，即000000~0000FF，即在文件名中，最后8字节中前6字节总是0。这是因为LSN的低32bit的值再除以WAL文件大小[2^32/(16*1024*1024)=256]最大只能是256，换算成十六进制，即FF。总结WAL 相当于 Oracle 的 redo log，用于 pg 实例崩溃恢复是保证数据完整一致。WAL 采用顺序写入的方式，而且在数据的变更刷盘之前先行写入可以参考官网描述"
+  },
+  
+  {
+    "title": "PostgreSQL WAL 相关参数",
+    "url": "/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/",
+    "categories": "DataBase, PostgreSQL",
+    "tags": "WAL",
+    "date": "2024-09-05 15:09:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数WAL 参数不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：-- PostgreSQL 15.8 -- 如果需要参数描述和范围可以查看 short_desc, extra_desc, context 字段127.0.0.1:54323; wxj@demo &gt; sel...",
+    "content": "前言WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数WAL 参数不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：-- PostgreSQL 15.8 -- 如果需要参数描述和范围可以查看 short_desc, extra_desc, context 字段127.0.0.1:54323; wxj@demo &gt; select name, setting, unit from pg_settings where name like '%wal%';+-------------------------------+-----------+------+|             name              |  setting  | unit |+-------------------------------+-----------+------+| max_slot_wal_keep_size        | -1        | MB   || max_wal_senders               | 10        | NULL || max_wal_size                  | 1024      | MB   || min_wal_size                  | 80        | MB   || track_wal_io_timing           | off       | NULL || wal_block_size                | 8192      | NULL || wal_buffers                   | 512       | 8kB  || wal_compression               | off       | NULL || wal_consistency_checking      |           | NULL || wal_decode_buffer_size        | 524288    | B    || wal_init_zero                 | on        | NULL || wal_keep_size                 | 0         | MB   || wal_level                     | replica   | NULL || wal_log_hints                 | off       | NULL || wal_receiver_create_temp_slot | off       | NULL || wal_receiver_status_interval  | 10        | s    || wal_receiver_timeout          | 60000     | ms   || wal_recycle                   | on        | NULL || wal_retrieve_retry_interval   | 5000      | ms   || wal_segment_size              | 16777216  | B    || wal_sender_timeout            | 60000     | ms   || wal_skip_threshold            | 2048      | kB   || wal_sync_method               | fdatasync | NULL || wal_writer_delay              | 200       | ms   || wal_writer_flush_after        | 128       | 8kB  |+-------------------------------+-----------+------+(25 rows)"
+  },
+  
+  {
+    "title": "Windows 利用 Netsh 管理 WiFi 连接",
+    "url": "/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/",
+    "categories": "Windows, Network",
+    "tags": "WiFi",
+    "date": "2024-09-05 10:33:43 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言基本现在的轻薄笔记本都已经没有网线接口了，除了拓展坞之外只能使用 WiFi 连接网络。当我们重装系统或者更换电脑的时候需要重新配置网络，手动配置的方式效率较低，可以利用 Windows 下的 netsh 工具备份已有的 WiFi 连接信息，然后在其他机器导入或者重装系统之后恢复 WiFi 信息。在 Windows 中可以通过 控制面板的网络管理，或者网卡属性查看 WiFi 信息。不过比较...",
+    "content": "前言基本现在的轻薄笔记本都已经没有网线接口了，除了拓展坞之外只能使用 WiFi 连接网络。当我们重装系统或者更换电脑的时候需要重新配置网络，手动配置的方式效率较低，可以利用 Windows 下的 netsh 工具备份已有的 WiFi 连接信息，然后在其他机器导入或者重装系统之后恢复 WiFi 信息。在 Windows 中可以通过 控制面板的网络管理，或者网卡属性查看 WiFi 信息。不过比较麻烦，可以通过命令行的方式管理网络，主要命令是 netsh微软从 Windows 2000 开始便内置了一个 Netsh（Network Shell）命令行工具，以帮助用户执行本地或远程计算机上不同网卡的信息查看、配置及排错工作。因为涉及网络的管理配置，所以在使用 Netsh 的时候请使用管理员用户打开 cmd、powershell、或者 Windows terminal 等终端工具。亦或者安装 sudo、gsudo 等临时提升权限的工具查看已保存的 WiFi 配置对于我们已经连接过的 WiFi 连接都会生成一个配置文件，可以使用以下方式查看现有的 WiFi 配置文件Netsh WLAN show profiles以上命令会显示出所有无线网卡连接过的 WIFI 配置文件，如果你有多块无线网卡，还可以使用 interface 参数跟上网卡名称进行单独列出：Netsh WLAN show profiles interface=\"无线网卡名称\"查看无线网卡驱动信息要查看当前 Windows  的无线网卡驱动信息可以使用如下命令：Netsh WLAN show drivers查看无线网卡兼容性可以使用以下命令来查看当前无线网卡所支持及兼容的（系统及硬件）功能：Netsh WLAN show wirelesscapabilities查看无线网卡的接口信息如果需要查看无线网卡的：无线电类型、信道、传输速率、连接模式等信息时，可以使用以下命令：Netsh WLAN show interfaces默认查看所有的接口信息，也可以指定网卡名称Netsh WLAN show interface name=\"网卡名称\"查看 WIFI 密码## 需要使用关键字 key=clear ，否则会隐藏密码字段Netsh WLAN show profile name=\"无线名称\" key=clear关闭自动连接到某个 WIFI 无线网络通常连接 WiFi 的时候，都会默认勾选自动连接选项，但在有多个无线网络的情况下，系统自动选择连接的 WIFI 可能信号较差，或者并不是我们希望连接的网络，此时我们可以使用如下命令取消自动连接某个 WIFI 无线网络：Netsh WLAN set profileparameter name=\"无线名称\" connectionmode=manual开启自动连接到某个 WiFi 网络恢复自动连接，只需将最后的参数改为 auto 即可Netsh WLAN set profileparameter name=\"无线名称\" connectionmode=auto删除 WIFI 配置文件当你不需要再连接某个无线网络、更改了 SSID 或需要重置配置文件时，可以使用如下命令来删除指定的 WIFI 配置文件：Netsh WLAN delete profile name=\"无线名称\"注意：如果你使用 Microsoft Account 登录到 Windows 10 / 11 ，WIFI 的配置文件默认会在不同设备间进行同步，但删除 WIFI 配置文件的操作不会同步到其它设备上。备份/导出 WIFI 无线网络配置文件导出 WIFI 无线网络配置的 xml 文件：Netsh WLAN export profile key=clearNetsh WLAN export profile key=clear folder=\"存放路径\"如果不指定 folder 选项，默认会在当前路径生成对应的 xml 文件默认情况下会为每个 WIFI 连接都导出一个单独的配置文件，如果你只想导出单个配置文件，可以使用如下命令Netsh WLAN export profile name=\"无线名称\" key=clear folder=\"存放路径\"注意：导出的 XML 配置文件是明文存储，而且会导出 WIFI 连接密码，所以请一定妥善保存。如果不指定 key=clear 选项并不会导出密码信息，需要在连接的手动更新密码信息恢复/导入 WiFi 配置文件Netsh WLAN add profile filename=\"存放路径\"## 如果需要为所有用户恢复需要使用 user=all 选项Netsh WLAN add profile filename=\"存放路径\" user=all生成无线网卡报告可以使用如下命令来创建和生成详细的无线网卡报告：Netsh WLAN show WLANreport总结在 Windows 下可以使用 Netsh 工具管理配置 网络，更多的使用方法可以使用 netsh /? 查看，或者查看这里如果需要查看或者备份/导出 WiFi 密码，需要使用选项 key=clear管理有线网络的话，使用 Netsh LAN 操作如果需要按照用户管理，请使用选项 user=all 或者 user=$username"
+  },
+  
+  {
     "title": "查看 g++编译器默认编译标准",
     "url": "/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/",
     "categories": "gcc",

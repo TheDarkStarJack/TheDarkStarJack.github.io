@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-04T17:27:23+08:00</updated>
+  <updated>2024-09-05T17:35:47+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,154 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Linux 利用 wc 统计行数和字符长度</title>
+    <link href="https://thedarkstarjack.github.io/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/" rel="alternate" type="text/html" title="Linux 利用 wc 统计行数和字符长度" />
+    <published>2024-09-05T16:18:22+08:00</published>
+  
+    <updated>2024-09-05T16:18:22+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="tools" />
+    
+  
+
+  <summary>前言
+
+在 Linux 环境中可以利用 wc 工具统计行数和字符长度等
+
+统计行数和字符长度
+
+wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要记录一下统计行数和字符长度的时候遇到的一个小问题，统计字符的长度不准
+
+在统计一个字符长度的时候明明是 24 位，但是 wc 的结果却是 25
+┌─[postgres@darkstarc]─[/Postgres/tools]
+└──╼ $ echo 000000010000000000000001 | wc -m
+25
+
+还好我记得长度是 24 ，wc 统计的结果却是 25，多出来一个字符长度，这是什么原因呢？
+┌─[postgres@darkstarc]─[/Postgres/tools]
+└──╼ $ echo 1 | wc -m
+2
+┌─[postgres@darkstarc]─[/Postgres/tools]...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>PostgreSQL Write Ahead Logging WAL</title>
+    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-Write-Ahead-Logging-WAL/" rel="alternate" type="text/html" title="PostgreSQL Write Ahead Logging WAL" />
+    <published>2024-09-05T15:15:35+08:00</published>
+  
+    <updated>2024-09-05T15:15:35+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-Write-Ahead-Logging-WAL/</id>
+    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-Write-Ahead-Logging-WAL/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="PostgreSQL" />
+    
+  
+
+  <summary>前言
+
+WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通过读取 WAL 日志，并把最后一部分的 WAL 日志重新执行一遍，就可以恢复到宕机时的状态。
+
+作用
+
+WAL 可以理解为 pg 数据库的重做日志与 Oracle 的Redo Log 的功能是一样的。
+
+因为 WAL 的存在，所以日志类型的文件系统对于 pg 来说不是必须的。例如 zfs 就是日志类型的文件系统，在持久化之前会记录日志，保证数据的原子性。（而且每当新数据写入 ZFS 时，它都会为该...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>PostgreSQL WAL 相关参数</title>
+    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" rel="alternate" type="text/html" title="PostgreSQL WAL 相关参数" />
+    <published>2024-09-05T15:09:00+08:00</published>
+  
+    <updated>2024-09-05T15:09:00+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/</id>
+    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="PostgreSQL" />
+    
+  
+
+  <summary>前言
+
+WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数
+
+WAL 参数
+
+不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：
+-- PostgreSQL 15.8 
+-- 如果需要参数描述和范围可以查看 short_desc, extra_desc, context 字段
+127.0.0.1:54323; wxj@demo &amp;amp;gt; select name, setting, unit from pg_settings where name like &amp;#39;%wal%&amp;#39;;
++-------------------------------+-----------+------+
+|             name              |  setting  | unit |
++------------------...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Windows 利用 Netsh 管理 WiFi 连接</title>
+    <link href="https://thedarkstarjack.github.io/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/" rel="alternate" type="text/html" title="Windows 利用 Netsh 管理 WiFi 连接" />
+    <published>2024-09-05T10:33:43+08:00</published>
+  
+    <updated>2024-09-05T10:33:43+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Windows" />
+    
+    <category term="Network" />
+    
+  
+
+  <summary>前言
+
+基本现在的轻薄笔记本都已经没有网线接口了，除了拓展坞之外只能使用 WiFi 连接网络。当我们重装系统或者更换电脑的时候需要重新配置网络，手动配置的方式效率较低，可以利用 Windows 下的 netsh 工具备份已有的 WiFi 连接信息，然后在其他机器导入或者重装系统之后恢复 WiFi 信息。
+
+在 Windows 中可以通过 控制面板的网络管理，或者网卡属性查看 WiFi 信息。不过比较麻烦，可以通过命令行的方式管理网络，主要命令是 netsh
+
+微软从 Windows 2000 开始便内置了一个 Netsh（Network Shell）命令行工具，以帮助用户执行本地或远程计算机上不同网卡的信息查看、配置及排错工作。
+因为涉及网络的管理配置，所以在使用 Netsh 的时候请使用管理员用户打开 cmd、powershell、或者 Windows terminal 等终端工具...</summary>
+
+  </entry>
 
   
   <entry>
@@ -53,165 +201,6 @@ g++ -std=c++20 -E -x c++ - &amp;amp;lt;&amp;amp;lt;&amp;amp;lt; &amp;quot;&amp;q
 https://en.cppreference.com/w/cpp/compiler_support/20
 
 https://cplusplus.com/doc/tutorial/</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>PostgreSQL 单块读</title>
-    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" rel="alternate" type="text/html" title="PostgreSQL 单块读" />
-    <published>2024-09-03T11:37:34+08:00</published>
-  
-    <updated>2024-09-03T11:37:34+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/</id>
-    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="PostgreSQL" />
-    
-  
-
-  <summary>前言
-
-什么是单块读？顾名思义，就是每次读取单个 block 。
-
-Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读，虽然之前听说是不支持的，今天直接测试验证一下。
-
-测试使用的工具为：strace 、pg 15
-
-block_size
-
-PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法修改了。默认是 8K，可以在编译的时候通过选项 --with-blocksize 指定大小，另一个关于 wal 的选项 wal_block_size 最好取值相同。
-
-127.0.0.1:54323; wxj@postgres &amp;amp;gt; select * from pg_settings where name like &amp;#39;%block_size%&amp;#39;;
-+-[ RECORD 1 ]----+----...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Linux 虚拟内存参数 min_free_kbytes</title>
-    <link href="https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" rel="alternate" type="text/html" title="Linux 虚拟内存参数 min_free_kbytes" />
-    <published>2024-08-30T11:51:27+08:00</published>
-  
-    <updated>2024-08-30T11:51:27+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Memory" />
-    
-  
-
-  <summary>前言
-
-Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。
-
-前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 OOM，检查系统的内存参数配置，发现设置了 vm.min_free_kbytes 换算之有 5G 大小。客户环境也不是自己搭建的，不清楚为什么设置这么大，减少大小或则直接取消改参数的配置，采用系统默认大小之后恢复正常。
-
-可以设置一定大小，避免在业务运行时系统因为内存问题宕机，不过也不建议设置太大。
-┌─[wxj@TheDarkStar]─[~]
-└──╼ $ cat /proc/sys/vm/m...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>PostrgeSQL 常用函数（持续更新）</title>
-    <link href="https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" rel="alternate" type="text/html" title="PostrgeSQL 常用函数（持续更新）" />
-    <published>2024-08-28T15:29:36+08:00</published>
-  
-    <updated>2024-08-28T15:29:36+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</id>
-    <content src="https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="PostrgeSQL" />
-    
-  
-
-  <summary>前言
-
-记录一些 PostgreSQL 的常用函数
-
-字符串
-
-字符串/字段拼接
-
-string_agg
-
-string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
-select string_agg(a,&amp;#39;, &amp;#39;) from tab1;
-
-
-
-如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
-
-|| ：和 Oracle 一样，可以用于拼接字符或者字段，如果是不是拼接的字段，字符串需要在两个单引号内
-select a || &amp;#39;,&amp;#39; || b from tab1 ;
-select &amp;#39;a&amp;#39; || &amp;#39;,&amp;#39; || &amp;#39;b&amp;#39; ;
-
-
-类型转换
-
-可以使用 cast 函数或者双冒号 ::
-select a::text from tab1;
-select 1::text;
-
-select cast(a as te...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>podman 修改仓库源</title>
-    <link href="https://thedarkstarjack.github.io/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" rel="alternate" type="text/html" title="podman 修改仓库源" />
-    <published>2024-08-28T11:21:43+08:00</published>
-  
-    <updated>2024-08-28T11:21:43+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/</id>
-    <content src="https://thedarkstarjack.github.io/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="containers" />
-    
-    <category term="podman" />
-    
-  
-
-  <summary>前言
-
-Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。
-
-Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜像。Podman 提供了一个与 Docker 兼容的命令行前端来管理 Docker 镜像。
-
-虽然目前容器化部署基本都采用 docker ，但是随着 RedHat 系列的 Linux 升级到 8 之后基本就采用 podman 作为自身的容器化产品之后，已经不能通过软件仓库安装 docker 了，虽然可以通过一些方法安装 docker ，但是个人还是比较喜欢使用 RedHat 系列，所以也就尝试使用...</summary>
 
   </entry>
 

@@ -904,14 +904,28 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/">查看 g++编译器默认编译标准</a>
+          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/">PostgreSQL 单块读</a>
+          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/">PostgreSQL WAL 相关参数</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/">Windows 利用 Netsh 管理 WiFi 连接</a>
         </li>
       
         
@@ -919,20 +933,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/">Linux 虚拟内存参数 min_free_kbytes</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/">podman 修改仓库源</a>
         </li>
       
     </ul>
@@ -1161,40 +1161,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1260,6 +1226,148 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1328,43 +1436,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1417,6 +1488,9 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/wal/">WAL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
@@ -1427,9 +1501,6 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
       
     </div>
   </section>
@@ -1553,6 +1624,30 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1566,6 +1661,104 @@ SELECT GROUP_CONCAT(CONCAT('KILL ',PROCESSLIST_ID,';') SEPARATOR ' ') 'Paste the
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725520535"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL Write Ahead Logging WAL</h4>
+              <div class="text-muted">
+                <p>前言
+
+WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725520140"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL WAL 相关参数</h4>
+              <div class="text-muted">
+                <p>前言
+
+WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数
+
+WAL 参数
+
+不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+-- Postgr...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" class="post-preview card h-100">
@@ -1600,84 +1793,6 @@ Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读�
 block_size
 
 PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724830176"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/28
-</time>
-
-              <h4 class="pt-0 my-2">PostrgeSQL 常用函数（持续更新）</h4>
-              <div class="text-muted">
-                <p>前言
-
-记录一些 PostgreSQL 的常用函数
-
-字符串
-
-字符串/字段拼接
-
-string_agg
-
-string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
-1
-2
-select string_agg(a,&#39;, &#39;) from tab1;
-
-
-
-如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
-
-...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724738120"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/27
-</time>
-
-              <h4 class="pt-0 my-2">PostgreSQL 配置密码验证策略</h4>
-              <div class="text-muted">
-                <p>概述
-数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
-
-一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
               </div>
             </div>
           </a>
@@ -2055,40 +2170,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2154,6 +2235,148 @@ select string_agg(a,&#39;, &#39;) from tab1;
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2222,43 +2445,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2311,6 +2497,9 @@ select string_agg(a,&#39;, &#39;) from tab1;
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/wal/">WAL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
@@ -2321,9 +2510,6 @@ select string_agg(a,&#39;, &#39;) from tab1;
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">MySQL</a>
       
     </div>
   </section>
