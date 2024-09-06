@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-05T17:35:47+08:00</updated>
+  <updated>2024-09-06T17:38:06+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,61 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>PostgreSQL 硬性限制</title>
+    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" rel="alternate" type="text/html" title="PostgreSQL 硬性限制" />
+    <published>2024-09-06T15:43:17+08:00</published>
+  
+    <updated>2024-09-06T15:43:17+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/</id>
+    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="PostgreSQL" />
+    
+  
+
+  <summary>https://www.postgresql.org/docs/current/limits.html
+
+在使用 pg 的时候，需要注意一些硬性限制，例如代码中写死的，这里记录一下，方便自己查阅，有的时候直接查阅官网反而因为内容太多导致忘记这些关键内容
+
+
+  
+    
+      Item
+      Upper Limit
+      Comment
+    
+  
+  
+    
+      database size
+      unlimited
+       
+    
+    
+      number of databases
+      4,294,950,911
+       
+    
+    
+      relations per database
+      1,431,650,303
+       
+    
+    
+      relation s...</summary>
+
+  </entry>
 
   
   <entry>
@@ -101,7 +156,7 @@ WAL 可以理解为 pg 数据库的重做日志与 Oracle 的Redo Log 的功能�
     <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" rel="alternate" type="text/html" title="PostgreSQL WAL 相关参数" />
     <published>2024-09-05T15:09:00+08:00</published>
   
-    <updated>2024-09-05T15:09:00+08:00</updated>
+    <updated>2024-09-06T17:36:53+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/</id>
     <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" />
@@ -163,44 +218,6 @@ WAL 参数
 
 微软从 Windows 2000 开始便内置了一个 Netsh（Network Shell）命令行工具，以帮助用户执行本地或远程计算机上不同网卡的信息查看、配置及排错工作。
 因为涉及网络的管理配置，所以在使用 Netsh 的时候请使用管理员用户打开 cmd、powershell、或者 Windows terminal 等终端工具...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>查看 g++编译器默认编译标准</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/" rel="alternate" type="text/html" title="查看 g++编译器默认编译标准" />
-    <published>2024-09-04T14:24:27+08:00</published>
-  
-    <updated>2024-09-04T14:24:27+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="gcc" />
-    
-  
-
-  <summary>简单记录下怎么查看当前 g++ 编译器默认支持的 cpp 标准，毕竟 cpp 20 都已经出来几年了，有些特性编译器还没有完全支持
-
-g++ -dM -E -x c++ /dev/null | grep __cplusplus
-
-
-如果要查看 g++ 是否支持 cpp 20 可以执行以下命令
-g++ -std=c++20 -E -x c++ - &amp;amp;lt;&amp;amp;lt;&amp;amp;lt; &amp;quot;&amp;quot;
-
-如果你的 g++ 版本支持 C++20，那么该命令将不会报错，而会输出一些编译的信息。如果你的 g++ 版本不支持 C++20，那么该命令将会提示错误信息，告诉你该标志不被支持。
-
-更多的信息可以参考以下网址：
-
-https://en.cppreference.com/w/cpp/compiler_support/20
-
-https://cplusplus.com/doc/tutorial/</summary>
 
   </entry>
 

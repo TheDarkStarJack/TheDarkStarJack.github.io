@@ -43,7 +43,7 @@
 <meta property="twitter:title" content="PostgreSQL WAL 相关参数" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-05T15:09:00+08:00","datePublished":"2024-09-05T15:09:00+08:00","description":"前言","headline":"PostgreSQL WAL 相关参数","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/"},"url":"https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-06T17:36:53+08:00","datePublished":"2024-09-05T15:09:00+08:00","description":"前言","headline":"PostgreSQL WAL 相关参数","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/"},"url":"https://thedarkstarjack.github.io/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -544,6 +544,39 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -551,6 +584,258 @@
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -603,6 +888,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725615413"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2024/09/06
+</time>
+
+        </span>
+      
 
       
 
@@ -645,9 +953,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="330 字"
+  title="4744 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>26 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -731,7 +1039,172 @@
 <span class="o">+</span><span class="c1">-------------------------------+-----------+------+</span>
 <span class="p">(</span><span class="mi">25</span> <span class="k">rows</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></div></div>
+<p>以下内容参考文档翻译描述</p>
 
+<h2 id="replication-流复制相关"><span class="me-2">Replication 流复制相关</span><a href="#replication-流复制相关" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="max_slot_wal_keep_size"><span class="me-2">max_slot_wal_keep_size</span><a href="#max_slot_wal_keep_size" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>指定主库实例可以支持的最大复制槽数量，<a href="https://www.postgresql.org/docs/15/warm-standby.html#STREAMING-REPLICATION-SLOTS">详情参考</a>。默认值为  10 。此参数只能在实例启动时设置。将其设置为低于当前现有复制槽数量的值将无法启动实例。另外，wal_level 必须设置为 replica  或更高才能允许使用复制槽。</p>
+
+<p>在订阅端，指定可以同时跟踪多少个复制源，<a href="https://www.postgresql.org/docs/15/replication-origins.html">参考</a>，从而有效限制可以在实例中创建的逻辑复制订阅数量。将其设置为低于当前跟踪的复制源数量（可以通过 pg_replication_origin_status 查询，请注意并不是 pg_replication_origin ）的值将阻止实例启动。</p>
+
+<h3 id="max_wal_senders"><span class="me-2">max_wal_senders</span><a href="#max_wal_senders" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>指定来自备库或流基础备份客户端的最大并发连接数（即同时运行的 WAL 发送进程的最大数量）。默认值为 10。取值为 0 表示禁用复制。流客户端的突然断开连接可能会留下孤立的连接槽，直到达到超时为止，因此该参数应设置为略高于预期客户端的最大数量，以便断开连接的客户端可以立即重新连接。该参数只能在服务器启动时设置。此外，wal_level 必须设置为 replica 或更高，以允许来自备库的连接。</p>
+
+<p>运行备库时，必须将此参数设置为与主库相同或更高的值。否则，备库将不允许查询。</p>
+
+<h3 id="wal_keep_size"><span class="me-2">wal_keep_size</span><a href="#wal_keep_size" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>指定保留在 pg_wal 目录中的过去日志文件段的最小大小，以防备用服务器需要获取它们以进行流复制。如果连接到发送服务器的备用服务器落后超过 wal_keep_size 兆字节，则发送服务器可能会删除备用服务器仍需要的 WAL 段，在这种情况下，复制连接将终止。下游连接最终也将因此失败。 （但是，如果正在使用 WAL 归档，备用服务器可以通过从归档中获取段来恢复。）
+这仅设置 pg_wal 中保留的段的最小大小；系统可能需要保留更多的段用于 WAL 归档或从检查点恢复。如果 wal_keep_size 为零（默认值），系统不会保留任何额外的段用于备用目的，因此备用服务器可用的旧 WAL 段的数量是前一个检查点的位置和 WAL 归档状态的函数。如果指定该值时没有单位，则以兆字节为单位。该参数只能在 postgresql.conf 文件或服务器命令行中设置。</p>
+
+<h3 id="wal_level"><span class="me-2">wal_level</span><a href="#wal_level" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>wal_level 决定了写入 WAL（预写日志）的信息量。默认值为 replica，记录足够的数据以支持 WAL 归档和复制，包括在备用服务器上运行只读查询。minimal 则删除所有日志记录，除了恢复崩溃或立即关闭所需的信息。最后，logical 添加了支持逻辑解码所需的信息。每个级别都包含所有较低级别记录的信息。此参数只能在服务器启动时设置。</p>
+
+<p>minimal 级别生成最少的 WAL 量。对于创建或重写永久关系的事务，它不会记录行信息。这可以显著加快操作（<a href="https://www.postgresql.org/docs/15/populate.html#POPULATE-PITR">参考</a>）。发起此优化的操作包括：</p>
+
+<p>ALTER … SET TABLESPACE<br />
+CLUSTER<br />
+CREATE TABLE<br />
+REFRESH MATERIALIZED VIEW（不带 CONCURRENTLY）<br />
+REINDEX<br />
+TRUNCATE</p>
+
+<p>然而，minimal WAL 不包含足够的信息来进行时间点恢复，因此需要使用 replica 或更高的级别来启用连续归档（<a href="https://www.postgresql.org/docs/15/runtime-config-wal.html#GUC-ARCHIVE-MODE">archive_mode</a>）和流式二进制复制。实际上，如果 max_wal_senders 不为零，服务器甚至无法以该模式启动。请注意，将 wal_level 更改为 minimal 会使先前的基本备份无法用于时间点恢复和备用服务器。</p>
+
+<p>在 logical 级别，记录与 replica 相同的信息，外加从 WAL 中提取逻辑更改集所需的信息。使用 logical 级别会增加 WAL 量，特别是当许多表配置为 REPLICA IDENTITY FULL 并执行大量的 UPDATE 和 DELETE 语句时。</p>
+
+<p>在 9.6 之前的版本中，此参数还允许使用 archive 和 hot_standby 作为值。这些值仍然被接受，但会映射到 replica。</p>
+
+<h3 id="wal_receiver_timeout"><span class="me-2">wal_receiver_timeout</span><a href="#wal_receiver_timeout" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>终止超过该时间段未活动的复制连接。这对于接收备用服务器检测主节点崩溃或网络中断非常有用。如果此值未指定单位，则默认以毫秒计算。默认值为 60 秒。值为 0 则禁用超时机制。此参数只能在 postgresql.conf 文件中或通过服务器命令行设置。</p>
+
+<h3 id="wal_retrieve_retry_interval"><span class="me-2">wal_retrieve_retry_interval</span><a href="#wal_retrieve_retry_interval" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>指定当从任何来源（流复制、本地 pg_wal 或 WAL 归档）无法获取 WAL 数据时，备用服务器应等待多长时间再尝试检索 WAL 数据。如果此值未指定单位，则默认以毫秒计算。默认值为 5 秒。此参数只能在 postgresql.conf 文件或服务器命令行中设置。</p>
+
+<p>此参数在恢复节点需要控制等待新 WAL 数据可用的时间时非常有用。例如，在归档恢复中，通过减少此参数的值，可以使恢复对检测新 WAL 日志文件更加敏感。在 WAL 活动较少的系统上，增加此值可以减少访问 WAL 归档的请求次数，这在云环境中尤为有用，因为基础设施的访问次数会被考虑在内。</p>
+
+<h3 id="wal_sender_timeout"><span class="me-2">wal_sender_timeout</span><a href="#wal_sender_timeout" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>终止超过该时间段未活动的复制连接。这对于发送服务器检测备用服务器崩溃或网络中断非常有用。如果此值未指定单位，则默认以毫秒计算。默认值为 60 秒。值为 0 则禁用超时机制。</p>
+
+<p>在跨多个地理位置分布的集群中，为不同位置使用不同的值可以为集群管理带来更大的灵活性。对于具有低延迟网络连接的备用服务器，较小的值有助于更快地检测故障；对于位于远程位置且网络延迟较高的备用服务器，较大的值有助于更好地判断备用服务器的健康状况。</p>
+
+<h2 id="wal-configuration"><span class="me-2">wal-configuration</span><a href="#wal-configuration" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="min_wal_size--max_wal_size"><span class="me-2">min_wal_size / max_wal_size</span><a href="#min_wal_size--max_wal_size" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>pg_wal 目录中的 WAL 段文件数量取决于 min_wal_size、max_wal_size 以及之前检查点周期生成的 WAL 数量。当不再需要旧的日志段文件时，它们将被删除或回收。如果由于日志输出率的短期峰值而超过 max_wal_size，则不需要的段文件将被删除，直到系统恢复到此限制以下。低于该限制，系统将回收足够的 WAL 文件以满足下一个检查点之前的估计需求，并删除其余文件。该估计基于先前检查点周期中使用的 WAL 文件数量的移动平均值。如果实际使用量超过估计值，移动平均值会立即增加，因此它在一定程度上适应了峰值使用量而不是平均使用量。 min_wal_size 设置了为将来使用而回收的 WAL 文件数量的最小值；即使系统空闲并且 WAL 使用量估计表明只需要很少的 WAL，那么多的 WAL 总是会被回收以供将来使用。</p>
+
+<p>只要 WAL 磁盘使用量保持在 min_wal_size 设置以下，旧的 WAL 文件总是会被回收以供将来在检查点使用，而不是被删除。这可用于确保保留足够的 WAL 空间来处理 WAL 使用量的峰值，例如在运行大型批处理作业时。如果指定该值时没有单位，则以兆字节为单位。默认值为 80 MB。该参数只能在 postgresql.conf 文件或服务器命令行中设置。</p>
+
+<p>max_wal_size 表示 WAL 在自动检查点期间增长的最大大小。这是一个软限制；在特殊情况下，WAL 大小可能会超过 max_wal_size，例如高负载、archive_command 或 archive_library 失败或较高的 wal_keep_size 设置。如果指定该值时没有单位，则以兆字节为单位。默认值为 1 GB。增加此参数可以增加崩溃恢复所需的时间。该参数只能在 postgresql.conf 文件或服务器命令行中设置。</p>
+
+<h3 id="track_wal_io_timing"><span class="me-2">track_wal_io_timing</span><a href="#track_wal_io_timing" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>有两个内部函数将 WAL 数据写入磁盘：XLogWrite 和 issue_xlog_fsync 。当 track_wal_io_timing 启用时，XLogWrite 写入和 issue_xlog_fsync 将 WAL 数据同步到磁盘的总时间分别计为 pg_stat_wal 中的 wal_write_time 和 wal_sync_time 。 XLogWrite  通常由 XLogInsertRecord （当 WAL 缓冲区中没有空间容纳新记录时）、 XLogFlush 和 WAL writer 调用，以将 WAL 缓冲区写入磁盘并调用 issues_xlog_fsync。 issues_xlog_fsync 通常由 XLogWrite 调用以将 WAL 文件同步到磁盘。如果 wal_sync_method 是 open_datasync 或 open_sync，则 XLogWrite 中的写入操作保证将写入的 WAL 数据同步到磁盘，而 issues_xlog_fsync 不执行任何操作。如果 wal_sync_method 是 fdatasync、fsync 或 fsync_writethrough，则写入操作会将 WAL 缓冲区移动到内核缓存，并通过 issues_xlog_fsync 将它们同步到磁盘。无论 track_wal_io_timing 如何设置，XLogWrite 写入和 issue_xlog_fsync 将 WAL 数据同步到磁盘的次数也分别计为 pg_stat_wal 中的 wal_write 和 wal_sync 。</p>
+
+<p>启用 WAL I/O 调用的计时。该参数默认关闭，因为它会重复查询操作系统当前时间，这可能会在某些平台上造成很大的开销。您可以使用 pg_test_timing 工具来测量系统上的计时开销。 I/O 计时信息显示在 pg_stat_wal 中。只有超级用户和具有适当 SET 权限的用户才能更改此设置。</p>
+
+<h3 id="wal_block_size"><span class="me-2">wal_block_size</span><a href="#wal_block_size" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>设置 WAL block 大小。早期在编译时通过 <code class="language-plaintext highlighter-rouge">--with-wal-blocksize</code> 指定，现在可以在 initdb 初始化的时候指定，可以查看源码（src/include/catalog/pg_control.h）中 XLOG_BLCKSZ 的描述。默认值为 8192 字节。</p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Size of a WAL file block. This need have no particular relation to BLCKSZ.
+                       XLOG_BLCKSZ must be a power of 2, and if your system supports O_DIRECT I/O,
+                       XLOG_BLCKSZ must be a multiple of the alignment requirement for direct-I/O
+                       buffers, else direct I/O may fail. Changing XLOG_BLCKSZ requires an initdb.
+                       */</span>
+</pre></td></tr></tbody></table></code></div></div>
+<h3 id="wal_buffers"><span class="me-2">wal_buffers</span><a href="#wal_buffers" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>用于尚未写入磁盘的 WAL 数据的共享内存量。默认取值为 ‘-1’ ，这会自动调整选择等于 <a href="https://www.postgresql.org/docs/15/runtime-config-resource.html#GUC-SHARED-BUFFERS">shared_buffers</a> 的 1/32（约3%）的大小，但不小于 64kB 也不大于一个 WAL 段的大小，通常为 16MB 。如果自动选择太大或太小，可以手动设置该值，但任何小于 32kB  的正值都将被视为 32kB。如果指定该值时不带单位，则将其视为 WAL  块，即 XLOG_BLCKSZ 字节，通常为 8kB。该参数只能在服务器启动时设置。</p>
+
+<p>WAL 缓冲区的内容在每次事务提交时都会写入磁盘，因此极大的值不太可能提供显着的好处。但是，将此值设置为至少几兆字节可以提高许多客户端同时提交的繁忙服务器上的写入性能。在大多数情况下，默认设置 -1 选择的自动调整应该会给出合理的结果。</p>
+
+<h3 id="wal_compression"><span class="me-2">wal_compression</span><a href="#wal_compression" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>该参数允许使用指定的压缩方法来压缩 WAL。启用后，当 <a href="https://www.postgresql.org/docs/15/runtime-config-wal.html#GUC-FULL-PAGE-WRITES">full_page_writes</a> 开启或在基本备份期间，PostgreSQL 服务器会压缩写入 WAL 的全部 page image。压缩的 page image将在 WAL 重放期间被解压缩。支持的方法是 pglz、lz4（如果 PostgreSQL 是使用 –with-lz4 编译的）和 zstd（如果 PostgreSQL 是使用 –with-zstd 编译的）。默认值是关闭。只有超级用户和具有适当 SET 权限的用户才能更改此设置。</p>
+
+<p>启用压缩可以减少 WAL 体积，而不会增加不可恢复的数据损坏的风险，但代价是在 WAL 日志记录期间的压缩和 WAL 重放期间的解压缩上花费一些额外的 CPU。</p>
+
+<h3 id="wal_consistency_checking"><span class="me-2">wal_consistency_checking</span><a href="#wal_consistency_checking" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>在 src/test/recovery 下运行某些测试时使用 wal_consistency_checking=all。默认情况下不启用，因为它是资源密集型的。</p>
+
+<p><a href="https://www.postgresql.org/docs/15/regress-run.html">参考</a></p>
+
+<h3 id="wal_decode_buffer_size"><span class="me-2">wal_decode_buffer_size</span><a href="#wal_decode_buffer_size" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>对服务器可以在 WAL 中查找多远以查找要预取的块的限制。如果指定该值时没有单位，则将其视为字节。默认值为 512kB。</p>
+
+<p>恢复期间在WAL中提前读取的缓冲区大小</p>
+
+<p>在WAL中提前读取以预取引用数据块的最大距离</p>
+
+<h3 id="wal_init_zero"><span class="me-2">wal_init_zero</span><a href="#wal_init_zero" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>如果设置为打开（默认），此选项会导致新的 WAL 文件用零填充。在某些文件系统上，这可以确保在我们需要写入 WAL 记录之前分配空间。但是，写时复制 (COW) 文件系统可能无法从该技术中受益，因此可以选择跳过不必要的工作。如果设置为关闭，则在创建文件时仅写入最后一个字节，以使其具有预期的大小。</p>
+
+<h3 id="wal_log_hints"><span class="me-2">wal_log_hints</span><a href="#wal_log_hints" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>当该参数开启时，PostgreSQL 服务器在检查点后的第一次修改某个磁盘页时，会将该页的全部内容写入 WAL，甚至包括对所谓提示位（hint bits）的非关键修改。</p>
+
+<p>如果启用了数据校验和，提示位更新将始终记录在 WAL 中，并且该设置将被忽略。你可以使用此设置测试如果数据库启用了数据校验和，会产生多少额外的 WAL 日志。</p>
+
+<p>此参数只能在服务器启动时设置，默认值为 off。</p>
+
+<h3 id="wal_recycle"><span class="me-2">wal_recycle</span><a href="#wal_recycle" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>如果设置为 on（默认值），此选项会导致 WAL 文件通过重命名来回收，从而避免创建新文件。在 COW 文件系统上，创建新文件系统可能会更快，因此提供了禁用此行为的选项。</p>
+
+<h3 id="wal_segment_size"><span class="me-2">wal_segment_size</span><a href="#wal_segment_size" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>wal segment 大小，默认 16MB</p>
+
+<h3 id="wal_skip_threshold"><span class="me-2">wal_skip_threshold</span><a href="#wal_skip_threshold" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>当 wal_level 设置为 minimal 且事务在创建或重写永久关系后提交时，此设置决定如何持久化新数据。如果数据小于此设置的值，则将其写入 WAL 日志；否则，使用受影响文件的 fsync。根据存储的特性，增大或减小此值可能有助于解决此类提交导致并发事务变慢的问题。如果此值未指定单位，则默认以千字节计算。默认值为两兆字节（2MB）。</p>
+
+<h3 id="wal_sync_method"><span class="me-2">wal_sync_method</span><a href="#wal_sync_method" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>用于强制将 WAL 更新写入磁盘的方法。如果 fsync 关闭，则此设置无关紧要，因为 WAL 文件的更新将不会被强制写出。可选值包括：</p>
+
+<ul>
+  <li><strong>open_datasync</strong>（使用 open() 选项 O_DSYNC 写入 WAL 文件）</li>
+  <li><strong>fdatasync</strong>（在每次提交时调用 fdatasync()）</li>
+  <li><strong>fsync</strong>（在每次提交时调用 fsync()）</li>
+  <li><strong>fsync_writethrough</strong>（在每次提交时调用 fsync()，强制写入磁盘写缓存）</li>
+  <li><strong>open_sync</strong>（使用 open() 选项 O_SYNC 写入 WAL 文件）</li>
+</ul>
+
+<p>open_* 选项在可用时也使用 O_DIRECT。并非所有平台都支持这些选项。默认值为平台支持的上述方法中的第一个，但在 Linux 和 FreeBSD 上，默认值为 fdatasync。默认设置不一定是理想的；可能需要更改此设置或系统配置的其他方面，以创建崩溃安全的配置或实现最佳性能。关于这些方面的讨论<a href="https://www.postgresql.org/docs/15/wal-reliability.html">参考</a>。此参数只能在 postgresql.conf 文件中或通过服务器命令行设置。</p>
+
+<h3 id="wal_writer_delay"><span class="me-2">wal_writer_delay</span><a href="#wal_writer_delay" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>指定WAL写入器多久刷新一次WAL，以时间单位计。在刷新WAL后，写入器会根据wal_writer_delay指定的时间长度休眠，除非被异步提交的事务提前唤醒。如果最后一次刷新发生在wal_writer_delay之前，并且自那以后产生的WAL量少于wal_writer_flush_after所值得的量，则WAL只被写入到操作系统，而不是刷新到磁盘。如果这个值没有指定单位，它被当作毫秒。默认值是200毫秒（200ms）。请注意，在许多系统上，休眠延迟的有效分辨率是10毫秒；将wal_writer_delay设置为不是10的倍数的值可能会产生与设置为下一个更高的10的倍数相同的结果。这个参数只能在postgresql.conf文件或服务器命令行上设置。</p>
+
+<h3 id="wal_writer_flush_after"><span class="me-2">wal_writer_flush_after</span><a href="#wal_writer_flush_after" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>指定 WAL 写入器按数据量刷新的频率。如果上次刷新发生在 <strong>wal_writer_delay</strong> 规定的时间内，且自那时以来产生的 WAL 量少于 <strong>wal_writer_flush_after</strong> 的设定值，则 WAL 仅写入操作系统，而不会刷新到磁盘。如果 <strong>wal_writer_flush_after</strong> 设置为 0，则 WAL 数据始终会立即刷新。如果此值未指定单位，则默认以 WAL 块为单位，即 <strong>XLOG_BLCKSZ</strong> 字节，通常为 8kB。默认值为 1MB。此参数只能在 <strong>postgresql.conf</strong> 文件中或通过服务器命令行设置。</p>
+
+<h2 id="参考"><span class="me-2">参考</span><a href="#参考" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><a href="https://www.postgresql.org/docs/15/wal-configuration.html">WAL Configuration</a>
+<a href="https://www.postgresql.org/docs/15/runtime-config-replication.html">Replication</a></p>
+
+<p>也可以查看源码文件 <code class="language-plaintext highlighter-rouge">src/backend/access/transam/xlog.c</code> 中的定义和描述</p>
 
   </div>
 
@@ -859,14 +1332,7 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
         </li>
       
         
@@ -880,14 +1346,21 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/">Windows 利用 Netsh 管理 WiFi 连接</a>
+          <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/">PostgreSQL 硬性限制</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/">Linux 虚拟内存参数 min_free_kbytes</a>
+          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
         </li>
       
     </ul>
@@ -1229,8 +1702,6 @@
     
     
     
-      
-    
   
     
     
@@ -1294,8 +1765,6 @@
     
     
     
-    
-      
     
   
     
@@ -1608,6 +2077,18 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1653,6 +2134,48 @@ WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 
         </article>
       
         <article class="col">
+          <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725608597"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/06
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL 硬性限制</h4>
+              <div class="text-muted">
+                <p>https://www.postgresql.org/docs/current/limits.html
+
+在使用 pg 的时候，需要注意一些硬性限制，例如代码中写死的，这里记录一下，方便自己查阅，有的时候直接查阅官网反而因为内容太多导致忘记这些关键内容
+
+
+  
+    
+      Item
+      Upper Limit
+      Comment
+    
+  
+  
+    
+ ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
           <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1685,37 +2208,6 @@ Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读�
 block_size
 
 PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724738120"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/27
-</time>
-
-              <h4 class="pt-0 my-2">PostgreSQL 配置密码验证策略</h4>
-              <div class="text-muted">
-                <p>概述
-数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
-
-一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
               </div>
             </div>
           </a>
@@ -2206,8 +2698,6 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
     
     
     
-      
-    
   
     
     
@@ -2271,8 +2761,6 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
     
     
     
-    
-      
     
   
     

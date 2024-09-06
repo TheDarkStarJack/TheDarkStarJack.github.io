@@ -43,7 +43,7 @@
 <meta property="twitter:title" content="PostrgeSQL 常用函数（持续更新）" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-28T15:29:36+08:00","datePublished":"2024-08-28T15:29:36+08:00","description":"前言","headline":"PostrgeSQL 常用函数（持续更新）","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"},"url":"https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-06T17:36:53+08:00","datePublished":"2024-08-28T15:29:36+08:00","description":"前言","headline":"PostrgeSQL 常用函数（持续更新）","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"},"url":"https://thedarkstarjack.github.io/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -555,6 +555,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -570,6 +581,17 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -656,6 +678,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725615413"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2024/09/06
+</time>
+
+        </span>
+      
 
       
 
@@ -698,7 +743,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="217 字"
+  title="281 字"
 >
   <em>1 分钟</em>阅读</span>
 
@@ -740,7 +785,9 @@
 
 <h2 id="类型转换"><span class="me-2">类型转换</span><a href="#类型转换" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>可以使用 <code class="language-plaintext highlighter-rouge">cast</code> 函数或者双冒号 <code class="language-plaintext highlighter-rouge">::</code></p>
+<p><a href="https://www.postgresql.org/docs/current/sql-createcast.html">https://www.postgresql.org/docs/current/sql-createcast.html</a></p>
+
+<p>可以使用 <code class="language-plaintext highlighter-rouge">cast</code> 函数或者双冒号 <code class="language-plaintext highlighter-rouge">::</code>，在PG 的SQL中，会经常看到 “::” 的语法， “::” 符号其实是一个显示的类型转换符，作用等同于 CAST。</p>
 <div class="language-sql highlighter-rouge"><div class="code-header">
         <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -756,6 +803,17 @@
 <span class="k">select</span> <span class="k">cast</span><span class="p">(</span><span class="mi">1</span> <span class="k">as</span> <span class="nb">text</span><span class="p">);</span>
 
 </pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="文件信息"><span class="me-2">文件信息</span><a href="#文件信息" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="根据oid或名称返回关系对应的文件路径"><span class="me-2">根据OID或名称返回关系对应的文件路径</span><a href="#根据oid或名称返回关系对应的文件路径" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="s1">'tab1'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 
   </div>
 
@@ -883,14 +941,7 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
+          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
         </li>
       
         
@@ -904,14 +955,21 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/">Windows 利用 Netsh 管理 WiFi 连接</a>
+          <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/">PostgreSQL 硬性限制</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/">Linux 虚拟内存参数 min_free_kbytes</a>
+          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
         </li>
       
     </ul>
@@ -1253,8 +1311,6 @@
     
     
     
-      
-    
   
     
     
@@ -1318,8 +1374,6 @@
     
     
     
-    
-      
     
   
     
@@ -1632,6 +1686,18 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1645,6 +1711,48 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725608597"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/06
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL 硬性限制</h4>
+              <div class="text-muted">
+                <p>https://www.postgresql.org/docs/current/limits.html
+
+在使用 pg 的时候，需要注意一些硬性限制，例如代码中写死的，这里记录一下，方便自己查阅，有的时候直接查阅官网反而因为内容太多导致忘记这些关键内容
+
+
+  
+    
+      Item
+      Upper Limit
+      Comment
+    
+  
+  
+    
+ ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview card h-100">
@@ -1739,44 +1847,6 @@ WAL 参数
 32
 33
 -- Postgr...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725334654"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/03
-</time>
-
-              <h4 class="pt-0 my-2">PostgreSQL 单块读</h4>
-              <div class="text-muted">
-                <p>前言
-
-什么是单块读？顾名思义，就是每次读取单个 block 。
-
-Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读，虽然之前听说是不支持的，今天直接测试验证一下。
-
-测试使用的工具为：strace 、pg 15
-
-block_size
-
-PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法...</p>
               </div>
             </div>
           </a>
@@ -2267,8 +2337,6 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
     
     
     
-      
-    
   
     
     
@@ -2332,8 +2400,6 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
     
     
     
-    
-      
     
   
     
