@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="PostgreSQL 配置密码验证策略" />
+<meta property="og:title" content="PostgreSQL 常用函数（持续更新）" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="概述 数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。" />
-<meta property="og:description" content="概述 数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" />
+<meta name="description" content="前言" />
+<meta property="og:description" content="前言" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-27T13:55:20+08:00" />
+<meta property="article:published_time" content="2024-08-28T15:29:36+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="PostgreSQL 配置密码验证策略" />
+<meta property="twitter:title" content="PostgreSQL 常用函数（持续更新）" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-27T13:55:20+08:00","datePublished":"2024-08-27T13:55:20+08:00","description":"概述 数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。","headline":"PostgreSQL 配置密码验证策略","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/"},"url":"https://thedarkstarjack.github.io/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-28T15:29:36+08:00","datePublished":"2024-08-28T15:29:36+08:00","description":"前言","headline":"PostgreSQL 常用函数（持续更新）","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"},"url":"https://thedarkstarjack.github.io/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>PostgreSQL 配置密码验证策略 | DarkStar
+  <title>PostgreSQL 常用函数（持续更新） | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>PostgreSQL 配置密码验证策略</span>
+              <span>PostgreSQL 常用函数（持续更新）</span>
             
 
           
@@ -500,142 +500,6 @@
 
 
 
-  
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-
-  
-
 
 <!-- Add header for code snippets -->
 
@@ -702,6 +566,32 @@
 
       
     
+
+    
+  
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -721,10 +611,26 @@
   
 
   
+    
+    
 
-  
-  
+    
+      
+        
+        
+      
 
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -742,7 +648,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>PostgreSQL 配置密码验证策略</h1>
+    <h1 data-toc-skip>PostgreSQL 常用函数（持续更新）</h1>
     
 
     <div class="post-meta text-muted">
@@ -759,13 +665,13 @@
 
 <time
   
-  data-ts="1724738120"
+  data-ts="1724830176"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/08/27
+  2024/08/28
 </time>
 
       </span>
@@ -814,9 +720,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="911 字"
+  title="892 字"
 >
-  <em>5 分钟</em>阅读</span>
+  <em>4 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -824,85 +730,274 @@
   </header>
 
   <div class="content">
-    <h2 id="概述"><span class="me-2">概述</span><a href="#概述" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。</p>
+    <h2 id="前言"><span class="me-2">前言</span><a href="#前言" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目录下。源码编译安装 PostgreSQL 可以参考我之前写的<a href="https://github.com/TheDarkStarJack/postgresql-install">脚本</a>一键安装。</p>
+<p>记录一些 PostgreSQL 的常用函数</p>
 
-<h2 id="编译安装插件"><span class="me-2">编译安装插件</span><a href="#编译安装插件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>下载相同版本的源码解压之后进入目录，在安装插件之前<strong>请先编译源码</strong>，然后进入插件的路径进行安装插件，如果在编译时新建的编译目录，例如 build ，需要进入 ‘build/contrib’ 路径下：</p>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+<h2 id="字符串"><span class="me-2">字符串</span><a href="#字符串" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="字符串字段拼接"><span class="me-2">字符串/字段拼接</span><a href="#字符串字段拼接" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<h4 id="string_agg"><span class="me-2">string_agg</span><a href="#string_agg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<p><code class="language-plaintext highlighter-rouge">string_agg</code>：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号</p>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3
-</pre></td><td class="rouge-code"><pre><span class="nb">cd</span> /software/postgresql-15.4/contrib/
-<span class="c"># 安装命令</span>
-make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="n">string_agg</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s1">', '</span><span class="p">)</span> <span class="k">from</span> <span class="n">tab1</span><span class="p">;</span>
+
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>在 contrib 目录下执行会编译安装路径下的所有插件，如果只想要单独安装需要的插件，可以进入对应的目录：</p>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+<p>如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错</p>
+
+<p><code class="language-plaintext highlighter-rouge">||</code> ：和 Oracle 一样，可以用于拼接字符或者字段，如果是不是拼接的字段，字符串需要在两个单引号内</p>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="n">a</span> <span class="o">||</span> <span class="s1">','</span> <span class="o">||</span> <span class="n">b</span> <span class="k">from</span> <span class="n">tab1</span> <span class="p">;</span>
+<span class="k">select</span> <span class="s1">'a'</span> <span class="o">||</span> <span class="s1">','</span> <span class="o">||</span> <span class="s1">'b'</span> <span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="类型转换"><span class="me-2">类型转换</span><a href="#类型转换" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><a href="https://www.postgresql.org/docs/current/sql-createcast.html">https://www.postgresql.org/docs/current/sql-createcast.html</a></p>
+
+<p>可以使用 <code class="language-plaintext highlighter-rouge">cast</code> 函数或者双冒号 <code class="language-plaintext highlighter-rouge">::</code>，在PG 的SQL中，会经常看到 “::” 的语法， “::” 符号其实是一个显示的类型转换符，作用等同于 CAST。</p>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="nb">cd</span> /software/postgresql-15.4/contrib/auth_delay/
-make <span class="o">&amp;&amp;</span> make <span class="nb">install
+6
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="n">a</span><span class="p">::</span><span class="nb">text</span> <span class="k">from</span> <span class="n">tab1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">1</span><span class="p">::</span><span class="nb">text</span><span class="p">;</span>
 
-cd</span> /software/postgresql-15.4/contrib/passwordcheck/
-make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
+<span class="k">select</span> <span class="k">cast</span><span class="p">(</span><span class="n">a</span> <span class="k">as</span> <span class="nb">text</span><span class="p">)</span> <span class="k">from</span> <span class="n">tab1</span><span class="p">;</span>
+<span class="k">select</span> <span class="k">cast</span><span class="p">(</span><span class="mi">1</span> <span class="k">as</span> <span class="nb">text</span><span class="p">);</span>
+
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="配置参数文件"><span class="me-2">配置参数文件</span><a href="#配置参数文件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>如果在编译的时候指定的安装路径正确或者安装数据库软件时采用的时默认路径那么在编译安装插件的时候会自动安装至正确的路径，如果路径有问题，请复制编译好的 ‘auth_delay.so、passwordcheck.so’ 文件到，<code class="language-plaintext highlighter-rouge">pg_config | grep -E 'LIBDIR|PKGLIBDIR'</code> 任意一个路径，然后配置 <code class="language-plaintext highlighter-rouge">${PGDATA?}/postgresql.conf</code> 文件，如果没有配置变量 ‘${PGDATA}’ ，可以使用 <code class="language-plaintext highlighter-rouge">ps -ef | grep -i postgre</code> 查看数据库的配置文件路径，也可以使用 <code class="language-plaintext highlighter-rouge">psql -c 'show config_file;'</code> 获取配置文件路径。</p>
+<h2 id="文件信息"><span class="me-2">文件信息</span><a href="#文件信息" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>打开 <code class="language-plaintext highlighter-rouge">${PGDATA?}/postgresql.conf</code> 文件，修改 <code class="language-plaintext highlighter-rouge">shared_preload_libraries</code> 参数以包含 <code class="language-plaintext highlighter-rouge">auth_delay</code> ，同时增加 <code class="language-plaintext highlighter-rouge">auth_delay.milliseconds</code> 参数，设置延迟时间，单位为毫秒，取值 5000 代表 5 秒，若文件中没有该参数，添加即可。修改后，需要重启数据库才能生效，所以配置之前要和业务部门确认，避免后期扯皮。</p>
+<h3 id="pg_relation_filepath-根据oid或名称返回关系对应的文件路径"><span class="me-2">pg_relation_filepath() 根据OID或名称返回关系对应的文件路径</span><a href="#pg_relation_filepath-根据oid或名称返回关系对应的文件路径" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><strong>需要注意： <a href="https://www.postgresql.org/docs/current/auth-delay.html">auth_delay</a> 认证失败之前等待的毫秒数，缺省是0。以下示例修改表示在一次认证失败后，将延迟5秒中才能继续下一次认证。该选项可以增加暴力破解数据库服务器的密码难度，但它并不能防止拒绝服务攻击，甚至可能恶化它们，因为报告验证失败之前等待的过程将损耗连接槽位。</strong></p>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="c"># Add settings for extensions here</span>
-shared_preload_libraries <span class="o">=</span> <span class="s1">'passwordcheck,auth_delay'</span>
-auth_delay.milliseconds <span class="o">=</span> <span class="s1">'5000'</span>
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="s1">'tab1'</span><span class="p">);</span>
+
+<span class="k">select</span> <span class="n">schemaname</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="n">tablename</span><span class="p">::</span><span class="nb">text</span><span class="p">)</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">'&amp;schemaname'</span><span class="p">;</span>
 </pre></td></tr></tbody></table></code></div></div>
-<p>重启实例：</p>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+<p>一般情况下对象的 oid 和 relfilenode 是相同的，但是表和索引的relfilenode值会被一些命令（例如TRUNCATE，REINDEX，CLUSTER）所改变。 例如对表  sampletbl 执行 TRUNCATE ， PostgreSQL 会为表分配一个新的 relfilenode 。</p>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>pg_ctl restart
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="rouge-code"><pre><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="s1">'tab1'</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span> <span class="n">pg_relation_filepath</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16389</span><span class="o">/</span><span class="mi">16544</span>     <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">tab1</span> <span class="k">rename</span> <span class="k">to</span> <span class="n">t1</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">16</span><span class="p">.</span><span class="mi">013</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="s1">'t1'</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span> <span class="n">pg_relation_filepath</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16389</span><span class="o">/</span><span class="mi">16544</span>     <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">968</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">create</span> <span class="k">table</span> <span class="n">tab1</span> <span class="k">as</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="mi">6</span>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">5</span><span class="p">.</span><span class="mi">227</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="s1">'tab1'</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span> <span class="n">pg_relation_filepath</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16389</span><span class="o">/</span><span class="mi">16547</span>     <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">oid</span><span class="p">,</span> <span class="n">relname</span><span class="p">,</span> <span class="n">relfilenode</span> <span class="k">from</span> <span class="n">pg_class</span> <span class="k">where</span> <span class="n">relname</span> <span class="k">in</span> <span class="p">(</span><span class="s1">'t1'</span><span class="p">,</span><span class="s1">'tab1'</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">-------+---------+-------------+</span>
+<span class="o">|</span>  <span class="n">oid</span>  <span class="o">|</span> <span class="n">relname</span> <span class="o">|</span> <span class="n">relfilenode</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+---------+-------------+</span>
+<span class="o">|</span> <span class="mi">16544</span> <span class="o">|</span> <span class="n">t1</span>      <span class="o">|</span>       <span class="mi">16544</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">16547</span> <span class="o">|</span> <span class="n">tab1</span>    <span class="o">|</span>       <span class="mi">16547</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+---------+-------------+</span>
+<span class="p">(</span><span class="mi">2</span> <span class="k">rows</span><span class="p">)</span>
+
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">TRUNCATE</span> <span class="k">TABLE</span>  <span class="n">t1</span><span class="p">;</span>
+<span class="k">TRUNCATE</span> <span class="k">TABLE</span>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">4</span><span class="p">.</span><span class="mi">922</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">db1</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">oid</span><span class="p">,</span> <span class="n">relname</span><span class="p">,</span> <span class="n">relfilenode</span> <span class="k">from</span> <span class="n">pg_class</span> <span class="k">where</span> <span class="n">relname</span> <span class="k">in</span> <span class="p">(</span><span class="s1">'t1'</span><span class="p">,</span><span class="s1">'tab1'</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">-------+---------+-------------+</span>
+<span class="o">|</span>  <span class="n">oid</span>  <span class="o">|</span> <span class="n">relname</span> <span class="o">|</span> <span class="n">relfilenode</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+---------+-------------+</span>
+<span class="o">|</span> <span class="mi">16547</span> <span class="o">|</span> <span class="n">tab1</span>    <span class="o">|</span>       <span class="mi">16547</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">16544</span> <span class="o">|</span> <span class="n">t1</span>      <span class="o">|</span>       <span class="mi">16550</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+---------+-------------+</span>
+<span class="p">(</span><span class="mi">2</span> <span class="k">rows</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></div></div>
-<p>如果启动没报错，则表示正确加载模块</p>
 
-<p>两个扩展都是 contrib 自带的扩展，不需要手动执行 <code class="language-plaintext highlighter-rouge">CREATE EXTENSION</code> ，否则会提示以下信息：</p>
-<pre><code class="language-postgresql">postgres=# CREATE EXTENSION auth_delay;
-ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/extension/auth_delay.control": No such file or directory
-</code></pre>
-<h2 id="验证"><span class="me-2">验证</span><a href="#验证" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<pre><code class="language-postgresql">postgres=# show auth_delay.milliseconds;
- auth_delay.milliseconds
--------------------------
- 5s
-(1 row)
-</code></pre>
-<p>新建用户验证 <code class="language-plaintext highlighter-rouge">passwordcheck</code> ：</p>
+<p>rename table/database 对表或者 db 进行重命名操作都不会变更 relfilenode</p>
 
-<p><a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/08/27/14-48-57-989faccfc0b37705b6154681e9037c57-202408271448300.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/08/27/14-48-57-989faccfc0b37705b6154681e9037c57-202408271448300.png" alt="验证passwordcheck" loading="lazy"></a></p>
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre></td><td class="rouge-code"><pre><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">demo</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">schemaname</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="n">tablename</span><span class="p">::</span><span class="nb">text</span><span class="p">)</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">'bookings'</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------------+-----------------+----------------------+</span>
+<span class="o">|</span> <span class="n">schemaname</span> <span class="o">|</span>    <span class="n">tablename</span>    <span class="o">|</span> <span class="n">pg_relation_filepath</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+-----------------+----------------------+</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">ticket_flights</span>  <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16467</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">boarding_passes</span> <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16440</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">aircrafts_data</span>  <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16421</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">flights</span>         <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16446</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">airports_data</span>   <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16431</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">seats</span>           <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16463</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">tickets</span>         <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16472</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">bookings</span>        <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16443</span>     <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+-----------------+----------------------+</span>
 
-<p>可以修改 <code class="language-plaintext highlighter-rouge">auth_delay.milliseconds</code> 的值，结合 <code class="language-plaintext highlighter-rouge">time</code> 命令验证密码错误时的等待时间：</p>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">demo</span> <span class="o">&gt;</span> <span class="k">alter</span> <span class="k">database</span> <span class="n">demo</span> <span class="k">rename</span> <span class="k">to</span> <span class="n">demo01</span><span class="p">;</span>
+<span class="n">ERROR</span><span class="p">:</span>  <span class="k">current</span> <span class="k">database</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">renamed</span>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">187</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">demo</span> <span class="o">&gt;</span> <span class="err">\</span><span class="k">c</span> <span class="n">testdb</span>
+<span class="n">You</span> <span class="k">are</span> <span class="n">now</span> <span class="n">connected</span> <span class="k">to</span> <span class="k">database</span> <span class="nv">"testdb"</span> <span class="k">as</span> <span class="k">user</span> <span class="nv">"wxj"</span><span class="p">.</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">testdb</span> <span class="o">&gt;</span> <span class="k">alter</span> <span class="k">database</span> <span class="n">demo</span> <span class="k">rename</span> <span class="k">to</span> <span class="n">demo01</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">DATABASE</span>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">2</span><span class="p">.</span><span class="mi">038</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">testdb</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">schemaname</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="n">tablename</span><span class="p">::</span><span class="nb">text</span><span class="p">)</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">'bookings'</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------------+-----------+----------------------+</span>
+<span class="o">|</span> <span class="n">schemaname</span> <span class="o">|</span> <span class="n">tablename</span> <span class="o">|</span> <span class="n">pg_relation_filepath</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+-----------+----------------------+</span>
+<span class="o">+</span><span class="c1">------------+-----------+----------------------+</span>
+<span class="p">(</span><span class="mi">0</span> <span class="k">rows</span><span class="p">)</span>
 
-<p><a href="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/08/27/14-46-57-1a647fa0b3c196c323bfefe1c3cd97e9-202408271446897.png" class="popup img-link  shimmer"><img src="https://darkstaronline.work/blog_images/piclist/piclist-clipboard-images/24/08/27/14-46-57-1a647fa0b3c196c323bfefe1c3cd97e9-202408271446897.png" alt="验证auth_delay" loading="lazy"></a></p>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">75</span><span class="p">.</span><span class="mi">493</span> <span class="n">ms</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">testdb</span> <span class="o">&gt;</span> <span class="err">\</span><span class="k">c</span> <span class="n">demo01</span>
+<span class="n">You</span> <span class="k">are</span> <span class="n">now</span> <span class="n">connected</span> <span class="k">to</span> <span class="k">database</span> <span class="nv">"demo01"</span> <span class="k">as</span> <span class="k">user</span> <span class="nv">"wxj"</span><span class="p">.</span>
+<span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">54323</span><span class="p">;</span> <span class="n">wxj</span><span class="o">@</span><span class="n">demo01</span> <span class="o">&gt;</span> <span class="k">select</span> <span class="n">schemaname</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">pg_relation_filepath</span><span class="p">(</span><span class="n">tablename</span><span class="p">::</span><span class="nb">text</span><span class="p">)</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">'bookings'</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------------+-----------------+----------------------+</span>
+<span class="o">|</span> <span class="n">schemaname</span> <span class="o">|</span>    <span class="n">tablename</span>    <span class="o">|</span> <span class="n">pg_relation_filepath</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+-----------------+----------------------+</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">ticket_flights</span>  <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16467</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">boarding_passes</span> <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16440</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">aircrafts_data</span>  <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16421</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">flights</span>         <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16446</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">airports_data</span>   <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16431</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">seats</span>           <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16463</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">tickets</span>         <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16472</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bookings</span>   <span class="o">|</span> <span class="n">bookings</span>        <span class="o">|</span> <span class="n">base</span><span class="o">/</span><span class="mi">16417</span><span class="o">/</span><span class="mi">16443</span>     <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------+-----------------+----------------------+</span>
+<span class="p">(</span><span class="mi">8</span> <span class="k">rows</span><span class="p">)</span>
 
-<h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>除了需要在 <code class="language-plaintext highlighter-rouge">postgresql.conf</code> 配置文件中装载 <code class="language-plaintext highlighter-rouge">auth_delay</code> 模块，还需要增加 <code class="language-plaintext highlighter-rouge">auth_delay.milliseconds</code> 配置参数，否则 <code class="language-plaintext highlighter-rouge">auth_delay</code> 扩展模块的功能无法体现。<code class="language-plaintext highlighter-rouge">passwordcheck</code> 模块对新创建的用户密码进行检测，已存在的用户不生效。</p>
-
-<p>两个插件模块都是 <code class="language-plaintext highlighter-rouge">contrib</code> 自带的模块，不需要执行 <code class="language-plaintext highlighter-rouge">CREATE EXTENSION</code></p>
+<span class="nb">Time</span><span class="p">:</span> <span class="mi">7</span><span class="p">.</span><span class="mi">055</span> <span class="n">ms</span>
+</pre></td></tr></tbody></table></code></div></div>
 
   </div>
 
@@ -961,21 +1056,21 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=PostgreSQL%20%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E9%2585%258D%25E7%25BD%25AE%25E5%25AF%2586%25E7%25A0%2581%25E9%25AA%258C%25E8%25AF%2581%25E7%25AD%2596%25E7%2595%25A5%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=PostgreSQL%20%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E5%25B8%25B8%25E7%2594%25A8%25E5%2587%25BD%25E6%2595%25B0%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=PostgreSQL%20%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E9%2585%258D%25E7%25BD%25AE%25E5%25AF%2586%25E7%25A0%2581%25E9%25AA%258C%25E8%25AF%2581%25E7%25AD%2596%25E7%2595%25A5%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=PostgreSQL%20%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E5%25B8%25B8%25E7%2594%25A8%25E5%2587%25BD%25E6%2595%25B0%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E9%2585%258D%25E7%25BD%25AE%25E5%25AF%2586%25E7%25A0%2581%25E9%25AA%258C%25E8%25AF%2581%25E7%25AD%2596%25E7%2595%25A5%2F&text=PostgreSQL%20%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E5%25B8%25B8%25E7%2594%25A8%25E5%2587%25BD%25E6%2595%25B0%2F&text=PostgreSQL%20%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1736,19 +1831,19 @@ ERROR:  could not open extension control file "/Postgres/pg/share/postgresql/ext
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -1904,7 +1999,7 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
         </article>
       
         <article class="col">
-          <a href="/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
+          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1916,35 +2011,19 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
 
 <time
   
-  data-ts="1724830176"
+  data-ts="1724738120"
   data-df="YYYY/MM/DD"
   
 >
-  2024/08/28
+  2024/08/27
 </time>
 
-              <h4 class="pt-0 my-2">PostgreSQL 常用函数（持续更新）</h4>
+              <h4 class="pt-0 my-2">PostgreSQL 配置密码验证策略</h4>
               <div class="text-muted">
-                <p>前言
+                <p>概述
+数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
 
-记录一些 PostgreSQL 的常用函数
-
-字符串
-
-字符串/字段拼接
-
-string_agg
-
-string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
-1
-2
-select string_agg(a,&#39;, &#39;) from tab1;
-
-
-
-如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
-
-...</p>
+一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
               </div>
             </div>
           </a>
@@ -1965,21 +2044,21 @@ select string_agg(a,&#39;, &#39;) from tab1;
 
   
     <a
-      href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/"
+      href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>vim 匹配指定行号的内容</p>
+      <p>podman 修改仓库源</p>
     </a>
   
 
   
     <a
-      href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/"
+      href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>podman 修改仓库源</p>
+      <p>Linux 虚拟内存参数 min_free_kbytes</p>
     </a>
   
 </nav>

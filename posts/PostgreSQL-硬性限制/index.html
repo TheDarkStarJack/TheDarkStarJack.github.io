@@ -835,7 +835,14 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
+          <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-OID/">PostgreSQL OID</a>
         </li>
       
         
@@ -857,13 +864,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
         </li>
       
     </ul>
@@ -1001,72 +1001,25 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1111,6 +1064,63 @@
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1403,13 +1413,13 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -1421,13 +1431,13 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
       
     </div>
   </section>
@@ -1587,6 +1597,18 @@
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1640,6 +1662,51 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
         </article>
       
         <article class="col">
+          <a href="/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724830176"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/28
+</time>
+
+              <h4 class="pt-0 my-2">PostgreSQL 常用函数（持续更新）</h4>
+              <div class="text-muted">
+                <p>前言
+
+记录一些 PostgreSQL 的常用函数
+
+字符串
+
+字符串/字段拼接
+
+string_agg
+
+string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
+select string_agg(a,&#39;, &#39;) from tab1;
+
+
+
+如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
+
+|| ：...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
           <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1670,36 +1737,6 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
           </a>
         </article>
       
-        <article class="col">
-          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725520535"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/05
-</time>
-
-              <h4 class="pt-0 my-2">PostgreSQL Write Ahead Logging WAL</h4>
-              <div class="text-muted">
-                <p>前言
-
-WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
     </nav>
   </aside>
   <!-- #related-posts -->
@@ -1724,9 +1761,13 @@ WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/PostgreSQL-OID/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>PostgreSQL OID</p>
+    </a>
   
 </nav>
 
@@ -1977,72 +2018,25 @@ WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2087,6 +2081,63 @@ WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2379,13 +2430,13 @@ WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -2397,13 +2448,13 @@ WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
       
     </div>
   </section>

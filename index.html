@@ -546,6 +546,135 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Linux 函数说明</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+在 strace 进程的时候会显示出来调用的函数，有的时候查看数据库进程的时候方便查看，在这里记录一下一些函数的说明
+
+函数
+
+以下内容结合 chatgpt 和 google 翻译
+
+truncate
+
+描述
+truncate, ftruncate 函数作用是将文件截断为指定长度，函数原型
+
+定义
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;sys/...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725947545"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/10
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      man
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-OID/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL OID</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+在 PostgreSQL 内部，所有的数据库对象都通过相应的对象标识符（Object Identifiers, OID）进行管理，这些标识符是无符号的 4 字节整型。数据库对象与相应 OID 之间的关系存储在相应的系统目录中，依具体的对象类型而异。 例如数据库和堆表对象的 OID 分别存储在 pg_database 和 pg_class 中，如果需要获取 OID 时，可以执行以下查询...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725940042"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/10
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1053,139 +1182,6 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PostrgeSQL 常用函数（持续更新）</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-记录一些 PostgreSQL 的常用函数
-
-字符串
-
-字符串/字段拼接
-
-string_agg
-
-string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
-select string_agg(a,&#39;, &#39;) from tab1;
-
-
-
-如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
-
-|| ：...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724830176"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/28
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      PostrgeSQL
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">podman 修改仓库源</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。
-
-Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724815303"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/28
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      containers,
-                      podman
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1271,12 +1267,30 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       
 
       
+        <!-- hide number -->
+        
+          <li class="page-item disabled">
+            <span class="page-link">...</span>
+          </li>
+          
+        
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
         <!-- show number -->
         <li class="page-item ">
           <a
             class="page-link"
-            href="/page4"
-          >4</a>
+            href="/page5"
+          >5</a>
         </li>
       
     
@@ -1284,7 +1298,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>1</span>
-      <span class="text-muted">/ 4</span>
+      <span class="text-muted">/ 5</span>
     </li>
 
     <!-- right arrow -->
@@ -1331,7 +1345,14 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/PostrgeSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">PostrgeSQL 常用函数（持续更新）</a>
+          <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/PostgreSQL-OID/">PostgreSQL OID</a>
         </li>
       
         
@@ -1353,13 +1374,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/">PostgreSQL Write Ahead Logging WAL</a>
         </li>
       
     </ul>
@@ -1497,72 +1511,25 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1607,6 +1574,63 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1899,13 +1923,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -1917,13 +1941,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
       
     </div>
   </section>
@@ -2114,72 +2138,25 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2224,6 +2201,63 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2516,13 +2550,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -2534,13 +2568,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
       
     </div>
   </section>
