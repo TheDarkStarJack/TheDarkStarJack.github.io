@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "CentOS9 升级内核",
+    "url": "/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/",
+    "categories": "Linux, CentOS",
+    "tags": "CentOS9",
+    "date": "2024-09-11 13:49:36 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf u...",
+    "content": "前言随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf update 的方式升级到最新内核，记录一下手动升级内核的过程百度百科维基百科升级内核想要升级内核，需要到第三方仓库进行下载，默认的仓库中没有新的内核。可以通过 ELRepo 仓库安装使用的版内核，导入仓库后就可以通过 yum/dnf 命令进行安装了  查看现有内核      uname -r        导入 ELRepo 镜像源      ## 导入密钥  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org  ## 安装镜像源  yum install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm        安装内核      yum install --enablerepo=elrepo-kernel kernel-ml            kernel-ml: 稳定主线版，支持周期短，更新速度快，更快体验新特性        kernel-lt: 长期维护版，支持周期长，更新速度慢，更加稳定  安装完成后重启系统，CentOS会自动使用最新安装的内核进行启动。卸载旧的内核新旧内核可同时存在，如果希望系统中存在两个内核，或者后续需要切换不同的内核使用，可不执行清理操作  确认使用新内核      uname -a        查看已安装的内核      rpm -qa | grep kernel        软件包名称由 kernel-ml 或 kernel-lt 开头的为新版软件包，其余为旧版软件包。    卸载内核      ##  旧的内核名称需要根据自己的环境修改  yum remove kernel-core-5.14.0-205.el9.x86_64 kernel-tools-5.14.0-205.el9.x86_64      "
+  },
+  
+  {
     "title": "Linux 函数说明",
     "url": "/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/",
     "categories": "Linux, man",

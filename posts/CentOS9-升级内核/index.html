@@ -30,23 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Linux" />
+<meta property="og:title" content="CentOS9 升级内核" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<meta property="og:description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<link rel="canonical" href="https://thedarkstarjack.github.io/categories/linux/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/categories/linux/" />
+<meta name="description" content="前言" />
+<meta property="og:description" content="前言" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" />
 <meta property="og:site_name" content="DarkStar" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-11T13:49:36+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Linux" />
+<meta property="twitter:title" content="CentOS9 升级内核" />
 <meta name="twitter:site" content="@TheDarkStar007" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"Linux","url":"https://thedarkstarjack.github.io/categories/linux/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-11T13:49:36+08:00","datePublished":"2024-09-11T13:49:36+08:00","description":"前言","headline":"CentOS9 升级内核","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/"},"url":"https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Linux | DarkStar
+  <title>CentOS9 升级内核 | DarkStar
   </title>
 
   <!--
@@ -110,9 +111,16 @@
   <!-- 3rd-party Dependencies -->
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.27.20/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -421,14 +429,10 @@
           
         
           
-            <span>
-              <a href="/categories/">分类</a>
-            </span>
-          
         
           
             
-              <span>Linux</span>
+              <span>CentOS9 升级内核</span>
             
 
           
@@ -442,7 +446,7 @@
     </button>
 
     <div id="topbar-title">
-      分类
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -468,28 +472,125 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
-  
+  <header>
+    <h1 data-toc-skip>CentOS9 升级内核</h1>
     
 
-
-
-<div id="page-category">
-  <h1 class="ps-lg-2">
-    <i class="far fa-folder-open fa-fw text-muted"></i>
-    Linux
-    <span class="lead text-muted ps-2">17</span>
-  </h1>
-
-  <ul class="content ps-0">
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/">CentOS9 升级内核</a>
-        <span class="dash flex-grow-1"></span>
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -500,406 +601,252 @@
 
 <time
   
-    class="text-muted small text-nowrap"
-  
   data-ts="1726033776"
   data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
   2024/09/11
 </time>
 
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
+      </span>
+
+      <!-- lastmod date -->
+      
+
+      
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
+
+          作者
+
+          <em>
+            
+              <a href="https://twitter.com/username">TheDarkStarJack</a>
+            
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
 
 
 
 
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1725947545"
-  data-df="YYYY/MM/DD"
-  
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="470 字"
 >
-  2024/09/10
-</time>
+  <em>2 分钟</em>阅读</span>
 
-      </li>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <h2 id="前言"><span class="me-2">前言</span><a href="#前言" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf update 的方式升级到最新内核，记录一下手动升级内核的过程</p>
+
+<p><a href="https://baike.baidu.com/item/CentOS/498948">百度百科</a></p>
+
+<p><a href="https://zh.wikipedia.org/zh-cn/CentOS">维基百科</a></p>
+
+<h2 id="升级内核"><span class="me-2">升级内核</span><a href="#升级内核" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>想要升级内核，需要到第三方仓库进行下载，默认的仓库中没有新的内核。可以通过 <a href="https://elrepo.org/wiki/doku.php?id=start">ELRepo</a> 仓库安装使用的版内核，导入仓库后就可以通过 yum/dnf 命令进行安装了</p>
+
+<ol>
+  <li>查看现有内核
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>  <span class="nb">uname</span> <span class="nt">-r</span>
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>导入 ELRepo 镜像源
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>  <span class="c">## 导入密钥</span>
+  rpm <span class="nt">--import</span> https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+  <span class="c">## 安装镜像源</span>
+  yum <span class="nb">install </span>https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>安装内核
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>  yum <span class="nb">install</span> <span class="nt">--enablerepo</span><span class="o">=</span>elrepo-kernel kernel-ml
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>kernel-ml: 稳定主线版，支持周期短，更新速度快，更快体验新特性</p>
+  </li>
+  <li>
+    <p>kernel-lt: 长期维护版，支持周期长，更新速度慢，更加稳定</p>
+  </li>
+</ul>
+
+<p>安装完成后重启系统，CentOS会自动使用最新安装的内核进行启动。</p>
+
+<h2 id="卸载旧的内核"><span class="me-2">卸载旧的内核</span><a href="#卸载旧的内核" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>新旧内核可同时存在，如果希望系统中存在两个内核，或者后续需要切换不同的内核使用，可不执行清理操作</p>
+
+<ol>
+  <li>确认使用新内核
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>  <span class="nb">uname</span> <span class="nt">-a</span>
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>查看已安装的内核
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>  rpm <span class="nt">-qa</span> | <span class="nb">grep </span>kernel
+</pre></td></tr></tbody></table></code></div>    </div>
+
+    <p>软件包名称由 kernel-ml 或 kernel-lt 开头的为新版软件包，其余为旧版软件包。</p>
+  </li>
+  <li>卸载内核
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>  <span class="c">##  旧的内核名称需要根据自己的环境修改</span>
+  yum remove kernel-core-5.14.0-205.el9.x86_64 kernel-tools-5.14.0-205.el9.x86_64
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+</ol>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1725524302"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/05
-</time>
-
-      </li>
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/centos/">CentOS</a>
+      </div>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/">Linux 虚拟内存参数 min_free_kbytes</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724989887"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/30
-</time>
-
-      </li>
+    <!-- tags -->
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/">vim 匹配指定行号的内容</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724726367"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/27
-</time>
-
-      </li>
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/centos9/"
+            class="post-tag no-text-decoration"
+          >CentOS9</a>
+        
+      </div>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/">sed 检查 Oracle日志 并输出对应的行号</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
 
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
+        
+      </div>
 
+      <!-- Post sharing snippet -->
 
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724661920"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/26
-</time>
-
-      </li>
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">vim 特殊字符记录(持续更新)</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724315024"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-      </li>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/">vim 分组和交替(grouping and alternation)</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724311531"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-      </li>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/">vim 排序去重</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724307532"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-      </li>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/">vim 搜索过滤满足条件的行</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
+      
 
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724300933"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-      </li>
+      <a href="https://twitter.com/intent/tweet?text=CentOS9%20%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FCentOS9-%25E5%258D%2587%25E7%25BA%25A7%25E5%2586%2585%25E6%25A0%25B8%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/">Linux内核参数vm.swappiness</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
+      
 
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724222265"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/21
-</time>
-
-      </li>
+      <a href="https://www.facebook.com/sharer/sharer.php?title=CentOS9%20%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FCentOS9-%25E5%258D%2587%25E7%25BA%25A7%25E5%2586%2585%25E6%25A0%25B8%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/%E5%8C%B9%E9%85%8D%E6%BB%A1%E8%B6%B3%E4%B8%8D%E5%90%8C%E6%9D%A1%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/">vim-匹配满足不同条件之间的多行内容</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
+      
 
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724138082"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/20
-</time>
-
-      </li>
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FCentOS9-%25E5%258D%2587%25E7%25BA%25A7%25E5%2586%2585%25E6%25A0%25B8%2F&text=CentOS9%20%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/awk%E6%8C%89%E5%88%97%E6%B1%82%E5%92%8C/">awk按列求和</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1724052477"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/19
-</time>
-
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/wsl%E5%AE%89%E8%A3%85deepin/">wsl安装deepin</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1722393034"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/31
-</time>
-
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E7%9A%84Windows%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BAunix%E9%A3%8E%E6%A0%BC%E6%8D%A2%E8%A1%8C%E7%AC%A6/">Linux 批量替换文件夹下面的 Windows 换行符替换为 unix 风格换行符</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1720538794"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/09
-</time>
-
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/">WSL Fedora 升级</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1719475200"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/06/27
-</time>
-
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E6%98%AFSSD%E8%BF%98%E6%98%AFHDD/">Linux 下查看磁盘是SSD还是HDD</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1718987640"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/06/22
-</time>
-
-      </li>
-    
-  </ul>
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
-  
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -1571,12 +1518,457 @@
             </div>
 
             
+              
+              
+
+
+
+  <section id="toc-wrapper" class="d-none ps-0 pe-4">
+    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724311531"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 分组和交替(grouping and alternation)</h4>
+              <div class="text-muted">
+                <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
+
+分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
+
+...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724307532"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 排序去重</h4>
+              <div class="text-muted">
+                <p>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
+
+:%sort
+
+:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
+
+:%sort u...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724300933"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 搜索过滤满足条件的行</h4>
+              <div class="text-muted">
+                <p>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
+
+可以使用以下几种方法来搜索关...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>Linux 函数说明</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+  
+  <!-- https://giscus.app/ -->
+<script type="text/javascript">
+  (function () {
+    const origin = 'https://giscus.app';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
+    let initTheme = lightTheme;
+    const html = document.documentElement;
+
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      initTheme = darkTheme;
+    }
+
+    let giscusAttributes = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'TheDarkStarJack/blog_discuss',
+      'data-repo-id': 'R_kgDOMSSHbQ',
+      'data-category': 'Announcements',
+      'data-category-id': 'DIC_kwDOMNVp0c4Cglls',
+      'data-mapping': 'pathname',
+      'data-strict' : '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': 'top',
+      'data-lang': 'zh-CN',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
+    };
+
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.getElementById('tail-wrapper').appendChild(giscusScript);
+
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {const mode = event.data.message;
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
+
+        const message = {
+          setConfig: {
+            theme: theme
+          }
+        };
+
+        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
+        giscus.postMessage({ giscus: message }, origin);
+      }
+    });
+  })();
+</script>
+
+
+
             
 
             <!-- The Footer -->
@@ -2281,6 +2673,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -2330,20 +2729,52 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
 
 
 
 
 
 
-<script src="/assets/js/dist/misc.min.js"></script>
+<script src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 

@@ -41,7 +41,7 @@
 <link rel="next" href="https://thedarkstarjack.github.io/page2" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="DarkStar" />
-<meta name="twitter:site" content="@twitter_username" />
+<meta name="twitter:site" content="@TheDarkStar007" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"DarkStar","name":"TheDarkStarJack","sameAs":["https://twitter.com/username","https://github.com/username"],"url":"https://thedarkstarjack.github.io/"}</script>
 <!-- End Jekyll SEO tag -->
@@ -341,7 +341,7 @@
 
       
         <a
-          href="https://twitter.com/twitter_username"
+          href="https://twitter.com/TheDarkStar007"
           aria-label="twitter"
           
 
@@ -544,6 +544,64 @@
 
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
+  
+    <article class="card-wrapper card">
+      <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">CentOS9 升级内核</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1726033776"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/11
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      CentOS
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
   
     <article class="card-wrapper card">
       <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" class="post-preview row g-0 flex-md-row-reverse">
@@ -1122,66 +1180,6 @@ PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数�
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Linux 虚拟内存参数 min_free_kbytes</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。
-
-前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724989887"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/30
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Memory
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1345,6 +1343,13 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/">CentOS9 升级内核</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
         </li>
       
@@ -1367,13 +1372,6 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         
         <li class="text-truncate lh-lg">
           <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/">PostgreSQL 硬性限制</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
         </li>
       
     </ul>
@@ -1472,55 +1470,6 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1530,97 +1479,6 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1725,6 +1583,102 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1744,6 +1698,80 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1941,13 +1969,13 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
     </div>
   </section>
@@ -2099,55 +2127,6 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2157,97 +2136,6 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2352,6 +2240,102 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2371,6 +2355,80 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2568,13 +2626,13 @@ Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
     </div>
   </section>

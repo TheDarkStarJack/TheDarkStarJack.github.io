@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-10T17:41:17+08:00</updated>
+  <updated>2024-09-11T15:08:22+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,51 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>CentOS9 升级内核</title>
+    <link href="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" rel="alternate" type="text/html" title="CentOS9 升级内核" />
+    <published>2024-09-11T13:49:36+08:00</published>
+  
+    <updated>2024-09-11T13:49:36+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/</id>
+    <content src="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="CentOS" />
+    
+  
+
+  <summary>前言
+
+随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf update 的方式升级到最新内核，记录一下手动升级内核的过程
+
+百度百科
+
+维基百科
+
+升级内核
+
+想要升级内核，需要到第三方仓库进行下载，默认的仓库中没有新的内核。可以通过 ELRepo 仓库安装使用的版内核，导入仓库后就可以通过 yum/dnf 命令进行安装了
+
+
+  查看现有内核
+      uname -r
+    
+  
+  导入 ELRepo 镜像源
+      ## 导入密钥
+ ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -201,40 +246,6 @@ wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要
 └──╼ $ echo 1 | wc -m
 2
 ┌─[postgres@darkstarc]─[/Postgres/tools]...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>PostgreSQL Write Ahead Logging WAL</title>
-    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-Write-Ahead-Logging-WAL/" rel="alternate" type="text/html" title="PostgreSQL Write Ahead Logging WAL" />
-    <published>2024-09-05T15:15:35+08:00</published>
-  
-    <updated>2024-09-05T15:15:35+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-Write-Ahead-Logging-WAL/</id>
-    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-Write-Ahead-Logging-WAL/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="PostgreSQL" />
-    
-  
-
-  <summary>前言
-
-WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通过读取 WAL 日志，并把最后一部分的 WAL 日志重新执行一遍，就可以恢复到宕机时的状态。
-
-作用
-
-WAL 可以理解为 pg 数据库的重做日志与 Oracle 的Redo Log 的功能是一样的。
-
-因为 WAL 的存在，所以日志类型的文件系统对于 pg 来说不是必须的。例如 zfs 就是日志类型的文件系统，在持久化之前会记录日志，保证数据的原子性。（而且每当新数据写入 ZFS 时，它都会为该...</summary>
 
   </entry>
 

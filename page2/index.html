@@ -42,7 +42,7 @@
 <link rel="next" href="https://thedarkstarjack.github.io/page3" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="DarkStar" />
-<meta name="twitter:site" content="@twitter_username" />
+<meta name="twitter:site" content="@TheDarkStar007" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"DarkStar","url":"https://thedarkstarjack.github.io/page2/"}</script>
 <!-- End Jekyll SEO tag -->
@@ -342,7 +342,7 @@
 
       
         <a
-          href="https://twitter.com/twitter_username"
+          href="https://twitter.com/TheDarkStar007"
           aria-label="twitter"
           
 
@@ -545,6 +545,66 @@
 
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
+  
+    <article class="card-wrapper card">
+      <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Linux 虚拟内存参数 min_free_kbytes</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。
+
+前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 ...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724989887"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/30
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      Memory
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
   
     <article class="card-wrapper card">
       <a href="/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
@@ -1127,64 +1187,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Oracle expdp、impdp使用多个路径</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>有的时候因为存储空间不足，特别是将生产的数据导入到测试环境，测试环境的空间可能有限。导入的时候可能文件不能放在一个路径下，这个时候就需要使用多个目录，比如 dmp1、dmp2 放在目录 d1 ，其余的文件放在 d2 。
-
-在使用 expdp/impdp 的时候只能通过 DIRECTORY 指定一个目录，但是可以通过选项 DUMPFILE  指定多个文件，文件可以在不同的路径下，以次达到同时使...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724299222"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      Oracle
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1348,6 +1350,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/">CentOS9 升级内核</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
         </li>
       
@@ -1370,13 +1379,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         <li class="text-truncate lh-lg">
           <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/">PostgreSQL 硬性限制</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
         </li>
       
     </ul>
@@ -1475,55 +1477,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1533,97 +1486,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1728,6 +1590,102 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1747,6 +1705,80 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1944,13 +1976,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
     </div>
   </section>
@@ -2102,55 +2134,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2160,97 +2143,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2355,6 +2247,102 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2374,6 +2362,80 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2571,13 +2633,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
     </div>
   </section>

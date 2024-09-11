@@ -42,7 +42,7 @@
 <link rel="next" href="https://thedarkstarjack.github.io/page5" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="DarkStar" />
-<meta name="twitter:site" content="@twitter_username" />
+<meta name="twitter:site" content="@TheDarkStar007" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"DarkStar","url":"https://thedarkstarjack.github.io/page4/"}</script>
 <!-- End Jekyll SEO tag -->
@@ -342,7 +342,7 @@
 
       
         <a
-          href="https://twitter.com/twitter_username"
+          href="https://twitter.com/TheDarkStar007"
           aria-label="twitter"
           
 
@@ -545,6 +545,70 @@
 
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
+  
+    <article class="card-wrapper card">
+      <a href="/posts/WSL2-%E8%BF%90%E8%A1%8C-gui-%E7%A8%8B%E5%BA%8F/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">WSL2 运行 gui 程序</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>WSL的配置可以参考这里
+
+在 Windows 下开启 WSL2 已经可以正常运行 gui 程序了，也不需要在 WSL 中安装桌面环境。正常需要做的就是更新 WSL 就可以运行：
+wsl --list -v   //显示正在运行的wsl
+wsl --shutdown   // 关闭正在运行的wsl
+wsl --update     //更新到最新的wsl
+wsl --version
+
+WSL...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1721729280"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/07/23
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Windows,
+                      WSL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
   
     <article class="card-wrapper card">
       <a href="/posts/%E4%BF%AE%E6%94%B9-npm-%E9%95%9C%E5%83%8F%E6%BA%90/" class="post-preview row g-0 flex-md-row-reverse">
@@ -1088,71 +1152,6 @@ cat...</p>
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/WSL-Fedora-%E5%8D%87%E7%BA%A7/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">WSL Fedora 升级</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>Windows11 WSL Fedora 版本升级
-
-可以直接使用dnf update，使用如下命令：
-
-sudo dnf update --releasever=40 -y    
-
-
-本次升级基于Fedora 39版本，如需要升级到其它版本，将上述命令的–releasever变更为其它版本即可。
-
-等待更新完成之后检查。</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719475200"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/06/27
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Fedora
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1316,6 +1315,13 @@ sudo dnf update --releasever=40 -y
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/">CentOS9 升级内核</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
         </li>
       
@@ -1338,13 +1344,6 @@ sudo dnf update --releasever=40 -y
         
         <li class="text-truncate lh-lg">
           <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/">PostgreSQL 硬性限制</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
         </li>
       
     </ul>
@@ -1443,55 +1442,6 @@ sudo dnf update --releasever=40 -y
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1501,97 +1451,6 @@ sudo dnf update --releasever=40 -y
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1696,6 +1555,102 @@ sudo dnf update --releasever=40 -y
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -1715,6 +1670,80 @@ sudo dnf update --releasever=40 -y
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1912,13 +1941,13 @@ sudo dnf update --releasever=40 -y
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
     </div>
   </section>
@@ -2070,55 +2099,6 @@ sudo dnf update --releasever=40 -y
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2128,97 +2108,6 @@ sudo dnf update --releasever=40 -y
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2323,6 +2212,102 @@ sudo dnf update --releasever=40 -y
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2342,6 +2327,80 @@ sudo dnf update --releasever=40 -y
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2539,13 +2598,13 @@ sudo dnf update --releasever=40 -y
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gcc/">gcc</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/git/">Git</a>
       
     </div>
   </section>
