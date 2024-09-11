@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "统计博客网站访问数据",
+    "url": "/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/",
+    "categories": "Web, blog",
+    "tags": "blog",
+    "date": "2024-09-11 15:21:43 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言搭建好博客网站之后，如果更加细致的分析访问数据数据，可以利用 Google、cloudflare 等站点为自己的网站分析流量我的网站基于 GitHub Pages 、cloudflare 、 jekyll-theme-chirpy 搭建Google Analytics使用 Google Analytics 监听网站页面访问量，可以参考 这里将 Google Analytics 提供的 i...",
+    "content": "前言搭建好博客网站之后，如果更加细致的分析访问数据数据，可以利用 Google、cloudflare 等站点为自己的网站分析流量我的网站基于 GitHub Pages 、cloudflare 、 jekyll-theme-chirpy 搭建Google Analytics使用 Google Analytics 监听网站页面访问量，可以参考 这里将 Google Analytics 提供的 id 信息填入 chirpy 或者其他支持网站分析的主题配置文件中，以 chirpy 为例配置文件就在仓库根目录 _config.yml 文件中 analytics 代码块中，支持多个分析网站需要将 Google Analytics 提供的 js 代码配置在自己的网站 html 文件中才可以采集到数据cloudflarecloudflare 也提供 Web Analytics，登录自己的 cloudflare 大盘，选择左边栏的 分析和日志 -&gt; Web Analytics ，然后点击 添加站点配置自己的站点地址，如果站点是通过 cloudflare 托管的，支持 自动设置，不需要自己手动添加 js 代码块在 html 中了配置完成之后返回 Web Analytics 页面，然后访问自己的博客地址，等几分钟就可以查看到网站的访问信息了busuanzi除了 Jekyll 或者主题提供的网站分析之外，还可以利用 busuanzi 手动在网站的页面中配置访问量统计，参考这里在页面的 html 文件中的合适位置添加如下代码：本站总访问量&lt;span id=\"busuanzi_value_site_pv\"&gt;&lt;/span&gt;次本站访客数&lt;span id=\"busuanzi_value_site_uv\"&gt;&lt;/span&gt;人次本文总阅读量&lt;span id=\"busuanzi_value_page_pv\"&gt;&lt;/span&gt;次如果您和我一样使用 chirpy 主题，可以在根目录下的 _include/footer.html 文件中的合适位置添加以下内容：&lt;p&gt;  &lt;script async src=\"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js\"&gt;  &lt;/script&gt;  [本站总访问量&lt;span id=\"busuanzi_value_site_pv\"&gt;&lt;/span&gt;次]  [本站访客数&lt;span id=\"busuanzi_value_site_uv\"&gt;&lt;/span&gt;人次]  [本文总阅读量&lt;span id=\"busuanzi_value_page_pv\"&gt;&lt;/span&gt;次]&lt;/p&gt;总结可以利用 Google、cloudflare 分析统计网站的流量，也可以利用 busuanzi 统计网站的访问量。"
+  },
+  
+  {
     "title": "CentOS9 升级内核",
     "url": "/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/",
     "categories": "Linux, CentOS",

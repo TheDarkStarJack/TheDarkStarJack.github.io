@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-11T15:08:22+08:00</updated>
+  <updated>2024-09-11T16:17:09+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,49 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>统计博客网站访问数据</title>
+    <link href="https://thedarkstarjack.github.io/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/" rel="alternate" type="text/html" title="统计博客网站访问数据" />
+    <published>2024-09-11T15:21:43+08:00</published>
+  
+    <updated>2024-09-11T15:21:43+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/</id>
+    <content src="https://thedarkstarjack.github.io/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Web" />
+    
+    <category term="blog" />
+    
+  
+
+  <summary>前言
+
+搭建好博客网站之后，如果更加细致的分析访问数据数据，可以利用 Google、cloudflare 等站点为自己的网站分析流量
+
+我的网站基于 GitHub Pages 、cloudflare 、 jekyll-theme-chirpy 搭建
+
+Google Analytics
+
+使用 Google Analytics 监听网站页面访问量，可以参考 这里
+
+将 Google Analytics 提供的 id 信息填入 chirpy 或者其他支持网站分析的主题配置文件中，以 chirpy 为例配置文件就在仓库根目录 _config.yml 文件中 analytics 代码块中，支持多个分析网站
+
+
+需要将 Google Analytics 提供的 js 代码配置在自己的网站 html 文件中才可以采集到数据
+
+cloudflare
+
+cloudflare 也提供 Web Anal...</summary>
+
+  </entry>
 
   
   <entry>
@@ -203,49 +246,6 @@ rename tab...</summary>
     
     
       relation s...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Linux 利用 wc 统计行数和字符长度</title>
-    <link href="https://thedarkstarjack.github.io/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/" rel="alternate" type="text/html" title="Linux 利用 wc 统计行数和字符长度" />
-    <published>2024-09-05T16:18:22+08:00</published>
-  
-    <updated>2024-09-05T16:18:22+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="tools" />
-    
-  
-
-  <summary>前言
-
-在 Linux 环境中可以利用 wc 工具统计行数和字符长度等
-
-统计行数和字符长度
-
-wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要记录一下统计行数和字符长度的时候遇到的一个小问题，统计字符的长度不准
-
-在统计一个字符长度的时候明明是 24 位，但是 wc 的结果却是 25
-┌─[postgres@darkstarc]─[/Postgres/tools]
-└──╼ $ echo 000000010000000000000001 | wc -m
-25
-
-还好我记得长度是 24 ，wc 统计的结果却是 25，多出来一个字符长度，这是什么原因呢？
-┌─[postgres@darkstarc]─[/Postgres/tools]
-└──╼ $ echo 1 | wc -m
-2
-┌─[postgres@darkstarc]─[/Postgres/tools]...</summary>
 
   </entry>
 
