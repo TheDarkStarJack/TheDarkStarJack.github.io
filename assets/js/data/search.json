@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "Oracle 分区和分区索引",
+    "url": "/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/",
+    "categories": "DataBase, Oracle",
+    "tags": "Partition",
+    "date": "2024-09-19 10:14:01 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "前言记录一下 Oracle 的分区表和索引官方文档位置，方便后续查询分区表和分区索引Index PartitioningAbout Merging Partitions and Subpartitions如果涉及的分区或子分区包含数据，则索引可能会被标记为 UNUSABLE，如下表所述：            Table Type      Index Behavior           ...",
+    "content": "前言记录一下 Oracle 的分区表和索引官方文档位置，方便后续查询分区表和分区索引Index PartitioningAbout Merging Partitions and Subpartitions如果涉及的分区或子分区包含数据，则索引可能会被标记为 UNUSABLE，如下表所述：            Table Type      Index Behavior                  Regular (Heap)      Unless you specify UPDATE INDEXES as part of the ALTER TABLE statement:- The database marks UNUSABLE all resulting corresponding local index partitions or subpartitions. - Global indexes, or all partitions of partitioned global indexes, are marked UNUSABLE and must be rebuilt.              Index-organized      The database marks UNUSABLE all resulting corresponding local index partitions.All global indexes remain usable.      会造成分区表索引失效的操作总结不同的版本操作方法和影响会存在差异，最好查询官网文档"
+  },
+  
+  {
     "title": "统计博客网站访问数据",
     "url": "/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/",
     "categories": "Web, blog",
@@ -31,7 +48,7 @@
 
     
     "snippet": "前言随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf u...",
-    "content": "前言随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf update 的方式升级到最新内核，记录一下手动升级内核的过程百度百科维基百科升级内核想要升级内核，需要到第三方仓库进行下载，默认的仓库中没有新的内核。可以通过 ELRepo 仓库安装使用的版内核，导入仓库后就可以通过 yum/dnf 命令进行安装了  查看现有内核      uname -r        导入 ELRepo 镜像源      ## 导入密钥  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org  ## 安装镜像源  yum install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm        安装内核      yum install --enablerepo=elrepo-kernel kernel-ml            kernel-ml: 稳定主线版，支持周期短，更新速度快，更快体验新特性        kernel-lt: 长期维护版，支持周期长，更新速度慢，更加稳定  安装完成后重启系统，CentOS会自动使用最新安装的内核进行启动。卸载旧的内核新旧内核可同时存在，如果希望系统中存在两个内核，或者后续需要切换不同的内核使用，可不执行清理操作  确认使用新内核      uname -a        查看已安装的内核      rpm -qa | grep kernel        软件包名称由 kernel-ml 或 kernel-lt 开头的为新版软件包，其余为旧版软件包。    卸载内核      ##  旧的内核名称需要根据自己的环境修改  yum remove kernel-core-5.14.0-205.el9.x86_64 kernel-tools-5.14.0-205.el9.x86_64      "
+    "content": "前言随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf update 的方式升级到最新内核，记录一下手动升级内核的过程百度百科维基百科升级内核想要升级内核，需要到第三方仓库进行下载，默认的仓库中没有新的内核。可以通过 ELRepo 仓库安装使用的版内核，导入仓库后就可以通过 yum/dnf 命令进行安装了  查看现有内核      uname -r        导入 ELRepo 镜像源      ## 导入密钥  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org  ## 安装镜像源  yum install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm        安装内核      yum install --enablerepo=elrepo-kernel kernel-ml            kernel-ml: 稳定主线版，支持周期短，更新速度快，更快体验新特性        kernel-lt: 长期维护版，支持周期长，更新速度慢，更加稳定  安装完成后重启系统，CentOS会自动使用最新安装的内核进行启动。卸载旧的内核新旧内核可同时存在，如果希望系统中存在两个内核，或者后续需要切换不同的内核使用，可不执行清理操作  确认使用新内核      uname -a        查看已安装的内核      rpm -qa | grep kernel  ll /lib/modules  ll /usr/src/kernels/        软件包名称由 kernel-ml 或 kernel-lt 开头的为新版软件包，其余为旧版软件包。    卸载内核      ##  旧的内核名称需要根据自己的环境修改  yum remove kernel-core-5.14.0-205.el9.x86_64 kernel-tools-5.14.0-205.el9.x86_64  # 检查无误可以使用以下语句卸载，慎用，会卸载一些依赖 例如 gcc 之类的，在不确定影响的情况下还是手动删除指定的内核就行  rpm -qa | grep kernel | grep -v kernel-ml | xargs -n 1 yum remove -y      "
   },
   
   {

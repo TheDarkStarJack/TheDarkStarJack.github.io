@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-11T17:42:49+08:00</updated>
+  <updated>2024-09-19T17:24:12+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,54 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Oracle 分区和分区索引</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/" rel="alternate" type="text/html" title="Oracle 分区和分区索引" />
+    <published>2024-09-19T10:14:01+08:00</published>
+  
+    <updated>2024-09-19T10:14:01+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+记录一下 Oracle 的分区表和索引官方文档位置，方便后续查询
+
+分区表和分区索引
+
+Index Partitioning
+
+About Merging Partitions and Subpartitions
+
+如果涉及的分区或子分区包含数据，则索引可能会被标记为 UNUSABLE，如下表所述：
+
+
+  
+    
+      Table Type
+      Index Behavior
+    
+  
+  
+    
+      Regular (Heap)
+      Unless you specify UPDATE INDEXES as part of the ALTER TABLE statement:- The database marks UNUSABLE all resulting corresponding local index partitions...</summary>
+
+  </entry>
 
   
   <entry>
@@ -191,61 +239,6 @@ SELECT pg_relation_filepath(&amp;#39;&amp;amp;amp;tabname&amp;#39;);
 注意
 
 rename tab...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>PostgreSQL 硬性限制</title>
-    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" rel="alternate" type="text/html" title="PostgreSQL 硬性限制" />
-    <published>2024-09-06T15:43:17+08:00</published>
-  
-    <updated>2024-09-06T15:43:17+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/</id>
-    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="PostgreSQL" />
-    
-  
-
-  <summary>https://www.postgresql.org/docs/current/limits.html
-
-在使用 pg 的时候，需要注意一些硬性限制，例如代码中写死的，这里记录一下，方便自己查阅，有的时候直接查阅官网反而因为内容太多导致忘记这些关键内容
-
-
-  
-    
-      Item
-      Upper Limit
-      Comment
-    
-  
-  
-    
-      database size
-      unlimited
-       
-    
-    
-      number of databases
-      4,294,950,911
-       
-    
-    
-      relations per database
-      1,431,650,303
-       
-    
-    
-      relation s...</summary>
 
   </entry>
 
