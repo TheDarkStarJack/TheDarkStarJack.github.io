@@ -30,23 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="tools" />
+<meta property="og:title" content="nmcli 管理网络" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<meta property="og:description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
-<link rel="canonical" href="https://thedarkstarjack.github.io/categories/tools/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/categories/tools/" />
+<meta name="description" content="前言" />
+<meta property="og:description" content="前言" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" />
 <meta property="og:site_name" content="DarkStar" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-26T17:13:10+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="tools" />
+<meta property="twitter:title" content="nmcli 管理网络" />
 <meta name="twitter:site" content="@TheDarkStar007" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.","headline":"tools","url":"https://thedarkstarjack.github.io/categories/tools/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-26T17:13:10+08:00","datePublished":"2024-09-26T17:13:10+08:00","description":"前言","headline":"nmcli 管理网络","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/"},"url":"https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>tools | DarkStar
+  <title>nmcli 管理网络 | DarkStar
   </title>
 
   <!--
@@ -110,9 +111,16 @@
   <!-- 3rd-party Dependencies -->
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.27.20/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -421,14 +429,10 @@
           
         
           
-            <span>
-              <a href="/categories/">分类</a>
-            </span>
-          
         
           
             
-              <span>tools</span>
+              <span>nmcli 管理网络</span>
             
 
           
@@ -442,7 +446,7 @@
     </button>
 
     <div id="topbar-title">
-      分类
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -468,28 +472,125 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
-  
+  <header>
+    <h1 data-toc-skip>nmcli 管理网络</h1>
     
 
-
-
-<div id="page-category">
-  <h1 class="ps-lg-2">
-    <i class="far fa-folder-open fa-fw text-muted"></i>
-    tools
-    <span class="lead text-muted ps-2">1</span>
-  </h1>
-
-  <ul class="content ps-0">
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/">Linux 利用 wc 统计行数和字符长度</a>
-        <span class="dash flex-grow-1"></span>
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -500,22 +601,224 @@
 
 <time
   
-    class="text-muted small text-nowrap"
-  
-  data-ts="1725524302"
+  data-ts="1727341990"
   data-df="YYYY/MM/DD"
   
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
 >
-  2024/09/05
+  2024/09/26
 </time>
 
-      </li>
+      </span>
+
+      <!-- lastmod date -->
+      
+
+      
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
+
+          作者
+
+          <em>
+            
+              <a href="https://twitter.com/username">TheDarkStarJack</a>
+            
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="500 字"
+>
+  <em>2 分钟</em>阅读</span>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <h2 id="前言"><span class="me-2">前言</span><a href="#前言" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>一般 Linux 管理网络都是通过直接编辑网卡文件或者 <code class="language-plaintext highlighter-rouge">ip</code> 、<code class="language-plaintext highlighter-rouge">ifconfig</code>  命令，不过自从用了 nmcli 之后觉得方便不少。而且在 Redhat8+ 之后也不推荐直接修改网卡配置文件。</p>
+
+<p>这里记录一下自己安装 fedora server 之后完了设置自动连接，以为会默认自动连接😂</p>
+
+<p>详细的可以参考<a href="https://zhuanlan.zhihu.com/p/395236748">这里</a>，本来想自己总结一下的，发现这篇文章已经写的很详细了，这里就简单记录一下配置自动连接网卡的命令</p>
+
+<h2 id="连接网络"><span class="me-2">连接网络</span><a href="#连接网络" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>如果插上网卡之后，发现无法连接网络，可以使用 <code class="language-plaintext highlighter-rouge">ip a</code> 查看网卡是否启动。如果启动但是没有连接，可以使用以下命令：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>nmcli device connect enp2s0 <span class="c">## 最后面是网卡的名字，根据自己的名称修改</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>设置好之后就可以上网了，在自己的家或者没有限制 ip 的环境中，保持默认就行了，如果有 ip 限制，可以根据以下命令手动设置：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>nmcli dev mod em1 ipv4.method manual ipv4.addr <span class="s2">"192.168.1.2/24, 10.10.1.5/8"</span>
+nmcli dev mod em1 +ipv4.dns 8.8.4.4
+nmcli dev mod em1 <span class="nt">-ipv4</span>.dns 1
+nmcli dev mod em1 <span class="nt">-ipv6</span>.addr <span class="s2">"abbe::cafe/56"</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>最后一定要注意设置自动连接，如果是服务器的话，重启之后没有自动连接网络还要在接鼠标显示器。。</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>nmcli <span class="nt">-f</span> name,autoconnect connection
+</pre></td></tr></tbody></table></code></div></div>
+<p>通过以上命令查看是否是自动连接，如果不是一定要记得修改：</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>nmcli device ens3 <span class="nb">set </span>autoconnect <span class="nb">yes
+sudo </span>nmcli con mod ens3 connection.autoconnect <span class="nb">yes</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>用了 nmcli 之后发现节约了不少时间，不需要单独修改配置文件。更多的使用方法可以使用 <code class="language-plaintext highlighter-rouge">nmcli --help</code> 查看，如果在 fedora 上直接按两次 tab 键会自动补全，更加便捷。</p>
+
+<p>更多详细的可以查看：</p>
+
+<p><a href="https://docs.rockylinux.org/gemstones/network/nmcli/">https://docs.rockylinux.org/gemstones/network/nmcli/</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/395236748">https://zhuanlan.zhihu.com/p/395236748</a></p>
+
+<p><a href="https://networkmanager.pages.freedesktop.org/NetworkManager/NetworkManager/nm-settings-nmcli.html">https://networkmanager.pages.freedesktop.org/NetworkManager/NetworkManager/nm-settings-nmcli.html</a></p>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
     
-  </ul>
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/network/">Network</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/nmcli/"
+            class="post-tag no-text-decoration"
+          >nmcli</a>
+        
+      </div>
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=nmcli%20%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fnmcli-%25E7%25AE%25A1%25E7%2590%2586%25E7%25BD%2591%25E7%25BB%259C%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
+    
+
+      
+
+      <a href="https://www.facebook.com/sharer/sharer.php?title=nmcli%20%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fnmcli-%25E7%25AE%25A1%25E7%2590%2586%25E7%25BD%2591%25E7%25BB%259C%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
+    
+
+      
+
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fnmcli-%25E7%25AE%25A1%25E7%2590%2586%25E7%25BD%2591%25E7%25BB%259C%2F&text=nmcli%20%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
+    
+
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
-  
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -1272,12 +1575,477 @@
             </div>
 
             
+              
+              
+
+
+
+  <section id="toc-wrapper" class="d-none ps-0 pe-4">
+    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%8E%92%E5%BA%8F%E5%8E%BB%E9%87%8D/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724307532"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 排序去重</h4>
+              <div class="text-muted">
+                <p>在 Linux 中处理文本除了利用 sed、awk、sort、uniq 等工具对文件排序去重，还可以直接使用 vim/nvim 自带的 sort 命令对文件排序去重。虽然功能可能不如外部工具，但是处理一些基本逻辑是没问题的，重要的是可以在此基础上直接处理过滤之后的内容。
+
+:%sort
+
+:%sort：对整个文件的所有行进行排序,对所有行进行排序，排序后相同的行将会相邻。
+
+:%sort u...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%8C/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724300933"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 搜索过滤满足条件的行</h4>
+              <div class="text-muted">
+                <p>有的时候文本内容太多，我们只需要查看满足条件的内容，虽然可以通过 CTRL-g 、n、N 等快速跳转，但是我们可能只需要查看满足条件的内容，例如在排查错误日志的时候，我们只需要查看满足 err1 的错误信息，但是日志中有太多额外的内容，这个时候可以通过 sed 、awk 、grep 等文本工具过滤处理。但是使用 vim/nvim 也可以实现，而且更加方便查看。
+
+可以使用以下几种方法来搜索关...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/Linux%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0vm.swappiness/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724222265"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/21
+</time>
+
+              <h4 class="pt-0 my-2">Linux内核参数vm.swappiness</h4>
+              <div class="text-muted">
+                <p>内核参数 vm.swappiness 控制系统运行时使用交换内存的相对权重，参数值大小对如何使用swap分区有很大联系。值越大，表示越积极使用swap分区，越小表示越积极使用物理内存。默认值 swappiness=60，表示内存使用率超过 40% 时开始使用交换分区。swappiness=0 的时候表示最大限度使用物理内存，无法分配物理内存的时候才考虑使用  swap 空间；swappine...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>Oracle 分区和分区索引</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+  
+  <!-- https://giscus.app/ -->
+<script type="text/javascript">
+  (function () {
+    const origin = 'https://giscus.app';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
+    let initTheme = lightTheme;
+    const html = document.documentElement;
+
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      initTheme = darkTheme;
+    }
+
+    let giscusAttributes = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'TheDarkStarJack/blog_discuss',
+      'data-repo-id': 'R_kgDOMSSHbQ',
+      'data-category': 'Announcements',
+      'data-category-id': 'DIC_kwDOMSSHbc4CglpY',
+      'data-mapping': 'pathname',
+      'data-strict' : '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': 'bottom',
+      'data-lang': 'zh-CN',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
+    };
+
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.getElementById('tail-wrapper').appendChild(giscusScript);
+
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {const mode = event.data.message;
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
+
+        const message = {
+          setConfig: {
+            theme: theme
+          }
+        };
+
+        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
+        giscus.postMessage({ giscus: message }, origin);
+      }
+    });
+  })();
+</script>
+
+
+
             
 
             <!-- The Footer -->
@@ -2074,6 +2842,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -2123,20 +2898,52 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
 
 
 
 
 
 
-<script src="/assets/js/dist/misc.min.js"></script>
+<script src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 

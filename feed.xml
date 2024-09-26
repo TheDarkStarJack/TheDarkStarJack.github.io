@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-19T17:24:12+08:00</updated>
+  <updated>2024-09-26T17:53:15+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,47 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>nmcli 管理网络</title>
+    <link href="https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" rel="alternate" type="text/html" title="nmcli 管理网络" />
+    <published>2024-09-26T17:13:10+08:00</published>
+  
+    <updated>2024-09-26T17:13:10+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/</id>
+    <content src="https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="Network" />
+    
+  
+
+  <summary>前言
+
+一般 Linux 管理网络都是通过直接编辑网卡文件或者 ip 、ifconfig  命令，不过自从用了 nmcli 之后觉得方便不少。而且在 Redhat8+ 之后也不推荐直接修改网卡配置文件。
+
+这里记录一下自己安装 fedora server 之后完了设置自动连接，以为会默认自动连接😂
+
+详细的可以参考这里，本来想自己总结一下的，发现这篇文章已经写的很详细了，这里就简单记录一下配置自动连接网卡的命令
+
+连接网络
+
+如果插上网卡之后，发现无法连接网络，可以使用 ip a 查看网卡是否启动。如果启动但是没有连接，可以使用以下命令：
+sudo nmcli device connect enp2s0 ## 最后面是网卡的名字，根据自己的名称修改
+
+
+设置好之后就可以上网了，在自己的家或者没有限制 ip 的环境中，保持默认就行了，如果有 ip 限制，可以根据以下命令手动设置：
+nm...</summary>
+
+  </entry>
 
   
   <entry>
@@ -115,7 +156,7 @@ cloudflare 也提供 Web Anal...</summary>
     <link href="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" rel="alternate" type="text/html" title="CentOS9 升级内核" />
     <published>2024-09-11T13:49:36+08:00</published>
   
-    <updated>2024-09-11T13:49:36+08:00</updated>
+    <updated>2024-09-19T17:24:35+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/</id>
     <content src="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" />
@@ -200,45 +241,6 @@ int ftruncate(int fd, off_t length);
 truncate() 和 ftruncate() 函数导致由路径命名或由 fd 引用的常规文件被截断为精确长度字节的大小。
 
 如果文件以前大于此大小，则多余的数据将丢失。如果文件以前较短，则会对其进行扩展...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>PostgreSQL OID</title>
-    <link href="https://thedarkstarjack.github.io/posts/PostgreSQL-OID/" rel="alternate" type="text/html" title="PostgreSQL OID" />
-    <published>2024-09-10T11:47:22+08:00</published>
-  
-    <updated>2024-09-10T11:47:22+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/PostgreSQL-OID/</id>
-    <content src="https://thedarkstarjack.github.io/posts/PostgreSQL-OID/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="PostgreSQL" />
-    
-  
-
-  <summary>前言
-
-在 PostgreSQL 内部，所有的数据库对象都通过相应的对象标识符（Object Identifiers, OID）进行管理，这些标识符是无符号的 4 字节整型。数据库对象与相应 OID 之间的关系存储在相应的系统目录中，依具体的对象类型而异。 例如数据库和堆表对象的 OID 分别存储在 pg_database 和 pg_class 中，如果需要获取 OID 时，可以执行以下查询：
-
-SELECT datname, oid FROM pg_database WHERE datname = &amp;#39;&amp;amp;amp;dbname&amp;#39;;
-
-SELECT relname, oid FROM pg_class WHERE relname = &amp;#39;&amp;amp;amp;relname&amp;#39;;
-
-SELECT pg_relation_filepath(&amp;#39;&amp;amp;amp;tabname&amp;#39;);
-
-
-注意
-
-rename tab...</summary>
 
   </entry>
 
