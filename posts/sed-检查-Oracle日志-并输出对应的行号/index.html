@@ -822,6 +822,13 @@ Mon Aug 26 08:56:30 2024
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/">Oracle 获取表的变更记录</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/">nmcli 管理网络</a>
         </li>
       
@@ -844,13 +851,6 @@ Mon Aug 26 08:56:30 2024
         
         <li class="text-truncate lh-lg">
           <a href="/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/">统计博客网站访问数据</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/">Linux 函数说明</a>
         </li>
       
     </ul>
@@ -1028,6 +1028,67 @@ Mon Aug 26 08:56:30 2024
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1101,67 +1162,6 @@ Mon Aug 26 08:56:30 2024
     
     
     
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1515,10 +1515,10 @@ Mon Aug 26 08:56:30 2024
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
@@ -1586,6 +1586,18 @@ Mon Aug 26 08:56:30 2024
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1846,6 +1858,42 @@ Mon Aug 26 08:56:30 2024
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
+          <a href="/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1727420692"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/27
+</time>
+
+              <h4 class="pt-0 my-2">Oracle 获取表的变更记录</h4>
+              <div class="text-muted">
+                <p>前言
+
+有的时候需要统计实例中表的变更记录，除了创建触发器统计，也可以直接利用内部的 DBA_TAB_MODIFICATIONS 视图获取变更信息
+
+DBA_TAB_MODIFICATIONS
+
+视图概述
+
+DBA_TAB_MODIFICATIONS 记录了自上次收集表统计信息以来对数据库中所有表的修改操作，包括增删改查。系统后台调用 DBMS_STATS.FLUSH_DATABASE_MO...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
           <a href="/posts/Oracle-expdp-impdp%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%B7%AF%E5%BE%84/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1902,40 +1950,6 @@ Mon Aug 26 08:56:30 2024
 ②在DataGuard环境中DB_NAME相同而DB_UNIQUE_NAME不同
 ③在RAC环境中，各个节点的DB_NAME 都相同，但是INSTANCE_NAME不同
 ④DB_NAME还在动态注册监听的时候起作用，无论是否定义了SERVICE_NAME,PMON进程都会...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/Oracle-%E4%BF%AE%E6%94%B9-db_name/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1721291943"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/07/18
-</time>
-
-              <h4 class="pt-0 my-2">Oracle 修改 db_name</h4>
-              <div class="text-muted">
-                <p>有的时候恢复Oracle数据到另一个环境中之后，需要修改相关的实例名、服务名、数据库名等，方便区分不同的环境。
-以下操作的前提是数据已经恢复到新的环境，在新的环境中修改db_name。
-
-仅修改server_name
-如果仅修改server_name可以直接登录数据库之后操作；
-sqlplus sys/sys as sysdba 
-SQL&amp;gt; show parameter service...</p>
               </div>
             </div>
           </a>
@@ -2269,6 +2283,67 @@ SQL&amp;gt; show parameter service...</p>
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -2342,67 +2417,6 @@ SQL&amp;gt; show parameter service...</p>
     
     
     
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2756,10 +2770,10 @@ SQL&amp;gt; show parameter service...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>

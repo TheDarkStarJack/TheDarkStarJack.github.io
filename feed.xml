@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-26T17:53:15+08:00</updated>
+  <updated>2024-09-27T16:07:57+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,44 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Oracle 获取表的变更记录</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/" rel="alternate" type="text/html" title="Oracle 获取表的变更记录" />
+    <published>2024-09-27T15:04:52+08:00</published>
+  
+    <updated>2024-09-27T15:04:52+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/</id>
+    <content src="https://thedarkstarjack.github.io/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+有的时候需要统计实例中表的变更记录，除了创建触发器统计，也可以直接利用内部的 DBA_TAB_MODIFICATIONS 视图获取变更信息
+
+DBA_TAB_MODIFICATIONS
+
+视图概述
+
+DBA_TAB_MODIFICATIONS 记录了自上次收集表统计信息以来对数据库中所有表的修改操作，包括增删改查。系统后台调用 DBMS_STATS.FLUSH_DATABASE_MONITORING_INFO 更新，当然也可以手工调用更新信息
+
+SQL&amp;amp;gt; desc DBA_TAB_MODIFICATIONS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ------------------------...</summary>
+
+  </entry>
 
   
   <entry>
@@ -192,55 +230,6 @@ cloudflare 也提供 Web Anal...</summary>
   导入 ELRepo 镜像源
       ## 导入密钥
  ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Linux 函数说明</title>
-    <link href="https://thedarkstarjack.github.io/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" rel="alternate" type="text/html" title="Linux 函数说明" />
-    <published>2024-09-10T13:52:25+08:00</published>
-  
-    <updated>2024-09-10T13:52:25+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="man" />
-    
-  
-
-  <summary>前言
-
-在 strace 进程的时候会显示出来调用的函数，有的时候查看数据库进程的时候方便查看，在这里记录一下一些函数的说明
-
-函数
-
-以下内容结合 chatgpt 和 google 翻译
-
-truncate
-
-描述
-truncate, ftruncate 函数作用是将文件截断为指定长度，函数原型
-
-定义
-#include &amp;amp;lt;unistd.h&amp;amp;gt;
-#include &amp;amp;lt;sys/types.h&amp;amp;gt;
-
-int truncate(const char *path, off_t length);
-int ftruncate(int fd, off_t length);
-
-
-truncate() 和 ftruncate() 函数导致由路径命名或由 fd 引用的常规文件被截断为精确长度字节的大小。
-
-如果文件以前大于此大小，则多余的数据将丢失。如果文件以前较短，则会对其进行扩展...</summary>
 
   </entry>
 
