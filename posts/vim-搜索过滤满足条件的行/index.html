@@ -898,6 +898,13 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/">vim 插入行号</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/">Oracle 获取表的变更记录</a>
         </li>
       
@@ -920,13 +927,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/">Oracle 分区和分区索引</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/">统计博客网站访问数据</a>
         </li>
       
     </ul>
@@ -1948,6 +1948,18 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1961,6 +1973,71 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1728978467"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/10/15
+</time>
+
+              <h4 class="pt-0 my-2">vim 插入行号</h4>
+              <div class="text-muted">
+                <p>前言
+
+vim/nvim 可以显示行号，但是有的时候需要添加行号到文本中，这里记录一些方法
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+## 例如原文件：
+a
+b
+c
+d
+e
+
+## 修改后的文件：
+1.a
+2.b
+3.c
+4.d
+
+
+获取行号
+
+vim内部有内置命令如 line() 获取当前行号
+1
+:echo line(&#39;.&#39;)
+
+
+获取所在行的行号 “.”，小数点”.”表示...</p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
@@ -2050,38 +2127,6 @@
       ^
       行首
       ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724311531"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-              <h4 class="pt-0 my-2">vim 分组和交替(grouping and alternation)</h4>
-              <div class="text-muted">
-                <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
-
-分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
-
-...</p>
               </div>
             </div>
           </a>

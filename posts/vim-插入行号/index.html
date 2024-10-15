@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="PostgreSQL 硬性限制" />
+<meta property="og:title" content="vim 插入行号" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="https://www.postgresql.org/docs/current/limits.html" />
-<meta property="og:description" content="https://www.postgresql.org/docs/current/limits.html" />
-<link rel="canonical" href="https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" />
-<meta property="og:url" content="https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" />
+<meta name="description" content="前言" />
+<meta property="og:description" content="前言" />
+<link rel="canonical" href="https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" />
+<meta property="og:url" content="https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" />
 <meta property="og:site_name" content="DarkStar" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-09-06T15:43:17+08:00" />
+<meta property="article:published_time" content="2024-10-15T15:47:47+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="PostgreSQL 硬性限制" />
+<meta property="twitter:title" content="vim 插入行号" />
 <meta name="twitter:site" content="@TheDarkStar007" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-09-06T15:43:17+08:00","datePublished":"2024-09-06T15:43:17+08:00","description":"https://www.postgresql.org/docs/current/limits.html","headline":"PostgreSQL 硬性限制","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/"},"url":"https://thedarkstarjack.github.io/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-10-15T15:47:47+08:00","datePublished":"2024-10-15T15:47:47+08:00","description":"前言","headline":"vim 插入行号","mainEntityOfPage":{"@type":"WebPage","@id":"https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/"},"url":"https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>PostgreSQL 硬性限制 | DarkStar
+  <title>vim 插入行号 | DarkStar
   </title>
 
   <!--
@@ -432,7 +432,7 @@
         
           
             
-              <span>PostgreSQL 硬性限制</span>
+              <span>vim 插入行号</span>
             
 
           
@@ -515,6 +515,115 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
@@ -541,7 +650,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>PostgreSQL 硬性限制</h1>
+    <h1 data-toc-skip>vim 插入行号</h1>
     
 
     <div class="post-meta text-muted">
@@ -558,13 +667,13 @@
 
 <time
   
-  data-ts="1725608597"
+  data-ts="1728978467"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2024/09/06
+  2024/10/15
 </time>
 
       </span>
@@ -613,9 +722,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="197 字"
+  title="588 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>3 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -623,91 +732,132 @@
   </header>
 
   <div class="content">
-    <p><a href="https://www.postgresql.org/docs/current/limits.html">https://www.postgresql.org/docs/current/limits.html</a></p>
+    <h2 id="前言"><span class="me-2">前言</span><a href="#前言" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>在使用 pg 的时候，需要注意一些硬性限制，例如代码中写死的，这里记录一下，方便自己查阅，有的时候直接查阅官网反而因为内容太多导致忘记这些关键内容</p>
+<p>vim/nvim 可以显示行号，但是有的时候需要添加行号到文本中，这里记录一些方法</p>
 
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Upper Limit</th>
-      <th>Comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>database size</td>
-      <td>unlimited</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>number of databases</td>
-      <td>4,294,950,911</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>relations per database</td>
-      <td>1,431,650,303</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>relation size</td>
-      <td>32 TB</td>
-      <td>with the default <code class="language-plaintext highlighter-rouge">BLCKSZ</code> of 8192 bytes</td>
-    </tr>
-    <tr>
-      <td>rows per table</td>
-      <td>limited by the number of tuples <br />that can fit onto 4,294,967,295 pages</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>columns per table</td>
-      <td>1,600</td>
-      <td>further limited by tuple size fitting on a single page; <br />see note below</td>
-    </tr>
-    <tr>
-      <td>columns in a result set</td>
-      <td>1,664</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>field size</td>
-      <td>1 GB</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>indexes per table</td>
-      <td>unlimited</td>
-      <td>constrained by maximum relations per database</td>
-    </tr>
-    <tr>
-      <td>columns per index</td>
-      <td>32</td>
-      <td>can be increased by recompiling PostgreSQL</td>
-    </tr>
-    <tr>
-      <td>partition keys</td>
-      <td>32</td>
-      <td>can be increased by recompiling PostgreSQL</td>
-    </tr>
-    <tr>
-      <td>identifier length</td>
-      <td>63 bytes</td>
-      <td>can be increased by recompiling PostgreSQL</td>
-    </tr>
-    <tr>
-      <td>function arguments</td>
-      <td>100</td>
-      <td>can be increased by recompiling PostgreSQL</td>
-    </tr>
-    <tr>
-      <td>query parameters</td>
-      <td>65,535</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table></div>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c">## 例如原文件：</span>
+a
+b
+c
+d
+e
+
+<span class="c">## 修改后的文件：</span>
+1.a
+2.b
+3.c
+4.d
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="获取行号"><span class="me-2">获取行号</span><a href="#获取行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>vim内部有内置命令如 line() 获取当前行号</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>:echo line<span class="o">(</span><span class="s1">'.'</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>获取所在行的行号 “.”，小数点”.”表示当前行</p>
+
+<h2 id="为当前行插入行号"><span class="me-2">为当前行插入行号</span><a href="#为当前行插入行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>可以在插入模式下使用 C-r+=line(‘.’) 插入行号</p>
+
+<h2 id="为每一行插入行号"><span class="me-2">为每一行插入行号</span><a href="#为每一行插入行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>在每一行的行首插入行号</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>:%s/^/<span class="se">\=</span>line<span class="o">(</span><span class="s2">"."</span><span class="o">)</span>/
+<span class="c">## 通过小数点拼接分隔符，不然行号和文字直接挨着了</span>
+:%s/^/<span class="se">\=</span>line<span class="o">(</span><span class="s2">"."</span><span class="o">)</span> <span class="nb">.</span> <span class="s1">'、'</span>/
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="在可视-view-模式下插入行号"><span class="me-2">在可视 view 模式下插入行号</span><a href="#在可视-view-模式下插入行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>有的时候只需要为部分文本插入行号，可以先选中文本之后在进行操作</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>:<span class="s1">'&lt;,'</span><span class="o">&gt;</span>s/^/<span class="se">\=</span>line<span class="o">(</span><span class="s1">'.'</span><span class="o">)</span> - line<span class="o">(</span><span class="s2">"'&lt;"</span><span class="o">)</span> + 1/
+:<span class="s1">'&lt;,'</span><span class="o">&gt;</span>s/^/<span class="se">\=</span>line<span class="o">(</span><span class="s1">'.'</span><span class="o">)</span> - line<span class="o">(</span><span class="s2">"'&lt;"</span><span class="o">)</span> + 1 <span class="nb">.</span> <span class="s1">'.'</span>/
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="利用-gc-a-添加行号"><span class="me-2">利用 <code class="language-plaintext highlighter-rouge">g&lt;C-a&gt;</code> 添加行号</span><a href="#利用-gc-a-添加行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>如果觉得通过 line() 函数设置行号太麻烦，或者行数不多的情况下可以尝试使用 <code class="language-plaintext highlighter-rouge">g&lt;C-a&gt;</code> 的方式添加行号</p>
+
+<p>首先给行首添加 0 ，或者 1</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>:%s/^/0./
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>也可以 <code class="language-plaintext highlighter-rouge">&lt;c-v&gt;</code> 或 <code class="language-plaintext highlighter-rouge">&lt;c-q&gt;</code> 进入块选择模式，按列选择需要加行号的位置，然后 I0 ，分格符也可以一并输入。完成后键入 ESC 就能在每行中加入0
+选中要加行号的区域，执行 norm I0, (仅在每行开头加入）</p>
+
+<p>之后要重新选中之前选中的区域，直接按下 gv，或者 <code class="language-plaintext highlighter-rouge">&lt;C-v&gt;</code> 重新选择行。然后键入 <code class="language-plaintext highlighter-rouge">g&lt;C-a&gt;</code> 会自动增加数字</p>
+
+<h2 id="其他办法"><span class="me-2">其他办法</span><a href="#其他办法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>也可以直接使用外部工具 cat、awk 等实现</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>:%!cat <span class="nt">-n</span>   字数最少的方法    
+:%s/^/<span class="se">\=</span>line<span class="o">(</span><span class="s2">"."</span><span class="o">)</span>.<span class="s2">",</span><span class="se">\t</span><span class="s2">"</span>/  最正规的方法 
+:let <span class="nv">i</span><span class="o">=</span>0|g/^/s//<span class="se">\=</span>i.<span class="s1">','</span>/ |let i+<span class="o">=</span>1 不用函数的方法
+:g/^/exec <span class="s2">"s/^/"</span>.strpart<span class="o">(</span>line<span class="o">(</span><span class="s2">"."</span><span class="o">)</span>.<span class="s2">"   "</span>, 0, 4<span class="o">)</span>  
+:g/^/exec <span class="s2">"s/^/"</span>.line<span class="o">(</span><span class="s2">"."</span><span class="o">)</span>.<span class="s2">"</span><span class="se">\t</span><span class="s2">"</span>
+:%!awk <span class="s1">'{print 1000+NR*10,$0}'</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="删除行号"><span class="me-2">删除行号</span><a href="#删除行号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>添加行号之后可以按照以下方法删除行号</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>:%s/^[0-9]<span class="k">*</span>//
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>最简单的方法还是直接利用 vim/nvim 自带的 line() 函数设置行号</p>
+
+<p>如果在 Linux 环境也可以利用 cat、awk 外部工具</p>
+
+<p>后续发现有一个帖子讨论过这个问题，可以查看<a href="https://stackoverflow.com/questions/252766/how-to-add-line-numbers-to-range-of-lines-in-vim">这里stackoverflow</a></p>
+
+<p><a href="https://blog.csdn.net/phoenix_of_china/article/details/83911790">csdn上也有一些方法可以参考</a></p>
+
 
   </div>
 
@@ -717,8 +867,8 @@
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/database/">DataBase</a>,
-          <a href="/categories/postgresql/">PostgreSQL</a>
+          <a href="/categories/linux/">Linux</a>,
+          <a href="/categories/vim/">Vim</a>
       </div>
     
 
@@ -728,9 +878,9 @@
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/postgresql/"
+            href="/tags/vim/"
             class="post-tag no-text-decoration"
-          >PostgreSQL</a>
+          >Vim</a>
         
       </div>
     
@@ -766,21 +916,21 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=PostgreSQL%20%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E7%25A1%25AC%25E6%2580%25A7%25E9%2599%2590%25E5%2588%25B6%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=vim%20%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7%20-%20DarkStar&url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E6%258F%2592%25E5%2585%25A5%25E8%25A1%258C%25E5%258F%25B7%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=PostgreSQL%20%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E7%25A1%25AC%25E6%2580%25A7%25E9%2599%2590%25E5%2588%25B6%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=vim%20%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7%20-%20DarkStar&u=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E6%258F%2592%25E5%2585%25A5%25E8%25A1%258C%25E5%258F%25B7%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2FPostgreSQL-%25E7%25A1%25AC%25E6%2580%25A7%25E9%2599%2590%25E5%2588%25B6%2F&text=PostgreSQL%20%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fthedarkstarjack.github.io%2Fposts%2Fvim-%25E6%258F%2592%25E5%2585%25A5%25E8%25A1%258C%25E5%258F%25B7%2F&text=vim%20%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7%20-%20DarkStar" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1566,6 +1716,11 @@
 
 
 
+  <section id="toc-wrapper" class="d-none ps-0 pe-4">
+    <h2 class="panel-heading ps-3 mb-2">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
+
 
             
           </aside>
@@ -1711,43 +1866,187 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1763,7 +2062,7 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" class="post-preview card h-100">
+          <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1775,102 +2074,113 @@
 
 <time
   
-  data-ts="1725334654"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/03
-</time>
-
-              <h4 class="pt-0 my-2">PostgreSQL 单块读</h4>
-              <div class="text-muted">
-                <p>前言
-
-什么是单块读？顾名思义，就是每次读取单个 block 。
-
-Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读，虽然之前听说是不支持的，今天直接测试验证一下。
-
-测试使用的工具为：strace 、pg 15
-
-block_size
-
-PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724830176"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/28
-</time>
-
-              <h4 class="pt-0 my-2">PostgreSQL 常用函数（持续更新）</h4>
-              <div class="text-muted">
-                <p>前言
-
-记录一些 PostgreSQL 的常用函数
-
-字符串
-
-字符串/字段拼接
-
-string_agg
-
-string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
-select string_agg(a,&#39;, &#39;) from tab1;
-
-
-
-如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
-
-|| ：...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724738120"
+  data-ts="1724726367"
   data-df="YYYY/MM/DD"
   
 >
   2024/08/27
 </time>
 
-              <h4 class="pt-0 my-2">PostgreSQL 配置密码验证策略</h4>
+              <h4 class="pt-0 my-2">vim 匹配指定行号的内容</h4>
               <div class="text-muted">
-                <p>概述
-数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
+                <p>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
 
-一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
+再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
+
+
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      \%
+      ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724315024"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 特殊字符记录(持续更新)</h4>
+              <div class="text-muted">
+                <p>记录一些 vim/nvim 的特殊字符含义，持续更新。
+
+正则表达式中的特殊字符
+这类符号的完整列表可参考文档 :help ordinary-atom
+
+
+  
+    
+      符号
+      含义
+      备注
+    
+  
+  
+    
+      .
+      任意字符，但是不包括行尾
+       
+    
+    
+      ^
+      行首
+      ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/vim-%E5%88%86%E7%BB%84%E5%92%8C%E4%BA%A4%E6%9B%BF(grouping-and-alternation)/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1724311531"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/08/22
+</time>
+
+              <h4 class="pt-0 my-2">vim 分组和交替(grouping and alternation)</h4>
+              <div class="text-muted">
+                <p>交替(alternation)操作起到的是“或”的作用，比如，carrot\|parrot  同时匹配 carrot和parrot
+
+分组（grouping）用于将多个字符放在一个组里，这样做有两个好处。首先，分组可以与其他正则表达式组合使用，比如 \(c\|p\)arrot  是一种同时匹配 carrot 和 parrot 的更精准的方式。有的时候用于交换（替换）两个字符的位置十分有用
+
+...</p>
               </div>
             </div>
           </a>
@@ -1891,22 +2201,18 @@ select string_agg(a,&#39;, &#39;) from tab1;
 
   
     <a
-      href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/"
+      href="/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Linux 利用 wc 统计行数和字符长度</p>
+      <p>Oracle 获取表的变更记录</p>
     </a>
   
 
   
-    <a
-      href="/posts/PostgreSQL-OID/"
-      class="btn btn-outline-primary"
-      aria-label="下一篇"
-    >
-      <p>PostgreSQL OID</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
+      <p>-</p>
+    </div>
   
 </nav>
 
@@ -2854,9 +3160,16 @@ select string_agg(a,&#39;, &#39;) from tab1;
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js,npm/tocbot@4.27.20/dist/tocbot.min.js"></script>
 
 
 

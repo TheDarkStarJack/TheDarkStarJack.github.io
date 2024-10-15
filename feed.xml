@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-09-27T16:07:57+08:00</updated>
+  <updated>2024-10-15T16:58:37+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,74 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>vim 插入行号</title>
+    <link href="https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" rel="alternate" type="text/html" title="vim 插入行号" />
+    <published>2024-10-15T15:47:47+08:00</published>
+  
+    <updated>2024-10-15T15:47:47+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/</id>
+    <content src="https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+    <category term="Vim" />
+    
+  
+
+  <summary>前言
+
+vim/nvim 可以显示行号，但是有的时候需要添加行号到文本中，这里记录一些方法
+
+## 例如原文件：
+a
+b
+c
+d
+e
+
+## 修改后的文件：
+1.a
+2.b
+3.c
+4.d
+
+
+获取行号
+
+vim内部有内置命令如 line() 获取当前行号
+:echo line(&amp;#39;.&amp;#39;)
+
+
+获取所在行的行号 “.”，小数点”.”表示当前行
+
+为当前行插入行号
+
+可以在插入模式下使用 C-r+=line(‘.’) 插入行号
+
+为每一行插入行号
+
+在每一行的行首插入行号
+
+:%s/^/\=line(&amp;quot;.&amp;quot;)/
+## 通过小数点拼接分隔符，不然行号和文字直接挨着了
+:%s/^/\=line(&amp;quot;.&amp;quot;) . &amp;#39;、&amp;#39;/
+
+
+在可视 view 模式下插入行号
+
+有的时候只需要为部分文本插入行号，可以先选中文本之后在进行操作
+:&amp;#39;&amp;amp;lt;,&amp;#39;&amp;amp;gt;s/^/\=line(&amp;#39;.&amp;#39;) - line(&amp;quot;...</summary>
+
+  </entry>
 
   
   <entry>
@@ -185,51 +253,6 @@ Google Analytics
 cloudflare
 
 cloudflare 也提供 Web Anal...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>CentOS9 升级内核</title>
-    <link href="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" rel="alternate" type="text/html" title="CentOS9 升级内核" />
-    <published>2024-09-11T13:49:36+08:00</published>
-  
-    <updated>2024-09-19T17:24:35+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/</id>
-    <content src="https://thedarkstarjack.github.io/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="CentOS" />
-    
-  
-
-  <summary>前言
-
-随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf update 的方式升级到最新内核，记录一下手动升级内核的过程
-
-百度百科
-
-维基百科
-
-升级内核
-
-想要升级内核，需要到第三方仓库进行下载，默认的仓库中没有新的内核。可以通过 ELRepo 仓库安装使用的版内核，导入仓库后就可以通过 yum/dnf 命令进行安装了
-
-
-  查看现有内核
-      uname -r
-    
-  
-  导入 ELRepo 镜像源
-      ## 导入密钥
- ...</summary>
 
   </entry>
 
