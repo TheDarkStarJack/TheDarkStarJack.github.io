@@ -19,7 +19,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta
     name="viewport"
@@ -29,7 +29,7 @@
   
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="DarkStar" />
 <meta property="og:locale" content="zh_CN" />
 <meta name="description" content="Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things." />
@@ -97,7 +97,7 @@
 
   <!-- Bootstrap -->
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   
 
   <!-- Theme style -->
@@ -107,7 +107,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css">
 
   <!-- 3rd-party Dependencies -->
 
@@ -119,114 +119,96 @@
 
   
 
-  <!-- JavaScript -->
+  <!-- Scripts -->
+
+  <script src="/assets/js/dist/theme.min.js"></script>
+
+  <!-- JS selector for site. -->
+
+<!-- commons -->
+
+
+
+<!-- layout specified -->
+
 
   
-    <!-- Switch the mode between dark and light. -->
 
-<script type="text/javascript">
-  class ModeToggle {
-    static get MODE_KEY() {
-      return 'mode';
-    }
-    static get MODE_ATTR() {
-      return 'data-mode';
-    }
-    static get DARK_MODE() {
-      return 'dark';
-    }
-    static get LIGHT_MODE() {
-      return 'light';
-    }
-    static get ID() {
-      return 'mode-toggle';
-    }
+  
 
-    constructor() {
-      let self = this;this.sysDarkPrefers.addEventListener('change', () => {
-        if (self.hasMode) {
-          self.clearMode();
-        }
-        self.notify();
-      });
 
-      if (!this.hasMode) {
-        return;
-      }
 
-      if (this.isDarkMode) {
-        this.setDark();
-      } else {
-        this.setLight();
-      }
-    }
 
-    get sysDarkPrefers() {
-      return window.matchMedia('(prefers-color-scheme: dark)');
-    }
 
-    get isPreferDark() {
-      return this.sysDarkPrefers.matches;
-    }
 
-    get isDarkMode() {
-      return this.mode === ModeToggle.DARK_MODE;
-    }
 
-    get hasMode() {
-      return this.mode != null;
-    }
 
-    get mode() {
-      return sessionStorage.getItem(ModeToggle.MODE_KEY);
-    }get modeStatus() {
-      if (this.hasMode) {
-        return this.mode;
-      } else {
-        return this.isPreferDark ? ModeToggle.DARK_MODE : ModeToggle.LIGHT_MODE;
-      }
-    }
 
-    setDark() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-    }
 
-    setLight() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-    }
 
-    clearMode() {
-      document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
-      sessionStorage.removeItem(ModeToggle.MODE_KEY);
-    }notify() {
-      window.postMessage(
-        {
-          direction: ModeToggle.ID,
-          message: this.modeStatus
-        },
-        '*'
-      );
-    }
 
-    flipMode() {
-      if (this.hasMode) {
-        this.clearMode();
-      } else {
-        if (this.isPreferDark) {
-          this.setLight();
-        } else {
-          this.setDark();
-        }
-      }
 
-      this.notify();
-    }
-  }
 
-  const modeToggle = new ModeToggle();
-</script>
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js"></script>
+
+
+
+
+
+
+
+<script defer src="/assets/js/dist/home.min.js"></script>
+
+
+
+<!-- Pageviews -->
+
+
 
   
 
@@ -242,9 +224,7 @@
   <header class="profile-wrapper">
     <a href="/" id="avatar" class="rounded-circle"><img src="/images/favicons/kenan01.jpg" width="112" height="112" alt="avatar" onerror="this.style.display='none'"></a>
 
-    <h1 class="site-title">
-      <a href="/">DarkStar</a>
-    </h1>
+    <a class="site-title d-block" href="/">DarkStar</a>
     <p class="site-subtitle fst-italic mb-0">DBA and chef</p>
   </header>
   <!-- .profile-wrapper -->
@@ -526,25 +506,480 @@
 
 
 
-<!-- Get pinned posts -->
+<!-- Get pinned posts on current page -->
 
 
 
 
 
 
-<!-- Get default posts -->
-
-
-
-
-
+<!-- Get normal posts on current page -->
 
 
 
 
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
+  
+    <article class="card-wrapper card">
+      <a href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Oracle 分区和分区索引</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+记录一下 Oracle 的分区表和索引官方文档位置，以及分区索引的失效操作记录，方便后续查询
+
+分区表和分区索引
+
+Index Partitioning
+
+About Merging Partitions and Subpartitions
+
+测试样例
+
+-- 创建分区表（按范围分区）
+CREATE TABLE part_tab (
+  id NUMBER,
+  col3 NUMBE...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1726712041"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/19
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      Oracle
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">统计博客网站访问数据</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+搭建好博客网站之后，如果更加细致的分析访问数据数据，可以利用 Google、cloudflare 等站点为自己的网站分析流量
+
+我的网站基于 GitHub Pages 、cloudflare 、 jekyll-theme-chirpy 搭建
+
+Google Analytics
+
+使用 Google Analytics 监听网站页面访问量，可以参考 这里
+
+将 Google Analy...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1726039303"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/11
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Web,
+                      blog
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">CentOS9 升级内核</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+随着 CentOS 政策的调整，CentOS 官方宣布了停止维护 CentOS 的计划，并推出了 CentOS Stream （Stream 版为滚动更新版） 项目。直接从 Redhat 的下游变成了上游，尝试了一下 CentOS Stream 9，一些软件不能直接通过默认的镜像源更新了（例如vim），而且内核默认也比较低，才 5.14.0 ，而且也不能像 fedora 直接 dnf...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1726033776"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/11
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      CentOS
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/Linux-%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Linux 函数说明</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+在 strace 进程的时候会显示出来调用的函数，有的时候查看数据库进程的时候方便查看，在这里记录一下一些函数的说明
+
+函数
+
+以下内容结合 chatgpt 和 google 翻译
+
+truncate
+
+描述
+truncate, ftruncate 函数作用是将文件截断为指定长度，函数原型
+
+定义
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;sys/...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725947545"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/10
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      man
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-OID/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL OID</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+在 PostgreSQL 内部，所有的数据库对象都通过相应的对象标识符（Object Identifiers, OID）进行管理，这些标识符是无符号的 4 字节整型。数据库对象与相应 OID 之间的关系存储在相应的系统目录中，依具体的对象类型而异。 例如数据库和堆表对象的 OID 分别存储在 pg_database 和 pg_class 中，如果需要获取 OID 时，可以执行以下查询...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725940042"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/10
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-%E7%A1%AC%E6%80%A7%E9%99%90%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL 硬性限制</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>https://www.postgresql.org/docs/current/limits.html
+
+在使用 pg 的时候，需要注意一些硬性限制，例如代码中写死的，这里记录一下，方便自己查阅，有的时候直接查阅官网反而因为内容太多导致忘记这些关键内容
+
+
+  
+    
+      Item
+      Upper Limit
+      Comment
+    
+  
+  
+    
+ ...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725608597"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/06
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/Linux-%E5%88%A9%E7%94%A8-wc-%E7%BB%9F%E8%AE%A1%E8%A1%8C%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E9%95%BF%E5%BA%A6/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Linux 利用 wc 统计行数和字符长度</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+在 Linux 环境中可以利用 wc 工具统计行数和字符长度等
+
+统计行数和字符长度
+
+wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要记录一下统计行数和字符长度的时候遇到的一个小问题，统计字符的长度不准
+
+在统计一个字符长度的时候明明是 24 位，但是 wc 的结果却是 25
+┌─[postgres@darkstarc]─[/Postgres/tools]
+...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725524302"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      tools
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
   
     <article class="card-wrapper card">
       <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview row g-0 flex-md-row-reverse">
@@ -729,458 +1164,6 @@ WAL 参数
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/%E6%9F%A5%E7%9C%8B-g++%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">查看 g++编译器默认编译标准</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>简单记录下怎么查看当前 g++ 编译器默认支持的 cpp 标准，毕竟 cpp 20 都已经出来几年了，有些特性编译器还没有完全支持
-
-g++ -dM -E -x c++ /dev/null | grep __cplusplus
-
-
-如果要查看 g++ 是否支持 cpp 20 可以执行以下命令
-g++ -std=c++20 -E -x c++ - &amp;lt;&amp;lt;&amp;lt; &quot;&quot;
-
-如果你的 g...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725431067"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/04
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      gcc
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/PostgreSQL-%E5%8D%95%E5%9D%97%E8%AF%BB/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PostgreSQL 单块读</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-什么是单块读？顾名思义，就是每次读取单个 block 。
-
-Oracle 是支持多块读，今天测试一下 PostgreSQL 是否支持多块读，虽然之前听说是不支持的，今天直接测试验证一下。
-
-测试使用的工具为：strace 、pg 15
-
-block_size
-
-PostgreSQL 可以通过 block_size 设置 block 的大小。不过这个参数是只读的，在数据库安装之后就无法...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725334654"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/03
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      PostgreSQL
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/Linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8F%82%E6%95%B0-min_free_kbytes/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Linux 虚拟内存参数 min_free_kbytes</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-Linux 的虚拟内存参数列在 /proc/sys/vm 目录中，可以直接查看对应的文件。
-
-前几天调整了 Oracle SGA 大小，结果运行没多久就挂掉了，检查日志发生了 OOM，虽然使用率比较高，可是检查内存还有 2G 的空闲，最开始以为是设置了 操作系统用户的内存使用限制，可是也不应该是 OOM，不过还是设置为了 unlimit 。重启之后运行两个小时之后又宕机了。还是提示 ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724989887"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/30
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Memory
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/PostgreSQL-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PostgreSQL 常用函数（持续更新）</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-记录一些 PostgreSQL 的常用函数
-
-字符串
-
-字符串/字段拼接
-
-string_agg
-
-string_agg：用于拼接字段，需要两个参数，第一个是需要进行拼接的字段名，第二个是用于拼接字符的拼接符号
-select string_agg(a,&#39;, &#39;) from tab1;
-
-
-
-如果字段不是字符类型，例如字段是数字类型，需要先转换为字符才能进行拼接，否则会报错
-
-|| ：...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724830176"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/28
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      PostgreSQL
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/podman-%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E6%BA%90/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">podman 修改仓库源</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-Podman 是一个开源的容器运行时项目，可在大多数 Linux 平台上使用（Windows 下也可以运行，不过个人还没测试）。Podman 提供与 Docker 非常相似的功能。它不需要在你的系统上运行任何守护进程，并且它也可以在没有 root 权限的情况下运行。
-
-Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规范的容器和容器镜...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724815303"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/28
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      containers,
-                      podman
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/PostgreSQL-%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PostgreSQL 配置密码验证策略</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>概述
-数据库等保的时候会遇到一些安全加固操作，其中 PostgreSQL 数据库设置密码验证失败延迟时间可以通过安装 auth_delay 扩展插件来实现，该设置主要是防止暴力破解，在验证失败后, 会延迟一段时间后，才能继续验证。可以搭配 passwordcheck 限制简单密码。
-
-一般来说 ‘passwordcheck、auth_delay’ 两个插件就在源码路径中的 contrid 目...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724738120"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/27
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      PostgreSQL
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/vim-%E5%8C%B9%E9%85%8D%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8F%B7%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim 匹配指定行号的内容</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>有的时候明确知道需要保留那些行，虽然可以采用匹配每行的字符，但是可能需要保留的行的内容在其他行中也存在，这个时候可以利用 vim/nvim 的 \% 特殊字符匹配指定的行内容。
-
-再结合 :g 、:g!、 :v 来选择/反选指定的行/列内容可以高效的过滤行
-
-
-  
-    
-      符号
-      含义
-      备注
-    
-  
-  
-    
-      \%
-      ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724726367"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/27
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1284,12 +1267,25 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       
 
       
+        <!-- hide number -->
+        
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
         <!-- show number -->
         <li class="page-item ">
           <a
             class="page-link"
-            href="/page5"
-          >5</a>
+            href="/page6"
+          >6</a>
         </li>
       
     
@@ -1297,7 +1293,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>2</span>
-      <span class="text-muted">/ 5</span>
+      <span class="text-muted">/ 6</span>
     </li>
 
     <!-- right arrow -->
@@ -1319,7 +1315,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
           </main>
 
           <!-- panel -->
-          <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 mb-5 text-muted">
+          <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
             <div class="access">
               <!-- Get 5 last posted/updated posts -->
 
@@ -1344,28 +1340,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/">vim 插入行号</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/">Oracle 获取表的变更记录</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/">nmcli 管理网络</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/CentOS9-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8/">CentOS9 升级内核</a>
+          <a href="/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/">统计博客网站访问数据</a>
         </li>
       
         
@@ -1373,6 +1348,27 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/">Oracle 分区和分区索引</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/OGG-25715%E9%94%99%E8%AF%AF/">OGG-25715 错误</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/OGG-15051%E9%94%99%E8%AF%AF/">OGG-15051 错误</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/OGG2KAFKA/">OGG2KAFKA</a>
         </li>
       
     </ul>
@@ -1491,35 +1487,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1554,102 +1521,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1834,6 +1705,249 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1918,6 +2032,150 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
@@ -1954,6 +2212,160 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1964,53 +2376,9 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2037,13 +2405,16 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/ogg/">OGG</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -2052,16 +2423,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/wal/">WAL</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">链接服务器</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/blog/">blog</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/bbed/">bbed</a>
       
     </div>
   </section>
@@ -2088,7 +2456,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
   "
 >
   <p>©
-    <time>2024</time>
+    <time>2025</time>
 
     
     <a href="https://twitter.com/username">TheDarkStarJack</a>.
@@ -2113,7 +2481,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
   <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
       data-bs-toggle="tooltip"
       data-bs-placement="top"
-      title="v7.0.1"
+      title="v7.2.4"
       href="https://github.com/cotes2020/jekyll-theme-chirpy"
       target="_blank"
       rel="noopener"
@@ -2240,35 +2608,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2303,102 +2642,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2583,6 +2826,249 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2667,6 +3153,150 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
@@ -2703,6 +3333,160 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2713,53 +3497,9 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2786,13 +3526,16 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/vim/">Vim</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/postgresql/">PostgreSQL</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/oracle/">Oracle</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/wsl/">WSL</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/ogg/">OGG</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/python/">Python</a>
@@ -2801,16 +3544,13 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/wal/">WAL</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">链接服务器</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/blog/">blog</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/centos9/">CentOS9</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/document/">document</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/bbed/">bbed</a>
       
     </div>
   </section>
@@ -2830,7 +3570,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       </aside>
     </div>
 
-    <div id="mask"></div>
+    <div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div>
 
     
       <aside
@@ -2860,98 +3600,9 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
 
     
 
-    <!-- JavaScripts -->
-    <!-- JS selector for site. -->
-
-<!-- commons -->
-
-
-
-<!-- layout specified -->
-
-
-
-
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    
+    <!-- Embedded scripts -->
 
     
-
-  
-
-  
-    
-
-    
-
-  
-
-  
-    
-
-    
-
-  
-
-  
-    
-
-    
-
-  
-
-  
-    
-
-    
-
-  
-
-  
-    
-
-    
-
-  
-
-
-
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/dayjs@1.11.11/dayjs.min.js,npm/dayjs@1.11.11/locale/zh.min.js,npm/dayjs@1.11.11/plugin/relativeTime.min.js,npm/dayjs@1.11.11/plugin/localizedFormat.min.js"></script>
-
-
-
-
-
-
-<script src="/assets/js/dist/home.min.js"></script>
-
-
-
-<!-- Pageviews -->
-
-
-
-
-
-
 
     <!--
   Jekyll Simple Search loader
@@ -2962,29 +3613,33 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
 
 
 
-<script>SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('search-results'),
-    json: '/assets/js/data/search.json',
-    searchResultTemplate: '  <article class="px-1 px-sm-2 px-lg-4 px-xl-0">    <header>      <h2><a href="{url}">{title}</a></h2>      <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">        {categories}        {tags}      </div>    </header>    <p>{snippet}</p>  </article>',
-    noResultsText: '<p class="mt-5">搜索结果为空</p>',
-    templateMiddleware: function(prop, value, template) {
-      if (prop === 'categories') {
-        if (value === '') {
-          return `${value}`;
-        } else {
-          return `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`;
+<script>
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('search-results'),
+      json: '/assets/js/data/search.json',
+      searchResultTemplate: '  <article class="px-1 px-sm-2 px-lg-4 px-xl-0">    <header>      <h2><a href="{url}">{title}</a></h2>      <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">        {categories}        {tags}      </div>    </header>    <p>{snippet}</p>  </article>',
+      noResultsText: '<p class="mt-5">搜索结果为空</p>',
+      templateMiddleware: function(prop, value, template) {
+        if (prop === 'categories') {
+          if (value === '') {
+            return `${value}`;
+          } else {
+            return `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`;
+          }
         }
-      }
 
-      if (prop === 'tags') {
-        if (value === '') {
-          return `${value}`;
-        } else {
-          return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`;
+        if (prop === 'tags') {
+          if (value === '') {
+            return `${value}`;
+          } else {
+            return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`;
+          }
         }
       }
-    }
+    });
   });
 </script>
 

@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2024-10-17T09:10:20+08:00</updated>
+  <updated>2025-03-11T12:05:51+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -12,90 +12,22 @@
   <link rel="self" type="application/atom+xml" href="https://thedarkstarjack.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="zh-CN"
     href="https://thedarkstarjack.github.io/"/>
-  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
-  <rights> © 2024 TheDarkStarJack </rights>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2025 TheDarkStarJack </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>vim 插入行号</title>
-    <link href="https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" rel="alternate" type="text/html" title="vim 插入行号" />
-    <published>2024-10-15T15:47:47+08:00</published>
+    <title>OGG-25715 错误</title>
+    <link href="https://thedarkstarjack.github.io/posts/OGG-25715%E9%94%99%E8%AF%AF/" rel="alternate" type="text/html" title="OGG-25715 错误" />
+    <published>2025-02-28T11:59:20+08:00</published>
   
-    <updated>2024-10-15T15:47:47+08:00</updated>
+    <updated>2025-02-28T11:59:20+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/</id>
-    <content src="https://thedarkstarjack.github.io/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Vim" />
-    
-  
-
-  <summary>前言
-
-vim/nvim 可以显示行号，但是有的时候需要添加行号到文本中，这里记录一些方法
-
-## 例如原文件：
-a
-b
-c
-d
-e
-
-## 修改后的文件：
-1.a
-2.b
-3.c
-4.d
-
-
-获取行号
-
-vim内部有内置命令如 line() 获取当前行号
-:echo line(&amp;#39;.&amp;#39;)
-
-
-获取所在行的行号 “.”，小数点”.”表示当前行
-
-为当前行插入行号
-
-可以在插入模式下使用 C-r+=line(‘.’) 插入行号
-
-为每一行插入行号
-
-在每一行的行首插入行号
-
-:%s/^/\=line(&amp;quot;.&amp;quot;)/
-## 通过小数点拼接分隔符，不然行号和文字直接挨着了
-:%s/^/\=line(&amp;quot;.&amp;quot;) . &amp;#39;、&amp;#39;/
-
-
-在可视 view 模式下插入行号
-
-有的时候只需要为部分文本插入行号，可以先选中文本之后在进行操作
-:&amp;#39;&amp;amp;lt;,&amp;#39;&amp;amp;gt;s/^/\=line(&amp;#39;.&amp;#39;) - line(&amp;quot;...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Oracle 获取表的变更记录</title>
-    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/" rel="alternate" type="text/html" title="Oracle 获取表的变更记录" />
-    <published>2024-09-27T15:04:52+08:00</published>
-  
-    <updated>2024-09-27T15:04:52+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/" />
+    <id>https://thedarkstarjack.github.io/posts/OGG-25715%E9%94%99%E8%AF%AF/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG-25715%E9%94%99%E8%AF%AF/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
@@ -110,71 +42,31 @@ vim内部有内置命令如 line() 获取当前行号
 
   <summary>前言
 
-有的时候需要统计实例中表的变更记录，除了创建触发器统计，也可以直接利用内部的 DBA_TAB_MODIFICATIONS 视图获取变更信息
+启动 Extract 进程的时候出现 OGG-25715 错误的解决方法，在网上搜索到的解决方法并不适用于我的环境，所以记录一下
 
-DBA_TAB_MODIFICATIONS
+OGG-25715 错误的解决方法
 
-视图概述
-
-DBA_TAB_MODIFICATIONS 记录了自上次收集表统计信息以来对数据库中所有表的修改操作，包括增删改查。系统后台调用 DBMS_STATS.FLUSH_DATABASE_MONITORING_INFO 更新，当然也可以手工调用更新信息
-
-SQL&amp;amp;gt; desc DBA_TAB_MODIFICATIONS
- Name                                      Null?    Type
- ----------------------------------------- -------- ------------------------...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>nmcli 管理网络</title>
-    <link href="https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" rel="alternate" type="text/html" title="nmcli 管理网络" />
-    <published>2024-09-26T17:13:10+08:00</published>
-  
-    <updated>2024-09-26T17:13:10+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/</id>
-    <content src="https://thedarkstarjack.github.io/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Linux" />
-    
-    <category term="Network" />
-    
-  
-
-  <summary>前言
-
-一般 Linux 管理网络都是通过直接编辑网卡文件或者 ip 、ifconfig  命令，不过自从用了 nmcli 之后觉得方便不少。而且在 Redhat8+ 之后也不推荐直接修改网卡配置文件。
-
-这里记录一下自己安装 fedora server 之后完了设置自动连接，以为会默认自动连接😂
-
-详细的可以参考这里，本来想自己总结一下的，发现这篇文章已经写的很详细了，这里就简单记录一下配置自动连接网卡的命令
-
-连接网络
-
-如果插上网卡之后，发现无法连接网络，可以使用 ip a 查看网卡是否启动。如果启动但是没有连接，可以使用以下命令：
-sudo nmcli device connect enp2s0 ## 最后面是网卡的名字，根据自己的名称修改
+在目标端 ogg Kafka 环境 replicat 进程启动时，遇到以下错误：
 
 
-设置好之后就可以上网了，在自己的家或者没有限制 ip 的环境中，保持默认就行了，如果有 ip 限制，可以根据以下命令手动设置：
-nm...</summary>
+2025-02-26 22:28:19  INFO    OGG-01851  filecaching started: thread ID: 140174464091904.
+
+2025-02-26 22:28:19  INFO    OGG-01815  Virtual Memory Facilities for: COM
+    anon alloc: mmap(MAP_ANON)  anon free: munmap
+    file alloc: mmap(MAP_SHARED)  file free: munma...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Oracle 分区和分区索引</title>
-    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/" rel="alternate" type="text/html" title="Oracle 分区和分区索引" />
-    <published>2024-09-19T10:14:01+08:00</published>
+    <title>OGG-15051 错误</title>
+    <link href="https://thedarkstarjack.github.io/posts/OGG-15051%E9%94%99%E8%AF%AF/" rel="alternate" type="text/html" title="OGG-15051 错误" />
+    <published>2025-02-28T11:47:12+08:00</published>
   
-    <updated>2024-09-19T10:14:01+08:00</updated>
+    <updated>2025-02-28T11:47:12+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/</id>
-    <content src="https://thedarkstarjack.github.io/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/" />
+    <id>https://thedarkstarjack.github.io/posts/OGG-15051%E9%94%99%E8%AF%AF/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG-15051%E9%94%99%E8%AF%AF/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
@@ -189,70 +81,154 @@ nm...</summary>
 
   <summary>前言
 
-记录一下 Oracle 的分区表和索引官方文档位置，方便后续查询
+启动 Replicat 进程的时候出现 OGG-15051 错误的解决方法，在网上搜索到的解决方法并不适用于我的环境，所以记录一下
 
-分区表和分区索引
+OGG-15051 错误
 
-Index Partitioning
+在目标端 ogg Kafka 环境 Replicat 进程启动时，遇到以下错误：
+```shell
+2025-02-26 22:07:45  INFO    OGG-03059  Operating system character set identified as UTF-8.
 
-About Merging Partitions and Subpartitions
+2025-02-26 22:07:45  INFO    OGG-02695  ANSI SQL parameter syntax is used for parameter parsing.
 
-如果涉及的分区或子分区包含数据，则索引可能会被标记为 UNUSABLE，如下表所述：
-
-
-  
-    
-      Table Type
-      Index Behavior
-    
-  
-  
-    
-      Regular (Heap)
-      Unless you specify UPDATE INDEXES as part of the ALTER TABLE statement:- The database marks UNUSABLE all resulting corresponding local index partitions...</summary>
+2025-02-26 22:07:45  INFO    OGG-03528  The source database character s...</summary>
 
   </entry>
 
   
   <entry>
-    <title>统计博客网站访问数据</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/" rel="alternate" type="text/html" title="统计博客网站访问数据" />
-    <published>2024-09-11T15:21:43+08:00</published>
+    <title>OGG2KAFKA</title>
+    <link href="https://thedarkstarjack.github.io/posts/OGG2KAFKA/" rel="alternate" type="text/html" title="OGG2KAFKA" />
+    <published>2025-02-27T15:15:02+08:00</published>
   
-    <updated>2024-09-11T15:21:43+08:00</updated>
+    <updated>2025-02-27T15:15:02+08:00</updated>
   
-    <id>https://thedarkstarjack.github.io/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/</id>
-    <content src="https://thedarkstarjack.github.io/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/" />
+    <id>https://thedarkstarjack.github.io/posts/OGG2KAFKA/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG2KAFKA/" />
     <author>
       <name>TheDarkStarJack</name>
     </author>
 
   
     
-    <category term="Web" />
+    <category term="DataBase" />
     
-    <category term="blog" />
+    <category term="Oracle" />
     
   
 
   <summary>前言
 
-搭建好博客网站之后，如果更加细致的分析访问数据数据，可以利用 Google、cloudflare 等站点为自己的网站分析流量
+Oracle GoldenGate（OGG）是 Oracle 公司的一款数据同步工具，支持多种数据库之间的数据同步，包括 Oracle 数据库、MySQL、SQL Server、DB2 等。本文主要介绍 OGG 与 Kafka 的集成，实现将 Oracle 的数据同步到 Kafka 的功能。
 
-我的网站基于 GitHub Pages 、cloudflare 、 jekyll-theme-chirpy 搭建
+文中的 ip 和表名是脱敏，参考的时候根据个人的实际情况修改
 
-Google Analytics
+项目环境
 
-使用 Google Analytics 监听网站页面访问量，可以参考 这里
+源端
 
-将 Google Analytics 提供的 id 信息填入 chirpy 或者其他支持网站分析的主题配置文件中，以 chirpy 为例配置文件就在仓库根目录 _config.yml 文件中 analytics 代码块中，支持多个分析网站
+Oracle ：19.3.0
+
+OS：CentOS 7.7
+
+OGG：Oracle GoldenGate Command Interpreter for Oracle
+
+    Version 21.3.0.0.0 OGGCORE_21.3.0.0.0_PLATFORMS_210728.1047_FBO
 
 
-需要将 Google Analytics 提供的 js 代码配置在自己的网站 html 文件中才可以采集到数据
+目标端
 
-cloudflare
+Kafka：2.4.1
 
-cloudflare 也提供 Web Anal...</summary>
+kafka 集群 broker 地址：1.1.1.101:9...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Oracle-编译-bbed</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" rel="alternate" type="text/html" title="Oracle-编译-bbed" />
+    <published>2025-02-26T15:53:42+08:00</published>
+  
+    <updated>2025-02-26T15:53:42+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+记录一下 Oracle 编译 bbed 的过程，方便后续查询
+
+Oracle 11g  编译 bbed
+
+通过 ins_rdbms.mk 编译 bbed ，Oracle 的很多工具都是通过 ins_rdbms.mk 编译的
+
+┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/lib]
+└──╼ $ cd $ORACLE_HOME/rdbms/lib
+┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/lib]
+└──╼ $ ll ins_rdbms.mk
+-rw-r--r-- 1 oracle oinstall 40983 Aug 24  2013 ins_rdbms.mk
+┌─[oracle@TheDarkSt...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>ojdbc-连接 Oracle 实例提示 ora-01034 和 ora-27101</title>
+    <link href="https://thedarkstarjack.github.io/posts/ojdbc-%E8%BF%9E%E6%8E%A5Oracle%E5%AE%9E%E4%BE%8B%E6%8F%90%E7%A4%BAora-01034%E5%92%8Cora-27101/" rel="alternate" type="text/html" title="ojdbc-连接 Oracle 实例提示 ora-01034 和 ora-27101" />
+    <published>2025-02-22T22:24:34+08:00</published>
+  
+    <updated>2025-02-22T22:24:34+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/ojdbc-%E8%BF%9E%E6%8E%A5Oracle%E5%AE%9E%E4%BE%8B%E6%8F%90%E7%A4%BAora-01034%E5%92%8Cora-27101/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/ojdbc-%E8%BF%9E%E6%8E%A5Oracle%E5%AE%9E%E4%BE%8B%E6%8F%90%E7%A4%BAora-01034%E5%92%8Cora-27101/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+同事反馈连接 Oracle 实例时提示 ora-01034 和 ora-27101 错误，这个问题通常是由于 Oracle 实例没有启动引起的
+
+
+处理过程
+
+检查 Oracle 实例状态
+
+检查 Oracle 实例是否已经启动，可以通过以下命令查看 Oracle 实例状态：
+
+# 查看 Oracle 实例状态
+ps -ef | grep pmon
+
+# 查看 Oracle 实例监听状态
+lsnrctl status
+
+# 直接 sqlplus 连接
+sqlplus / as sysdba
+
+
+检查发现 Oracle 实例状态运行正常，alert 日志也没有异常信息，但是程序连接 Oracle 实例时提示 ora-01034 和 ora-27101 错误。查看监听和服务状态也是正常的。这里就不贴图了
+
+自己尝试利用 SQL plus 远程连接 Oracle 实例，发现可以正常...</summary>
 
   </entry>
 
