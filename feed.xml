@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2025-03-11T15:38:25+08:00</updated>
+  <updated>2025-03-13T22:18:50+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,90 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>foxmail 添加 gmail</title>
+    <link href="https://thedarkstarjack.github.io/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/" rel="alternate" type="text/html" title="foxmail 添加 gmail" />
+    <published>2025-03-13T14:27:11+08:00</published>
+  
+    <updated>2025-03-13T14:27:11+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Google" />
+    
+    <category term="Foxmail" />
+    
+  
+
+  <summary>前言
+
+Foxmail 是一款国产邮件客户端，支持多账号管理，支持多种邮箱类型，包括 QQ 邮箱、163 邮箱、Gmail 等。本文主要介绍如何在 Foxmail 中添加 Gmail 邮箱遇到的问题及解决方法。
+
+换了新电脑，安装了 Foxmail，添加 Gmail 邮箱时，遇到了问题，提示“此应用试图访问您 Google 账号中的敏感信息。为确保您的账号安全，Google 阻止了此次访问。”
+
+
+
+解决方法
+
+之前是可以正常添加 Gmail 邮箱的，通过添加账号中自带的 Gmail，输入 Google 账号密码后，就可以成功绑定。这次的原因是因为 Google 更新了更高级别安全规则，一些旧的/Google 不信任软件、设备将无法通过常规方式去绑定连接。就会被 Google 阻止
+
+需要注意的：自 2025 年 1 月起，“启用 IMAP”和“停用 IMAP”选项将无法再使用。Gm...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>oracle-bbed-使用</title>
+    <link href="https://thedarkstarjack.github.io/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="oracle-bbed-使用" />
+    <published>2025-03-12T10:02:05+08:00</published>
+  
+    <updated>2025-03-12T10:02:05+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+BBED 是 Oracle 提供的一个用于修改数据块的工具，可以用于修改数据块的内容，比如修改数据块中的数据，修改数据块的头部信息等。BBED 是一个很强大的工具，但是使用 BBED 也是有风险的，因为 BBED 可以直接修改数据块的内容，如果不小心修改了数据块的内容，可能会导致数据库的损坏。因此，在使用 BBED 之前，一定要慎重考虑，最好在测试环境中使用 BBED。
+
+记录一下使用 BBED 的一些常用命令
+
+常用命令
+
+1. 查看数据块的内容
+
+BBED&amp;amp;gt; map
+
+
+2. 查看数据块的头部信息
+
+BBED&amp;amp;gt; h
+
+
+listfile
+
+bbed 必须要设置一个 listfile 文件，这个文件随便创建一个空文件即可，没有特别的实际含义，只是为了让 bbed 能够正常工作，如果不设置 listfile 文件，bbed 会报错，无法通过 set 设置环境变量。...</summary>
+
+  </entry>
 
   
   <entry>
@@ -141,94 +225,6 @@ OGG：Oracle GoldenGate Command Interpreter for Oracle
 Kafka：2.4.1
 
 kafka 集群 broker 地址：1.1.1.101:9...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Oracle-编译-bbed</title>
-    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" rel="alternate" type="text/html" title="Oracle-编译-bbed" />
-    <published>2025-02-26T15:53:42+08:00</published>
-  
-    <updated>2025-02-26T15:53:42+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-记录一下 Oracle 编译 bbed 的过程，方便后续查询
-
-Oracle 11g  编译 bbed
-
-通过 ins_rdbms.mk 编译 bbed ，Oracle 的很多工具都是通过 ins_rdbms.mk 编译的
-
-┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/lib]
-└──╼ $ cd $ORACLE_HOME/rdbms/lib
-┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/lib]
-└──╼ $ ll ins_rdbms.mk
--rw-r--r-- 1 oracle oinstall 40983 Aug 24  2013 ins_rdbms.mk
-┌─[oracle@TheDarkSt...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>ojdbc-连接 Oracle 实例提示 ora-01034 和 ora-27101</title>
-    <link href="https://thedarkstarjack.github.io/posts/ojdbc-%E8%BF%9E%E6%8E%A5Oracle%E5%AE%9E%E4%BE%8B%E6%8F%90%E7%A4%BAora-01034%E5%92%8Cora-27101/" rel="alternate" type="text/html" title="ojdbc-连接 Oracle 实例提示 ora-01034 和 ora-27101" />
-    <published>2025-02-22T22:24:34+08:00</published>
-  
-    <updated>2025-02-22T22:24:34+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/ojdbc-%E8%BF%9E%E6%8E%A5Oracle%E5%AE%9E%E4%BE%8B%E6%8F%90%E7%A4%BAora-01034%E5%92%8Cora-27101/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/ojdbc-%E8%BF%9E%E6%8E%A5Oracle%E5%AE%9E%E4%BE%8B%E6%8F%90%E7%A4%BAora-01034%E5%92%8Cora-27101/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-同事反馈连接 Oracle 实例时提示 ora-01034 和 ora-27101 错误，这个问题通常是由于 Oracle 实例没有启动引起的
-
-
-处理过程
-
-检查 Oracle 实例状态
-
-检查 Oracle 实例是否已经启动，可以通过以下命令查看 Oracle 实例状态：
-
-# 查看 Oracle 实例状态
-ps -ef | grep pmon
-
-# 查看 Oracle 实例监听状态
-lsnrctl status
-
-# 直接 sqlplus 连接
-sqlplus / as sysdba
-
-
-检查发现 Oracle 实例状态运行正常，alert 日志也没有异常信息，但是程序连接 Oracle 实例时提示 ora-01034 和 ora-27101 错误。查看监听和服务状态也是正常的。这里就不贴图了
-
-自己尝试利用 SQL plus 远程连接 Oracle 实例，发现可以正常...</summary>
 
   </entry>
 

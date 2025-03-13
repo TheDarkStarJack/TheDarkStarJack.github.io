@@ -607,98 +607,6 @@
 
       
     
-
-    
-  
-
-  
-  
-
-  
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
       
 
       
@@ -945,6 +853,65 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
       
 
       
@@ -1197,15 +1164,15 @@
   
 
   <div class="content">
-    <h2 id="前言"><span class="me-2">前言</span><a href="#前言" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+    <h1 id="前言">前言</h1>
 
 <p>Oracle GoldenGate（OGG）是 Oracle 公司的一款数据同步工具，支持多种数据库之间的数据同步，包括 Oracle 数据库、MySQL、SQL Server、DB2 等。本文主要介绍 OGG 与 Kafka 的集成，实现将 Oracle 的数据同步到 Kafka 的功能。</p>
 
 <p>文中的 ip 和表名是脱敏，参考的时候根据个人的实际情况修改</p>
 
-<h2 id="项目环境"><span class="me-2">项目环境</span><a href="#项目环境" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h1 id="项目环境">项目环境</h1>
 
-<h3 id="源端"><span class="me-2">源端</span><a href="#源端" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="源端"><span class="me-2">源端</span><a href="#源端" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>Oracle ：19.3.0</p>
 
@@ -1219,7 +1186,7 @@
 </pre></td><td class="rouge-code"><pre>    Version 21.3.0.0.0 OGGCORE_21.3.0.0.0_PLATFORMS_210728.1047_FBO
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="目标端"><span class="me-2">目标端</span><a href="#目标端" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="目标端"><span class="me-2">目标端</span><a href="#目标端" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>Kafka：2.4.1</p>
 
@@ -1242,15 +1209,15 @@
 		Version 21.4.0.0.0 OGGCORE_21.4.0.0.0OGGRU_PLATFORMS_211022.1803
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="安装-ogg"><span class="me-2">安装 OGG</span><a href="#安装-ogg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h1 id="安装-ogg">安装 OGG</h1>
 
-<h3 id="源端-1"><span class="me-2">源端</span><a href="#源端-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="源端-1"><span class="me-2">源端</span><a href="#源端-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h4 id="下载-ogg-安装包"><span class="me-2">下载 OGG 安装包</span><a href="#下载-ogg-安装包" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="下载-ogg-安装包"><span class="me-2">下载 OGG 安装包</span><a href="#下载-ogg-安装包" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p><a href="https://www.oracle.com/middleware/technologies/goldengate-downloads.html">官网地址</a>，选择对应平台的版本下载。</p>
 
-<h4 id="解压安装包"><span class="me-2">解压安装包</span><a href="#解压安装包" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="解压安装包"><span class="me-2">解压安装包</span><a href="#解压安装包" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -1266,7 +1233,7 @@
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="安装-ogg-1"><span class="me-2">安装 OGG</span><a href="#安装-ogg-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="安装-ogg-1"><span class="me-2">安装 OGG</span><a href="#安装-ogg-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ol>
   <li>准备响应文件
@@ -1381,13 +1348,13 @@ Oracle Linux 7, x64, 64bit (optimized), Oracle Database 21c and lower supported 
 33
 </pre></td><td class="rouge-code"><pre>
 
-### 目标端安装 OGG
+## 目标端安装 OGG
 
-#### 下载 OGG 安装包
+### 下载 OGG 安装包
 
   [官网地址](https://www.oracle.com/middleware/technologies/goldengate-downloads.html)，选择对应平台的版本下载，需要注意的要选择 Big Data 版本
 
-#### 解压安装
+### 解压安装
 
   bigdata 版本的 OGG 安装就很简单了，解压即可
 ~~~shell
@@ -1464,15 +1431,15 @@ Copyright <span class="o">(</span>C<span class="o">)</span> 1995, 2021, Oracle a
 GGSCI <span class="o">(</span>bigdata01<span class="o">)</span> 1&gt;
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="配置-ogg"><span class="me-2">配置 OGG</span><a href="#配置-ogg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h1 id="配置-ogg">配置 OGG</h1>
 
-<h3 id="源端配置-ogg"><span class="me-2">源端配置 OGG</span><a href="#源端配置-ogg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="源端配置-ogg"><span class="me-2">源端配置 OGG</span><a href="#源端配置-ogg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h4 id="说明"><span class="me-2">说明</span><a href="#说明" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="说明"><span class="me-2">说明</span><a href="#说明" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>如果目标端需要每张表都单独保存为一个 topic 的话，在源端的抽取进程和传输进程也可以将多张表的信息配置为一个进程，只需要在目标端的恢复进程单独配置一个进程即可。</p>
 
-<h4 id="添加-ogg-用户"><span class="me-2">添加 OGG 用户</span><a href="#添加-ogg-用户" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="添加-ogg-用户"><span class="me-2">添加 OGG 用户</span><a href="#添加-ogg-用户" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>OGG 同步最好使用一个专门的用户，这样可以避免权限问题</p>
 
@@ -1512,7 +1479,7 @@ GGSCI <span class="o">(</span>bigdata01<span class="o">)</span> 1&gt;
 <span class="k">grant</span> <span class="k">alter</span> <span class="k">any</span> <span class="k">table</span> <span class="k">to</span> <span class="n">ogguser</span><span class="p">;</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="设置归档"><span class="me-2">设置归档</span><a href="#设置归档" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="设置归档"><span class="me-2">设置归档</span><a href="#设置归档" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>ogg 同步 oracle 数据库需要开启归档模式，如果数据库没有开启归档模式，需要先开启归档模式</p>
 <div class="language-sql highlighter-rouge"><div class="code-header">
@@ -1758,7 +1725,7 @@ shutdown immediate   <span class="nt">--2</span> 节点
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="开启附加日志"><span class="me-2">开启附加日志</span><a href="#开启附加日志" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="开启附加日志"><span class="me-2">开启附加日志</span><a href="#开启附加日志" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>OGG 基于附加日志等进行实时传输，故需要打开相关日志确保可获取事务内容，通过下面的命令查看该状态</p>
 <div class="language-sql highlighter-rouge"><div class="code-header">
@@ -1774,7 +1741,7 @@ shutdown immediate   <span class="nt">--2</span> 节点
 <span class="k">alter</span> <span class="k">database</span> <span class="k">add</span> <span class="n">supplemental</span> <span class="n">log</span> <span class="k">data</span><span class="p">;</span>
 
 </pre></td></tr></tbody></table></code></div></div>
-<h4 id="设置参数"><span class="me-2">设置参数</span><a href="#设置参数" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="设置参数"><span class="me-2">设置参数</span><a href="#设置参数" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>如果要正常使用 OGG，需要设置参数 <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html">enable_goldengate_replication</a>。这个参数在 11.2.0.4 和 12.1.0.2 以后才出现，用于启用 GoldenGate 复制功能。默认值为 FALSE，设置为 TRUE 后，数据库会启用 GoldenGate 复制功能，这样可以在数据库中创建 GoldenGate 复制配置。这个参数是动态参数，可以在数据库运行时设置。否则无法使用 OGG</p>
 
@@ -1809,7 +1776,7 @@ shutdown immediate   <span class="nt">--2</span> 节点
 <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">streams_pool_size</span><span class="o">=</span><span class="mi">2048</span><span class="n">M</span> <span class="k">scope</span><span class="o">=</span><span class="k">both</span><span class="p">;</span>
 
 </pre></td></tr></tbody></table></code></div></div>
-<h4 id="配置-mgr"><span class="me-2">配置 MGR</span><a href="#配置-mgr" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="配置-mgr"><span class="me-2">配置 MGR</span><a href="#配置-mgr" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>在源端配置 MGR 进程，用于管理抽取进程和传输进程</p>
 
@@ -1862,7 +1829,7 @@ PURGEOLDEXTRACTS /u01/ogg/ogg21/dirdat/<span class="k">*</span>, USECHECKPOINTS,
 <span class="nt">--</span> 启动
 GGSCI <span class="o">&gt;</span> start mgr
 </pre></td></tr></tbody></table></code></div></div>
-<h4 id="配置全局检查点表"><span class="me-2">配置全局检查点表</span><a href="#配置全局检查点表" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="配置全局检查点表"><span class="me-2">配置全局检查点表</span><a href="#配置全局检查点表" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>在 GLOBALS 参数文件中使用 <a href="https://docs.oracle.com/en/middleware/goldengate/core/19.1/reference/checkpointtable.html">CHECKPOINTTABLE</a> 参数，可以指定一个默认的检查点表（checkpoint table）名称，该表可供一个或多个 Oracle GoldenGate 实例中的所有 Replicat 组使用。除非在创建 Replicat 组时使用 ADD REPLICAT 命令的 CHECKPOINTTABLE 选项覆盖此设置，否则所有通过 ADD REPLICAT 命令创建的 Replicat 组都将默认使用此表。</p>
 
@@ -1883,7 +1850,7 @@ checkpointtable ogguser.ckpoint
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="添加同步的表"><span class="me-2">添加同步的表</span><a href="#添加同步的表" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="添加同步的表"><span class="me-2">添加同步的表</span><a href="#添加同步的表" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>在源端添加需要同步的表，可以直接利用 sql 拼接</p>
 <div class="language-sql highlighter-rouge"><div class="code-header">
@@ -1909,7 +1876,7 @@ ggsci
 GGSCI <span class="o">&gt;</span> add trandata needtable.TABLE_NAME1
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="配置抽取进程"><span class="me-2">配置抽取进程</span><a href="#配置抽取进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="配置抽取进程"><span class="me-2">配置抽取进程</span><a href="#配置抽取进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>在源端配置抽取进程，用于抽取源端的数据</p>
 
@@ -1963,7 +1930,7 @@ TABLE WMS_F.BASTION          <span class="p">;</span>
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="配置传输进程"><span class="me-2">配置传输进程</span><a href="#配置传输进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="配置传输进程"><span class="me-2">配置传输进程</span><a href="#配置传输进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>在源端配置传输进程，用于传输抽取的数据到目标端</p>
 
@@ -2009,7 +1976,7 @@ TABLE WMS_F.ACTTION_DETAILS<span class="p">;</span>
 TABLE WMS_F.BASTION          <span class="p">;</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="生成表结构文件"><span class="me-2">生成表结构文件</span><a href="#生成表结构文件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="生成表结构文件"><span class="me-2">生成表结构文件</span><a href="#生成表结构文件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>在源端生成表结构文件</p>
 
@@ -2051,9 +2018,9 @@ TABLE WMS_F.BASTION          <span class="p">;</span>
 </pre></td><td class="rouge-code"><pre>scp ./dirdef/mapping_uat_ka.def root@12.2.19.11:/ogg/ogg21/dirdef/
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="目标端配置-ogg"><span class="me-2">目标端配置 OGG</span><a href="#目标端配置-ogg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="目标端配置-ogg"><span class="me-2">目标端配置 OGG</span><a href="#目标端配置-ogg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h4 id="配置-mgr-1"><span class="me-2">配置 MGR</span><a href="#配置-mgr-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="配置-mgr-1"><span class="me-2">配置 MGR</span><a href="#配置-mgr-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>– 在目标端配置 MGR 进程，用于管理恢复进程</p>
 
@@ -2081,7 +2048,7 @@ PURGEOLDEXTRACTS ./dirdat/<span class="k">*</span>, USECHECKPOINTS,MINKEEPFILES 
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="全局检查点表"><span class="me-2">全局检查点表</span><a href="#全局检查点表" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="全局检查点表"><span class="me-2">全局检查点表</span><a href="#全局检查点表" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2093,15 +2060,15 @@ GGSCI <span class="o">&gt;</span> edit  param  ./GLOBALS
 CHECKPOINTTABLE  okafka.checkpoint
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="配置复制进程"><span class="me-2">配置复制进程</span><a href="#配置复制进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="配置复制进程"><span class="me-2">配置复制进程</span><a href="#配置复制进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<h5 id="恢复至同一个-topic"><span class="me-2">恢复至同一个 topic</span><a href="#恢复至同一个-topic" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<h4 id="恢复至同一个-topic"><span class="me-2">恢复至同一个 topic</span><a href="#恢复至同一个-topic" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <p>在恢复之前不需要手动先创建 topic，ogg 在恢复数据的时候会自动创建 topic，但是默认只会有一个分区，如果需要多个分区就需要提前手动创建 topic。</p>
 
 <p>如果恢复至一个 topic 的话，所有的数据都在一起。可以在验证阶段查看数据。</p>
 
-<h6 id="设置输出格式"><strong>设置输出格式</strong></h6>
+<h5 id="设置输出格式"><span class="me-2"><strong>设置输出格式</strong></span><a href="#设置输出格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
 
 <p><a href="https://docs.oracle.com/en/middleware/goldengate/big-data/12.3.2.1/gadbd/using-pluggable-formatters.html#GUID-9F4F3E19-D3AC-405A-A47B-876D172C076A">Using the Pluggable Formatters (oracle.com)</a></p>
 
@@ -2127,7 +2094,7 @@ gg.handler.name.format.metaColumnsTemplate<span class="o">=</span><span class="k
 Would like to get the replicat name/ groupname also added
 </pre></td></tr></tbody></table></code></div></div>
 
-<h6 id="复制进程配置">复制进程配置</h6>
+<h5 id="复制进程配置"><span class="me-2">复制进程配置</span><a href="#复制进程配置" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2223,11 +2190,11 @@ linger.ms<span class="o">=</span>10000
 add replicat r_uat_ka exttrail ./dirdat/ka,checkpointtable okafka.checkpoint
 </pre></td></tr></tbody></table></code></div></div>
 
-<h5 id="恢复至多个-topic"><span class="me-2">恢复至多个 topic</span><a href="#恢复至多个-topic" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<h4 id="恢复至多个-topic"><span class="me-2">恢复至多个 topic</span><a href="#恢复至多个-topic" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <p>将每张表的数据恢复至单独的一个 topic，这样可以更好的管理数据，不过配置步骤多一些</p>
 
-<h6 id="auserftablename">auser.ftablename</h6>
+<h5 id="auserftablename"><span class="me-2">auser.ftablename</span><a href="#auserftablename" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2325,7 +2292,7 @@ add replicat r_ka01 exttrail ./dirdat/ka,checkpointtable okafka.checkpoint
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h6 id="arhz_parties">AR.hz_parties</h6>
+<h5 id="arhz_parties"><span class="me-2">AR.hz_parties</span><a href="#arhz_parties" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2421,9 +2388,9 @@ add replicat r_ka02 exttrail ./dirdat/ka,checkpointtable okafka.checkpoint
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="全量恢复"><span class="me-2">全量恢复</span><a href="#全量恢复" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h1 id="全量恢复">全量恢复</h1>
 
-<h3 id="启动对应的进程"><span class="me-2">启动对应的进程</span><a href="#启动对应的进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="启动对应的进程"><span class="me-2">启动对应的进程</span><a href="#启动对应的进程" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>在恢复之前需要先启动对应的进程</p>
 
@@ -2440,7 +2407,7 @@ start mgr
 start E_UAT_KA
 start P_UAT_KA
 </pre></td></tr></tbody></table></code></div></div>
-<h3 id="源端抽取数据"><span class="me-2">源端抽取数据</span><a href="#源端抽取数据" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="源端抽取数据"><span class="me-2">源端抽取数据</span><a href="#源端抽取数据" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2474,9 +2441,9 @@ TABLE A.hzties<span class="p">;</span>
 shell&gt; <span class="nb">nohup</span> ./extract paramfile ./dirprm/ei_ka.prm reportfile ./dirrpt/ei_ka.rpt &amp;
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="目标端恢复数据"><span class="me-2">目标端恢复数据</span><a href="#目标端恢复数据" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h1 id="目标端恢复数据">目标端恢复数据</h1>
 
-<h3 id="恢复至同一个-topic-1"><span class="me-2">恢复至同一个 topic</span><a href="#恢复至同一个-topic-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="恢复至同一个-topic-1"><span class="me-2">恢复至同一个 topic</span><a href="#恢复至同一个-topic-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2516,11 +2483,11 @@ shell&gt; <span class="nb">nohup</span> ./replicat paramfile ./dirprm/ri_uat_ka.
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="分开恢复"><span class="me-2">分开恢复</span><a href="#分开恢复" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="分开恢复"><span class="me-2">分开恢复</span><a href="#分开恢复" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>如果需要将每张表的数据恢复至单独的一个 topic，需要单独配置恢复进程。例如按照不同的 schema 恢复数据，或者不同的表恢复数据</p>
 
-<h4 id="apsfnd_lvalue"><span class="me-2">APS.fnd_lvalue</span><a href="#apsfnd_lvalue" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="apsfnd_lvalue"><span class="me-2">APS.fnd_lvalue</span><a href="#apsfnd_lvalue" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2558,7 +2525,7 @@ shell&gt; <span class="nb">nohup</span> ./replicat paramfile ./dirprm/ri_uat_ka0
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="arhz_rties"><span class="me-2">AR.hz_rties</span><a href="#arhz_rties" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="arhz_rties"><span class="me-2">AR.hz_rties</span><a href="#arhz_rties" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2596,11 +2563,11 @@ shell&gt; <span class="nb">nohup</span> ./replicat paramfile ./dirprm/ri_uat_ka0
 
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="数据验证"><span class="me-2">数据验证</span><a href="#数据验证" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h1 id="数据验证">数据验证</h1>
 
 <p>如果多张表的数据都在同一个 topic，查看的时候只需要指定 topic 就行，数据是按照更新的时间排序的。</p>
 
-<h3 id="查看内容"><span class="me-2">查看内容</span><a href="#查看内容" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="查看内容"><span class="me-2">查看内容</span><a href="#查看内容" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>在命令行查看 topic 的内容时，默认会持续打印数据，只能手动结束（crtl+c），可以将数据重定向至一个文件方便查看。</p>
 
@@ -2620,11 +2587,11 @@ shell1&gt; kafka-console-consumer.sh <span class="nt">--bootstrap-server</span> 
 shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail</span> <span class="nt">-2</span> /tmp/kafka_okafka_all.txt
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="格式"><span class="me-2">格式</span><a href="#格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="格式"><span class="me-2">格式</span><a href="#格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p><strong>在第一次全量恢复数据或者复制进程恢复数据的时候并没有 before 属性，只有在更新/删除操作发生之后才会有 before 属性信息。</strong></p>
 
-<h4 id="低版本默认格式"><span class="me-2">低版本默认格式</span><a href="#低版本默认格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="低版本默认格式"><span class="me-2">低版本默认格式</span><a href="#低版本默认格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="table-wrapper"><table>
   <tbody>
@@ -2683,9 +2650,9 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
 </span><span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></div></div>
 
-<h4 id="高版本格式"><span class="me-2">高版本格式</span><a href="#高版本格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<h3 id="高版本格式"><span class="me-2">高版本格式</span><a href="#高版本格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<h5 id="使用单词全拼"><span class="me-2">使用单词全拼</span><a href="#使用单词全拼" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<h4 id="使用单词全拼"><span class="me-2">使用单词全拼</span><a href="#使用单词全拼" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <div class="language-shell highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -2731,7 +2698,7 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
 <span class="o">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h5 id="兼容低版本简写"><span class="me-2">兼容低版本简写</span><a href="#兼容低版本简写" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
+<h4 id="兼容低版本简写"><span class="me-2">兼容低版本简写</span><a href="#兼容低版本简写" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <div class="language-json highlighter-rouge"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
@@ -2904,6 +2871,20 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/">foxmail 添加 gmail</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/">oracle-bbed-使用</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/OGG2KAFKA/">OGG2KAFKA</a>
         </li>
       
@@ -2919,20 +2900,6 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
         
         <li class="text-truncate lh-lg">
           <a href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/">Oracle 分区和分区索引</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/OGG-25715%E9%94%99%E8%AF%AF/">OGG-25715 错误</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/OGG-15051%E9%94%99%E8%AF%AF/">OGG-15051 错误</a>
         </li>
       
     </ul>
@@ -3081,427 +3048,6 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3730,6 +3276,497 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3771,6 +3808,16 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -4306,6 +4353,18 @@ shell2&gt; <span class="o">[</span>root@bigdata01 ogg21]# <span class="nb">tail<
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -4675,427 +4734,6 @@ OGG-15051 错误
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -5324,6 +4962,497 @@ OGG-15051 错误
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -5365,6 +5494,16 @@ OGG-15051 错误
         
         
 
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
