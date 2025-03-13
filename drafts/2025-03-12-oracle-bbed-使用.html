@@ -1,0 +1,229 @@
+<h2 id="前言">前言</h2>
+
+<p>BBED 是 Oracle 提供的一个用于修改数据块的工具，可以用于修改数据块的内容，比如修改数据块中的数据，修改数据块的头部信息等。BBED 是一个很强大的工具，但是使用 BBED 也是有风险的，因为 BBED 可以直接修改数据块的内容，如果不小心修改了数据块的内容，可能会导致数据库的损坏。因此，在使用 BBED 之前，一定要慎重考虑，最好在测试环境中使用 BBED。</p>
+
+<p>记录一下使用 BBED 的一些常用命令</p>
+
+<h2 id="常用命令">常用命令</h2>
+
+<h3 id="1-查看数据块的内容">1. 查看数据块的内容</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>BBED&gt; map
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="2-查看数据块的头部信息">2. 查看数据块的头部信息</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>BBED&gt; h
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="listfile">listfile</h2>
+
+<p>bbed 必须要设置一个 listfile 文件，这个文件随便创建一个空文件即可，没有特别的实际含义，只是为了让 bbed 能够正常工作，如果不设置 listfile 文件，bbed 会报错，无法通过 set 设置环境变量。这个文件只要是 Oracle 用户有读写权限的文件即可，不需要特别的权限</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>
+BBED&gt; <span class="nb">set </span>FILE 5
+BBED-00312: no LISTFILE specified
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>当然设置了 listfile 文件之后，bbed 也会报错，但是这个错误是正常的，不影响 bbed 的使用</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+</pre></td><td class="rouge-code"><pre>┌─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">touch </span>filelist.bbed
+┌─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">readlink</span> <span class="nt">-f</span> filelist.bbed
+/home/oracle/filelist.bbed
+
+BBED&gt; <span class="nb">set </span>listfile <span class="s1">'/home/oracle/filelist.bbed'</span>
+BBED-00300: unable to translate filename <span class="c">## 这个报错可以忽略</span>
+
+BBED&gt; <span class="nb">set </span>filename <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+        FILENAME        /oradata/darkdb/data01.dbf
+
+BBED&gt; <span class="nb">set </span>file 5
+        FILE#           5
+
+BBED&gt; show all
+        FILE#           5
+        BLOCK#          135
+        OFFSET          0
+        DBA             0x01400087 <span class="o">(</span>20971655 5,135<span class="o">)</span> <span class="c">## DBA 是由 Oracle 分配的十六进制块地址，5 是文件号，135 是块号, 20971655 是十进制块地址，如果熟悉的话可以直接设置 DBA ，这样的话就不需要设置 FILE 和 BLOCK </span>
+        FILENAME        /oradata/darkdb/data01.dbf
+        BIFILE          bifile.bbd
+        LISTFILE        /home/oracle/filelist.bbed
+        BLOCKSIZE       8192 <span class="c">## 数据块大小 根据数据库的块大小设置</span>
+        MODE            Browse <span class="c">## 设置 bbed 的模式，Browse 是只读模式，Edit 是可编辑模式</span>
+        EDIT            Unrecoverable <span class="c">## 设置编辑模式，Unrecoverable 是不可恢复的，Recoverable 是可恢复的</span>
+        IBASE           Dec
+        OBASE           Dec
+        WIDTH           80
+        COUNT           512 <span class="c">## 一次显示的字节数</span>
+        LOGFILE         log.bbd
+        SPOOL           No
+
+BBED&gt; dump <span class="c">## 需要注意的是 Oracle 数据是从下往上存储的，所以 dump 出来的数据是从下往上的 ，顶端是数据块的头部信息/元信息 ，底部是数据块的数据</span>
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 135              Offsets:    0 to  511           Dba:0x01400087
+<span class="nt">------------------------------------------------------------------------</span>
+ 06a20000 87004001 371f1f00 00000106 e5fa0000 01000000 6b760100 341f1f00
+ 00000000 02003200 80004001 08000900 9c0b0000 1eefc000 be003300 02200000
+ 371f1f00 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00010200 ffff1600 801f6a1f 6a1f0000 02008c1f 801f0000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>BBED&gt; listfile
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="blok">blok</h2>
+
+<p>相同的 session 插入的数据，会在同一个块中，如果是不同的 session 插入的数据，会在不同的块中</p>
+
+<p>字符串没有大小端的问题，但是数字有大小端的问题，所以在 dump 数据的时候，需要注意数据的大小端问题</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="rouge-code"><pre>
+<span class="k">create</span> <span class="n">tablespace</span> <span class="k">data</span> <span class="n">datafile</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span> <span class="k">size</span> <span class="mi">1</span><span class="k">G</span> <span class="n">autoextend</span> <span class="k">off</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">user</span> <span class="n">wxj</span> <span class="k">default</span> <span class="n">tablespace</span> <span class="k">data</span><span class="p">;</span>
+
+<span class="c1">-- session 1</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">t1</span> <span class="p">(</span> <span class="n">c1</span> <span class="n">number</span><span class="p">,</span> <span class="n">c2</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'hello'</span> <span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span> <span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'world'</span> <span class="p">);</span>
+<span class="k">commit</span><span class="p">;</span>
+
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">C1</span> <span class="o">|</span> <span class="n">C2</span>
+<span class="c1">----------</span>
+<span class="mi">1</span>  <span class="o">|</span> <span class="n">hello</span>
+<span class="mi">2</span>  <span class="o">|</span> <span class="n">world</span>
+
+<span class="c1">-- session 2</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span> <span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'hello'</span> <span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span> <span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'world'</span> <span class="p">);</span>
+<span class="k">commit</span><span class="p">;</span>
+
+<span class="c1">-- 查看数据块</span>
+
+<span class="k">select</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_relative_fno</span><span class="p">(</span><span class="n">rowid</span><span class="p">),</span><span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_block_number</span><span class="p">(</span><span class="n">rowid</span><span class="p">),</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">DBMS_ROWID</span><span class="p">.</span><span class="n">ROWID_RELATIVE_FNO</span><span class="p">(</span><span class="n">ROWID</span><span class="p">)</span> <span class="o">|</span> <span class="n">DBMS_ROWID</span><span class="p">.</span><span class="n">ROWID_BLOCK_NUMBER</span><span class="p">(</span><span class="n">ROWID</span><span class="p">)</span> <span class="o">|</span> <span class="n">C1</span> <span class="o">|</span> <span class="n">C2</span>
+<span class="c1">----------------------------------------------------------------------------------------</span>
+<span class="mi">5</span>                                    <span class="o">|</span> <span class="mi">132</span>                                  <span class="o">|</span> <span class="mi">3</span>  <span class="o">|</span> <span class="n">hello</span>
+<span class="mi">5</span>                                    <span class="o">|</span> <span class="mi">132</span>                                  <span class="o">|</span> <span class="mi">4</span>  <span class="o">|</span> <span class="n">world</span>
+<span class="mi">5</span>                                    <span class="o">|</span> <span class="mi">135</span>                                  <span class="o">|</span> <span class="mi">1</span>  <span class="o">|</span> <span class="n">hello</span>
+<span class="mi">5</span>                                    <span class="o">|</span> <span class="mi">135</span>                                  <span class="o">|</span> <span class="mi">2</span>  <span class="o">|</span> <span class="n">world</span>
+
+<span class="c1">-- dump block</span>
+<span class="k">alter</span> <span class="k">system</span> <span class="n">dump</span> <span class="n">datafile</span> <span class="mi">5</span> <span class="n">block</span> <span class="mi">135</span><span class="p">;</span>
+<span class="c1">--</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>

@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2025-03-13T22:18:50+08:00</updated>
+  <updated>2025-03-14T00:33:31+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -53,52 +53,6 @@ Foxmail 是一款国产邮件客户端，支持多账号管理，支持多种邮
 之前是可以正常添加 Gmail 邮箱的，通过添加账号中自带的 Gmail，输入 Google 账号密码后，就可以成功绑定。这次的原因是因为 Google 更新了更高级别安全规则，一些旧的/Google 不信任软件、设备将无法通过常规方式去绑定连接。就会被 Google 阻止
 
 需要注意的：自 2025 年 1 月起，“启用 IMAP”和“停用 IMAP”选项将无法再使用。Gm...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>oracle-bbed-使用</title>
-    <link href="https://thedarkstarjack.github.io/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="oracle-bbed-使用" />
-    <published>2025-03-12T10:02:05+08:00</published>
-  
-    <updated>2025-03-12T10:02:05+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/oracle-bbed-%E4%BD%BF%E7%94%A8/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-BBED 是 Oracle 提供的一个用于修改数据块的工具，可以用于修改数据块的内容，比如修改数据块中的数据，修改数据块的头部信息等。BBED 是一个很强大的工具，但是使用 BBED 也是有风险的，因为 BBED 可以直接修改数据块的内容，如果不小心修改了数据块的内容，可能会导致数据库的损坏。因此，在使用 BBED 之前，一定要慎重考虑，最好在测试环境中使用 BBED。
-
-记录一下使用 BBED 的一些常用命令
-
-常用命令
-
-1. 查看数据块的内容
-
-BBED&amp;amp;gt; map
-
-
-2. 查看数据块的头部信息
-
-BBED&amp;amp;gt; h
-
-
-listfile
-
-bbed 必须要设置一个 listfile 文件，这个文件随便创建一个空文件即可，没有特别的实际含义，只是为了让 bbed 能够正常工作，如果不设置 listfile 文件，bbed 会报错，无法通过 set 设置环境变量。...</summary>
 
   </entry>
 
@@ -185,7 +139,7 @@ OGG-15051 错误
     <link href="https://thedarkstarjack.github.io/posts/OGG2KAFKA/" rel="alternate" type="text/html" title="OGG2KAFKA" />
     <published>2025-02-27T15:15:02+08:00</published>
   
-    <updated>2025-03-11T15:38:10+08:00</updated>
+    <updated>2025-03-14T00:33:21+08:00</updated>
   
     <id>https://thedarkstarjack.github.io/posts/OGG2KAFKA/</id>
     <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG2KAFKA/" />
@@ -225,6 +179,45 @@ OGG：Oracle GoldenGate Command Interpreter for Oracle
 Kafka：2.4.1
 
 kafka 集群 broker 地址：1.1.1.101:9...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Oracle-编译-bbed</title>
+    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" rel="alternate" type="text/html" title="Oracle-编译-bbed" />
+    <published>2025-02-26T15:53:42+08:00</published>
+  
+    <updated>2025-02-26T15:53:42+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+记录一下 Oracle 编译 bbed 的过程，方便后续查询
+
+Oracle 11g  编译 bbed
+
+通过 ins_rdbms.mk 编译 bbed ，Oracle 的很多工具都是通过 ins_rdbms.mk 编译的
+
+┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/lib]
+└──╼ $ cd $ORACLE_HOME/rdbms/lib
+┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/lib]
+└──╼ $ ll ins_rdbms.mk
+-rw-r--r-- 1 oracle oinstall 40983 Aug 24  2013 ins_rdbms.mk
+┌─[oracle@TheDarkSt...</summary>
 
   </entry>
 
