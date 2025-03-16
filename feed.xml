@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2025-03-14T00:39:04+08:00</updated>
+  <updated>2025-03-16T11:02:31+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,85 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>不要只关注工作中的技术</title>
+    <link href="https://thedarkstarjack.github.io/posts/%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%85%B3%E6%B3%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF/" rel="alternate" type="text/html" title="不要只关注工作中的技术" />
+    <published>2025-03-16T08:32:21+08:00</published>
+  
+    <updated>2025-03-16T08:32:21+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%85%B3%E6%B3%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%85%B3%E6%B3%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="随笔杂记" />
+    
+    <category term="随笔" />
+    
+  
+
+  <summary>去年发现自己不再像以前那样很快就能专注或者静下心来学习技术了，总是会被一些琐事打扰，比如工作中的事情，或者是一些生活琐事，导致自己很难专注，这段时间也在思考为什么会这样，是因为自己的技术水平已经到达了一个瓶颈，还是因为自己的心态有问题，还是因为自己的工作/生活环境有问题，还是因为自己的学习方法有问题
+
+刚出来工作的时候，为了能快速提升自己，也为了有一个好的职业发展，可以大半夜都在学习，现在可能是精力没那么旺盛，也是因为成长了，要处理自己和家庭的琐事，变得不知所措，一度看起来很忙，其实回头看看，也没做什么事情。
+
+过年回家的时候，静下心来看了看两本非技术类的书籍，发现自己的心情变得很平静，也很享受这种感觉，所以也在思考，是不是自己太过于关注工作中的技术，而忽略了生活中的一些美好事物，导致自己的心情变得很焦虑，也很疲惫，所以也在思考，是不是应该多关注一些生活中的美好事物，让自己的心情变得...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>技术群聊和公众号</title>
+    <link href="https://thedarkstarjack.github.io/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="alternate" type="text/html" title="技术群聊和公众号" />
+    <published>2025-03-16T08:02:19+08:00</published>
+  
+    <updated>2025-03-16T08:02:19+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="随笔杂记" />
+    
+    <category term="随笔" />
+    
+  
+
+  <summary>前言
+
+之前为了学习加了很多群聊，也关注了很多公众号，但是现在发现很多公众号的文字都是互相转载，而且随着这两年的 ai 发展，一些文章要么一大半都是机器代写或者震惊的标题党，这段时间取关了一些公共号，或者设置不接受推送，什么时候想看的时候再去看，不再被动接受信息
+
+至于群聊，也是一样，一些技术群里面逐渐变成了广告群和闲聊群，不再有技术交流的氛围，所以也是慢慢的退出了一些群聊。除了个别群，大部分的群都设置了免打扰，不再接受推送，什么时候想看的时候再去看。最开始的时候还会在每天早上或者晚上统一看一下群聊消息，现在已经是3天或者一周才看一次了。基本也都是大概划拉一下，看看有没有什么有价值的信息，没有的话就直接忽略了
+
+为什么要取关
+
+
+  信息重复
+  机器代写
+  标题党
+  信息过载
+  信息质量低
+
+
+为什么要关注
+
+
+  信息质量高
+  信息有价值
+  信息有趣
+  信息有深度
+ ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -130,94 +209,6 @@ OGG-15051 错误
 2025-02-26 22:07:45  INFO    OGG-02695  ANSI SQL parameter syntax is used for parameter parsing.
 
 2025-02-26 22:07:45  INFO    OGG-03528  The source database character s...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>OGG2KAFKA</title>
-    <link href="https://thedarkstarjack.github.io/posts/OGG2KAFKA/" rel="alternate" type="text/html" title="OGG2KAFKA" />
-    <published>2025-02-27T15:15:02+08:00</published>
-  
-    <updated>2025-03-14T00:33:21+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/OGG2KAFKA/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG2KAFKA/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-Oracle GoldenGate（OGG）是 Oracle 公司的一款数据同步工具，支持多种数据库之间的数据同步，包括 Oracle 数据库、MySQL、SQL Server、DB2 等。本文主要介绍 OGG 与 Kafka 的集成，实现将 Oracle 的数据同步到 Kafka 的功能。
-
-文中的 ip 和表名是脱敏，参考的时候根据个人的实际情况修改
-
-项目环境
-
-源端
-
-Oracle ：19.3.0
-
-OS：CentOS 7.7
-
-OGG：Oracle GoldenGate Command Interpreter for Oracle
-
-    Version 21.3.0.0.0 OGGCORE_21.3.0.0.0_PLATFORMS_210728.1047_FBO
-
-
-目标端
-
-Kafka：2.4.1
-
-kafka 集群 broker 地址：1.1.1.101:9...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Oracle-编译-bbed</title>
-    <link href="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" rel="alternate" type="text/html" title="Oracle-编译-bbed" />
-    <published>2025-02-26T15:53:42+08:00</published>
-  
-    <updated>2025-02-26T15:53:42+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/Oracle-%E7%BC%96%E8%AF%91-bbed/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-记录一下 Oracle 编译 bbed 的过程，方便后续查询
-
-Oracle 11g  编译 bbed
-
-通过 ins_rdbms.mk 编译 bbed ，Oracle 的很多工具都是通过 ins_rdbms.mk 编译的
-
-┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/lib]
-└──╼ $ cd $ORACLE_HOME/rdbms/lib
-┌─[oracle@TheDarkStar]─[/u01/app/oracle/product/11.2.0/dbhome_1/rdbms/lib]
-└──╼ $ ll ins_rdbms.mk
--rw-r--r-- 1 oracle oinstall 40983 Aug 24  2013 ins_rdbms.mk
-┌─[oracle@TheDarkSt...</summary>
 
   </entry>
 

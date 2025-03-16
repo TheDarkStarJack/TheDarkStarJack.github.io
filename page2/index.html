@@ -522,6 +522,154 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/posts/vim-%E6%8F%92%E5%85%A5%E8%A1%8C%E5%8F%B7/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">vim 插入行号</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+vim/nvim 可以显示行号，但是有的时候需要添加行号到文本中，这里记录一些方法
+
+## 例如原文件：
+a
+b
+c
+d
+e
+
+## 修改后的文件：
+1.a
+2.b
+3.c
+4.d
+
+
+获取行号
+
+vim内部有内置命令如 line() 获取当前行号
+:echo line(&#39;.&#39;)
+
+
+获取所在行的行号 “.”，小数点”.”表示当前行
+
+为当前行插入行号
+
+可以在插入模式下使用 C-r...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1728978467"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/10/15
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Linux,
+                      Vim
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/Oracle-%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%8F%98%E6%9B%B4%E8%AE%B0%E5%BD%95/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Oracle 获取表的变更记录</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+有的时候需要统计实例中表的变更记录，除了创建触发器统计，也可以直接利用内部的 DBA_TAB_MODIFICATIONS 视图获取变更信息
+
+DBA_TAB_MODIFICATIONS
+
+视图概述
+
+DBA_TAB_MODIFICATIONS 记录了自上次收集表统计信息以来对数据库中所有表的修改操作，包括增删改查。系统后台调用 DBMS_STATS.FLUSH_DATABASE_MO...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1727420692"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/27
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      Oracle
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/posts/nmcli-%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1043,129 +1191,6 @@ wc 使用特别简单，可以使用 wc --help 查看使用帮助，本文主要
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PostgreSQL Write Ahead Logging WAL</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725520535"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/05
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      PostgreSQL
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PostgreSQL WAL 相关参数</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>前言
-
-WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数
-
-WAL 参数
-
-不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：
--- PostgreSQL 15.8 
--- 如果需要参数描述和范围可以查看 short_desc, extra_desc, context 字段
-127.0.0.1:54323; wxj@demo...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1725520140"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/09/05
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      DataBase,
-                      PostgreSQL
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1282,12 +1307,25 @@ WAL 参数
       
 
       
+        <!-- hide number -->
+        
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
         <!-- show number -->
         <li class="page-item ">
           <a
             class="page-link"
-            href="/page6"
-          >6</a>
+            href="/page7"
+          >7</a>
         </li>
       
     
@@ -1295,7 +1333,7 @@ WAL 参数
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>2</span>
-      <span class="text-muted">/ 6</span>
+      <span class="text-muted">/ 7</span>
     </li>
 
     <!-- right arrow -->
@@ -1342,6 +1380,20 @@ WAL 参数
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%85%B3%E6%B3%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF/">不要只关注工作中的技术</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/">技术群聊和公众号</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/OGG2KAFKA/">OGG2KAFKA</a>
         </li>
       
@@ -1357,20 +1409,6 @@ WAL 参数
         
         <li class="text-truncate lh-lg">
           <a href="/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/">统计博客网站访问数据</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/">Oracle 分区和分区索引</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/OGG-25715%E9%94%99%E8%AF%AF/">OGG-25715 错误</a>
         </li>
       
     </ul>
@@ -2417,10 +2455,111 @@ WAL 参数
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2428,6 +2567,64 @@ WAL 参数
     
       
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -2468,10 +2665,10 @@ WAL 参数
         <a class="post-tag btn btn-outline-primary" href="/tags/%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">链接服务器</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/bbed/">bbed</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
     </div>
   </section>
@@ -3578,10 +3775,111 @@ WAL 参数
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3589,6 +3887,64 @@ WAL 参数
     
       
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -3629,10 +3985,10 @@ WAL 参数
         <a class="post-tag btn btn-outline-primary" href="/tags/%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">链接服务器</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/bbed/">bbed</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
     </div>
   </section>

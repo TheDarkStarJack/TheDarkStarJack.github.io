@@ -522,6 +522,129 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-Write-Ahead-Logging-WAL/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL Write Ahead Logging WAL</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+WAL 是 Write Ahead Log 的缩写，预写式日志。WAL log 也被称为 xlog 。WalWriter 进程就是写 WAL 日志的进程。预写式日志的概念就是在修改数据之前，必须要把这些修改操作记录到磁盘中，这样后面更新实际数据时，就不需要实时地把数据持久化到文件中了。即使机器突然宕机或数据库异常退出，导致一部分内存中的脏数据没有及时地刷新到文件中，在数据库重启后，通...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725520535"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/PostgreSQL-WAL-%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PostgreSQL WAL 相关参数</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>前言
+
+WAL 是 PostgreSQL 的关键组件，用于保证崩溃恢复时数据完整一致，在这里记录一下相关的参数
+
+WAL 参数
+
+不同的版本可能参数不一样，具体可以查询官网或者进入实例之后查询：
+-- PostgreSQL 15.8 
+-- 如果需要参数描述和范围可以查看 short_desc, extra_desc, context 字段
+127.0.0.1:54323; wxj@demo...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1725520140"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/09/05
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      DataBase,
+                      PostgreSQL
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/posts/Windows-%E5%88%A9%E7%94%A8-Netsh-%E7%AE%A1%E7%90%86-WiFi-%E8%BF%9E%E6%8E%A5/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1033,144 +1156,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/posts/sed-%E6%A3%80%E6%9F%A5-Oracle%E6%97%A5%E5%BF%97-%E5%B9%B6%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%8C%E5%8F%B7/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">sed 检查 Oracle日志 并输出对应的行号</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>在护网的时候可能需要定期检查日志文件，特别是日志文件中的错误信息，在 alert 日志中常见的报错一般都是 Error、ORA-、TNS- 为前缀的信息。我们可以利用 sed 工具检索日志文件中的信息，减少重复工作。
-
-可以利用一下语句过滤错误信息：
-## 一般来说 alert 日志的路径为
-## ${ORACLE_BASE}/diag/rdbms/${ORACLE_SID}/${ORACL...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724661920"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/26
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      sed
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/vim-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%AE%B0%E5%BD%95(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">vim 特殊字符记录(持续更新)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>记录一些 vim/nvim 的特殊字符含义，持续更新。
-
-正则表达式中的特殊字符
-这类符号的完整列表可参考文档 :help ordinary-atom
-
-
-  
-    
-      符号
-      含义
-      备注
-    
-  
-  
-    
-      .
-      任意字符，但是不包括行尾
-       
-    
-    
-      ^
-      行首
-      ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1724315024"
-  data-df="YYYY/MM/DD"
-  
->
-  2024/08/22
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux,
-                      Vim
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1292,12 +1277,25 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
       
 
       
+        <!-- hide number -->
+        
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
         <!-- show number -->
         <li class="page-item ">
           <a
             class="page-link"
-            href="/page6"
-          >6</a>
+            href="/page7"
+          >7</a>
         </li>
       
     
@@ -1305,7 +1303,7 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>3</span>
-      <span class="text-muted">/ 6</span>
+      <span class="text-muted">/ 7</span>
     </li>
 
     <!-- right arrow -->
@@ -1352,6 +1350,20 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%85%B3%E6%B3%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF/">不要只关注工作中的技术</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/">技术群聊和公众号</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/OGG2KAFKA/">OGG2KAFKA</a>
         </li>
       
@@ -1367,20 +1379,6 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         
         <li class="text-truncate lh-lg">
           <a href="/posts/%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE/">统计博客网站访问数据</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/Oracle-%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E5%8C%BA%E7%B4%A2%E5%BC%95/">Oracle 分区和分区索引</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/OGG-25715%E9%94%99%E8%AF%AF/">OGG-25715 错误</a>
         </li>
       
     </ul>
@@ -2427,10 +2425,111 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2438,6 +2537,64 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
       
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -2478,10 +2635,10 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">链接服务器</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/bbed/">bbed</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
     </div>
   </section>
@@ -3588,10 +3745,111 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3599,6 +3857,64 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
     
       
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -3639,10 +3955,10 @@ Podman 可以管理和运行任何符合 OCI（Open Container Initiative）规�
         <a class="post-tag btn btn-outline-primary" href="/tags/%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">链接服务器</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/bbed/">bbed</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/awk/">awk</a>
       
     </div>
   </section>
