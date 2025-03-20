@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2025-03-16T11:02:31+08:00</updated>
+  <updated>2025-03-20T08:14:45+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,54 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>OGG-添加新的表</title>
+    <link href="https://thedarkstarjack.github.io/posts/OGG-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E8%A1%A8/" rel="alternate" type="text/html" title="OGG-添加新的表" />
+    <published>2025-03-19T16:53:04+08:00</published>
+  
+    <updated>2025-03-20T08:04:40+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/OGG-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E8%A1%A8/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E8%A1%A8/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="Oracle" />
+    
+  
+
+  <summary>前言
+
+假设已经存在一个 OGG 的同步链路，后续需要添加新的表，如果重新搭建新的同步链路步骤也较多，在不影响效率的情况下，可以在原有的 OGG 链路上添加新的表
+
+本次主要是通过 OGG 将 Oracle 19c 的数据同步到 Kafka 因为链路已经存在，所以可以省略安装配置 OGG 的步骤，直接在原有的链路上添加新的表
+
+搭建可以参考之前的文章
+
+假设需要增加三张表：ACT_TRAG、DOCER、INVTT，用户为 AAUSER
+
+文中的表名和用户、主机仅供参考，批量替换过
+
+环境
+
+源端
+
+Oracle ：19.3.0
+
+OS：CentOS 7.7
+
+OGG：Oracle GoldenGate Command Interpreter for Oracle
+
+    Version 21.3.0.0.0 OGGCORE_21.3.0.0.0_PLATFORMS_210728.1...</summary>
+
+  </entry>
 
   
   <entry>
@@ -171,44 +219,6 @@ OGG-25715 错误的解决方法
 2025-02-26 22:28:19  INFO    OGG-01815  Virtual Memory Facilities for: COM
     anon alloc: mmap(MAP_ANON)  anon free: munmap
     file alloc: mmap(MAP_SHARED)  file free: munma...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>OGG-15051 错误</title>
-    <link href="https://thedarkstarjack.github.io/posts/OGG-15051%E9%94%99%E8%AF%AF/" rel="alternate" type="text/html" title="OGG-15051 错误" />
-    <published>2025-02-28T11:47:12+08:00</published>
-  
-    <updated>2025-02-28T11:47:12+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/OGG-15051%E9%94%99%E8%AF%AF/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG-15051%E9%94%99%E8%AF%AF/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-启动 Replicat 进程的时候出现 OGG-15051 错误的解决方法，在网上搜索到的解决方法并不适用于我的环境，所以记录一下
-
-OGG-15051 错误
-
-在目标端 ogg Kafka 环境 Replicat 进程启动时，遇到以下错误：
-```shell
-2025-02-26 22:07:45  INFO    OGG-03059  Operating system character set identified as UTF-8.
-
-2025-02-26 22:07:45  INFO    OGG-02695  ANSI SQL parameter syntax is used for parameter parsing.
-
-2025-02-26 22:07:45  INFO    OGG-03528  The source database character s...</summary>
 
   </entry>
 

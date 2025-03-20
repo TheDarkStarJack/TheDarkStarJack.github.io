@@ -4,6 +4,112 @@
 
 <p>记录一下使用 BBED 的一些常用命令</p>
 
+<h2 id="查看帮助">查看帮助</h2>
+
+<p>bbed 的 help 命令使用方法和 impdp 类似，可以通过 help=yes 参数查看所有的参数</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>┌─[✗]─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span>bbed <span class="nb">help</span><span class="o">=</span><span class="nb">yes
+</span>PASSWORD - Required parameter
+FILENAME - Database file name
+BLOCKSIZE - Database block size
+LISTFILE - List file name
+MODE - <span class="o">[</span>browse/edit]
+SPOOL - Spool to logfile <span class="o">[</span>no/yes]
+CMDFILE - BBED <span class="nb">command </span>file name
+LOGFILE - BBED log file name
+PARFILE - Parameter file name
+BIFILE - BBED before-image file name
+REVERT - Rollback changes from BIFILE <span class="o">[</span>no/yes]
+SILENT - Hide banner <span class="o">[</span>no/yes]
+HELP - Show all valid parameters <span class="o">[</span>no/yes]
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="设置-bbed-参数文件">设置 bbed 参数文件</h2>
+
+<p><strong>可以通过设置 bbed 的参数文件，避免每次输入参数</strong></p>
+
+<p><del>如果调试同一个 block 可以直接将 set 参数的选项写入参数文件中，通过测试并不能直接在参数文件中设置 set 参数</del></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="rouge-code"><pre>vim ~/.bash_profile
+
+<span class="nb">alias </span><span class="nv">bbed</span><span class="o">=</span><span class="s1">'rlwrap  /u01/app/oracle/product/11.2.0/db/rdbms/lib/bbed parfile=/home/oracle/bbed.par password=blockedit'</span>
+
+┌─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">cat </span>bbed.par
+<span class="nv">blocksize</span><span class="o">=</span>8192
+<span class="nv">listfile</span><span class="o">=</span>/home/oracle/filelist.bbed
+
+<span class="c">## filelist 的内容</span>
+WXJ@darkdb 2269,15367 SQL&gt; <span class="k">select </span>file#||chr<span class="o">(</span>9<span class="o">)||</span>name||chr<span class="o">(</span>9<span class="o">)||</span>bytes from v<span class="nv">$datafile</span><span class="p">;</span>
+
+FILE#||CHR<span class="o">(</span>9<span class="o">)||</span>NAME||CHR<span class="o">(</span>9<span class="o">)||</span>BYTES
+<span class="nt">----------------------------------------------------------------------------------------------------</span>
+1       /oradata/darkdb/system01.dbf    817889280
+2       /oradata/darkdb/sysaux01.dbf    576716800
+3       /oradata/darkdb/undotbs01.dbf   519045120
+4       /oradata/darkdb/users01.dbf     5242880
+5       /oradata/darkdb/data01.dbf      1073741824
+
+
+┌─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">cat </span>filelist.bbed
+1       /oradata/darkdb/system01.dbf    817889280
+2       /oradata/darkdb/sysaux01.dbf    576716800
+3       /oradata/darkdb/undotbs01.dbf   519045120
+4       /oradata/darkdb/users01.dbf     5242880
+5       /oradata/darkdb/data01.dbf      1073741824
+
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="创建测试表">创建测试表</h2>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -1347,6 +1453,17 @@ BBED&gt; modify /c testnew
 17
 18
 19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
 </pre></td><td class="rouge-code"><pre>
 <span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">4150</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">system</span> <span class="k">checkpoint</span><span class="p">;</span>
 
@@ -1365,6 +1482,740 @@ BBED&gt; modify /c testnew
          <span class="mi">2</span> <span class="n">world</span>
 
 <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">00</span>
-<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">4150</span> <span class="k">SQL</span><span class="o">&gt;</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">4150</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">system</span> <span class="n">flush</span> <span class="n">buffer_cache</span><span class="p">;</span>
+
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2269</span><span class="p">,</span><span class="mi">15367</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">ERROR</span><span class="p">:</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01578</span><span class="p">:</span> <span class="n">ORACLE</span> <span class="k">data</span> <span class="n">block</span> <span class="n">corrupted</span> <span class="p">(</span><span class="n">file</span> <span class="o">#</span> <span class="mi">5</span><span class="p">,</span> <span class="n">block</span> <span class="o">#</span> <span class="mi">133</span><span class="p">)</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01110</span><span class="p">:</span> <span class="k">data</span> <span class="n">file</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+
+<span class="k">no</span> <span class="k">rows</span> <span class="n">selected</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">03</span><span class="p">.</span><span class="mi">55</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<p>关闭校验和参数（db_block_checksum）默认true，尝试查看表数据</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre><span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">db_block_checksum</span> <span class="o">=</span> <span class="k">false</span> <span class="k">scope</span> <span class="o">=</span> <span class="n">spfile</span><span class="p">;</span>
+
+
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2269</span><span class="p">,</span><span class="mi">15367</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">db_block_checksum</span> <span class="o">=</span> <span class="k">false</span> <span class="k">scope</span> <span class="o">=</span> <span class="n">spfile</span><span class="p">;</span>
+
+<span class="k">System</span> <span class="n">altered</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">02</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2269</span><span class="p">,</span><span class="mi">15367</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">ERROR</span><span class="p">:</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01578</span><span class="p">:</span> <span class="n">ORACLE</span> <span class="k">data</span> <span class="n">block</span> <span class="n">corrupted</span> <span class="p">(</span><span class="n">file</span> <span class="o">#</span> <span class="mi">5</span><span class="p">,</span> <span class="n">block</span> <span class="o">#</span> <span class="mi">133</span><span class="p">)</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01110</span><span class="p">:</span> <span class="k">data</span> <span class="n">file</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+
+<span class="k">no</span> <span class="k">rows</span> <span class="n">selected</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">45</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2269</span><span class="p">,</span><span class="mi">15367</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">system</span> <span class="n">flush</span> <span class="n">buffer_cache</span><span class="p">;</span>
+
+<span class="k">System</span> <span class="n">altered</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">03</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2269</span><span class="p">,</span><span class="mi">15367</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">ERROR</span><span class="p">:</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01578</span><span class="p">:</span> <span class="n">ORACLE</span> <span class="k">data</span> <span class="n">block</span> <span class="n">corrupted</span> <span class="p">(</span><span class="n">file</span> <span class="o">#</span> <span class="mi">5</span><span class="p">,</span> <span class="n">block</span> <span class="o">#</span> <span class="mi">133</span><span class="p">)</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01110</span><span class="p">:</span> <span class="k">data</span> <span class="n">file</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+
+<span class="k">no</span> <span class="k">rows</span> <span class="n">selected</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="bbed-sum-查看修改校验和">bbed sum 查看/修改校验和</h3>
+
+<p>因为实验没有做完的时候重启了实例，所以修改参数 db_block_checksum 之后也无法正常查看数据，可以通过 bbed 的 sum 选项重新计算校验和</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 在此之前记得修改参数 db_block_checksum 为 true</span>
+<span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">db_block_checksum</span> <span class="o">=</span> <span class="k">true</span> <span class="k">scope</span> <span class="o">=</span> <span class="n">spfile</span><span class="p">;</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>查看校验和</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+</pre></td><td class="rouge-code"><pre><span class="c">## sum 默认是查看当前 block 的校验和，默认支持查看，需要搭配选项 apply 修改校验和</span>
+
+BBED&gt; <span class="nb">help sum
+</span>SUM <span class="o">[</span> DBA | FILE | FILENAME | BLOCK <span class="o">]</span> <span class="o">[</span> APPLY <span class="o">]</span>
+
+
+BBED&gt; <span class="nb">set </span>filename <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+        FILENAME        /oradata/darkdb/data01.dbf
+
+BBED&gt; <span class="nb">set </span>file 5
+        FILE#           5
+
+BBED&gt; <span class="nb">set </span>block 133
+        BLOCK#          133
+
+BBED&gt; show all
+        FILE#           5
+        BLOCK#          133
+        OFFSET          0
+        DBA             0x01400085 <span class="o">(</span>20971653 5,133<span class="o">)</span>
+        FILENAME        /oradata/darkdb/data01.dbf
+        BIFILE          bifile.bbd
+        LISTFILE        /home/oracle/filelist.bbed
+        BLOCKSIZE       8192
+        MODE            Browse
+        EDIT            Unrecoverable
+        IBASE           Dec
+        OBASE           Dec
+        WIDTH           80
+        COUNT           512
+        LOGFILE         log.bbd
+        SPOOL           No
+BBED&gt; <span class="nb">sum
+</span>Check value <span class="k">for </span>File 5, Block 133:
+current <span class="o">=</span> 0x4cd9, required <span class="o">=</span> 0x2f2a <span class="c">## 可以看到当前的校验和和需要的校验和不一致，当前的校验和是 0x4cd9，需要的校验和是 0x2f2a</span>
+
+BBED&gt;
+
+BBED&gt; dump
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 133              Offsets:    0 to  511           Dba:0x01400085
+<span class="nt">------------------------------------------------------------------------</span>
+ 06a20000 85004001 e85d2000 00000206 【d94c0000】这里的校验和是新的值 01000000 6b760100 341f1f00
+ 00000000 02003200 80004001 01001b00 af0b0000 1bf5c000 d1001500 01200000
+ e85d2000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00010100 ffff1400 8d1f791f 791f0000 01008d1f 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+
+<span class="c">## 更新校验和</span>
+BBED&gt; <span class="nb">sum </span>apply
+BBED-00215: editing not allowed <span class="k">in </span>BROWSE mode
+
+
+BBED&gt; <span class="nb">set </span>mode edit
+        MODE            Edit
+
+BBED&gt; <span class="nb">sum </span>apply
+Warning: contents of previous BIFILE will be lost. Proceed? <span class="o">(</span>Y/N<span class="o">)</span> y
+Check value <span class="k">for </span>File 5, Block 133:
+current <span class="o">=</span> 0x2f2a, required <span class="o">=</span> 0x2f2a
+
+BBED&gt;
+
+<span class="c">## 发现还是不能查看数据，检查上文的修改步骤，发现字段长度也变化了😂之前是 test 修改为了 textnew ，所以这里无法直接查看数据，大意了 🤣</span>
+WXJ@darkdb 2280,21677 SQL&gt; <span class="k">select</span> <span class="k">*</span> from t1<span class="p">;</span>
+ERROR:
+ORA-01578: ORACLE data block corrupted <span class="o">(</span>file <span class="c"># 5, block # 133)</span>
+ORA-01110: data file 5: <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+
+no rows selected
+
+Elapsed: 00:00:00.41
+WXJ@darkdb 2280,21677 SQL&gt; alter system flush buffer_cache<span class="p">;</span>
+
+System altered.
+
+Elapsed: 00:00:00.06
+WXJ@darkdb 2280,21677 SQL&gt; <span class="k">select</span> <span class="k">*</span> from t1<span class="p">;</span>
+ERROR:
+ORA-01578: ORACLE data block corrupted <span class="o">(</span>file <span class="c"># 5, block # 133)</span>
+ORA-01110: data file 5: <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+
+no rows selected
+
+Elapsed: 00:00:00.36
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>直接删除表重新测试</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">drop</span> <span class="k">table</span> <span class="n">t1</span><span class="p">;</span>
+<span class="k">Table</span> <span class="n">dropped</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">13</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>这里也可以发现，直接删除表并没有报错，对于坏块来说，只要没有访问到坏块，Oracle 是不会报错的，只有访问到坏块的时候才会报错，这也是 Oracle 的一个优点，对于坏块的容忍度很高，不会因为一个坏块就导致整个数据库无法使用</p>
+
+<p>根据前文重新创建测试表，然后修改数据块中的数据</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t1</span> <span class="p">(</span> <span class="n">c1</span> <span class="n">number</span><span class="p">,</span> <span class="n">c2</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="p">);</span>
+
+<span class="k">Table</span> <span class="n">created</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">05</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'test'</span><span class="p">);</span>
+
+<span class="mi">1</span> <span class="k">row</span> <span class="n">created</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">01</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t1</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">'test2'</span><span class="p">);</span>
+
+<span class="mi">1</span> <span class="k">row</span> <span class="n">created</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">00</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">commit</span><span class="p">;</span>
+
+<span class="k">Commit</span> <span class="n">complete</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">01</span>
+
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>查看数据所在的 block</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre> <span class="k">select</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_relative_fno</span><span class="p">(</span><span class="n">rowid</span><span class="p">),</span><span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_block_number</span><span class="p">(</span><span class="n">rowid</span><span class="p">),</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">DBMS_ROWID</span><span class="p">.</span><span class="n">ROWID_RELATIVE_FNO</span><span class="p">(</span><span class="n">ROWID</span><span class="p">)</span> <span class="o">|</span> <span class="n">DBMS_ROWID</span><span class="p">.</span><span class="n">ROWID_BLOCK_NUMBER</span><span class="p">(</span><span class="n">ROWID</span><span class="p">)</span> <span class="o">|</span> <span class="n">C1</span> <span class="o">|</span> <span class="n">C2</span>   
+<span class="c1">----------------------------------------------------------------------------------------</span>
+<span class="mi">5</span>                                    <span class="o">|</span> <span class="mi">141</span>                                  <span class="o">|</span> <span class="mi">1</span>  <span class="o">|</span> <span class="n">test</span> 
+<span class="mi">5</span>                                    <span class="o">|</span> <span class="mi">141</span>                                  <span class="o">|</span> <span class="mi">2</span>  <span class="o">|</span> <span class="n">test2</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>bbed 修改对应块中的数据，保持长度一致</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+</pre></td><td class="rouge-code"><pre>BBED&gt; show all
+        FILE#           5
+        BLOCK#          133
+        OFFSET          8184
+        DBA             0x01400085 <span class="o">(</span>20971653 5,133<span class="o">)</span>
+        FILENAME        /oradata/darkdb/data01.dbf
+        BIFILE          bifile.bbd
+        LISTFILE        /home/oracle/filelist.bbed
+        BLOCKSIZE       8192
+        MODE            Edit
+        EDIT            Unrecoverable
+        IBASE           Dec
+        OBASE           Dec
+        WIDTH           80
+        COUNT           8192
+        LOGFILE         log.bbd
+        SPOOL           No
+
+
+BBED&gt; <span class="nb">set </span>block 141
+        BLOCK#          141
+
+BBED&gt; dump
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 141              Offsets:    0 to 8191           Dba:0x0140008d
+<span class="nt">------------------------------------------------------------------------</span>
+ 06a20000 8d004001 3ad12000 00000106 4a160000 01000000 2f770100 36d12000
+ 00000000 02003200 88004001 08002100 8d0b0000 bb08c000 cd003d00 02200000
+ 3ad12000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00010200 ffff1600 811f6b1f 6b1f0000 02008d1f 811f0000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 002c0102 02c10305 74657374 322c0102 02c10204 74657374 01063ad1
+
+ &lt;32 bytes per line&gt;
+
+<span class="k">select </span>dump<span class="o">(</span> c1, 16 <span class="o">)</span>,dump<span class="o">(</span> c2, 16 <span class="o">)</span>, c1, c2 from t1 <span class="p">;</span>
+DUMP<span class="o">(</span>C1,16<span class="o">)</span>       | DUMP<span class="o">(</span>C2,16<span class="o">)</span>                 | C1 | C2   
+<span class="nt">------------------------------------------------------------</span>
+<span class="nv">Typ</span><span class="o">=</span>2 <span class="nv">Len</span><span class="o">=</span>2: c1,2 | <span class="nv">Typ</span><span class="o">=</span>1 <span class="nv">Len</span><span class="o">=</span>4: 74,65,73,74    | 1  | <span class="nb">test 
+</span><span class="nv">Typ</span><span class="o">=</span>2 <span class="nv">Len</span><span class="o">=</span>2: c1,3 | <span class="nv">Typ</span><span class="o">=</span>1 <span class="nv">Len</span><span class="o">=</span>5: 74,65,73,74,32 | 2  | test2
+
+BBED&gt; find /c <span class="nb">test
+ </span>File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 141              Offsets: 8172 to 8191           Dba:0x0140008d
+<span class="nt">------------------------------------------------------------------------</span>
+ 74657374 322c0102 02c10204 74657374 01063ad1
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; show all
+        FILE#           5
+        BLOCK#          141
+        OFFSET          8172
+        DBA             0x0140008d <span class="o">(</span>20971661 5,141<span class="o">)</span>
+        FILENAME        /oradata/darkdb/data01.dbf
+        BIFILE          bifile.bbd
+        LISTFILE        /home/oracle/filelist.bbed
+        BLOCKSIZE       8192
+        MODE            Edit
+        EDIT            Unrecoverable
+        IBASE           Dec
+        OBASE           Dec
+        WIDTH           80
+        COUNT           8192
+        LOGFILE         log.bbd
+        SPOOL           No
+
+BBED&gt; modify /c demo
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 141              Offsets: 8172 to 8191           Dba:0x0140008d
+<span class="nt">------------------------------------------------------------------------</span>
+ 64656d6f 322c0102 02c10204 74657374 01063ad1 <span class="c">## 通过这里也可以看出，如果存在两个一样的字符，修改的时候只会修改第一次匹配出现的字符</span>
+
+
+ &lt;32 bytes per line&gt;
+
+<span class="c">## 刷新 cache，查看数据</span>
+
+alter system flush buffer_cache<span class="p">;</span>
+alter system <span class="nb">set </span>db_block_checksum <span class="o">=</span> <span class="nb">false </span>scope <span class="o">=</span> spfile<span class="p">;</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><strong>这里测试发现不管是在另一个 session 修改参数，还是刷新 cache 都无法正常查看数据，都会提示存在坏块，当前 session，新的session还是刷新cache之后重新再次连接的session都无法查看数据，但是看吕海波的ocm课程中可以在修改block check参数为false然后刷新cache之后可以正常查看数据，我测试环境为11g，可能版本不同导致</strong></p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="rouge-code"><pre><span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span>
+<span class="o">*</span>
+<span class="n">ERROR</span> <span class="k">at</span> <span class="n">line</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01578</span><span class="p">:</span> <span class="n">ORACLE</span> <span class="k">data</span> <span class="n">block</span> <span class="n">corrupted</span> <span class="p">(</span><span class="n">file</span> <span class="o">#</span> <span class="mi">5</span><span class="p">,</span> <span class="n">block</span> <span class="o">#</span> <span class="mi">141</span><span class="p">)</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01110</span><span class="p">:</span> <span class="k">data</span> <span class="n">file</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">03</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span>
+<span class="o">*</span>
+<span class="n">ERROR</span> <span class="k">at</span> <span class="n">line</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01578</span><span class="p">:</span> <span class="n">ORACLE</span> <span class="k">data</span> <span class="n">block</span> <span class="n">corrupted</span> <span class="p">(</span><span class="n">file</span> <span class="o">#</span> <span class="mi">5</span><span class="p">,</span> <span class="n">block</span> <span class="o">#</span> <span class="mi">141</span><span class="p">)</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01110</span><span class="p">:</span> <span class="k">data</span> <span class="n">file</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">03</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">t1</span>
+<span class="o">*</span>
+<span class="n">ERROR</span> <span class="k">at</span> <span class="n">line</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01578</span><span class="p">:</span> <span class="n">ORACLE</span> <span class="k">data</span> <span class="n">block</span> <span class="n">corrupted</span> <span class="p">(</span><span class="n">file</span> <span class="o">#</span> <span class="mi">5</span><span class="p">,</span> <span class="n">block</span> <span class="o">#</span> <span class="mi">141</span><span class="p">)</span>
+<span class="n">ORA</span><span class="o">-</span><span class="mi">01110</span><span class="p">:</span> <span class="k">data</span> <span class="n">file</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">03</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2280</span><span class="p">,</span><span class="mi">21677</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">system</span> <span class="n">flush</span> <span class="n">buffer_cache</span><span class="p">;</span>
+
+<span class="k">System</span> <span class="n">altered</span><span class="p">.</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">01</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>通过 bbed sum 修改校验和之后能够正常查看数据</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre>
+BBED&gt; <span class="nb">set </span>block 141
+        BLOCK#          141
+
+BBED&gt; <span class="nb">sum
+</span>Check value <span class="k">for </span>File 5, Block 141:
+current <span class="o">=</span> 0x164a, required <span class="o">=</span> 0x0d44
+
+BBED&gt; <span class="nb">sum </span>apply
+Check value <span class="k">for </span>File 5, Block 141:
+current <span class="o">=</span> 0x0d44, required <span class="o">=</span> 0x0d44
+
+WXJ@darkdb 2280,21677 SQL&gt; alter system <span class="nb">set </span>db_block_checksum <span class="o">=</span> <span class="nb">false </span>scope <span class="o">=</span> spfile<span class="p">;</span>
+
+System altered.
+WXJ@darkdb 2280,21677 SQL&gt; alter system flush buffer_cache<span class="p">;</span>
+
+System altered.
+
+Elapsed: 00:00:00.01
+WXJ@darkdb 2280,21677 SQL&gt; <span class="k">select</span> <span class="k">*</span> from t1<span class="p">;</span>
+
+        C1 C2
+<span class="nt">----------</span> <span class="nt">--------------------</span>
+         1 <span class="nb">test
+         </span>2 demo2
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>从这里可以看出，只会修改最近一次匹配的字符，如果存在多个相同的字符，修改的时候只会修改最近一次匹配的字符，所以在修改数据的时候需要注意。存在多个相同字符的时候最好指定 offset</p>
+
+<h2 id="dump-块">dump 块</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">alter</span> <span class="k">system</span> <span class="n">dump</span> <span class="n">datafile</span> <span class="mi">5</span> <span class="n">block</span> <span class="mi">141</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>在 吕海波的 ocm 的课程中，dump 通过 bbed 修改过的块，即便是修改了校验和，在日志中也会出现坏块的信息，但是在我的环境 Oracle 11g 中，两次（重启前后）日志都没有出现坏块的提示</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre>┌─[oracle@oracle11g]─[/u01/app/oracle/diag/rdbms/darkdb/darkdb/trace]
+└──╼ <span class="nv">$ </span><span class="nb">grep</span> <span class="nt">-i</span> block darkdb_ora_3982.trc darkdb_ora_2850.trc
+darkdb_ora_3982.trc:Start dump data blocks tsn: 6 file#:5 minblk 135 maxblk 135
+darkdb_ora_3982.trc:Block dump from cache:
+darkdb_ora_3982.trc:Block dump from disk:
+darkdb_ora_3982.trc:Hex dump of block: <span class="nv">st</span><span class="o">=</span>0, <span class="nv">typ_found</span><span class="o">=</span>1
+darkdb_ora_3982.trc:Block header dump:  0x01400087
+darkdb_ora_3982.trc: Object <span class="nb">id </span>on Block? Y
+darkdb_ora_3982.trc:data_block_dump,data header at 0x7fb06805aa64
+darkdb_ora_3982.trc:block_row_dump:
+darkdb_ora_3982.trc:end_of_block_dump
+darkdb_ora_3982.trc:End dump data blocks tsn: 6 file#: 5 minblk 135 maxblk 135
+darkdb_ora_2850.trc:Start dump data blocks tsn: 6 file#:5 minblk 141 maxblk 141
+darkdb_ora_2850.trc:Block dump from cache:
+darkdb_ora_2850.trc:Block dump from disk:
+darkdb_ora_2850.trc:Hex dump of block: <span class="nv">st</span><span class="o">=</span>0, <span class="nv">typ_found</span><span class="o">=</span>1
+darkdb_ora_2850.trc:Block header dump:  0x0140008d
+darkdb_ora_2850.trc: Object <span class="nb">id </span>on Block? Y
+darkdb_ora_2850.trc:data_block_dump,data header at 0x7fb4fdcaea64
+darkdb_ora_2850.trc:block_row_dump:
+darkdb_ora_2850.trc:end_of_block_dump
+darkdb_ora_2850.trc:End dump data blocks tsn: 6 file#: 5 minblk 141 maxblk 141
+┌─[oracle@oracle11g]─[/u01/app/oracle/diag/rdbms/darkdb/darkdb/trace]
+└──╼ <span class="err">$</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
