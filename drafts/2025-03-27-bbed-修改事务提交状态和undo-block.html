@@ -1,0 +1,2043 @@
+<h2 id="前言">前言</h2>
+
+<p>之前的测试因为时间跨度较大，导致观察结果不够准确，而且修改也没有成功，这里重新新建一张表进行测试</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="k">version</span><span class="p">;</span>
+<span class="n">BANNER</span>
+<span class="c1">----------------------------------------------------------------------------</span>
+<span class="n">Oracle</span> <span class="k">Database</span> <span class="mi">11</span><span class="k">g</span> <span class="n">Enterprise</span> <span class="n">Edition</span> <span class="n">Release</span> <span class="mi">11</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="mi">64</span><span class="nb">bit</span> <span class="n">Production</span>
+<span class="n">PL</span><span class="o">/</span><span class="k">SQL</span> <span class="n">Release</span> <span class="mi">11</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">Production</span>
+<span class="n">CORE</span>	<span class="mi">11</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span>	<span class="n">Production</span>
+<span class="n">TNS</span> <span class="k">for</span> <span class="n">Linux</span><span class="p">:</span> <span class="k">Version</span> <span class="mi">11</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">Production</span>
+<span class="n">NLSRTL</span> <span class="k">Version</span> <span class="mi">11</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">Production</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="创建测试表">创建测试表</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">create</span> <span class="k">table</span> <span class="n">test_01</span> <span class="p">(</span><span class="n">id</span> <span class="n">number</span><span class="p">,</span> <span class="n">name</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">test_01</span> <span class="k">values</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'AA'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">test_01</span> <span class="k">values</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'BB'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">test_01</span> <span class="k">values</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'CC'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">test_01</span> <span class="k">values</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'DD'</span><span class="p">);</span>
+<span class="k">commit</span><span class="p">;</span>
+
+<span class="k">select</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_relative_fno</span><span class="p">(</span><span class="n">rowid</span><span class="p">)</span> <span class="n">file_id</span><span class="p">,</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_block_number</span><span class="p">(</span><span class="n">rowid</span><span class="p">)</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span> <span class="k">from</span> <span class="n">test_01</span><span class="p">;</span>
+<span class="n">FILE_ID</span> <span class="o">|</span> <span class="n">BLOCK_ID</span> <span class="o">|</span> <span class="n">ID</span> <span class="o">|</span> <span class="n">NAME</span>
+<span class="c1">------------------------------</span>
+<span class="mi">5</span>       <span class="o">|</span> <span class="mi">157</span>      <span class="o">|</span> <span class="mi">1</span>  <span class="o">|</span> <span class="n">AA</span>  
+<span class="mi">5</span>       <span class="o">|</span> <span class="mi">157</span>      <span class="o">|</span> <span class="mi">2</span>  <span class="o">|</span> <span class="n">BB</span>  
+<span class="mi">5</span>       <span class="o">|</span> <span class="mi">157</span>      <span class="o">|</span> <span class="mi">3</span>  <span class="o">|</span> <span class="n">CC</span>  
+<span class="mi">5</span>       <span class="o">|</span> <span class="mi">157</span>      <span class="o">|</span> <span class="mi">4</span>  <span class="o">|</span> <span class="n">DD</span>  
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="session1-修改数据不提交">session1 修改数据不提交</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="k">update</span> <span class="n">test_01</span> <span class="k">set</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'FF'</span> <span class="k">where</span> <span class="n">id</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="k">select</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_relative_fno</span><span class="p">(</span><span class="n">rowid</span><span class="p">)</span> <span class="n">file_id</span><span class="p">,</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_block_number</span><span class="p">(</span><span class="n">rowid</span><span class="p">)</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span> <span class="k">from</span> <span class="n">test_01</span><span class="p">;</span>
+
+   <span class="n">FILE_ID</span>   <span class="n">BLOCK_ID</span>         <span class="n">ID</span> <span class="n">NAME</span>
+<span class="c1">---------- ---------- ---------- --------------------</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">1</span> <span class="n">FF</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">2</span> <span class="n">FF</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">3</span> <span class="n">CC</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">4</span> <span class="n">DD</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">01</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="session2-查看数据">session2 查看数据</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>
+<span class="k">select</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_relative_fno</span><span class="p">(</span><span class="n">rowid</span><span class="p">)</span> <span class="n">file_id</span><span class="p">,</span> <span class="n">dbms_rowid</span><span class="p">.</span><span class="n">rowid_block_number</span><span class="p">(</span><span class="n">rowid</span><span class="p">)</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span> <span class="k">from</span> <span class="n">test_01</span><span class="p">;</span>
+
+   <span class="n">FILE_ID</span>   <span class="n">BLOCK_ID</span>         <span class="n">ID</span> <span class="n">NAME</span>
+<span class="c1">---------- ---------- ---------- --------------------</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">1</span> <span class="n">AA</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">2</span> <span class="n">BB</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">3</span> <span class="n">CC</span>
+         <span class="mi">5</span>        <span class="mi">157</span>          <span class="mi">4</span> <span class="n">DD</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">00</span>
+
+<span class="k">select</span> <span class="n">dump</span><span class="p">(</span><span class="s1">'FF'</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span><span class="n">dump</span><span class="p">(</span><span class="s1">'AA'</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span><span class="n">dump</span><span class="p">(</span><span class="s1">'BB'</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span> <span class="k">from</span> <span class="n">dual</span><span class="p">;</span>
+<span class="n">DUMP</span><span class="p">(</span><span class="s1">'FF'</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>       <span class="o">|</span> <span class="n">DUMP</span><span class="p">(</span><span class="s1">'AA'</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>       <span class="o">|</span> <span class="n">DUMP</span><span class="p">(</span><span class="s1">'BB'</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>      
+<span class="c1">---------------------------------------------------------------</span>
+<span class="n">Typ</span><span class="o">=</span><span class="mi">96</span> <span class="n">Len</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span><span class="mi">46</span> <span class="o">|</span> <span class="n">Typ</span><span class="o">=</span><span class="mi">96</span> <span class="n">Len</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span><span class="mi">41</span> <span class="o">|</span> <span class="n">Typ</span><span class="o">=</span><span class="mi">96</span> <span class="n">Len</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><span class="mi">42</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="bbed-修改-block-信息">bbed 修改 block 信息</h2>
+
+<h3 id="session2-dump-trace">session2 dump trace</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">alter</span> <span class="k">system</span> <span class="n">dump</span> <span class="n">datafile</span> <span class="mi">5</span> <span class="n">block</span> <span class="mi">157</span><span class="p">;</span>
+<span class="k">select</span> <span class="n">tracefile</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">process</span> <span class="k">where</span> <span class="n">addr</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">paddr</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="k">session</span> <span class="k">where</span> <span class="n">sid</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">sid</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">mystat</span><span class="p">));</span>
+<span class="n">cat</span>  <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">oracle</span><span class="o">/</span><span class="n">diag</span><span class="o">/</span><span class="n">rdbms</span><span class="o">/</span><span class="n">darkdb</span><span class="o">/</span><span class="n">darkdb</span><span class="o">/</span><span class="n">trace</span><span class="o">/</span><span class="n">darkdb_ora_6176</span><span class="p">.</span><span class="n">trc</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+</pre></td><td class="rouge-code"><pre>
+┌─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">cat</span>  /u01/app/oracle/diag/rdbms/darkdb/darkdb/trace/darkdb_ora_6176.trc
+Trace file /u01/app/oracle/diag/rdbms/darkdb/darkdb/trace/darkdb_ora_6176.trc
+Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+ORACLE_HOME <span class="o">=</span> /u01/app/oracle/product/11.2.0/db
+System name:    Linux
+Node name:      oracle11g
+Release:        5.4.17-2102.201.3.el7uek.x86_64
+Version:        <span class="c">#2 SMP Fri Apr 23 09:05:55 PDT 2021</span>
+Machine:        x86_64
+Instance name: darkdb
+Redo thread mounted by this instance: 1
+Oracle process number: 29
+Unix process pid: 6176, image: oracle@oracle11g <span class="o">(</span>TNS V1-V3<span class="o">)</span>
+
+
+<span class="k">***</span> 2025-03-27 08:27:15.254
+<span class="k">***</span> SESSION ID:<span class="o">(</span>763.33<span class="o">)</span> 2025-03-27 08:27:15.254
+<span class="k">***</span> CLIENT ID:<span class="o">()</span> 2025-03-27 08:27:15.254
+<span class="k">***</span> SERVICE NAME:<span class="o">(</span>SYS<span class="nv">$USERS</span><span class="o">)</span> 2025-03-27 08:27:15.254
+<span class="k">***</span> MODULE NAME:<span class="o">(</span>SQL<span class="k">*</span>Plus<span class="o">)</span> 2025-03-27 08:27:15.254
+<span class="k">***</span> ACTION NAME:<span class="o">()</span> 2025-03-27 08:27:15.254
+ 
+Start dump data blocks tsn: 6 file#:5 minblk 157 maxblk 157
+Block dump from cache:
+Dump of buffer cache at level 4 <span class="k">for </span><span class="nv">tsn</span><span class="o">=</span>6 <span class="nv">rdba</span><span class="o">=</span>20971677
+BH <span class="o">(</span>0x15efc9778<span class="o">)</span> file#: 5 rdba: 0x0140009d <span class="o">(</span>5/157<span class="o">)</span> class: 1 ba: 0x15ea6a000
+  <span class="nb">set</span>: 10 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 104,19
+  dbwrid: 0 obj: 96170 objn: 96170 tsn: 6 afn: 5 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x15efa3ce8,0x18beefd88] lru: <span class="o">[</span>0x15efc99a0,0x15efc9730]
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>NULL] objaq: <span class="o">[</span>NULL]
+  st: CR md: NULL tch: 1
+  cr: <span class="o">[</span>scn: 0x0.22e301],[xid: 0x7.1f.ba3],[uba: 0xc0064b.e5.a],[cls: 0x0.22e301],[sfl: 0x0],[lc: 0x0.22e301]
+  flags: only_sequential_access
+BH <span class="o">(</span>0x15efa3c30<span class="o">)</span> file#: 5 rdba: 0x0140009d <span class="o">(</span>5/157<span class="o">)</span> class: 1 ba: 0x15e68c000
+  <span class="nb">set</span>: 9 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 83,19
+  dbwrid: 0 obj: 96170 objn: 96170 tsn: 6 afn: 5 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x15ef7e7b8,0x15efc9830] lru: <span class="o">[</span>0x15efa3e58,0x15efa3be8]
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>NULL] objaq: <span class="o">[</span>NULL]
+  st: CR md: NULL tch: 1
+  cr: <span class="o">[</span>scn: 0x0.22e206],[xid: 0x7.1f.ba3],[uba: 0xc0064b.e5.a],[cls: 0x0.22e206],[sfl: 0x0],[lc: 0x0.22e206]
+  flags: only_sequential_access
+BH <span class="o">(</span>0x15ef7e700<span class="o">)</span> file#: 5 rdba: 0x0140009d <span class="o">(</span>5/157<span class="o">)</span> class: 1 ba: 0x15e2b8000
+  <span class="nb">set</span>: 12 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 86,28
+  dbwrid: 0 obj: 96170 objn: 96170 tsn: 6 afn: 5 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x15ef7eb60,0x15efa3ce8] lru: <span class="o">[</span>0x15ef7e928,0x15ef7e6b8]
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>0x15ef7f580,0x177f2a2f0] objaq: <span class="o">[</span>0x15ef7f590,0x177f2a2e0]
+  st: XCURRENT md: NULL fpin: <span class="s1">'ktspbwh2: ktspfmdb'</span> tch: 2
+  flags: block_written_once redo_since_read
+  LRBA: <span class="o">[</span>0x0.0.0] LSCN: <span class="o">[</span>0x0.0] HSCN: <span class="o">[</span>0xffff.ffffffff] HSUB: <span class="o">[</span>1]
+BH <span class="o">(</span>0x15ef7eaa8<span class="o">)</span> file#: 5 rdba: 0x0140009d <span class="o">(</span>5/157<span class="o">)</span> class: 1 ba: 0x15e2be000
+  <span class="nb">set</span>: 12 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 86,28
+  dbwrid: 0 obj: 96170 objn: 96170 tsn: 6 afn: 5 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x18beefd88,0x15ef7e7b8] lru: <span class="o">[</span>0x1873441c8,0x12ff7f900]
+  lru-flags: moved_to_tail
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>NULL] objaq: <span class="o">[</span>NULL]
+  st: CR md: NULL fpin: <span class="s1">'ktspbwh2: ktspfmdb'</span> tch: 1
+  cr: <span class="o">[</span>scn: 0x0.22e1e3],[xid: 0xfffe.ffff.0],[uba: 0x0.0.0],[cls: 0x0.22e1e3],[sfl: 0x1],[lc: 0x0.22e15f]
+  flags: block_written_once redo_since_read
+Block dump from disk:
+buffer tsn: 6 rdba: 0x0140009d <span class="o">(</span>5/157<span class="o">)</span>
+scn: 0x0000.0022e301 <span class="nb">seq</span>: 0x01 flg: 0x04 <span class="nb">tail</span>: 0xe3010601
+frmt: 0x02 chkval: 0xb51c <span class="nb">type</span>: <span class="nv">0x06</span><span class="o">=</span>trans data
+Hex dump of block: <span class="nv">st</span><span class="o">=</span>0, <span class="nv">typ_found</span><span class="o">=</span>1
+Dump of memory from 0x00007F8E38975A00 to 0x00007F8E38977A00
+7F8E38975A00 0000A206 0140009D 0022E301 04010000  <span class="o">[</span>......@...<span class="s2">".....]
+7F8E38975A10 0000B51C 00000001 000177AA 0022E301  [.........w...."</span>.]
+7F8E38975A20 00000000 00320002 01400098 00010006  <span class="o">[</span>......2...@.....]
+7F8E38975A30 00000DC1 00C00277 001100D6 00008000  <span class="o">[</span>....w...........]
+7F8E38975A40 0022E15F 001F0007 00000BA3 00C0064B  <span class="o">[</span>_.<span class="s2">".........K...]
+7F8E38975A50 000A00E5 00000002 00000000 00000000  [................]
+7F8E38975A60 00000000 00040100 001AFFFF 1F5A1F74  [............t.Z.]
+7F8E38975A70 00001F5A 1F8F0004 1F7D1F86 00001F74  [Z.........}.t...]
+7F8E38975A80 00000000 00000000 00000000 00000000  [................]
+        Repeat 500 times
+7F8E389779D0 00000000 00000000 0202002C 440205C1  [........,......D]
+7F8E389779E0 02002C44 0204C102 022C4343 03C10202  [D,......CC,.....]
+7F8E389779F0 2C464602 C1020202 46460202 E3010601  [.FF,......FF....]
+Block header dump:  0x0140009d
+ Object id on Block? Y
+ seg/obj: 0x177aa  csc: 0x00.22e301  itc: 2  flg: E  typ: 1 - DATA
+     brn: 0  bdba: 0x1400098 ver: 0x01 opc: 0
+     inc: 0  exflg: 0
+
+ Itl           Xid                  Uba         Flag  Lck        Scn/Fsc
+0x01   0x0006.001.00000dc1  0x00c00277.00d6.11  C---    0  scn 0x0000.0022e15f
+0x02   0x0007.01f.00000ba3  0x00c0064b.00e5.0a  ----    2  fsc 0x0000.00000000 ## 这里可以看到两行数据存在锁，还未提交
+bdba: 0x0140009d
+data_block_dump,data header at 0x7f8e38975a64
+===============
+tsiz: 0x1f98
+hsiz: 0x1a
+pbl: 0x7f8e38975a64
+     76543210
+flag=--------
+ntab=1
+nrow=4
+frre=-1
+fsbo=0x1a
+fseo=0x1f74
+avsp=0x1f5a
+tosp=0x1f5a
+0xe:pti[0]      nrow=4  offs=0
+0x12:pri[0]     offs=0x1f8f
+0x14:pri[1]     offs=0x1f86
+0x16:pri[2]     offs=0x1f7d
+0x18:pri[3]     offs=0x1f74
+block_row_dump:
+tab 0, row 0, @0x1f8f
+tl: 9 fb: --H-FL-- lb: 0x2  cc: 2
+col  0: [ 2]  c1 02
+col  1: [ 2]  46 46
+tab 0, row 1, @0x1f86
+tl: 9 fb: --H-FL-- lb: 0x2  cc: 2
+col  0: [ 2]  c1 03
+col  1: [ 2]  46 46
+tab 0, row 2, @0x1f7d
+tl: 9 fb: --H-FL-- lb: 0x0  cc: 2
+col  0: [ 2]  c1 04
+col  1: [ 2]  43 43
+tab 0, row 3, @0x1f74
+tl: 9 fb: --H-FL-- lb: 0x0  cc: 2
+col  0: [ 2]  c1 05
+col  1: [ 2]  44 44
+end_of_block_dump
+End dump data blocks tsn: 6 file#: 5 minblk 157 maxblk 157
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="session3-bbed-修改-block-信息">session3 bbed 修改 block 信息</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+</pre></td><td class="rouge-code"><pre>
+<span class="nb">set </span>filename <span class="s1">'/oradata/darkdb/data01.dbf'</span>
+<span class="nb">set </span>file 5
+<span class="nb">set </span>block 157
+<span class="nb">set </span>count 8192
+BBED&gt; dump
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets:    0 to 8191           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ 06a20000 9d004001 01e32200 00000104 1cb50000 01000000 aa770100 01e32200 
+ 00000000 02003200 98004001 06000100 c10d0000 7702c000 d6001100 00800000 
+ 5fe12200 07001f00 a30b0000 4b06c000 e5000a00 02000000 00000000 00000000 
+ 00000000 00010400 ffff1a00 741f5a1f 5a1f0000 04008f1f 861f7d1f 741f0000 
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+........
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 2c000202 c1050244
+ 442c0002 02c10402 43432c02 0202c103 02[4646]2c 020202c1 0202[4646] 010601e3 <span class="c">## 这里的 4646 是 FF 的16进制，修改之前的数据 AA（4141）和 BB（4242）已经不存在了</span>
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; <span class="nb">set </span>count 200
+        COUNT           200
+
+BBED&gt; find /x 4b06c0
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets:   76 to  275           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ 4b06c000 e5000a00 02000000 00000000 00000000 00000000 00010400 ffff1a00
+ 741f5a1f 5a1f0000 04008f1f 861f7d1f 741f0000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; find /x e5000a
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets:   80 to  279           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ e5000a00 02000000 00000000 00000000 00000000 00010400 ffff1a00 741f5a1f
+ 5a1f0000 04008f1f 861f7d1f 741f0000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; <span class="nb">set </span>mode edit
+        MODE            Edit
+
+BBED&gt; modify /x 00800000 offset 84
+Warning: contents of previous BIFILE will be lost. Proceed? <span class="o">(</span>Y/N<span class="o">)</span> y
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets:   84 to  283           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ 00800000 00000000 00000000 00000000 00010400 ffff1a00 741f5a1f 5a1f0000
+ 04008f1f 861f7d1f 741f0000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; show offset
+        OFFSET          84
+
+<span class="c">## 这里修改的 scn 比上一个 Itl 对应的 scn(0022e15f 注意大小端，Linux intel 一般都是小端) 大一些就行</span>
+BBED&gt; modify /x 6fe122 offset 88
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets:   88 to  287           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ 6fe12200 00000000 00000000 00010400 ffff1a00 741f5a1f 5a1f0000 04008f1f
+ 861f7d1f 741f0000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; <span class="nb">sum </span>apply
+Check value <span class="k">for </span>File 5, Block 157:
+current <span class="o">=</span> 0xd453, required <span class="o">=</span> 0xd453
+
+BBED&gt; <span class="nb">set </span>block 157
+        BLOCK#          157
+
+BBED&gt; dump
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets:    0 to  199           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ 06a20000 9d004001 01e32200 00000104 53d40000 01000000 aa770100 01e32200
+ 00000000 02003200 98004001 06000100 c10d0000 7702c000 d6001100 00800000
+ 5fe12200 07001f00 a30b0000 4b06c000 e5000a00 00800000 6fe12200 00000000
+ 00000000 00010400 ffff1a00 741f5a1f 5a1f0000 04008f1f 861f7d1f 741f0000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; dump offset 8000
+ File: /oradata/darkdb/data01.dbf <span class="o">(</span>5<span class="o">)</span>
+ Block: 157              Offsets: 8000 to 8191           Dba:0x0140009d
+<span class="nt">------------------------------------------------------------------------</span>
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 2c000202 c1050244
+ 442c0002 02c10402 43432c02 0202c103 0246462c 020202c1 02024646 010601e3
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="session2-查看数据-1">session2 查看数据</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="k">alter</span> <span class="k">system</span> <span class="n">flush</span> <span class="n">buffer_cache</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">system</span> <span class="k">checkpoint</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test_01</span><span class="p">;</span>
+<span class="n">ID</span> <span class="o">|</span> <span class="n">NAME</span>
+<span class="c1">---------</span>
+<span class="mi">1</span>  <span class="o">|</span> <span class="n">AA</span>  
+<span class="mi">2</span>  <span class="o">|</span> <span class="n">BB</span>  
+<span class="mi">3</span>  <span class="o">|</span> <span class="n">CC</span>  
+<span class="mi">4</span>  <span class="o">|</span> <span class="n">DD</span>  
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>尝试修改之后还是无法通过其他会话查看到数据</strong></p>
+
+<h2 id="bbed-修改-undo-block-信息">bbed 修改 undo block 信息</h2>
+
+<p>通过 bbed 直接修改 block 无法生效，再次尝试修改 undo block 信息</p>
+
+<p>查看 rollsegment 信息</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">rollname</span><span class="p">;</span>
+<span class="n">USN</span> <span class="o">|</span> <span class="n">NAME</span>                 
+<span class="c1">---------------------------</span>
+<span class="mi">0</span>   <span class="o">|</span> <span class="k">SYSTEM</span>               
+<span class="mi">1</span>   <span class="o">|</span> <span class="n">_SYSSMU1_3724004606</span><span class="err">$</span> 
+<span class="mi">2</span>   <span class="o">|</span> <span class="n">_SYSSMU2_2996391332</span><span class="err">$</span> 
+<span class="mi">3</span>   <span class="o">|</span> <span class="n">_SYSSMU3_1723003836</span><span class="err">$</span> 
+<span class="mi">4</span>   <span class="o">|</span> <span class="n">_SYSSMU4_1254879796</span><span class="err">$</span> 
+<span class="mi">5</span>   <span class="o">|</span> <span class="n">_SYSSMU5_898567397</span><span class="err">$</span>  
+<span class="mi">6</span>   <span class="o">|</span> <span class="n">_SYSSMU6_1263032392</span><span class="err">$</span> 
+<span class="mi">7</span>   <span class="o">|</span> <span class="n">_SYSSMU7_2070203016</span><span class="err">$</span> 
+<span class="mi">8</span>   <span class="o">|</span> <span class="n">_SYSSMU8_517538920</span><span class="err">$</span>  
+<span class="mi">9</span>   <span class="o">|</span> <span class="n">_SYSSMU9_1650507775</span><span class="err">$</span> 
+<span class="mi">10</span>  <span class="o">|</span> <span class="n">_SYSSMU10_1197734989</span><span class="err">$</span>
+
+
+<span class="k">select</span> <span class="n">header_file</span><span class="p">,</span> <span class="n">header_block</span><span class="p">,</span> <span class="n">blocks</span>  <span class="k">from</span> <span class="n">dba_segments</span> <span class="k">where</span> <span class="n">segment_name</span> <span class="o">=</span> <span class="p">(</span><span class="k">select</span> <span class="n">name</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">rollname</span> <span class="k">where</span> <span class="n">usn</span> <span class="o">=</span> <span class="mi">7</span><span class="p">);</span>
+<span class="n">HEADER_FILE</span> <span class="o">|</span> <span class="n">HEADER_BLOCK</span> <span class="o">|</span> <span class="n">BLOCKS</span>
+<span class="c1">-----------------------------------</span>
+<span class="mi">3</span>           <span class="o">|</span> <span class="mi">224</span>          <span class="o">|</span> <span class="mi">272</span>   
+
+
+<span class="k">select</span> <span class="n">extent_id</span><span class="p">,</span> <span class="n">file_id</span><span class="p">,</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">blocks</span> <span class="k">from</span> <span class="n">dba_extents</span> <span class="k">where</span> <span class="n">segment_name</span> <span class="o">=</span> <span class="p">(</span><span class="k">select</span> <span class="n">name</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">rollname</span> <span class="k">where</span> <span class="n">usn</span> <span class="o">=</span> <span class="mi">7</span><span class="p">);</span>
+<span class="n">EXTENT_ID</span> <span class="o">|</span> <span class="n">FILE_ID</span> <span class="o">|</span> <span class="n">BLOCK_ID</span> <span class="o">|</span> <span class="n">BLOCKS</span>
+<span class="c1">---------------------------------------</span>
+<span class="mi">0</span>         <span class="o">|</span> <span class="mi">3</span>       <span class="o">|</span> <span class="mi">224</span>      <span class="o">|</span> <span class="mi">8</span>     
+<span class="mi">1</span>         <span class="o">|</span> <span class="mi">3</span>       <span class="o">|</span> <span class="mi">232</span>      <span class="o">|</span> <span class="mi">8</span>     
+<span class="mi">2</span>         <span class="o">|</span> <span class="mi">3</span>       <span class="o">|</span> <span class="mi">1536</span>     <span class="o">|</span> <span class="mi">128</span>   
+<span class="mi">3</span>         <span class="o">|</span> <span class="mi">3</span>       <span class="o">|</span> <span class="mi">3328</span>     <span class="o">|</span> <span class="mi">128</span>   
+
+<span class="k">alter</span> <span class="k">system</span> <span class="n">dump</span> <span class="n">datafile</span> <span class="mi">3</span> <span class="n">block</span> <span class="mi">224</span><span class="p">;</span>
+<span class="k">select</span> <span class="n">tracefile</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">process</span> <span class="k">where</span> <span class="n">addr</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">paddr</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="k">session</span> <span class="k">where</span> <span class="n">sid</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">sid</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">mystat</span><span class="p">));</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+</pre></td><td class="rouge-code"><pre>
+┌─[oracle@oracle11g]─[~]
+└──╼ <span class="nv">$ </span><span class="nb">cat</span> /u01/app/oracle/diag/rdbms/darkdb/darkdb/trace/darkdb_ora_13110.trc
+Trace file /u01/app/oracle/diag/rdbms/darkdb/darkdb/trace/darkdb_ora_13110.trc
+Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+ORACLE_HOME <span class="o">=</span> /u01/app/oracle/product/11.2.0/db
+System name:    Linux
+Node name:      oracle11g
+Release:        5.4.17-2102.201.3.el7uek.x86_64
+Version:        <span class="c">#2 SMP Fri Apr 23 09:05:55 PDT 2021</span>
+Machine:        x86_64
+Instance name: darkdb
+Redo thread mounted by this instance: 1
+Oracle process number: 29
+Unix process pid: 13110, image: oracle@oracle11g <span class="o">(</span>TNS V1-V3<span class="o">)</span>
+
+
+<span class="k">***</span> 2025-03-27 09:46:46.850
+<span class="k">***</span> SESSION ID:<span class="o">(</span>763.35<span class="o">)</span> 2025-03-27 09:46:46.850
+<span class="k">***</span> CLIENT ID:<span class="o">()</span> 2025-03-27 09:46:46.850
+<span class="k">***</span> SERVICE NAME:<span class="o">(</span>SYS<span class="nv">$USERS</span><span class="o">)</span> 2025-03-27 09:46:46.850
+<span class="k">***</span> MODULE NAME:<span class="o">(</span>SQL<span class="k">*</span>Plus<span class="o">)</span> 2025-03-27 09:46:46.850
+<span class="k">***</span> ACTION NAME:<span class="o">()</span> 2025-03-27 09:46:46.850
+
+Start dump data blocks tsn: 2 file#:3 minblk 224 maxblk 224
+Block dump from cache:
+Dump of buffer cache at level 4 <span class="k">for </span><span class="nv">tsn</span><span class="o">=</span>2 <span class="nv">rdba</span><span class="o">=</span>12583136
+BH <span class="o">(</span>0x15ef78a60<span class="o">)</span> file#: 3 rdba: 0x00c000e0 <span class="o">(</span>3/224<span class="o">)</span> class: 29 ba: 0x15e220000
+  <span class="nb">set</span>: 12 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 0,15
+  dbwrid: 0 obj: <span class="nt">-1</span> objn: 0 tsn: 2 afn: 3 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x15ef962c0,0x1898c4020] lru: <span class="o">[</span>0x15ffd6b40,0x15ffdfc48]
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>0x15ffd6b68,0x15ffdca78] objaq: <span class="o">[</span>0x15ffd6b78,0x15ffdca88]
+  st: XCURRENT md: NULL fpin: <span class="s1">'ktuwh117: ktugus:kturec'</span> tch: 10
+  flags:
+  LRBA: <span class="o">[</span>0x0.0.0] LSCN: <span class="o">[</span>0x0.0] HSCN: <span class="o">[</span>0xffff.ffffffff] HSUB: <span class="o">[</span>65535]
+BH <span class="o">(</span>0x15ef96208<span class="o">)</span> file#: 3 rdba: 0x00c000e0 <span class="o">(</span>3/224<span class="o">)</span> class: 29 ba: 0x15e526000
+  <span class="nb">set</span>: 9 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 0,15
+  dbwrid: 0 obj: <span class="nt">-1</span> objn: 0 tsn: 2 afn: 3 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x131faddc8,0x15ef78b18] lru: <span class="o">[</span>0x15efa93a8,0x187342cd8]
+  lru-flags: on_auxiliary_list
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>NULL] objaq: <span class="o">[</span>NULL]
+  st: FREE md: NULL fpin: <span class="s1">'ktuwh05: ktugct'</span> tch: 0 lfb: 33
+  flags:
+BH <span class="o">(</span>0x131fadd10<span class="o">)</span> file#: 3 rdba: 0x00c000e0 <span class="o">(</span>3/224<span class="o">)</span> class: 29 ba: 0x131794000
+  <span class="nb">set</span>: 11 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 0,15
+  dbwrid: 0 obj: <span class="nt">-1</span> objn: <span class="nt">-1</span> tsn: 2 afn: 3 hint: f
+  <span class="nb">hash</span>: <span class="o">[</span>0x1898c4020,0x15ef962c0] lru: <span class="o">[</span>0x131f90178,0x12ef84f88]
+  lru-flags: on_auxiliary_list
+  ckptq: <span class="o">[</span>NULL] fileq: <span class="o">[</span>NULL] objq: <span class="o">[</span>NULL] objaq: <span class="o">[</span>NULL]
+  st: FREE md: NULL tch: 0 lfb: 33
+  flags:
+Block dump from disk:
+buffer tsn: 2 rdba: 0x00c000e0 <span class="o">(</span>3/224<span class="o">)</span>
+scn: 0x0000.0022e1e9 <span class="nb">seq</span>: 0x01 flg: 0x04 <span class="nb">tail</span>: 0xe1e92601
+frmt: 0x02 chkval: 0xc3f6 <span class="nb">type</span>: <span class="nv">0x26</span><span class="o">=</span>KTU SMU HEADER BLOCK
+Hex dump of block: <span class="nv">st</span><span class="o">=</span>0, <span class="nv">typ_found</span><span class="o">=</span>1
+Dump of memory from 0x00007F9FD62A5A00 to 0x00007F9FD62A7A00
+7F9FD62A5A00 0000A226 00C000E0 0022E1E9 04010000  <span class="o">[</span>&amp;.........<span class="s2">".....]
+7F9FD62A5A10 0000C3F6 00000000 00000000 00000000  [................]
+7F9FD62A5A20 00000000 00000004 0000010F 00000FF0  [................]
+7F9FD62A5A30 00000002 0000004B 00000080 00C0064B  [....K.......K...]
+7F9FD62A5A40 00000000 00000002 00000000 00000000  [................]
+7F9FD62A5A50 00000000 00000000 00000000 00000004  [................]
+7F9FD62A5A60 00000000 00000000 40000000 00C000E1  [...........@....]
+7F9FD62A5A70 00000007 00C000E8 00000008 00C00600  [................]
+7F9FD62A5A80 00000080 00C00D00 00000080 00000000  [................]
+7F9FD62A5A90 00000000 00000000 00000000 00000000  [................]
+        Repeat 246 times
+7F9FD62A6A00 00000000 67E40866 67E40866 67E40866  [....f..gf..gf..g]
+7F9FD62A6A10 67E40866 67E37BC2 67CAE719 67CAE719  [f..g.{.g...g...g]
+7F9FD62A6A20 67CAE719 67CAE719 67CAE719 67CAE719  [...g...g...g...g]
+        Repeat 20 times
+7F9FD62A6B70 67CAE719 67321E8F 67321E8F 67321E8F  [...g..2g..2g..2g]
+7F9FD62A6B80 67321E8F 67321E8F 67321E8F 67321E8F  [..2g..2g..2g..2g]
+7F9FD62A6B90 67321E8F 67321E8F 67321E8F 00000000  [..2g..2g..2g....]
+7F9FD62A6BA0 00000000 00000000 00000000 00000000  [................]
+        Repeat 98 times
+7F9FD62A71D0 0022DCB1 00000000 00C0064B 000A00E5  [.."</span>.....K.......]
+7F9FD62A71E0 00E50001 00000000 00000000 0020000D  <span class="o">[</span>.............. .]
+7F9FD62A71F0 0001B000 00000068 7FFFFFFE 00000000  <span class="o">[</span>....h...........]
+7F9FD62A7200 000900E5 1A280002 00000000 003500E5  <span class="o">[</span>......<span class="o">(</span>.......5.]
+7F9FD62A7210 028C0002 00000000 002C00E5 0D620002  <span class="o">[</span>..........,...b.]
+7F9FD62A7220 00000000 000100DB 1F840002 00000000  <span class="o">[</span>................]
+7F9FD62A7230 00000000 00000000 00000C2C 00C0064B  <span class="o">[</span>........,...K...]
+7F9FD62A7240 0022DDDE 00000000 00160009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7250 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7260 00000BA5 00C0064A 0022DD75 00000000  [....J...u."</span>.....]
+7F9FD62A7270 00100009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7280 00000001 67E48132 00000C35 00C0064A  <span class="o">[</span>....2..g5...J...]
+7F9FD62A7290 0022DDA5 00000000 00130009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A72A0 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A72B0 00000C3A 00C00644 0022DCC1 00000000  [:...D....."</span>.....]
+7F9FD62A72C0 00120009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A72D0 00000001 67E48132 00000C39 00C0064A  <span class="o">[</span>....2..g9...J...]
+7F9FD62A72E0 0022DD2B 00000000 00050009 00000000  <span class="o">[</span>+.<span class="s2">".............]
+7F9FD62A72F0 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7300 00000BD4 00C0064A 0022DD35 00000000  [....J...5."</span>.....]
+7F9FD62A7310 001A0009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7320 00000001 67E48132 00000BF9 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A7330 0022DCD8 00000000 00170009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7340 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7350 00000C3B 00C0064B 0022DDCF 00000000  [;...K....."</span>.....]
+7F9FD62A7360 00000009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7370 00000001 67E48132 00000BFC 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A7380 0022DDA0 00000000 000E0009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7390 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A73A0 00000C39 00C0064A 0022DD53 00000000  [9...J...S."</span>.....]
+7F9FD62A73B0 00110009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A73C0 00000001 67E48132 00000BF9 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A73D0 0022DD28 00000000 00040009 00000000  <span class="o">[(</span>.<span class="s2">".............]
+7F9FD62A73E0 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A73F0 00000C14 00C0064A 0022DD71 00000000  [....J...q."</span>.....]
+7F9FD62A7400 00010009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7410 00000001 67E48132 00000C1B 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A7420 0022DD45 00000000 00090009 00000000  <span class="o">[</span>E.<span class="s2">".............]
+7F9FD62A7430 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7440 00000C39 00C00644 0022DCB9 00000000  [9...D....."</span>.....]
+7F9FD62A7450 00030009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7460 00000001 67E48132 00000B9C 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A7470 0022DDA2 00000000 00020009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7480 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7490 00000C29 00C0064B 0022DDC5 00000000  [)...K....."</span>.....]
+7F9FD62A74A0 00070009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A74B0 00000001 67E48132 00000BE2 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A74C0 0022DD7D 00000000 00210009 00000000  <span class="o">[}</span>.<span class="s2">".......!.....]
+7F9FD62A74D0 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A74E0 00000BB8 00C0064A 0022DD5D 00000000  [....J...]."</span>.....]
+7F9FD62A74F0 000B0009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7500 00000001 67E48132 00000C35 00C0064A  <span class="o">[</span>....2..g5...J...]
+7F9FD62A7510 0022DCC4 00000000 001E0009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7520 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7530 00000C17 00C0064B 0022DDAC 00000000  [....K....."</span>.....]
+7F9FD62A7540 00150009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7550 00000001 67E48132 00000BF6 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A7560 0022DD93 00000000 001B0009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7570 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7580 00000B9D 00C0064B 0022DDB1 00000000  [....K....."</span>.....]
+7F9FD62A7590 000F0009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A75A0 00000001 67E48132 00000C3A 00C0064B  <span class="o">[</span>....2..g:...K...]
+7F9FD62A75B0 0022DE64 00000000 00180009 00000000  <span class="o">[</span>d.<span class="s2">".............]
+7F9FD62A75C0 00000000 00000000 00000001 67E4825E  [............^..g]
+7F9FD62A75D0 00000C38 00C0064A 0022DCE6 00000000  [8...J....."</span>.....]
+7F9FD62A75E0 001D0009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A75F0 00000001 67E48132 00000BBD 00C0064B  <span class="o">[</span>....2..g....K...]
+7F9FD62A7600 0022DF48 00000000 00200009 00000000  <span class="o">[</span>H.<span class="s2">"....... .....]
+7F9FD62A7610 00000000 00000000 00000001 67E484B7  [...............g]
+7F9FD62A7620 00000B99 00C0064A 0022DCF0 00000000  [....J....."</span>.....]
+7F9FD62A7630 001C0009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7640 00000001 67E48132 00000BB0 00C0064A  <span class="o">[</span>....2..g....J...]
+7F9FD62A7650 0022DD3A 00000000 000C0009 00000000  <span class="o">[</span>:.<span class="s2">".............]
+7F9FD62A7660 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7670 00000BD6 00C0064A 0022DD98 00000000  [....J....."</span>.....]
+7F9FD62A7680 00080009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7690 00000001 67E48132 00000C39 00C0064A  <span class="o">[</span>....2..g9...J...]
+7F9FD62A76A0 0022DD05 00000000 000A0009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A76B0 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A76C0 00000B98 00C0064A 0022DCEE 00000000  [....J....."</span>.....]
+7F9FD62A76D0 00190009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A76E0 00000001 67E48132 00000C38 00C0064A  <span class="o">[</span>....2..g8...J...]
+7F9FD62A76F0 0022DCC9 00000000 00060009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7700 00000000 00000000 00000001 67E48132  [............2..g]
+7F9FD62A7710 00000BA3 00C0064B 0022E15F 00000000  [....K..._."</span>.....]
+7F9FD62A7720 0002800A 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7730 00000001 00000000 00000C1D 00C0064B  <span class="o">[</span>............K...]
+7F9FD62A7740 0022E0FF 00000000 FFFF0009 00000000  <span class="o">[</span>..<span class="s2">".............]
+7F9FD62A7750 00000000 00000000 00000001 67E48967  [............g..g]
+7F9FD62A7760 00000C19 00C0064A 0022DD8C 00000000  [....J....."</span>.....]
+7F9FD62A7770 00140009 00000000 00000000 00000000  <span class="o">[</span>................]
+7F9FD62A7780 00000001 67E48132 00000007 00000000  <span class="o">[</span>....2..g........]
+7F9FD62A7790 00000000 00000000 00000000 00000000  <span class="o">[</span>................]
+        Repeat 36 <span class="nb">times
+</span>7F9FD62A79E0 00000000 00000100 00C70040 00400000  <span class="o">[</span>........@.....@.]
+7F9FD62A79F0 010000C7 02C10280 2911C203 E1E92601  <span class="o">[</span>...........<span class="o">)</span>.&amp;..]
+  Extent Control Header
+  <span class="nt">-----------------------------------------------------------------</span>
+  Extent Header:: spare1: 0      spare2: 0      <span class="c">#extents: 4      #blocks: 271</span>
+                  last map  0x00000000  <span class="c">#maps: 0      offset: 4080</span>
+      Highwater::  0x00c0064b  ext#: 2      blk#: 75     ext size: 128
+  <span class="c">#blocks in seg. hdr's freelists: 0</span>
+  <span class="c">#blocks below: 0</span>
+  mapblk  0x00000000  offset: 2
+                   Unlocked
+     Map Header:: next  0x00000000  <span class="c">#extents: 4    obj#: 0      flag: 0x40000000</span>
+  Extent Map
+  <span class="nt">-----------------------------------------------------------------</span>
+   0x00c000e1  length: 7
+   0x00c000e8  length: 8
+   0x00c00600  length: 128
+   0x00c00d00  length: 128
+
+ Retention Table
+  <span class="nt">-----------------------------------------------------------</span>
+ Extent Number:0  Commit Time: 1742997606
+ Extent Number:1  Commit Time: 1742997606
+ Extent Number:2  Commit Time: 1742997606
+ Extent Number:3  Commit Time: 1742997606
+
+  TRN CTL:: <span class="nb">seq</span>: 0x00e5 chd: 0x000d ctl: 0x0020 inc: 0x00000000 nfb: 0x0000
+            mgc: 0xb000 xts: 0x0068 flg: 0x0001 opt: 2147483646 <span class="o">(</span>0x7ffffffe<span class="o">)</span>
+            uba: 0x00c0064b.00e5.0a scn: 0x0000.0022dcb1
+Version: 0x01
+  FREE BLOCK POOL::
+    uba: 0x00000000.00e5.09 ext: 0x2  spc: 0x1a28
+    uba: 0x00000000.00e5.35 ext: 0x2  spc: 0x28c
+    uba: 0x00000000.00e5.2c ext: 0x2  spc: 0xd62
+    uba: 0x00000000.00db.01 ext: 0x2  spc: 0x1f84
+    uba: 0x00000000.0000.00 ext: 0x0  spc: 0x0
+  TRN TBL::
+
+  index  state cflags  wrap#    uel         scn            dba            parent-xid    nub     stmt_num    cmt
+  <span class="nt">------------------------------------------------------------------------------------------------</span>
+   0x00    9    0x00  0x0c2c  0x0016  0x0000.0022ddde  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x01    9    0x00  0x0ba5  0x0010  0x0000.0022dd75  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x02    9    0x00  0x0c35  0x0013  0x0000.0022dda5  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x03    9    0x00  0x0c3a  0x0012  0x0000.0022dcc1  0x00c00644  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x04    9    0x00  0x0c39  0x0005  0x0000.0022dd2b  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x05    9    0x00  0x0bd4  0x001a  0x0000.0022dd35  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x06    9    0x00  0x0bf9  0x0017  0x0000.0022dcd8  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x07    9    0x00  0x0c3b  0x0000  0x0000.0022ddcf  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x08    9    0x00  0x0bfc  0x000e  0x0000.0022dda0  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x09    9    0x00  0x0c39  0x0011  0x0000.0022dd53  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x0a    9    0x00  0x0bf9  0x0004  0x0000.0022dd28  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x0b    9    0x00  0x0c14  0x0001  0x0000.0022dd71  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x0c    9    0x00  0x0c1b  0x0009  0x0000.0022dd45  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x0d    9    0x00  0x0c39  0x0003  0x0000.0022dcb9  0x00c00644  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x0e    9    0x00  0x0b9c  0x0002  0x0000.0022dda2  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x0f    9    0x00  0x0c29  0x0007  0x0000.0022ddc5  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x10    9    0x00  0x0be2  0x0021  0x0000.0022dd7d  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x11    9    0x00  0x0bb8  0x000b  0x0000.0022dd5d  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x12    9    0x00  0x0c35  0x001e  0x0000.0022dcc4  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x13    9    0x00  0x0c17  0x0015  0x0000.0022ddac  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x14    9    0x00  0x0bf6  0x001b  0x0000.0022dd93  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x15    9    0x00  0x0b9d  0x000f  0x0000.0022ddb1  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x16    9    0x00  0x0c3a  0x0018  0x0000.0022de64  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743028830
+   0x17    9    0x00  0x0c38  0x001d  0x0000.0022dce6  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x18    9    0x00  0x0bbd  0x0020  0x0000.0022df48  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743029431
+   0x19    9    0x00  0x0b99  0x001c  0x0000.0022dcf0  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x1a    9    0x00  0x0bb0  0x000c  0x0000.0022dd3a  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x1b    9    0x00  0x0bd6  0x0008  0x0000.0022dd98  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x1c    9    0x00  0x0c39  0x000a  0x0000.0022dd05  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x1d    9    0x00  0x0b98  0x0019  0x0000.0022dcee  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x1e    9    0x00  0x0c38  0x0006  0x0000.0022dcc9  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+   0x1f   10    0x80  0x0ba3  0x0002  0x0000.0022e15f  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  0 <span class="c">## 可以看到这一行的 state 与其他的不同，这个就是我们还未提交的事务，通过对比 Xid 和 Uba 也能看出来，我们需要修改的就是 state 和 cmt 的值，cmt 不能为 0 ，scn 表示这个事务开始时的 scn ，这个可以不用修改</span>
+   0x20    9    0x00  0x0c1d  0xffff  0x0000.0022e0ff  0x00c0064b  0x0000.000.00000000  0x00000001   0x00000000  1743030631
+   0x21    9    0x00  0x0c19  0x0014  0x0000.0022dd8c  0x00c0064a  0x0000.000.00000000  0x00000001   0x00000000  1743028530
+  EXT TRN CTL::
+  usn: 7
+  sp1:0x00000000 sp2:0x00000000 sp3:0x00000000 sp4:0x00000000
+  sp5:0x00000000 sp6:0x7f9f00000000 sp7:0x00000000 sp8:0x00000000
+  EXT TRN TBL::
+  index  extflag    extHash    extSpare1   extSpare2
+  <span class="nt">---------------------------------------------------</span>
+   0x00  0x00000000 0x00000000 0x00000000  0x00000000
+   0x01  0x00000000 0x00000000 0x00000000  0x00000000
+   0x02  0x00000000 0x00000000 0x00000000  0x00000000
+   0x03  0x00000000 0x00000000 0x00000000  0x00000000
+   0x04  0x00000000 0x00000000 0x00000000  0x00000000
+   0x05  0x00000000 0x00000000 0x00000000  0x00000000
+   0x06  0x00000000 0x00000000 0x00000000  0x00000000
+   0x07  0x00000000 0x00000000 0x00000000  0x00000000
+   0x08  0x00000000 0x00000000 0x00000000  0x00000000
+   0x09  0x00000000 0x00000000 0x00000000  0x00000000
+   0x0a  0x00000000 0x00000000 0x00000000  0x00000000
+   0x0b  0x00000000 0x00000000 0x00000000  0x00000000
+   0x0c  0x00000000 0x00000000 0x00000000  0x00000000
+   0x0d  0x00000000 0x00000000 0x00000000  0x00000000
+   0x0e  0x00000000 0x00000000 0x00000000  0x00000000
+   0x0f  0x00000000 0x00000000 0x00000000  0x00000000
+   0x10  0x00000000 0x00000000 0x00000000  0x00000000
+   0x11  0x00000000 0x00000000 0x00000000  0x00000000
+   0x12  0x00000000 0x00000000 0x00000000  0x00000000
+   0x13  0x00000000 0x00000000 0x00000000  0x00000000
+   0x14  0x00000000 0x00000000 0x00000000  0x00000000
+   0x15  0x00000000 0x00000000 0x00000000  0x00000000
+   0x16  0x00000000 0x00000000 0x00000000  0x00000000
+   0x17  0x00000000 0x00000000 0x00000000  0x00000000
+   0x18  0x00000000 0x00000000 0x00000000  0x00000000
+   0x19  0x00000000 0x00000000 0x00000000  0x00000000
+   0x1a  0x00000000 0x00000000 0x00000000  0x00000000
+   0x1b  0x00000000 0x00000000 0x00000000  0x00000000
+   0x1c  0x00000000 0x00000000 0x00000000  0x00000000
+   0x1d  0x00000000 0x00000000 0x00000000  0x00000000
+   0x1e  0x00000000 0x00000000 0x00000000  0x00000000
+   0x1f  0x00000000 0x00000000 0x00000000  0x00000000
+   0x20  0x00000000 0x00000000 0x00000000  0x00000000
+   0x21  0x00000000 0x00000000 0x00000000  0x00000000
+End dump data blocks tsn: 2 file#: 3 minblk 224 maxblk 224
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+</pre></td><td class="rouge-code"><pre>
+<span class="nb">set </span>filename <span class="s1">'/oradata/darkdb/undotbs01.dbf'</span>
+
+        FILENAME        /oradata/darkdb/undotbs01.dbf
+
+<span class="nb">set </span>file 3
+        FILE#           3
+
+BBED&gt;
+<span class="nb">set </span>block 224
+        BLOCK#          224
+
+BBED&gt;
+<span class="nb">set </span>count 8192
+        COUNT           8192
+
+BBED&gt;
+BBED&gt; show all
+        FILE#           3
+        BLOCK#          224
+        OFFSET          0
+        DBA             0x00c000e0 <span class="o">(</span>12583136 3,224<span class="o">)</span>
+        FILENAME        /oradata/darkdb/undotbs01.dbf
+        BIFILE          bifile.bbd
+        LISTFILE        /home/oracle/filelist.bbed
+        BLOCKSIZE       8192
+        MODE            Edit
+        EDIT            Unrecoverable
+        IBASE           Dec
+        OBASE           Dec
+        WIDTH           80
+        COUNT           8192
+        LOGFILE         log.bbd
+        SPOOL           No
+
+BBED&gt; <span class="nb">set </span>count 200
+        COUNT           200
+
+BBED&gt; dump offset 0
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets:    0 to  199           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 26a20000 e000c000 e9e12200 00000104 f6c30000 00000000 00000000 00000000
+ 00000000 04000000 0f010000 f00f0000 02000000 4b000000 80000000 4b06c000
+ 00000000 02000000 00000000 00000000 00000000 00000000 00000000 04000000
+ 00000000 00000000 00000040 e100c000 07000000 e800c000 08000000 0006c000
+ 80000000 000dc000 80000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; dump offset 8000
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 8000 to 8191           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+ 00000000 00010000 4000c700 00004000 c7000001 8002c102 03c21129 0126e9e1
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+
+<span class="c">## 通过查看上一行 0x1e 的 scn(0022dcc9 -&gt; 小端 c9dc2200) 来定位 0x1f 的位置，Dba 可能又重复的，然后修改 state 和 cmt 的值</span>
+<span class="c">## lscpu | grep -i endian</span>
+BBED&gt; <span class="nb">set </span>count 200
+        COUNT           200
+
+BBED&gt;
+BBED&gt;
+BBED&gt; <span class="nb">set </span>offset 0
+        OFFSET          0
+
+BBED&gt; find /x c9dc22 
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7408 to 7607           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ c9dc2200 00000000 <span class="o">[</span>09]000600 00000000 00000000 00000000 01000000 3281e467 <span class="c">## state 9 ，上一行的 scn 距离下一行的 scn 40 字节 = 7408 + 4*10 </span>
+ a30b0000 4b06c000 <span class="o">[</span>5fe12200] 00000000 <span class="o">[</span>0a]800200 00000000 00000000 00000000 <span class="c">## 这个就是 0x1f 对应的 scn,我们需要把 scn 的值修改为通过 bbed 修改之后的 datafile block 中的 scn 的值。BBED&gt; modify /x 6fe122 offset 88。 0a 就是 state 10 对应的十六进制，可以看出 提交标志在 scn 的后面</span>
+ 01000000 00000000 1d0c0000 4b06c000 <span class="o">[</span>ffe02200] 00000000 <span class="o">[</span>09]00ffff 00000000 <span class="c">## 0022e1ff -&gt; ffe12200 下一行的 scn</span>
+ 00000000 00000000 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000
+ 09001400 00000000 00000000 00000000 01000000 3281e467 07000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+<span class="c">## 找到对应的位置之后，需要将提交标志 oa -&gt; 09 ，然后 scn 修改为 datafile block 中的 scn</span>
+
+BBED&gt; <span class="nb">set </span>offset 7448
+        OFFSET          7448
+
+BBED&gt; dump
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7448 to 7647           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 5fe12200 00000000 0a800200 00000000 00000000 00000000 01000000 00000000
+ 1d0c0000 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000 00000000
+ 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+<span class="c">## 修改提交标志和 scn 的值</span>
+BBED&gt; show offset 
+        OFFSET          7448
+
+BBED&gt; modify /x 6fe122
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7448 to 7647           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 6fe12200 00000000 0a800200 00000000 00000000 00000000 01000000 00000000
+ 1d0c0000 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000 00000000
+ 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; modify /x 09 offset 7456
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7456 to 7655           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 09800200 00000000 00000000 00000000 01000000 00000000 1d0c0000 4b06c000
+ ffe02200 00000000 0900ffff 00000000 00000000 00000000 01000000 6789e467
+ 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000 00000000 00000000
+ 01000000 3281e467 07000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; <span class="nb">set </span>offset 7448
+        OFFSET          7448
+
+BBED&gt; dump
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7448 to 7647           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 6fe12200 00000000 09800200 00000000 00000000 00000000 01000000 <span class="o">[</span>00000000] <span class="c">## cmt</span>
+ 1d0c0000 4b06c000 <span class="o">[</span>ffe02200] 00000000 0900ffff 00000000 00000000 00000000 <span class="c">## 下一行的 scn</span>
+ 01000000 <span class="o">[</span>6789e467] 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000 <span class="c">## 下一行的 cmt ，scn 和 cmt 结尾距离 8*4=32 字节</span>
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+<span class="c">## 修改 cmt 为非零值，可以直接修改为下一行的 cmt 1743030631(67E4 8967 -&gt; 6789 e467)，挑一个不为零的值就行</span>
+<span class="c"># set offset 7448+32=7480</span>
+BBED&gt; modify /x 6789e467 offset 7480
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7480 to 7679           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 6789e467 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000 00000000
+ 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; <span class="nb">set </span>offset 7448
+        OFFSET          7448
+
+BBED&gt; dump
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7448 to 7647           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 6fe12200 00000000 09800200 00000000 00000000 00000000 01000000 00000000
+ <span class="o">[</span>6789e467] 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000 00000000 <span class="c">## 从这里看出来修改错了，位置应该是 7480 -4 </span>
+ 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt;
+<span class="c">## 将 offset 7480 的值还原，然后重新修改 offset 7476 的值</span>
+<span class="c"># modify /x 1d0c0000 offset 7480</span>
+<span class="c"># modify /x 6789e467 offset 7476</span>
+
+BBED&gt; modify /x 1d0c0000 offset 7480
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7480 to 7679           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 1d0c0000 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000 00000000
+ 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; modify /x 6789e467 offset 7476
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7476 to 7675           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 6789e467 1d0c0000 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000
+ 00000000 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400
+ 00000000 00000000 00000000 01000000 3281e467 07000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+BBED&gt; <span class="nb">set </span>offset 7448
+        OFFSET          7448
+
+BBED&gt; dump
+ File: /oradata/darkdb/undotbs01.dbf <span class="o">(</span>3<span class="o">)</span>
+ Block: 224              Offsets: 7448 to 7647           Dba:0x00c000e0
+<span class="nt">------------------------------------------------------------------------</span>
+ 6fe12200 00000000 09800200 00000000 00000000 00000000 01000000 6789e467
+ 1d0c0000 4b06c000 ffe02200 00000000 0900ffff 00000000 00000000 00000000
+ 01000000 6789e467 190c0000 4a06c000 8cdd2200 00000000 09001400 00000000
+ 00000000 00000000 01000000 3281e467 07000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+ 00000000 00000000
+
+ &lt;32 bytes per line&gt;
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>查看测试表的数据</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 在原始的 session2 中还是无法查看到未提交的数据，即便新登录的session也没法查看</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test_01</span><span class="p">;</span>
+<span class="n">ID</span> <span class="o">|</span> <span class="n">NAME</span>
+<span class="c1">---------</span>
+<span class="mi">1</span>  <span class="o">|</span> <span class="n">AA</span>  
+<span class="mi">2</span>  <span class="o">|</span> <span class="n">BB</span>  
+<span class="mi">3</span>  <span class="o">|</span> <span class="n">CC</span>  
+<span class="mi">4</span>  <span class="o">|</span> <span class="n">DD</span>  
+
+<span class="c1">-- 退出所有 session， session1 不提交直接退出之后重新连接 session 可以查看到原本 session1 中未提交的数据</span>
+<span class="n">WXJ</span><span class="o">@</span><span class="n">darkdb</span> <span class="mi">2269</span><span class="p">,</span><span class="mi">17520</span> <span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test_01</span><span class="p">;</span>
+
+        <span class="n">ID</span> <span class="n">NAME</span>
+<span class="c1">---------- --------------------</span>
+         <span class="mi">1</span> <span class="n">FF</span>
+         <span class="mi">2</span> <span class="n">FF</span>
+         <span class="mi">3</span> <span class="n">CC</span>
+         <span class="mi">4</span> <span class="n">DD</span>
+
+<span class="n">Elapsed</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">00</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>可能是因为结果缓存？还是什么什么原因，本来准备重启实例试试，退出所有session之后重新连接的session就可以查看到未提交的数据了 😂</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre>
+<span class="c">## 查看 alter 日志也没有什么动作，此时 2025-03-27 11:22</span>
+Thu Mar 27 06:20:59 2025
+Warning: VKTM detected a <span class="nb">time </span>drift.
+Time drifts can result <span class="k">in </span>an unexpected behavior such as time-outs. Please check trace file <span class="k">for </span>more details.
+Thu Mar 27 06:25:53 2025
+Starting background process SMCO
+Thu Mar 27 06:25:53 2025
+SMCO started with <span class="nv">pid</span><span class="o">=</span>20, OS <span class="nb">id</span><span class="o">=</span>3215
+Thu Mar 27 07:14:08 2025
+create table test_01 <span class="o">(</span><span class="nb">id </span>number, name varchar2<span class="o">(</span>20<span class="o">))</span>
+Thu Mar 27 09:28:58 2025
+ALTER SYSTEM: Flushing buffer cache
+Thu Mar 27 09:29:18 2025
+ALTER SYSTEM: Flushing buffer cache
+Thu Mar 27 09:29:22 2025
+ALTER SYSTEM: Flushing buffer cache
+<span class="o">(</span>END<span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>检查新生成的 trace 文件，也是有一个新的 mmon 进程，但是没有什么有用的信息，只是一些状态信息，和本次测试无关，查看<a href="E:/BaiduSyncdisk/mos-doc/Minact-Scn%20Master-Status%20Grec-Scn%20Messages%20In%20Trace%20File%20(Doc%20ID%201361567.1).html">mos</a> 是一个 bug</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+</pre></td><td class="rouge-code"><pre>
+<span class="nb">ls</span> <span class="nt">-lrt</span>
+<span class="nt">-rw-r-----</span>  1 oracle oinstall      81 Mar 27 09:46 darkdb_ora_13110.trm
+<span class="nt">-rw-r-----</span>  1 oracle oinstall   18432 Mar 27 09:46 darkdb_ora_13110.trc
+<span class="nt">-rw-r-----</span>  1 oracle oinstall     807 Mar 27 11:22 darkdb_mmon_2879.trm
+<span class="nt">-rw-r-----</span>  1 oracle oinstall    8302 Mar 27 11:22 darkdb_mmon_2879.trc
+┌─[oracle@oracle11g]─[/u01/app/oracle/diag/rdbms/darkdb/darkdb/trace]
+└──╼ <span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> darkdb_mmon_2879.trc
+166 darkdb_mmon_2879.trc
+┌─[oracle@oracle11g]─[/u01/app/oracle/diag/rdbms/darkdb/darkdb/trace]
+└──╼ <span class="nv">$ </span><span class="nb">cat </span>darkdb_mmon_2879.trc
+Trace file /u01/app/oracle/diag/rdbms/darkdb/darkdb/trace/darkdb_mmon_2879.trc
+Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+ORACLE_HOME <span class="o">=</span> /u01/app/oracle/product/11.2.0/db
+System name:    Linux
+Node name:      oracle11g
+Release:        5.4.17-2102.201.3.el7uek.x86_64
+Version:        <span class="c">#2 SMP Fri Apr 23 09:05:55 PDT 2021</span>
+Machine:        x86_64
+Instance name: darkdb
+Redo thread mounted by this instance: 1
+Oracle process number: 15
+Unix process pid: 2879, image: oracle@oracle11g <span class="o">(</span>MMON<span class="o">)</span>
+
+
+<span class="k">***</span> 2025-03-27 06:20:23.727
+<span class="k">***</span> SESSION ID:<span class="o">(</span>2273.1<span class="o">)</span> 2025-03-27 06:20:23.727
+<span class="k">***</span> CLIENT ID:<span class="o">()</span> 2025-03-27 06:20:23.727
+<span class="k">***</span> SERVICE NAME:<span class="o">(</span>SYS<span class="nv">$BACKGROUND</span><span class="o">)</span> 2025-03-27 06:20:23.727
+<span class="k">***</span> MODULE NAME:<span class="o">()</span> 2025-03-27 06:20:23.727
+<span class="k">***</span> ACTION NAME:<span class="o">()</span> 2025-03-27 06:20:23.727
+
+minact-scn master-status: grec-scn:0x0000.0022da35 gmin-scn:0x0000.0022da35 gcalc-scn:0x0000.0022da35
+
+<span class="k">***</span> 2025-03-27 06:20:27.193
+<span class="k">***</span>ket_aba_spawn: unable to schedule MMON Slave, error 100
+
+<span class="k">***</span> 2025-03-27 06:25:23.639
+
+<span class="k">***</span> 2025-03-27 10:16:56.859
+minact-scn master-status: grec-scn:0x0000.002309ea gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.002309ea
+minact-scn master-status: grec-scn:0x0000.00230a27 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230a27
+
+<span class="k">***</span> 2025-03-27 10:26:58.999
+minact-scn master-status: grec-scn:0x0000.00230aaa gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230aaa
+
+<span class="k">***</span> 2025-03-27 10:32:01.274
+minact-scn master-status: grec-scn:0x0000.00230b30 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230b30
+minact-scn master-status: grec-scn:0x0000.00230b75 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230b75
+
+<span class="k">***</span> 2025-03-27 10:42:05.819
+minact-scn master-status: grec-scn:0x0000.00230bf2 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230bf2
+
+<span class="k">***</span> 2025-03-27 10:47:06.721
+minact-scn master-status: grec-scn:0x0000.00230c78 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230c78
+minact-scn master-status: grec-scn:0x0000.00230cb6 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230cb6
+
+<span class="k">***</span> 2025-03-27 10:57:10.409
+minact-scn master-status: grec-scn:0x0000.00230d3b gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230d3b
+
+<span class="k">***</span> 2025-03-27 11:02:12.153
+minact-scn master-status: grec-scn:0x0000.00230e0f gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230e0f
+minact-scn master-status: grec-scn:0x0000.00230e53 gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230e53
+
+<span class="k">***</span> 2025-03-27 11:12:16.124
+minact-scn master-status: grec-scn:0x0000.00230f2e gmin-scn:0x0000.0022e15f gcalc-scn:0x0000.00230f2e
+
+<span class="k">***</span> 2025-03-27 11:17:18.587
+minact-scn master-status: grec-scn:0x0000.00230fb0 gmin-scn:0x0000.00230fb0 gcalc-scn:0x0000.00230fb0
+minact-scn master-status: grec-scn:0x0000.00230fea gmin-scn:0x0000.00230fea gcalc-scn:0x0000.00230fea
+┌─[oracle@oracle11g]─[/u01/app/oracle/diag/rdbms/darkdb/darkdb/trace]
+└──╼ <span class="err">$</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="总结">总结</h2>
+
+<p>主要 offset，修改之后记得 sum apply，如果修改 datafile block 没有效果，需要修改 undo block，可能需要刷新 cache 才能看见变化</p>

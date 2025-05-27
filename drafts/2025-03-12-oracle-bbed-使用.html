@@ -2165,10 +2165,12 @@ WXJ@darkdb 2280,21677 SQL&gt; <span class="k">select</span> <span class="k">*</s
 <h2 id="dump-块">dump 块</h2>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
 </pre></td><td class="rouge-code"><pre><span class="k">alter</span> <span class="k">system</span> <span class="n">dump</span> <span class="n">datafile</span> <span class="mi">5</span> <span class="n">block</span> <span class="mi">141</span><span class="p">;</span>
+<span class="k">select</span> <span class="n">tracefile</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">process</span> <span class="k">where</span> <span class="n">addr</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">paddr</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="k">session</span> <span class="k">where</span> <span class="n">sid</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">sid</span> <span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="n">mystat</span><span class="p">));</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>在 吕海波的 ocm 的课程中，dump 通过 bbed 修改过的块，即便是修改了校验和，在日志中也会出现坏块的信息，但是在我的环境 Oracle 11g 中，两次（重启前后）日志都没有出现坏块的提示</p>
+<p>在 吕海波的 oracle 10g ocm 的课程中，dump 通过 bbed 修改过的块，即便是修改了校验和，在日志中也会出现坏块的信息，但是在我的环境 Oracle 11g 中，两次（重启前后）日志都没有出现坏块的提示</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2

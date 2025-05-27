@@ -4,7 +4,7 @@
   <id>https://thedarkstarjack.github.io/</id>
   <title>DarkStar</title>
   <subtitle>Blog and portfolio focused on Linux, Database, Shell, Python, CPP, and other technical things.</subtitle>
-  <updated>2025-03-20T10:28:21+08:00</updated>
+  <updated>2025-05-27T10:11:56+08:00</updated>
   <author>
     <name>TheDarkStarJack</name>
     <uri>https://thedarkstarjack.github.io/</uri>
@@ -17,6 +17,140 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>nvim 利用 pwsh 自动切换输入法</title>
+    <link href="https://thedarkstarjack.github.io/posts/nvim-%E5%88%A9%E7%94%A8-pwsh-%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/" rel="alternate" type="text/html" title="nvim 利用 pwsh 自动切换输入法" />
+    <published>2025-04-04T09:24:23+08:00</published>
+  
+    <updated>2025-04-04T09:24:23+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/nvim-%E5%88%A9%E7%94%A8-pwsh-%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/nvim-%E5%88%A9%E7%94%A8-pwsh-%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Windows" />
+    
+    <category term="nvim" />
+    
+  
+
+  <summary>前言
+
+在使用 neovide + lazyvim 的时候，每次 esc 进入 normal 模式的时候，输入法都是中文输入，作为中文系统使用者， 大部分编辑的时候都是中文输入，但是在 normal 模式下，只能使用字母，所以尝试利用 pwsh + sendkeys 来模拟按键达到切换输入法的目的
+
+为了更好的体验，建议配置多个键盘布局，并且开启不同的窗口使用不同的输入法
+
+
+
+解决方案
+
+将以下代码保存到合适的路径下
+
+
+# 添加 Windows Forms 引用以使用 SendKeys 功能
+Add-Type -AssemblyName System.Windows.Forms
+
+function Switch-ChineseEnglishMode {
+    # 模拟按下 Shift 键来切换中英文输入
+    # [System.Windows.Forms.SendKeys]...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>powerhsell 切换输入法</title>
+    <link href="https://thedarkstarjack.github.io/posts/powerhsell-%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/" rel="alternate" type="text/html" title="powerhsell 切换输入法" />
+    <published>2025-04-04T08:45:42+08:00</published>
+  
+    <updated>2025-04-04T08:45:42+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/powerhsell-%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/powerhsell-%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="Windows" />
+    
+    <category term="pwsh" />
+    
+  
+
+  <summary>前言
+
+更新  Windows 11 24H2 26100.3476 之后，在利用 alt+tab 切换窗口之后，会将微软拼音输入法自动切换为中文输入，设置为英文输入之后，还是会自动切换中文，有些命令行窗口每次都需要手动重新设置为英文，有点太麻烦了，所以尝试使用 powershell/pwsh 来切换输入法
+
+我主要的系统还是 Windows 11，因为有些个人常用的软件大部分都是 Windows 平台的，切换过 deepin 、fedora、Ubuntu、debain 试用，有些工作中使用的软件不支持，特定的 vpn 软件即便使用 wine 也不行。终端工具使用的是 windows terminal + pwsh7
+
+互联网搜索问题的时候，发现也有人在提问，好像很早之前就有这个问题了，不过我是最近更新系统之后才遇到这个问题的
+
+解决方案
+
+先说解决方案，后续再解释
+
+因为每次打开 ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>oceanbase 社区版源码编译安装</title>
+    <link href="https://thedarkstarjack.github.io/posts/oceanbase-%E7%A4%BE%E5%8C%BA%E7%89%88%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" rel="alternate" type="text/html" title="oceanbase 社区版源码编译安装" />
+    <published>2025-03-24T12:58:57+08:00</published>
+  
+    <updated>2025-03-24T12:58:57+08:00</updated>
+  
+    <id>https://thedarkstarjack.github.io/posts/oceanbase-%E7%A4%BE%E5%8C%BA%E7%89%88%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</id>
+    <content type="text/html" src="https://thedarkstarjack.github.io/posts/oceanbase-%E7%A4%BE%E5%8C%BA%E7%89%88%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" />
+    <author>
+      <name>TheDarkStarJack</name>
+    </author>
+
+  
+    
+    <category term="DataBase" />
+    
+    <category term="OceanBase" />
+    
+  
+
+  <summary>前言
+
+尝试学习下OceanBase社区版的源码编译安装，记录下过程
+
+社区版仅支持 MySQL 语法，也不支持 clog 压缩
+
+参考文档
+
+准备工作
+
+企业版和社区版的区别
+软硬件要求
+
+系统环境
+
+
+  尝试了下 centos8 和 fedora33 都有点问题，最后尝试下 AnoliOS8.9 : 8c8g
+
+
+┌─[✗]─[wxj@darkstar-ob]─[~]
+└──╼ $ uname -a
+Linux darkstar-ob 5.10.134-16.2.an8.x86_64 #1 SMP Mon Mar 4 16:14:16 CST 2024 x86_64 x86_64 x86_64 GNU/Linux
+┌─[wxj@darkstar-ob]─[~]
+└──╼ $ cat /etc/os-release
+NAME=&amp;quot;Anolis OS&amp;quot;
+VERSION=&amp;quot;8.9&amp;quot;
+I...</summary>
+
+  </entry>
 
   
   <entry>
@@ -93,132 +227,6 @@ OGG：Oracle GoldenGate Command Interpreter for Oracle
 刚出来工作的时候，为了能快速提升自己，也为了有一个好的职业发展，可以大半夜都在学习，现在可能是精力没那么旺盛，也是因为成长了，要处理自己和家庭的琐事，变得不知所措，一度看起来很忙，其实回头看看，也没做什么事情。
 
 过年回家的时候，静下心来看了看两本非技术类的书籍，发现自己的心情变得很平静，也很享受这种感觉，所以也在思考，是不是自己太过于关注工作中的技术，而忽略了生活中的一些美好事物，导致自己的心情变得很焦虑，也很疲惫，所以也在思考，是不是应该多关注一些生活中的美好事物，让自己的心情变得...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>技术群聊和公众号</title>
-    <link href="https://thedarkstarjack.github.io/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="alternate" type="text/html" title="技术群聊和公众号" />
-    <published>2025-03-16T08:02:19+08:00</published>
-  
-    <updated>2025-03-16T08:02:19+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/%E6%8A%80%E6%9C%AF%E7%BE%A4%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="随笔杂记" />
-    
-    <category term="随笔" />
-    
-  
-
-  <summary>前言
-
-之前为了学习加了很多群聊，也关注了很多公众号，但是现在发现很多公众号的文字都是互相转载，而且随着这两年的 ai 发展，一些文章要么一大半都是机器代写或者震惊的标题党，这段时间取关了一些公共号，或者设置不接受推送，什么时候想看的时候再去看，不再被动接受信息
-
-至于群聊，也是一样，一些技术群里面逐渐变成了广告群和闲聊群，不再有技术交流的氛围，所以也是慢慢的退出了一些群聊。除了个别群，大部分的群都设置了免打扰，不再接受推送，什么时候想看的时候再去看。最开始的时候还会在每天早上或者晚上统一看一下群聊消息，现在已经是3天或者一周才看一次了。基本也都是大概划拉一下，看看有没有什么有价值的信息，没有的话就直接忽略了
-
-为什么要取关
-
-
-  信息重复
-  机器代写
-  标题党
-  信息过载
-  信息质量低
-
-
-为什么要关注
-
-
-  信息质量高
-  信息有价值
-  信息有趣
-  信息有深度
- ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>foxmail 添加 gmail</title>
-    <link href="https://thedarkstarjack.github.io/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/" rel="alternate" type="text/html" title="foxmail 添加 gmail" />
-    <published>2025-03-13T14:27:11+08:00</published>
-  
-    <updated>2025-03-13T14:27:11+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/foxmail-%E6%B7%BB%E5%8A%A0gmail/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="Google" />
-    
-    <category term="Foxmail" />
-    
-  
-
-  <summary>前言
-
-Foxmail 是一款国产邮件客户端，支持多账号管理，支持多种邮箱类型，包括 QQ 邮箱、163 邮箱、Gmail 等。本文主要介绍如何在 Foxmail 中添加 Gmail 邮箱遇到的问题及解决方法。
-
-换了新电脑，安装了 Foxmail，添加 Gmail 邮箱时，遇到了问题，提示“此应用试图访问您 Google 账号中的敏感信息。为确保您的账号安全，Google 阻止了此次访问。”
-
-
-
-解决方法
-
-之前是可以正常添加 Gmail 邮箱的，通过添加账号中自带的 Gmail，输入 Google 账号密码后，就可以成功绑定。这次的原因是因为 Google 更新了更高级别安全规则，一些旧的/Google 不信任软件、设备将无法通过常规方式去绑定连接。就会被 Google 阻止
-
-需要注意的：自 2025 年 1 月起，“启用 IMAP”和“停用 IMAP”选项将无法再使用。Gm...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>OGG-25715 错误</title>
-    <link href="https://thedarkstarjack.github.io/posts/OGG-25715%E9%94%99%E8%AF%AF/" rel="alternate" type="text/html" title="OGG-25715 错误" />
-    <published>2025-02-28T11:59:20+08:00</published>
-  
-    <updated>2025-02-28T11:59:20+08:00</updated>
-  
-    <id>https://thedarkstarjack.github.io/posts/OGG-25715%E9%94%99%E8%AF%AF/</id>
-    <content type="text/html" src="https://thedarkstarjack.github.io/posts/OGG-25715%E9%94%99%E8%AF%AF/" />
-    <author>
-      <name>TheDarkStarJack</name>
-    </author>
-
-  
-    
-    <category term="DataBase" />
-    
-    <category term="Oracle" />
-    
-  
-
-  <summary>前言
-
-启动 Extract 进程的时候出现 OGG-25715 错误的解决方法，在网上搜索到的解决方法并不适用于我的环境，所以记录一下
-
-OGG-25715 错误的解决方法
-
-在目标端 ogg Kafka 环境 replicat 进程启动时，遇到以下错误：
-
-
-2025-02-26 22:28:19  INFO    OGG-01851  filecaching started: thread ID: 140174464091904.
-
-2025-02-26 22:28:19  INFO    OGG-01815  Virtual Memory Facilities for: COM
-    anon alloc: mmap(MAP_ANON)  anon free: munmap
-    file alloc: mmap(MAP_SHARED)  file free: munma...</summary>
 
   </entry>
 
